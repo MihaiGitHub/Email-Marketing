@@ -8,8 +8,8 @@
 					<tr>
 					<td width="20" style="font-size: 0px;">&nbsp;</td>
 			        <td width="580" align="left" style="padding: 18px 0 10px;">
-						<h1 style="color: #47c8db !important; font: bold 32px Helvetica, Arial, sans-serif; margin: 0; padding: 0; line-height: 40px;"><singleline label="Title"><div class='inline-edit'>
-							<div class='display'><?php echo (array_key_exists(1, $fields)) ? nl2br($fields[1]) : 'MAIN TITLE'; ?>
+						<h1 style="color: #47c8db !important; font: bold 32px Helvetica, Arial, sans-serif; margin: 0; padding: 0; line-height: 40px;"><div class='inline-edit'>
+							<div class='display'><?php echo (array_key_exists(-9, $fields)) ? nl2br($fields[-9]) : 'MAIN TITLE'; ?>
 							</div>
 							<div class='form'>
 								<div><div><textarea class='text'></textarea></div></div>
@@ -18,31 +18,29 @@
 									<input type='submit' class='cancel' value=' Cancel ' />
 								</div>
 							</div>
-						</div></singleline></h1>
+						</div></h1>
 			        </td>
 			      </tr>
 				</table><!-- header-->
 				<table cellpadding="0" cellspacing="0" border="0" align="center" width="600" style="font-family: Helvetica, Arial, sans-serif; background: #fff url('images/bg_table2.png') repeat-y;" bgcolor="#fff">
-			      	
 					<tr>
 			        	<td width="414" valign="top" align="left" style="font-family: Helvetica, Arial, sans-serif; padding: 25px 0 0;" class="content">
 							<table cellpadding="0" cellspacing="0" border="0" style="color: #717171; font: normal 11px Helvetica, Arial, sans-serif; margin: 0; padding: 0;" width="414">
 							<tr>
 								<td width="22" style="font-size: 1px; line-height: 1px;"></td>
 								<td style="padding: 0;  font-family: Helvetica, Arial, sans-serif; background: url('images/bg_date.png') no-repeat left top; height:20px; line-height: 20px;" align="center" width="369" height="20">
-									<h3 style="color:#666; font-weight: bold; text-transform: uppercase; margin: 0; padding: 0; line-height: 10px; font-size: 10px;"><currentdayname> <currentday> <currentmonthname></h3>
+									<h3 style="color:#666; font-weight: bold; text-transform: uppercase; margin: 0; padding: 0; line-height: 10px; font-size: 10px;"></h3>
 								</td>
 								<td width="22" style="font-size: 1px; line-height: 1px;"></td>
 							</tr>
-							<repeater>
 							<tr>
 								<td style="padding: 0; margin: 0;" valign="top" colspan="3">
 									<table cellpadding="0" cellspacing="0" border="0" style="color: #717171; font: normal 11px Helvetica, Arial, sans-serif; margin: 0; padding: 0;" width="414">
 									<tr>
 										<td width="22" style="font-size: 1px; line-height: 1px;"></td>
 										<td style="padding: 20px 0 0;" align="left">			
-											<h2 style="color:#646464 !important; font-weight: bold; margin: 0; padding: 0; line-height: 26px; font-size: 18px; font-family: Helvetica, Arial, sans-serif; "><singleline label="Title" repeatertitle="true"><div class='inline-edit'>
-							<div class='display'><?php echo (array_key_exists(2, $fields)) ? nl2br($fields[2]) : 'Enter Title Here'; ?>
+											<h2 style="color:#646464 !important; font-weight: bold; margin: 0; padding: 0; line-height: 26px; font-size: 18px; font-family: Helvetica, Arial, sans-serif; "><div class='inline-edit'>
+							<div class='display'><?php echo (array_key_exists(-8, $fields)) ? nl2br($fields[-8]) : 'Enter Title Here'; ?>
 							</div>
 							<div class='form'>
 								<div><div><textarea class='text'></textarea></div></div>
@@ -51,15 +49,15 @@
 									<input type='submit' class='cancel' value=' Cancel ' />
 								</div>
 							</div>
-						</div></singleline></h2>
+						</div></h2>
 										</td>
 										<td width="22" style="font-size: 1px; line-height: 1px;"></td>
 									</tr> 
 									<tr>
 										<td width="22" style="font-size: 1px; line-height: 1px;"></td>
 										<td style="padding: 10px 0 8px;" valign="top">
-											<p><multiline label="Description"><div class='inline-edit'>
-							<div class='display'><?php echo (array_key_exists(3, $fields)) ? nl2br($fields[3]) : 'Enter description here'; ?>
+											<p><div class='inline-edit'>
+							<div class='display'><?php echo (array_key_exists(-7, $fields)) ? nl2br($fields[-7]) : 'Enter description here'; ?>
 							</div>
 							<div class='form'>
 								<div><div><textarea class='text'></textarea></div></div>
@@ -68,7 +66,7 @@
 									<input type='submit' class='cancel' value=' Cancel ' />
 								</div>
 							</div>
-						</div></multiline></p>
+						</div></p>
 										</td>
 										<td width="22" style="font-size: 1px; line-height: 1px;"></td>
 									</tr> 
@@ -82,7 +80,6 @@
 									</table>
 								</td>
 							</tr>		
-							</repeater>						
 							</table>
 							<br>	
 						</td>
@@ -91,10 +88,7 @@
 							<tr>
 								<td style="padding: 7px 7px 15px 20px;">			
 									<table cellpadding="0" cellspacing="0" border="0" style="color: #767676; margin: 0; padding: 0; font-size: 12px;font-family: Helvetica, Arial, sans-serif; list-style: none;" class="toc-table">
-										
-										<tableofcontents>
-											<tr><td style="padding: 0; margin: 0; vertical-align: top; line-height: 0" valign="top" width="8"></td><td style="padding: 0 0 8px; margin: 0; line-height: 14px; vertical-align: top;" valign="top"> <repeatertitle></td></tr>
-										</tableofcontents>
+											<tr><td style="padding: 0; margin: 0; vertical-align: top; line-height: 0" valign="top" width="8"></td><td style="padding: 0 0 8px; margin: 0; line-height: 14px; vertical-align: top;" valign="top"></td></tr>
 									</table>
 								</td>
 							</tr>
@@ -104,7 +98,7 @@
 							<tr>
 								<td style="padding: 20px 0 7px 20px;" valign="top" align="left">
 									<h3 style="color:#646464; font-weight: bold; margin: 0; padding: 0; line-height: 18px; font-size: 18px; font-family: Helvetica, Arial, sans-serif; "><div class='inline-edit'>
-							<div class='display'><?php echo (array_key_exists(4, $fields)) ? nl2br($fields[4]) : 'In other news'; ?>
+							<div class='display'><?php echo (array_key_exists(-6, $fields)) ? nl2br($fields[-6]) : 'In other news'; ?>
 							</div>
 							<div class='form'>
 								<div><div><textarea class='text'></textarea></div></div>
@@ -119,11 +113,10 @@
 							</tr><tr>
 								<td style="padding: 0px 5px 8px 20px; font-family: Helvetica, Arial, sans-serif;">	
 									<table cellpadding="0" cellspacing="0" border="0" style="color: #717171; font: normal 11px Helvetica, Arial, sans-serif; margin: 0; padding: 0;" width="145">
-									<repeater> 
 									<tr>
 										<td style="padding: 15px 0 0; font-family: Helvetica, Arial, sans-serif; ">			
-											<p><multiline label="Description"><div class='inline-edit'>
-							<div class='display'><?php echo (array_key_exists(5, $fields)) ? nl2br($fields[5]) : 'Description goes here'; ?>
+											<p><div class='inline-edit'>
+							<div class='display'><?php echo (array_key_exists(-5, $fields)) ? nl2br($fields[-5]) : 'Description goes here'; ?>
 							</div>
 							<div class='form'>
 								<div><div><textarea class='text'></textarea></div></div>
@@ -132,10 +125,9 @@
 									<input type='submit' class='cancel' value=' Cancel ' />
 								</div>
 							</div>
-						</div></multiline></p>
+						</div></p>
 										</td>
 									</tr>
-									</repeater> 
 									</table>
 								</td>
 							</tr>
@@ -146,7 +138,6 @@
 							</tr>				
 							<tr>
 								<td style="padding: 15px 0 8px; font-family: Helvetica, Arial, sans-serif; " valign="top" align="center">
-									<forwardtoafriend></forwardtoafriend>
 								</td>
 							</tr>
 							<tr>
@@ -156,7 +147,6 @@
 							</tr>
 							<tr>
 								<td style="padding: 8px 0 5px; font-family: Helvetica, Arial, sans-serif; " valign="top" align="center">
-									<unsubscribe></unsubscribe>
 								</td>
 							</tr>
 						</table>
@@ -168,11 +158,10 @@
 				<br><table cellpadding="0" cellspacing="0" border="0" align="center" width="600" style="font-family: Helvetica, Arial, sans-serif; line-height: 10px;" class="footer">
 				<tr>
 			        <td align="center" style="padding: 5px 0 10px; font-size: 11px; color:#7d7a7a; margin: 0; line-height: 1.2;font-family: Helvetica, Arial, sans-serif;" valign="top">
-						<p style="font-size: 11px; color:#7d7a7a; margin: 0; padding: 0; font-family: Helvetica, Arial, sans-serif;"><singleline label="Title">You are receiving this newsletter because you bought widgets from us.</singleline></p>
+						<p style="font-size: 11px; color:#7d7a7a; margin: 0; padding: 0; font-family: Helvetica, Arial, sans-serif;">You are receiving this newsletter because you bought widgets from us.</p>
 						<p style="font-size: 11px; color:#7d7a7a; margin: 0; padding: 0; font-family: Helvetica, Arial, sans-serif;">Having trouble reading this? <webversion style="color: #0eb6ce; text-decoration: none;">View it in your browser</webversion>. Not interested? <unsubscribe style="color: #0eb6ce; text-decoration: none;">Unsubscribe</unsubscribe> instantly.</p>
 					</td>
 			      </tr>
 				</table><!-- footer-->
 		  	</td>
-		
     </tr></table>

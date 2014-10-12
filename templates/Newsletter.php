@@ -1,7 +1,5 @@
 ﻿<table cellspacing="0" border="1" style="background-image: url(images/bg.gif); background-color: #c5c5c5;" cellpadding="0" width="100%">
-	
 	<tr>
-		
 		<td valign="top">
 			<table cellspacing="0" border="0" align="center" style="background: #fff; border-right: 1px solid #ccc; border-left: 1px solid #ccc;" cellpadding="0" width="650">
 				<tr>
@@ -12,10 +10,8 @@
 					
 							<tr>
 								<td class="main-title" valign="top" style="padding: 0 20px; font-size: 25px; font-family: Georgia; font-style: italic;" width="650" colspan="2">
-									
-									
 									<div class='inline-edit'>
-									<div class='display'><?php echo (array_key_exists(1, $fields)) ? $fields[1] : 'The Elegant Email Company'; ?>
+									<div class='display'><?php echo (array_key_exists(-9, $fields)) ? $fields[-9] : 'The Elegant Email Company'; ?>
 									</div>
 									<div class='form'>
 										<div><div><textarea class='text'></textarea></div></div>
@@ -36,7 +32,7 @@
 								<td class="header-bar" valign="top" style="color: #999; font-family: Verdana; font-size: 10px; text-transform: uppercase; padding: 0 20px; height: 15px;" width="400" height="15">
 									
 									<div class='inline-edit'>
-									<div class='display'><?php echo (array_key_exists(2, $fields)) ? $fields[2] : 'newsletter update'; ?>
+									<div class='display'><?php echo (array_key_exists(-8, $fields)) ? $fields[-8] : 'newsletter update'; ?>
 									</div>
 									<div class='form'>
 										<div><div><textarea class='text'></textarea></div></div>
@@ -79,7 +75,7 @@
 															<br />
 															
 															<div class='inline-edit'>
-									<div class='display'><strong class="subtitle" style="display: block; font-size: 11px; font-family: Verdana; text-transform: uppercase; margin: 0 0 10px 0;"><?php echo (array_key_exists(3, $fields)) ? $fields[3] : 'In this issue'; ?></strong>
+									<div class='display'><strong class="subtitle" style="display: block; font-size: 11px; font-family: Verdana; text-transform: uppercase; margin: 0 0 10px 0;"><?php echo (array_key_exists(-7, $fields)) ? $fields[-7] : 'In this issue'; ?></strong>
 									</div>
 									<div class='form'>
 										<div><div><textarea class='text'></textarea></div></div>
@@ -94,7 +90,7 @@
 																	<td height="20"><img src="images/bullet.gif" alt="" style="border: 0;" /></td>
 																	<td class="list" style="color: #cc0000; text-transform: uppercase; font-family: Verdana; font-size: 11px; text-decoration: none;">
 																	<div class='inline-edit'>
-									<div class='display'><strong class="subtitle" style="display: block; font-size: 11px; font-family: Verdana; text-transform: uppercase; margin: 0 0 10px 0;"><?php echo (array_key_exists(4, $fields)) ? $fields[4] : 'something awesome'; ?></strong>
+									<div class='display'><strong class="subtitle" style="display: block; font-size: 11px; font-family: Verdana; text-transform: uppercase; margin: 0 0 10px 0;"><?php echo (array_key_exists(-6, $fields)) ? $fields[-6] : 'something awesome'; ?></strong>
 									</div>
 									<div class='form'>
 										<div><div><textarea class='text'></textarea></div></div>
@@ -111,7 +107,7 @@
 																	<td class="list" style="color: #cc0000; text-transform: uppercase; font-family: Verdana; font-size: 11px; text-decoration: none;">
 																	
 																		<div class='inline-edit'>
-									<div class='display'><strong class="subtitle" style="display: block; font-size: 11px; font-family: Verdana; text-transform: uppercase; margin: 0 0 10px 0;"><?php echo (array_key_exists(5, $fields)) ? $fields[5] : 'a kind of cool thing'; ?>a kind of cool thing</strong>
+									<div class='display'><strong class="subtitle" style="display: block; font-size: 11px; font-family: Verdana; text-transform: uppercase; margin: 0 0 10px 0;"><?php echo (array_key_exists(-5, $fields)) ? $fields[-5] : 'a kind of cool thing'; ?>a kind of cool thing</strong>
 									</div>
 									<div class='form'>
 										<div><div><textarea class='text'></textarea></div></div>
@@ -127,7 +123,7 @@
 																	<td height="20"><img src="images/bullet.gif" alt="" style="border: 0;" /></td>
 																	<td class="list" style="color: #cc0000; text-transform: uppercase; font-family: Verdana; font-size: 11px; text-decoration: none;">
 																	<div class='inline-edit'>
-									<div class='display'><strong class="subtitle" style="display: block; font-size: 11px; font-family: Verdana; text-transform: uppercase; margin: 0 0 10px 0;"><?php echo (array_key_exists(6, $fields)) ? $fields[6] : 'an even more awesome thing'; ?></strong>
+									<div class='display'><strong class="subtitle" style="display: block; font-size: 11px; font-family: Verdana; text-transform: uppercase; margin: 0 0 10px 0;"><?php echo (array_key_exists(-4, $fields)) ? $fields[-4] : 'an even more awesome thing'; ?></strong>
 									</div>
 									<div class='form'>
 										<div><div><textarea class='text'></textarea></div></div>
@@ -144,7 +140,7 @@
 																	<td class="list" style="color: #cc0000; text-transform: uppercase; font-family: Verdana; font-size: 11px; text-decoration: none;">
 																	
 																		<div class='inline-edit'>
-									<div class='display'><strong class="subtitle" style="display: block; font-size: 11px; font-family: Verdana; text-transform: uppercase; margin: 0 0 10px 0;"><?php echo (array_key_exists(7, $fields)) ? $fields[7] : 'the weekly joke'; ?></strong>
+									<div class='display'><strong class="subtitle" style="display: block; font-size: 11px; font-family: Verdana; text-transform: uppercase; margin: 0 0 10px 0;"><?php echo (array_key_exists(-3, $fields)) ? $fields[-3] : 'the weekly joke'; ?></strong>
 									</div>
 									<div class='form'>
 										<div><div><textarea class='text'></textarea></div></div>
@@ -168,7 +164,7 @@
 											<td class="article-title" height="45" valign="top" style="padding: 0 20px; font-family: Georgia; font-size: 20px; font-weight: bold;" width="270" colspan="2">
 												
 												<div class='inline-edit'>
-									<div class='display'><strong class="subtitle" style="display: block; font-size: 11px; font-family: Verdana; text-transform: uppercase; margin: 0 0 10px 0;"><?php echo (array_key_exists(8, $fields)) ? $fields[8] : 'Recently'; ?></strong>
+									<div class='display'><strong class="subtitle" style="display: block; font-size: 11px; font-family: Verdana; text-transform: uppercase; margin: 0 0 10px 0;"><?php echo (array_key_exists(-2, $fields)) ? $fields[-2] : 'Recently'; ?></strong>
 									</div>
 									<div class='form'>
 										<div><div><textarea class='text'></textarea></div></div>
@@ -185,7 +181,7 @@
 											<td class="content-copy" style="padding: 0 20px; color: #000; font-size: 14px; font-family: Georgia; line-height: 20px;">
 												
 											<div class='inline-edit'>
-									<div class='display'><?php echo (array_key_exists(9, $fields)) ? $fields[9] : 'Aenean pulvinar est at nibh commodo vel vehicula quam pharetra. Donec in ante lorem. Nam ullamcorper 
+									<div class='display'><?php echo (array_key_exists(-1, $fields)) ? $fields[-1] : 'Aenean pulvinar est at nibh commodo vel vehicula quam pharetra. Donec in ante lorem. Nam ullamcorper 
 												luctus laoreet. Morbi quis augue vitae quam <a href="#" style="color: #cc0000; text-decoration: none;">pharetra varius</a> at at urna. Nullam 
 												tempor pulvinar erat ut blandit. Nam et erat diam, vel egestas enim'; ?>
 									</div>
@@ -208,7 +204,7 @@
 												
 												
 								<div class='inline-edit'>
-									<div class='display'><strong class="subtitle" style="display: block; font-size: 11px; font-family: Verdana; text-transform: uppercase; margin: 0 0 10px 0;"><?php echo (array_key_exists(10, $fields)) ? $fields[10] : 'Our Latest Publication'; ?></strong>
+									<div class='display'><strong class="subtitle" style="display: block; font-size: 11px; font-family: Verdana; text-transform: uppercase; margin: 0 0 10px 0;"><?php echo (array_key_exists(0, $fields)) ? $fields[0] : 'Our Latest Publication'; ?></strong>
 									</div>
 									<div class='form'>
 										<div><div><textarea class='text'></textarea></div></div>
@@ -226,7 +222,7 @@
 												
 												
 												<div class='inline-edit'>
-									<div class='display'><?php echo (array_key_exists(11, $fields)) ? $fields[11] : 'Aenean pulvinar est at nibh commodo vel vehicula quam pharetra. Donec in ante lorem. Nam ullamcorper 
+									<div class='display'><?php echo (array_key_exists(1, $fields)) ? $fields[1] : 'Aenean pulvinar est at nibh commodo vel vehicula quam pharetra. Donec in ante lorem. Nam ullamcorper 
 												luctus laoreet. Morbi quis augue vitae quam <a href="#" style="color: #cc0000; text-decoration: none;">pharetra varius</a> at at urna. Nullam 
 												tempor pulvinar erat ut blandit. Nam et erat diam, vel egestas enim.'; ?>
 									</div>
@@ -246,7 +242,7 @@
 												
 												
 												<div class='inline-edit'>
-									<div class='display'><strong class="subtitle" style="display: block; font-size: 11px; font-family: Verdana; text-transform: uppercase; margin: 0 0 10px 0;"><?php echo (array_key_exists(12, $fields)) ? $fields[12] : 'Work for us'; ?></strong>
+									<div class='display'><strong class="subtitle" style="display: block; font-size: 11px; font-family: Verdana; text-transform: uppercase; margin: 0 0 10px 0;"><?php echo (array_key_exists(2, $fields)) ? $fields[2] : 'Work for us'; ?></strong>
 									</div>
 									<div class='form'>
 										<div><div><textarea class='text'></textarea></div></div>
@@ -264,7 +260,7 @@
 												
 												
 												<div class='inline-edit'>
-									<div class='display'><?php echo (array_key_exists(13, $fields)) ? $fields[13] : 'Aenean pulvinar est at nibh commodo vel vehicula quam pharetra. Donec in ante lorem. Nam ullamcorper 
+									<div class='display'><?php echo (array_key_exists(3, $fields)) ? $fields[3] : 'Aenean pulvinar est at nibh commodo vel vehicula quam pharetra. Donec in ante lorem. Nam ullamcorper 
 												luctus laoreet. Morbi quis augue vitae quam <a href="./" style="color: #cc0000; text-decoration: none;">pharetra varius</a> at at urna. Nullam 
 												tempor pulvinar erat ut blandit. Nam et erat diam, vel egestas enim.'; ?>
 									</div>
@@ -284,7 +280,7 @@
 												
 												
 												<div class='inline-edit'>
-									<div class='display'><strong class="subtitle" style="display: block; font-size: 11px; font-family: Verdana; text-transform: uppercase; margin: 0 0 10px 0;"><?php echo (array_key_exists(14, $fields)) ? $fields[14] : 'Before you go'; ?></strong>
+									<div class='display'><strong class="subtitle" style="display: block; font-size: 11px; font-family: Verdana; text-transform: uppercase; margin: 0 0 10px 0;"><?php echo (array_key_exists(4, $fields)) ? $fields[4] : 'Before you go'; ?></strong>
 									</div>
 									<div class='form'>
 										<div><div><textarea class='text'></textarea></div></div>
@@ -302,7 +298,7 @@
 												
 												
 								<div class='inline-edit'>
-									<div class='display'><?php echo (array_key_exists(15, $fields)) ? $fields[15] : 'Aenean pulvinar est at nibh commodo vel vehicula quam pharetra. Donec in ante lorem. Nam 
+									<div class='display'><?php echo (array_key_exists(5, $fields)) ? $fields[5] : 'Aenean pulvinar est at nibh commodo vel vehicula quam pharetra. Donec in ante lorem. Nam 
 												ullamcorper luctus laoreet.'; ?>
 									</div>
 									<div class='form'>
@@ -328,7 +324,7 @@
 													<td height="35" bgcolor="#a60000" style="border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; -khtml-border-radius: 5px; font-size: 10px; font-family: Verdana, 'Times New Roman', Times, serif; color: #333; margin: 0; padding: 0; text-align: center;">
 													
 								<div class='inline-edit'>
-									<div class='display'><forwardtoafriend style="text-decoration: none; color: #fff;"><?php echo (array_key_exists(16, $fields)) ? $fields[16] : 'SHARE THIS EMAIL'; ?></forwardtoafriend>
+									<div class='display'><forwardtoafriend style="text-decoration: none; color: #fff;"><?php echo (array_key_exists(6, $fields)) ? $fields[6] : 'SHARE THIS EMAIL'; ?></forwardtoafriend>
 									</div>
 									<div class='form'>
 										<div><div><textarea class='text'></textarea></div></div>
@@ -355,7 +351,7 @@
 											<td class="article-title" height="45" valign="top" style="padding: 0 20px; font-family: Georgia; font-size: 20px; font-weight: bold;" width="350" colspan="2">
 												
 								<div class='inline-edit'>
-									<div class='display'><?php echo (array_key_exists(17, $fields)) ? $fields[17] : 'The first article title'; ?>
+									<div class='display'><?php echo (array_key_exists(7, $fields)) ? $fields[7] : 'The first article title'; ?>
 									</div>
 									<div class='form'>
 										<div><div><textarea class='text'></textarea></div></div>
@@ -372,7 +368,7 @@
 												
 												
 								<div class='inline-edit'>
-									<div class='display'><?php echo (array_key_exists(18, $fields)) ? $fields[18] : 'Suspendisse imperdiet ullamcorper est at interdum. Suspendisse at felis nunc. Integer eu felis lacus, 
+									<div class='display'><?php echo (array_key_exists(8, $fields)) ? $fields[8] : 'Suspendisse imperdiet ullamcorper est at interdum. Suspendisse at felis nunc. Integer eu felis lacus, 
 												id blandit augue. <a href="./" style="color: #cc0000; text-decoration: none;">Mauris commodo hendrerit risus</a>, quis vehicula mi adipiscing...'; ?>
 									</div>
 									<div class='form'>
@@ -399,7 +395,7 @@
 											<td class="article-title" height="39" valign="top" style="padding: 0 20px; font-family: Georgia; font-size: 20px; font-weight: bold;" width="350" colspan="2">
 												
 																	<div class='inline-edit'>
-									<div class='display'><?php echo (array_key_exists(19, $fields)) ? $fields[19] : 'A second thingy'; ?>
+									<div class='display'><?php echo (array_key_exists(9, $fields)) ? $fields[9] : 'A second thingy'; ?>
 									</div>
 									<div class='form'>
 										<div><div><textarea class='text'></textarea></div></div>
@@ -415,7 +411,7 @@
 											<td class="content-copy" valign="top" style="padding: 0 20px; color: #000; font-size: 14px; font-family: Georgia; line-height: 20px;" colspan="2">
 												
 														<div class='inline-edit'>
-									<div class='display'><?php echo (array_key_exists(20, $fields)) ? $fields[20] : 'Suspendisse imperdiet ullamcorper est at interdum. Suspendisse at felis nunc. Integer eu felis lacus, id 
+									<div class='display'><?php echo (array_key_exists(10, $fields)) ? $fields[10] : 'Suspendisse imperdiet ullamcorper est at interdum. Suspendisse at felis nunc. Integer eu felis lacus, id 
 												blandit augue. Mauris commodo hendrerit risus, quis vehicula mi adipiscing in. Integer nec pretium odio. Sed 
 												ligula enim, scelerisque ut tempor lacinia, iaculis eget erat. id blandit augue. Mauris commodo hendrerit risus, 
 												quis vehicula mi adipiscing in. Integer nec pretium odio. Sed ligula enim, scelerisque ut tempor lacinia, iaculis 
@@ -437,7 +433,7 @@
 											<td class="article-title" height="39" valign="top" style="padding: 0 20px; font-family: Georgia; font-size: 20px; font-weight: bold;" width="350" colspan="2">
 												
 												<div class='inline-edit'>
-									<div class='display'><?php echo (array_key_exists(21, $fields)) ? $fields[21] : 'With a floated images'; ?>
+									<div class='display'><?php echo (array_key_exists(11, $fields)) ? $fields[11] : 'With a floated images'; ?>
 
 									</div>
 									<div class='form'>
@@ -463,7 +459,7 @@
 															 
 														
 														<div class='inline-edit'>
-									<div class='display'><?php echo (array_key_exists(22, $fields)) ? $fields[22] : 'Suspendisse imperdiet ullamcorper est at interdum. <a href="./" style="color: #cc0000; text-decoration: none;">Suspendisse at felis nunc.</a> Integer eu felis 
+									<div class='display'><?php echo (array_key_exists(12, $fields)) ? $fields[12] : 'Suspendisse imperdiet ullamcorper est at interdum. <a href="./" style="color: #cc0000; text-decoration: none;">Suspendisse at felis nunc.</a> Integer eu felis 
 															lacus, id blandit augue. Mauris commodo hendrerit risus, quis vehicula mi adipiscing in. Integer nec pretium 
 															odio. Sed ligula enim, scelerisque ut tempor lacinia, iaculis eget erat. Integer eu felis lacus, id blandit 
 															augue. Mauris commodo hendrerit risus, quis vehicula mi adipiscing in. Integer nec pretium odio. Sed ligula 
@@ -514,7 +510,7 @@
 												
 												
 								<div class='inline-edit'>
-									<div class='display'><?php echo (array_key_exists(23, $fields)) ? $fields[23] : 'You received this email because at some point in the past you either bought one of our products, signed 
+									<div class='display'><?php echo (array_key_exists(13, $fields)) ? $fields[13] : 'You received this email because at some point in the past you either bought one of our products, signed 
 												up to our mailing list, or drunk some of that "special" tea we slipped you. If you\'d like, you can 
 												<unsubscribe style="color: #cc0000; text-decoration: none;">unsubscribe</unsubscribe>.'; ?>	
 									</div>
@@ -540,7 +536,7 @@
 								<td class="copyright" height="100" align="center" valign="top" style="padding: 0 20px; color: #999; font-family: Verdana; font-size: 10px; text-transform: uppercase; line-height: 20px;" width="650" colspan="2">
 									
 								<div class='inline-edit'>
-									<div class='display'><?php echo (array_key_exists(23, $fields)) ? $fields[23] : 'Company and the Company logo are registered trademarks of Company <br />
+									<div class='display'><?php echo (array_key_exists(14, $fields)) ? $fields[14] : 'Company and the Company logo are registered trademarks of Company <br />
 																	Company - 123 Some Street, City, ST 99999. Ph +1 4 1477 89 745'; ?></div>
 									<div class='form'>
 										<div><div><textarea class='text'></textarea></div></div>

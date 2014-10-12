@@ -22,9 +22,7 @@
                 <td width="393">
 			 <table width="100%" border="0" cellspacing="0" cellpadding="0">
                     <tr>
-                      <td height="46" align="right" valign="middle">
-				
-				    </td>
+                      <td height="46" align="right" valign="middle"></td>
                     </tr>
                     <tr>
                       <td height="30"><img src="<?php echo 'http://'.getenv('HTTP_HOST').'/images/TechSimple/PROMO-GREEN2_01_04.jpg';
