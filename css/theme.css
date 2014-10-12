@@ -755,3 +755,35 @@ table.table.list tr:first-child td {
     font-size: .5em;
   }
 }
+/* New Email Campaign Btn */
+.new-emailcampaign-div {
+	width:25%;
+}
+.new-emailcampaign *, .new-emailcampaign *:before, .new-emailcampaign *:after {
+    box-sizing: border-box;
+}
+.new-emailcampaign {
+    border: 1px solid #D0D0D0;
+    border-radius: 6px;
+    padding: 24px 0px 21px;
+    text-align: center;
+    background: none repeat scroll 0% 0% #FFF;
+}
+.new-emailcampaign > .icon {
+    display: block;
+    height: 120px;
+    width: 120px;
+    margin: 0px auto 12px;
+    padding: 0px 12px 12px;
+}
+.new-emailcampaign h1, .new-emailcampaign h2 {
+    font-size: 1.625em;
+    margin: 0px auto;
+    max-width: 640px;
+}
+.new-emailcampaign h1, .new-emailcampaign .h1, .new-emailcampaign h2, .new-emailcampaign .h2, .new-emailcampaign h3, .new-emailcampaign .h3, .new-emailcampaign h4, .new-emailcampaign .h4 {
+    font-weight: bold;
+    color: #595959;
+    font-family: "Helvetica Neue",Arial,Helvetica,Verdana,sans-serif;
+    outline: 0px none;
+}

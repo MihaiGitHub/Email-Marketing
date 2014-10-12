@@ -10,8 +10,15 @@ session_start();
 	<li class="active">Dashboard</li>
 </ul>
 <div class="container-fluid">
-    <div class="row-fluid">		  
-		<a href="templates.php"><img src="images/email-icon.jpg" style="height:150px;width:150px;" /></a><br/>New Email Campaign
+    <div class="row-fluid">	
+		<div class="new-emailcampaign-div"> 
+			<a href="templates.php">
+				<div class="new-emailcampaign"> 
+					<img class="icon" src="images/email-icon.svg" role="presentation">
+					<h2>New Email Campaign</h2> 
+				</div>
+			</a>
+		</div>
 <?php		  
 $content = ob_get_contents();
 ob_end_clean();
