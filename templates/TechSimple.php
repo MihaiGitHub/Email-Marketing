@@ -5,7 +5,7 @@
         <tr>
           <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
               <tr>
-                <td width="61"><img src="<?php echo 'http://'.getenv('HTTP_HOST').'/images/TechSimple/PROMO-GREEN2_01_01.jpg'; ?>" width="61" height="76" border="0" alt=""/></td>
+                <td width="61"><img src="<?php echo 'http://'.getenv('HTTP_HOST').'/emarketing/images/TechSimple/PROMO-GREEN2_01_01.jpg'; ?>" width="61" height="76" border="0" alt=""/></td>
                 <td width="144">
 				<div class='inline-edit'>
 					<div class='display'><?php echo (array_key_exists(-9, $fields)) ? nl2br($fields[-9]) : 'COMPANY'; ?>
@@ -25,7 +25,7 @@
                       <td height="46" align="right" valign="middle"></td>
                     </tr>
                     <tr>
-                      <td height="30"><img src="<?php echo 'http://'.getenv('HTTP_HOST').'/images/TechSimple/PROMO-GREEN2_01_04.jpg';
+                      <td height="30"><img src="<?php echo 'http://'.getenv('HTTP_HOST').'/emarketing/images/TechSimple/PROMO-GREEN2_01_04.jpg';
 ?>" width="393" height="30" border="0" alt=""/></td>
                     </tr>
                   </table></td>
@@ -77,7 +77,7 @@ Name Surname'; ?>
                 <td>&nbsp;</td>
                 <td align="right" valign="top"><table width="108" border="0" cellspacing="0" cellpadding="0">
                   <tr>
-                    <td><img src="<?php echo 'http://'.getenv('HTTP_HOST').'/images/TechSimple/PROMO-GREEN2_04_01.jpg';
+                    <td><img src="<?php echo 'http://'.getenv('HTTP_HOST').'/emarketing/images/TechSimple/PROMO-GREEN2_04_01.jpg';
 ?>" width="108" height="9" style="display:block" border="0" alt=""/></td>
                   </tr>
                   <tr>
@@ -122,7 +122,7 @@ Name Surname'; ?>
           <td>&nbsp;</td>
         </tr>
         <tr>
-          <td><img src="<?php echo 'http://'.getenv('HTTP_HOST').'/images/TechSimple/PROMO-GREEN2_07.jpg';
+          <td><img src="<?php echo 'http://'.getenv('HTTP_HOST').'/emarketing/images/TechSimple/PROMO-GREEN2_07.jpg';
 ?>" width="598" height="7" style="display:block" border="0" alt=""/></td>
         </tr>
         <tr>

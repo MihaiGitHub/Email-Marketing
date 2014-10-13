@@ -4,7 +4,7 @@
         <tr>
           <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
               <tr>
-                <td width="61"><img src="<?php echo 'http://'.getenv('HTTP_HOST').'/images/TechColumn/PROMO-GREEN2_01_01.jpg';
+                <td width="61"><img src="<?php echo 'http://'.getenv('HTTP_HOST').'/emarketing/images/TechColumn/PROMO-GREEN2_01_01.jpg';
 ?>" width="61" height="76" border="0" alt=""/></td>
                 <td width="144">
 				<div class='inline-edit'>
@@ -24,7 +24,7 @@
                       <td height="46" align="right" valign="middle"></td>
                     </tr>
                     <tr>
-                      <td height="30"><img src="<?php echo 'http://'.getenv('HTTP_HOST').'/images/TechColumn/PROMO-GREEN2_01_04.jpg';
+                      <td height="30"><img src="<?php echo 'http://'.getenv('HTTP_HOST').'/emarketing/images/TechColumn/PROMO-GREEN2_01_04.jpg';
 ?>" width="393" height="30" border="0" alt=""/></td>
                     </tr>
                   </table></td>
@@ -48,7 +48,7 @@
           <td align="center">
 		
 <a href="#" title="Upload Picture" onclick="upload.init('<?php echo 2; ?>', <?php echo 4097152; ?>); return false;">
-<img style="width:598px;height:318px;" src="<?php echo (array_key_exists(2, $fields)) ? 'files/'.$fields[2] : '/images/TechColumn/PROMO-GREEN2_02.jpg'; ?>" alt="Image" style="border: 0; display: block;" />
+<img style="width:598px;height:318px;" src="<?php echo (array_key_exists(2, $fields)) ? 'files/'.$fields[2] : '/emarketing/images/TechColumn/PROMO-GREEN2_02.jpg'; ?>" alt="Image" style="border: 0; display: block;" />
 </a>
 
 		</td>
@@ -196,7 +196,7 @@ $j(document).on("click", ".editlist", function () {
                           <tr>
                             <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
                               <tr>
-                                <td width="43%"><img src="<?php echo 'http://'.getenv('HTTP_HOST').'/images/TechColumn/NEWSLETTER GREEN01.jpg';
+                                <td width="43%"><img src="<?php echo 'http://'.getenv('HTTP_HOST').'/emarketing/images/TechColumn/NEWSLETTER GREEN01.jpg';
 ?>" width="150" height="130" border="0" alt=""/></td>
                                 <td width="57%" align="left" valign="top"><font style="font-family: Georgia, 'Times New Roman', Times, serif; color:#7bb40f; font-size:20px"><strong><em><div class='inline-edit'>
 							<div class='display'><?php echo (array_key_exists(-5, $fields)) ? nl2br($fields[-5]) : 'Second feature'; ?>
@@ -236,7 +236,7 @@ $j(document).on("click", ".editlist", function () {
                           <tr>
                             <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
                               <tr>
-                                <td width="43%"><img src="<?php echo 'http://'.getenv('HTTP_HOST').'/images/TechColumn/NEWSLETTER GREEN02.jpg';
+                                <td width="43%"><img src="<?php echo 'http://'.getenv('HTTP_HOST').'/emarketing/images/TechColumn/NEWSLETTER GREEN02.jpg';
 ?>" width="150" height="130" border="0" alt=""/></td>
                                 <td width="57%" align="left" valign="top"><font style="font-family: Georgia, 'Times New Roman', Times, serif; color:#7bb40f; font-size:20px"><strong><em><div class='inline-edit'>
 							<div class='display'><?php echo (array_key_exists(-3, $fields)) ? nl2br($fields[-3]) : 'Third feature'; ?>
@@ -280,7 +280,7 @@ $j(document).on("click", ".editlist", function () {
                           <tr>
                             <td>
 <a href="#" title="Upload Picture" onclick="upload.init('<?php echo 3; ?>', <?php echo 4097152; ?>); return false;">
-<img style="width:161px;height:134px;" src="<?php echo (array_key_exists(3, $fields)) ? 'files/'.$fields[3] : '/images/TechColumn/NEWSLETTER GREEN03.jpg'; ?>" alt="Image" />
+<img style="width:161px;height:134px;" src="<?php echo (array_key_exists(3, $fields)) ? 'files/'.$fields[3] : '/emarketing/images/TechColumn/NEWSLETTER GREEN03.jpg'; ?>" alt="Image" />
 </a>					   
 			<?php /*	<a href="#" target="_blank"><img src="<?php echo 'http://'.getenv('HTTP_HOST').'/images/TechColumn/NEWSLETTER GREEN03.jpg';
 ?>" alt="buy her" width="181" height="144" border="0"/></a> */ ?>
@@ -347,7 +347,7 @@ $j(document).on("click", ".editlist", function () {
                                   </tr>
                                   <tr>
                                     <td>&nbsp;</td>
-                                    <td align="center"><a href="#" target="_blank"><img src="<?php echo 'http://'.getenv('HTTP_HOST').'/images/TechColumn/NEWSLETTER GREEN04.jpg'; ?>" alt="view more offers" width="129" height="43" style="display:block" border="0"/></a></td>
+                                    <td align="center"><a href="#" target="_blank"><img src="<?php echo 'http://'.getenv('HTTP_HOST').'/emarketing/images/TechColumn/NEWSLETTER GREEN04.jpg'; ?>" alt="view more offers" width="129" height="43" style="display:block" border="0"/></a></td>
                                     <td>&nbsp;</td>
                                   </tr>
                                   <tr>
@@ -376,7 +376,7 @@ $j(document).on("click", ".editlist", function () {
           <td>&nbsp;</td>
         </tr>
         <tr>
-          <td><img src="<?php echo 'http://'.getenv('HTTP_HOST').'/images/TechColumn/PROMO-GREEN2_07.jpg'; ?>" width="598" height="7" style="display:block" border="0" alt=""/></td>
+          <td><img src="<?php echo 'http://'.getenv('HTTP_HOST').'/emarketing/images/TechColumn/PROMO-GREEN2_07.jpg'; ?>" width="598" height="7" style="display:block" border="0" alt=""/></td>
         </tr>
         <tr>
           <td>&nbsp;</td>
