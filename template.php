@@ -344,7 +344,7 @@ while($row = $stmt->fetch()){
 			<p><label for="from">From (Email)</label><input type="text" name="fromemail" /></p>	
 		</td>
 		<td>
-			<p><label for="replyto">Reply To</label><input type="text" name="replyto" /></p>	
+			<p><label for="replyto">Reply To (Email)</label><input type="text" name="replyto" /></p>	
 		</td>
 	</tr>
 	<tr>

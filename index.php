@@ -42,7 +42,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-
+	
+    <link rel="icon" type="image/png" href="images/email_favicon.jpeg">
     <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/theme.css">
     <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.css">
