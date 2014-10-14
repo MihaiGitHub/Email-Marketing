@@ -6,6 +6,13 @@ if(!$_SESSION['auth']){
 	header('Location: index.php?authen=false');
 	exit;	
 }
+// Session timeout after 15 minutes
+if((time() - $_SESSION['last_access']) > 900){
+	header('Location: index.php?timeout');
+	exit;
+} else {
+	$_SESSION['last_access'] = time();
+}
 
 include 'include/dbconnect.php';
 // total emails for user

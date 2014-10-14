@@ -122,8 +122,7 @@ Name Surname'; ?>
           <td>&nbsp;</td>
         </tr>
         <tr>
-          <td><img src="<?php echo 'http://'.getenv('HTTP_HOST').'/emarketing/images/TechSimple/PROMO-GREEN2_07.jpg';
-?>" width="598" height="7" style="display:block" border="0" alt=""/></td>
+          <td><img src="<?php echo 'http://'.getenv('HTTP_HOST').'/emarketing/images/TechSimple/PROMO-GREEN2_07.jpg'; ?>" width="598" height="7" style="display:block" border="0" alt=""/></td>
         </tr>
         <tr>
           <td>&nbsp;</td>
@@ -152,7 +151,7 @@ Name Surname'; ?>
         </tr>
       </table></td>
   </tr>
-</table><div id="ajax-panel"></div>
+</table>
 <div class="modal small hide fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	    <div class="modal-header">
 		   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -172,22 +171,17 @@ Name Surname'; ?>
 var $j = jQuery.noConflict();
 
 $j(document).on("click", ".editlist", function () {
-	console.log(this);
-     var listid = $j(this).data('id');
+	
+    var listid = $j(this).data('id');
 	var name = $j(this).attr('data-value').valueOf();
 
     $j(".edit #listid").val( listid );
 	$j(".edit #listname").val( name );
 });
 $j('#btnsave').click(function(e) { 
- /*
- $j.each(e, function(key, val) {
-	 console.log(val);
- });
- */
- var hyperLink = $j('#link').val();
+	var hyperLink = $j('#link').val();
 
-	 $j.ajax({
+	$j.ajax({
 		  type: 'POST',
 		  url: 'templates_ajax.php',
 		  data: { templateid: <?php echo $_GET['id']; ?>, field: '-5', text: hyperLink },
@@ -195,12 +189,30 @@ $j('#btnsave').click(function(e) {
 		    // this is where we append a loading image
 		   // $('#ajax-panel').html('<div class="loading"><img src="/images/loading.gif" alt="Loading..." /></div>');
 		  },
-		  success:function(data){ console.log(data);
-		    // successful request; do something with the data
-		   // $('#ajax-panel').empty();
-		   // $(data).find('item').each(function(i){
-			// $('#ajax-panel').append('<h4>' + $(this).find('title').text() + '</h4><p>' + $(this).find('link').text() + '</p>');
-		   // });
+		  success:function(data){ console.log('this is: ', this);
+			$j('#editModal').removeClass('in');
+			setTimeout(function(){
+				$j('#editModal').css('display', 'none');
+			}, 1000);
+			
+			$j('.modal-backdrop').removeClass('in');
+			$j('.modal-backdrop').remove();
+			$j('body').removeClass('modal-open');
+			
+			
+			/*
+			$j('a.editlist').remove();
+			$j('#clickHere').append('<a id="new" data-toggle="modal" data-id="-5" data-value="" class="editlist" href="#editModal" style="color:#ffffff; text-decoration: underline">click here</a>');
+			
+			$j(document).on("click", "#new", function () {
+	
+				var listid = $j(this).data('id');
+				var name = $j(this).attr('data-value').valueOf();
+
+				$j(".edit #listid").val( listid );
+				$j(".edit #listname").val( name );
+			});	
+			*/
 		  },
 		  error:function(){ 
 		    // failed request; give feedback to user

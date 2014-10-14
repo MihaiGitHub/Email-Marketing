@@ -651,6 +651,9 @@ input[type="password"] {
   margin: 0em;
   line-height: 1.5em;
 }
+.modal #link {
+	widtH:77%;
+}
 /*Search*/
 .search-well form {
   margin: 1em 0em 1.5em 0em;
@@ -786,4 +789,13 @@ table.table.list tr:first-child td {
     color: #595959;
     font-family: "Helvetica Neue",Arial,Helvetica,Verdana,sans-serif;
     outline: 0px none;
+}
+/* index.php error and success msgs */
+.dialog .n_error {
+	color:#EE2C2C;
+	font-weight:bold;
+}
+.dialog .n_success {
+	color:#6B8E23;
+	font-weight:bold;
 }
