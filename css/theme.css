@@ -11,15 +11,19 @@
     More info at: http://lesselements.com
 -----------------------------------------------------*/
 /*Standard Elements*/
+html {
+	height:100%;
+}
 body {
   background: #eee;
-  background-image: url(images/furley_bg.png);
+  background-image: url(../images/furley_bg.png);
   background-position: initial initial;
   background-repeat: initial initial;
   background-position: initial initial;
   background-repeat: initial initial;
   margin: 0px;
   padding: 0px;
+  height:100%;
 }
 a:hover {
   text-decoration: none;
@@ -94,8 +98,8 @@ hr {
 }
 .content {
   min-width: 400px;
-  position: relative;
-  min-height: 800px;
+  position: relative; 
+  min-height: 100%;
   background: #fff;
   margin-left: 240px;
   border-left: 1px solid #cccccc;
@@ -147,7 +151,10 @@ footer {
   margin-top: 4em;
   color: #666;
   font-size: .85em;
-  line-height: 1.3em;
+  line-height: 1.3em; 
+  position:absolute;
+  bottom:0;
+  width:95%;
 }
 footer hr {
   margin: 2em -2em;
@@ -798,4 +805,8 @@ table.table.list tr:first-child td {
 .dialog .n_success {
 	color:#6B8E23;
 	font-weight:bold;
+}
+/* to separate footer and mid container */
+.row-fluid {
+	margin-bottom:50px;
 }
