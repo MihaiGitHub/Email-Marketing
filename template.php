@@ -47,15 +47,6 @@ if($_POST['emailform'] == "submitted" || isset($_GET['processing'])){
 		case 'Basic':
 			$template = 'templates/Basic.html';
 		break;
-		case 'Modern':
-			$template = 'templates/Modern.html';
-		break;
-		case 'Modern Left':
-			$template = 'templates/ModernLeft.html';
-		break;
-		case 'Modern Right':
-			$template = 'templates/ModernRight.html';
-		break;
 		case 'Real Estate':
 			$template = 'templates/RealEstate.html';
 		break;
@@ -378,15 +369,6 @@ switch ($trow['name']){
 	break;
 	case 'Basic':
 		include 'templates/Basic.php';
-	break;
-	case 'Modern':
-		include 'templates/Modern.php';
-	break;
-	case 'Modern Left':
-		include 'templates/ModernLeft.php';
-	break;
-	case 'Modern Right':
-		include 'templates/ModernRight.php';
 	break;
 	case 'Real Estate':
 		include 'templates/RealEstate.php';

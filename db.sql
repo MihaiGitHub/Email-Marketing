@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: db543846776.db.1and1.com
--- Generation Time: Oct 13, 2014 at 02:13 PM
+-- Generation Time: Oct 16, 2014 at 10:28 PM
 -- Server version: 5.1.73-log
 -- PHP Version: 5.4.4-14+deb7u14
 
@@ -63,16 +63,10 @@ INSERT INTO `campaigns` (`id`, `user_id`, `list_id`, `subject`, `email_from`) VA
 ('C52dc2879e1af27.97660099', 3, 31, 'From Mihai', 'Chris Weidman'),
 ('C52dc2a52c214d8.96901950', 3, 31, 'Open Me', 'Alexander Gustaffson'),
 ('C52dc2ab9ca5516.62902915', 3, 34, 'Account Deletion', 'Mihai Smarandache'),
-('C5439c15b8609a5.33675147', 5, 36, 'Email Subject', 'Mihai'),
-('C5439de323f3849.61851197', 5, 36, 'Email Subject', 'Mihai'),
-('C5439de383fe8c8.76040797', 5, 36, 'Email Subject', 'Mihai'),
-('C543ad5d276bc85.43727913', 5, 36, 'Yahooo!', 'Chris Weidman'),
-('C543ad8470f1e85.32180725', 5, 33, 'Yahooo!', 'Chris Weidman'),
-('C543ad88cb849a9.18192961', 5, 36, 'Yahooo!', 'Chris Weidman'),
-('C543aec5475e3d0.72712654', 5, 36, 'Yahooo!', 'Chris Weidman'),
-('C543aecb9becc47.38496073', 5, 36, 'Yahooo!', 'Chris Weidman'),
-('C543aef887b6be2.93499167', 5, 36, 'Yahooo!2', 'Chris Weidman'),
-('C543af80d5221f8.73134786', 5, 36, 'Yahooo!3', 'Chris Weidman'),
+('C5440352e422972.11191118', 5, 36, 'IT Services', 'TemplarIT'),
+('C544034d6b56018.26852892', 5, 36, 'International', 'TemplarIT'),
+('C5440340e3a3923.83409825', 5, 36, 'International', 'TemplarIT'),
+('C54403363d8e191.23814935', 5, 36, 'International', 'TemplarIT'),
 ('C543b1c828c6a82.92242842', 5, 33, 'IT Services', 'TemplarIT'),
 ('C543b258bc179a3.84288648', 5, 36, 'Yahooo!', 'Chris Weidman'),
 ('C543b2d0db45505.24790862', 5, 37, 'IT Services', 'TemplarIT'),
@@ -84,7 +78,16 @@ INSERT INTO `campaigns` (`id`, `user_id`, `list_id`, `subject`, `email_from`) VA
 ('C543b38044b5a45.95986735', 5, 36, 'IP Address Test3', 'Chris Weidman'),
 ('C543b3c7bb647a0.91940373', 5, 37, 'IT Services', 'TemplarIT'),
 ('C543b687fca80d2.11728828', 5, 37, 'IT Services', 'Mihai'),
-('C543b6cca908616.36061085', 5, 36, 'Link Test', 'Chris Weidman');
+('C543b6cca908616.36061085', 5, 36, 'Link Test', 'Chris Weidman'),
+('C543c701ca24562.69967948', 5, 37, '', ''),
+('C543c7f51ebb162.69944661', 5, 37, 'IT Services', 'TemplarIT'),
+('C543c9a965d9204.03161605', 5, 36, 'IT Services', 'TemplarIT'),
+('C543ca5b52cdc84.25279545', 5, 36, 'IT Services', 'TemplarIT'),
+('C543caefabeb927.24400309', 5, 36, 'IT Services', 'TemplarIT'),
+('C543cafc13155c5.50340585', 5, 37, 'IT Services', 'TemplarIT'),
+('C543da6372ae3d9.54913456', 5, 36, 'Link Test', 'Mihai'),
+('C543f2151ad02c5.80796189', 5, 37, 'IT Services', 'TemplarIT'),
+('C543f346cd72b58.68510670', 5, 37, 'IT Services', 'TemplarIT');
 
 -- --------------------------------------------------------
 
@@ -104,7 +107,7 @@ CREATE TABLE IF NOT EXISTS `campaign_emails` (
   `timeopened` varchar(100) COLLATE latin1_general_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `c_id` (`c_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=1267 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=1317 ;
 
 --
 -- Dumping data for table `campaign_emails`
@@ -235,40 +238,18 @@ INSERT INTO `campaign_emails` (`id`, `c_id`, `email`, `sent`, `opened`, `ip`, `c
 (1184, 'C52dc2a52c214d8.96901950', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
 (1185, 'C52dc2ab9ca5516.62902915', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
 (1186, 'C52dc2ab9ca5516.62902915', 'xelot00007@yahoo.com', 1, 0, '', '', '', ''),
-(1187, 'C5439c15b8609a5.33675147', 'mihai.sanfran@gmail.com', 1, 0, '', '', '', ''),
-(1188, 'C5439c15b8609a5.33675147', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(1189, 'C5439c15b8609a5.33675147', 'xelot00007@yahoo.com', 1, 0, '', '', '', ''),
-(1190, 'C5439de323f3849.61851197', 'mihai.sanfran@gmail.com', 1, 0, '', '', '', ''),
-(1191, 'C5439de323f3849.61851197', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(1192, 'C5439de323f3849.61851197', 'xelot00007@yahoo.com', 1, 0, '', '', '', ''),
-(1193, 'C5439de383fe8c8.76040797', 'mihai.sanfran@gmail.com', 1, 0, '', '', '', ''),
-(1194, 'C5439de383fe8c8.76040797', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(1195, 'C5439de383fe8c8.76040797', 'xelot00007@yahoo.com', 1, 0, '', '', '', ''),
-(1196, 'C543ad5d276bc85.43727913', 'mihai.sanfran@gmail.com', 1, 0, '', '', '', ''),
-(1197, 'C543ad5d276bc85.43727913', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(1198, 'C543ad5d276bc85.43727913', 'xelot00007@yahoo.com', 1, 0, '', '', '', ''),
-(1199, 'C543ad8470f1e85.32180725', 'mynewemail@yahoo.com', 1, 0, '', '', '', ''),
-(1200, 'C543ad8470f1e85.32180725', ' mihai004@gmail.com', 1, 0, '', '', '', ''),
-(1201, 'C543ad8470f1e85.32180725', ' ilooktheysmile@yahoo.com', 1, 0, '', '', '', ''),
-(1202, 'C543ad8470f1e85.32180725', ' xelot00007@yahoo.com', 1, 0, '', '', '', ''),
-(1203, 'C543ad8470f1e85.32180725', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(1204, 'C543ad8470f1e85.32180725', ' mihailiviu@yahoo.com', 1, 0, '', '', '', ''),
-(1205, 'C543ad8470f1e85.32180725', 'mwdowiak333@q.com', 1, 0, '', '', '', ''),
-(1206, 'C543ad88cb849a9.18192961', 'mihai.sanfran@gmail.com', 1, 0, '', '', '', ''),
-(1207, 'C543ad88cb849a9.18192961', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(1208, 'C543ad88cb849a9.18192961', 'xelot00007@yahoo.com', 1, 0, '', '', '', ''),
-(1209, 'C543aec5475e3d0.72712654', 'mihai.sanfran@gmail.com', 1, 0, '', '', '', ''),
-(1210, 'C543aec5475e3d0.72712654', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(1211, 'C543aec5475e3d0.72712654', 'xelot00007@yahoo.com', 1, 0, '', '', '', ''),
-(1212, 'C543aecb9becc47.38496073', 'mihai.sanfran@gmail.com', 1, 0, '', '', '', ''),
-(1213, 'C543aecb9becc47.38496073', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(1214, 'C543aecb9becc47.38496073', 'xelot00007@yahoo.com', 1, 0, '', '', '', ''),
-(1215, 'C543aef887b6be2.93499167', 'mihai.sanfran@gmail.com', 1, 0, '', '', '', ''),
-(1216, 'C543aef887b6be2.93499167', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(1217, 'C543aef887b6be2.93499167', 'xelot00007@yahoo.com', 1, 0, '', '', '', ''),
-(1218, 'C543af80d5221f8.73134786', 'mihai.sanfran@gmail.com', 1, 0, '', '', '', ''),
-(1219, 'C543af80d5221f8.73134786', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(1220, 'C543af80d5221f8.73134786', 'xelot00007@yahoo.com', 1, 0, '', '', '', ''),
+(1316, 'C5440352e422972.11191118', 'xelot00007@yahoo.com', 1, 1, '70.190.102.179', 'United States', 'Arizona', '10/16/2014 2:15 PM'),
+(1315, 'C5440352e422972.11191118', 'mihai6744@hotmail.com', 1, 1, '65.55.129.188', 'United States', 'Washington', '10/16/2014 2:16 PM'),
+(1314, 'C5440352e422972.11191118', 'mihai.sanfran@gmail.com', 1, 1, '66.249.83.90', 'United States', 'California', '10/16/2014 2:17 PM'),
+(1313, 'C544034d6b56018.26852892', 'xelot00007@yahoo.com', 1, 1, '70.190.102.179', 'United States', 'Arizona', '10/16/2014 2:13 PM'),
+(1312, 'C544034d6b56018.26852892', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
+(1311, 'C544034d6b56018.26852892', 'mihai.sanfran@gmail.com', 1, 1, '66.249.83.90', 'United States', 'California', '10/16/2014 2:17 PM'),
+(1310, 'C5440340e3a3923.83409825', 'xelot00007@yahoo.com', 1, 1, '70.190.102.179', 'United States', 'Arizona', '10/16/2014 2:11 PM'),
+(1309, 'C5440340e3a3923.83409825', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
+(1308, 'C5440340e3a3923.83409825', 'mihai.sanfran@gmail.com', 1, 0, '', '', '', ''),
+(1307, 'C54403363d8e191.23814935', 'xelot00007@yahoo.com', 1, 2, '70.190.102.179', 'United States', 'Arizona', '10/16/2014 2:12 PM'),
+(1306, 'C54403363d8e191.23814935', 'mihai6744@hotmail.com', 1, 2, '65.55.129.188', 'United States', 'Washington', '10/16/2014 2:07 PM'),
+(1305, 'C54403363d8e191.23814935', 'mihai.sanfran@gmail.com', 1, 1, '66.249.83.90', 'United States', 'California', '10/16/2014 2:17 PM'),
 (1221, 'C543b1c828c6a82.92242842', ' ilooktheysmile@yahoo.com', 1, 0, '', '', '', ''),
 (1222, 'C543b1c828c6a82.92242842', ' mihai004@gmail.com', 1, 0, '', '', '', ''),
 (1223, 'C543b1c828c6a82.92242842', ' mihailiviu@yahoo.com', 1, 0, '', '', '', ''),
@@ -314,7 +295,45 @@ INSERT INTO `campaign_emails` (`id`, `c_id`, `email`, `sent`, `opened`, `ip`, `c
 (1263, 'C543b687fca80d2.11728828', 'xelot00007@yahoo.com', 1, 2, '70.190.102.179', 'United States', 'Arizona', '10/12/2014 10:53 PM'),
 (1264, 'C543b6cca908616.36061085', 'mihai.sanfran@gmail.com', 1, 2, '64.233.172.90', 'United States', 'California', '10/12/2014 11:25 PM'),
 (1265, 'C543b6cca908616.36061085', 'mihai6744@hotmail.com', 1, 2, '65.55.129.188', 'United States', 'Washington', '10/13/2014 10:37 AM'),
-(1266, 'C543b6cca908616.36061085', 'xelot00007@yahoo.com', 1, 1, '70.190.102.179', 'United States', 'Arizona', '10/12/2014 11:10 PM');
+(1266, 'C543b6cca908616.36061085', 'xelot00007@yahoo.com', 1, 2, '70.190.102.179', 'United States', 'Arizona', '10/13/2014 10:40 PM'),
+(1267, 'C543c701ca24562.69967948', 'eli_s85710@yahoo.com', 1, 0, '', '', '', ''),
+(1268, 'C543c701ca24562.69967948', 'mihai.sanfran@gmail.com', 1, 2, '64.233.172.90', 'United States', 'California', '10/13/2014 6:42 PM'),
+(1269, 'C543c701ca24562.69967948', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
+(1270, 'C543c701ca24562.69967948', 'mwdowiak333@gmail.com', 1, 0, '', '', '', ''),
+(1271, 'C543c701ca24562.69967948', 'xelot00007@yahoo.com', 1, 1, '70.190.102.179', 'United States', 'Arizona', '10/13/2014 10:10 PM'),
+(1272, 'C543c7f51ebb162.69944661', 'eli_s85710@yahoo.com', 1, 0, '', '', '', ''),
+(1273, 'C543c7f51ebb162.69944661', 'mihai.sanfran@gmail.com', 1, 2, '64.233.172.90', 'United States', 'California', '10/13/2014 6:47 PM'),
+(1274, 'C543c7f51ebb162.69944661', 'mihai6744@hotmail.com', 1, 1, '65.55.129.188', 'United States', 'Washington', '10/13/2014 6:49 PM'),
+(1275, 'C543c7f51ebb162.69944661', 'mwdowiak333@gmail.com', 1, 0, '', '', '', ''),
+(1276, 'C543c7f51ebb162.69944661', 'xelot00007@yahoo.com', 1, 1, '70.190.102.179', 'United States', 'Arizona', '10/13/2014 6:47 PM'),
+(1277, 'C543c9a965d9204.03161605', 'mihai.sanfran@gmail.com', 1, 2, '64.233.172.90', 'United States', 'California', '10/13/2014 8:39 PM'),
+(1278, 'C543c9a965d9204.03161605', 'mihai6744@hotmail.com', 1, 2, '65.55.129.188', 'United States', 'Washington', '10/13/2014 8:39 PM'),
+(1279, 'C543c9a965d9204.03161605', 'xelot00007@yahoo.com', 1, 1, '70.190.102.179', 'United States', 'Arizona', '10/13/2014 10:09 PM'),
+(1280, 'C543ca5b52cdc84.25279545', 'mihai.sanfran@gmail.com', 1, 0, '', '', '', ''),
+(1281, 'C543ca5b52cdc84.25279545', 'mihai6744@hotmail.com', 1, 1, '65.55.129.188', 'United States', 'Washington', '10/13/2014 9:25 PM'),
+(1282, 'C543ca5b52cdc84.25279545', 'xelot00007@yahoo.com', 1, 0, '', '', '', ''),
+(1283, 'C543caefabeb927.24400309', 'mihai.sanfran@gmail.com', 1, 1, '64.233.172.90', 'United States', 'California', '10/13/2014 10:05 PM'),
+(1284, 'C543caefabeb927.24400309', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
+(1285, 'C543caefabeb927.24400309', 'xelot00007@yahoo.com', 1, 1, '70.190.102.179', 'United States', 'Arizona', '10/13/2014 10:09 PM'),
+(1286, 'C543cafc13155c5.50340585', 'eli_s85710@yahoo.com', 1, 0, '', '', '', ''),
+(1287, 'C543cafc13155c5.50340585', 'mihai.sanfran@gmail.com', 1, 2, '64.233.172.90', 'United States', 'California', '10/13/2014 10:19 PM'),
+(1288, 'C543cafc13155c5.50340585', 'mihai6744@hotmail.com', 1, 3, '65.55.129.188', 'United States', 'Washington', '10/13/2014 10:17 PM'),
+(1289, 'C543cafc13155c5.50340585', 'mwdowiak333@gmail.com', 1, 0, '', '', '', ''),
+(1290, 'C543cafc13155c5.50340585', 'xelot00007@yahoo.com', 1, 1, '70.190.102.179', 'United States', 'Arizona', '10/13/2014 10:27 PM'),
+(1291, 'C543da6372ae3d9.54913456', 'mihai.sanfran@gmail.com', 1, 0, '', '', '', ''),
+(1292, 'C543da6372ae3d9.54913456', 'mihai6744@hotmail.com', 1, 2, '65.55.129.188', 'United States', 'Washington', '10/14/2014 4:40 PM'),
+(1293, 'C543da6372ae3d9.54913456', 'xelot00007@yahoo.com', 1, 0, '', '', '', ''),
+(1294, 'C543f2151ad02c5.80796189', 'eli_s85710@yahoo.com', 1, 0, '', '', '', ''),
+(1295, 'C543f2151ad02c5.80796189', 'mihai.sanfran@gmail.com', 1, 0, '', '', '', ''),
+(1296, 'C543f2151ad02c5.80796189', 'mihai6744@hotmail.com', 1, 3, '65.55.129.188', 'United States', 'Washington', '10/15/2014 8:04 PM'),
+(1297, 'C543f2151ad02c5.80796189', 'mwdowiak33@gmail.com', 1, 0, '', '', '', ''),
+(1298, 'C543f2151ad02c5.80796189', 'xelot00007@yahoo.com', 1, 1, '70.190.102.179', 'United States', 'Arizona', '10/15/2014 7:56 PM'),
+(1299, 'C543f346cd72b58.68510670', 'eli_s85710@yahoo.com', 1, 0, '', '', '', ''),
+(1300, 'C543f346cd72b58.68510670', 'mihai.sanfran@gmail.com', 1, 0, '', '', '', ''),
+(1301, 'C543f346cd72b58.68510670', 'mihai6744@hotmail.com', 1, 1, '65.55.129.188', 'United States', 'Washington', '10/15/2014 8:03 PM'),
+(1302, 'C543f346cd72b58.68510670', 'mwdowiak33@gmail.com', 1, 0, '', '', '', ''),
+(1303, 'C543f346cd72b58.68510670', 'vilisei@gmail.com', 1, 0, '', '', '', ''),
+(1304, 'C543f346cd72b58.68510670', 'xelot00007@yahoo.com', 1, 0, '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -329,14 +348,14 @@ CREATE TABLE IF NOT EXISTS `emails` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `useremail` (`list_id`,`email`),
   KEY `user` (`list_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=26897 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=26898 ;
 
 --
 -- Dumping data for table `emails`
 --
 
 INSERT INTO `emails` (`id`, `list_id`, `email`) VALUES
-(26892, 37, 'mwdowiak333@gmail.com'),
+(26892, 37, 'mwdowiak33@gmail.com'),
 (26808, 18, 'mwdowiak33@q.com'),
 (26809, 18, ' amadeusz33@q.com'),
 (26810, 18, ' gft33@q.com'),
@@ -368,7 +387,8 @@ INSERT INTO `emails` (`id`, `list_id`, `email`) VALUES
 (26893, 37, 'mihai6744@hotmail.com'),
 (26888, 36, 'mihai6744@hotmail.com'),
 (26889, 36, 'mihai.sanfran@gmail.com'),
-(26890, 36, 'xelot00007@yahoo.com');
+(26890, 36, 'xelot00007@yahoo.com'),
+(26897, 37, 'vilisei@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -408,6 +428,7 @@ CREATE TABLE IF NOT EXISTS `templates` (
   `user_id` int(11) NOT NULL,
   `name` varchar(100) COLLATE latin1_general_ci NOT NULL,
   `type` varchar(50) COLLATE latin1_general_ci NOT NULL,
+  `picture` varchar(100) COLLATE latin1_general_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=10 ;
@@ -416,16 +437,13 @@ CREATE TABLE IF NOT EXISTS `templates` (
 -- Dumping data for table `templates`
 --
 
-INSERT INTO `templates` (`id`, `user_id`, `name`, `type`) VALUES
-(1, 3, 'Newsletter', ''),
-(2, 3, 'Basic', ''),
-(3, 3, 'Modern', 'tech'),
-(4, 3, 'Modern Left', 'tech'),
-(5, 3, 'Real Estate', 'real estate'),
-(6, 3, 'Modern Right', 'tech'),
-(7, 3, 'Tech Simple', 'tech'),
-(8, 3, 'Tech Full', 'tech'),
-(9, 3, 'Tech Column', 'tech');
+INSERT INTO `templates` (`id`, `user_id`, `name`, `type`, `picture`) VALUES
+(1, 3, 'Newsletter', '', 'lcolumn.png'),
+(2, 3, 'Basic', '', 'basic.png'),
+(5, 3, 'Real Estate', 'real estate', 'basic.png'),
+(7, 3, 'Tech Simple', 'tech', 'nocolumn.png'),
+(8, 3, 'Tech Full', 'tech', '3column.png'),
+(9, 3, 'Tech Column', 'tech', 'rcolumn.png');
 
 -- --------------------------------------------------------
 
@@ -443,7 +461,7 @@ CREATE TABLE IF NOT EXISTS `template_fields` (
   UNIQUE KEY `tunique` (`user_id`,`template_id`,`field`),
   KEY `template_id` (`template_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=135 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=185 ;
 
 --
 -- Dumping data for table `template_fields`
@@ -472,11 +490,8 @@ INSERT INTO `template_fields` (`id`, `user_id`, `template_id`, `field`, `value`)
 (93, 4, 6, '3', 'TEMPLAR IT provides Information Technology services to residential and business customers.  We offer affordable and reliable quality of service with emphasis on creativity.  Our concept is to utilize current technology and implement customized solutions specific to client needs and knowledge.  As a result, we are proud to offer wide range of services for home and small to medium size business environments.<br />\n						'),
 (94, 4, 6, '5', 'TEMPLAR IT provides Information Technology services to residential and business customers.  We offer affordable and reliable quality of service with emphasis on creativity.  Our concept is to utilize current technology and implement customized solutions specific to client needs and knowledge.  As a result, we are proud to offer wide range of services for home and small to medium size business environments.<br />\n							'),
 (95, 3, 7, '1', 'Hello Mihai Smarandache,				'),
-(96, 3, 8, '1', 'Mihai Smarandache													'),
-(97, 3, 8, '2', 'Lorem Ipsum. Proin gravida nibh vel  auctor aliquet. Aenean sollicitudin,  lorem quis bibendum 5555auctor, nisi elit consequat ipsum, nec sagittis sem	4444													'),
-(98, 3, 8, '3', 'UPCOMIN4G 2							'),
-(99, 3, 8, '4', '1UPCOMING 3							'),
-(100, 3, 8, '5', '23UPCOMING 4							'),
+(166, 5, 8, '-2', 'http://www.templarit.com/'),
+(165, 5, 8, '-1', 'http://www.templarit.com/'),
 (101, 3, 9, '1', '444NEWSLETTER							'),
 (102, 3, 9, '2', 'Main Featu555re Story							'),
 (103, 3, 9, '3', 'Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis se5555m nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio t non							'),
@@ -491,24 +506,42 @@ INSERT INTO `template_fields` (`id`, `user_id`, `template_id`, `field`, `value`)
 (112, 5, 1, '-9', 'The Elegant Email Co55555								'),
 (113, 5, 1, 'A54188fef7ed81.jpg', 'd8f66fc900e09de67ea298c1512d854d.jpg'),
 (114, 4, 1, '-9', 'The Elegant Email Company						'),
-(116, 5, 2, '-9', 'TEMPLAR IT provides Information Technology services to residential and business customers offering affordable and reliable quality of service with emphasis on creativity.  Our concept is to utilize current technology and implement customized solutions specific to client needs and knowledge.â€‹ As a result, we deliver wide range of IT services and products for small and medium size environments including server-desktop virtualization and cloud solutions.							'),
+(116, 5, 2, '-9', 'TEMPLAR IT provides Information Technology services to residential and business customers offering affordable and reliable quality of service with emphasis on creativity.  Our concept is to utilize current technology and implement customized solutions specific to client needs and <br><br><br><br><br />\n<br><br><br><br><br />\n<a href="http://www.templarit.com/"><br />\nTemplar IT</a><br />\n<br />\n<br />\nknowledge.â€‹ As a result, we deliver wide range of IT services and products for small and medium size environments including server-desktop virtualization and cloud solutions.http://www.templarit.com/																																																	'),
 (118, 5, 2, 'A543ad83c8f78a.txt', 'emails.txt'),
-(119, 5, 8, '9', 'I543b300d75228.jpg'),
-(120, 5, 8, '-9', 'TemplarIT										'),
-(121, 5, 8, '-8', 'IT Services										'),
-(122, 5, 8, '-7', 'TEMPLAR IT provides Information Technology services to residential and business customers offering affordable and reliable quality of service with emphasis on creativity.  Our concept is to utilize current technology and implement customized solutions specific to client needs and knowledge.â€‹ As a result, we deliver wide range of IT services and products for small and medium size environments including server-desktop virtualization and cloud solutions.<br />\n 			'),
+(164, 5, 8, '0', 'http://www.templarit.com/'),
+(159, 5, 8, '-7', 'TEMPLAR IT provides Information Technology services to residential and business customers offering affordable and reliable quality of service with emphasis on creativity.  Our concept is to utilize current technology and implement customized solutions specific to client needs and knowledge.â€‹ As a result, we deliver wide range of IT services and products for small and medium size environments including server-desktop virtualization and cloud solutions.																'),
+(160, 5, 8, '-6', 'IT SUPPORT															'),
+(161, 5, 8, '-5', 'NETWORK SUPPORT														'),
+(162, 5, 8, '-4', 'WEB DEVELOPMENT															'),
+(163, 5, 8, '-3', 'Templar IT Solutions LLC, 2942 N 24th St., Suite 114-514, Phoenix, AZ, 85016| Tel: 860-478-7583 | ITsupport@templarit.net														'),
 (123, 5, 7, '-9', 'TemplarIT					'),
-(124, 5, 7, '-5', 'https://github.com/MihaiGitHub'),
+(124, 5, 7, '-5', 'http://www.templarit.com/'),
 (125, 5, 7, '-8', 'TemplarIT Solutions		'),
 (126, 5, 7, '-7', 'TEMPLAR IT provides Information Technology services to residential and business customers offering affordable and reliable quality of service with emphasis on creativity.  Our concept is to utilize current technology and implement customized solutions specific to client needs and knowledge.â€‹ As a result, we deliver wide range of IT services and products for small and medium size environments including server-desktop virtualization and cloud solutions.'),
 (127, 5, 7, '-6', 'Templar IT Solutions LLC, 2942 N 24th St., Suite 114-514, Phoenix, AZ, 85016| Tel: 860-478-7583 | ITsupport@templarit.net					'),
-(128, 5, 5, '-7', '999Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer egestas, libero eget viverra nonummy, turpis diam scelerisque dui, eu tempor quam leo quis justo. Sed velit magna, vestibulum nec, aliquam a, placerat eget, odio. Sed mbattis, ipsum in sodales vestibulum, sem mi egestas felis, et adipiscing ante enim id metus. Etiam elit dui, congue quis, interdum in, venenatis ac, orci. Vivamus vulputate. Nullam ante. Aliquam ornare, nisl at consequat laoreet, orci sem cursus purus, a pulvinar diam sem ut metus. Donec eu erat non lorem lacinia commodo. Nunc bibendum. Aliquam euismod odio a nulla euismod rutrum. Proin lobortis leo. Maecenas non ante. Nam nibh. Morbi interdum elit non augue.							'),
-(129, 5, 7, 'A543b2cd8222a7.jpg', '857691_10100306648555908_1737751185_o.jpg'),
-(130, 5, 8, '-6', 'IT Support					'),
-(131, 5, 8, '-5', 'network support					'),
-(132, 5, 8, '-4', 'web development							'),
-(133, 5, 8, '-3', 'Templar IT Solutions LLC, 2942 N 24th St., Suite 114-514, Phoenix, AZ, 85016| Tel: 860-478-7583 | ITsupport@templarit.net				'),
-(134, 5, 8, 'A543b3237b90c4.jpg', '0a843a_f887ec247009487d9500967e38cbec86.jpg_srz_p_988_491_75_22_0.50_1.20_0.00_jpg_srz.jpg');
+(128, 5, 5, '-7', '999Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer egestas, libero eget viverra nonummy, turpis diam scelerisque dui, eu tempor quam leo quis justo. Sed velit magna, vestibulum nec, aliquam a, placerat eget, odio. Sed mbattis, ipsum in sodales vestibulum, sem mi egestas felis, et adipiscing ante enim id metus. Etiam elit dui, congue quis, interdum in, venenatis ac, orci. Vivamus vulputate. Nullam ante. Aliquam ornare, nisl at consequat laoreet, orci sem cursus purus, a pulvinar diam sem ut metus. Donec eu erat <br />\n<br />\n<br><br><br />\n<br><br><br />\nnon lorem lacinia commodo. Nunc bibendum. Aliquam euismod odio a nulla euismod rutrum. Proin lobortis leo. Maecenas non ante. Nam nibh. Morbi interdum elit non augue.																					'),
+(135, 5, 7, 'A543c77bcaa7e4.jpg', '0a843a_f887ec247009487d9500967e38cbec86.jpg_srz_p_988_491_75_22_0.50_1.20_0.00_jpg_srz.jpg'),
+(158, 5, 8, '-8', 'IT SERVICES'),
+(157, 5, 8, '1', 'I543cad34d0925.jpg'),
+(156, 5, 8, '-9', 'TemplarIT												'),
+(167, 5, 9, '-9', 'Templar IT				'),
+(168, 5, 9, '-8', '											'),
+(169, 5, 9, '2', 'I543f3700e0b68.jpg'),
+(170, 5, 9, '-7', 'IT Services					'),
+(171, 5, 9, '-6', 'TEMPLAR IT provides Information Technology services to residential and business customers offering affordable and reliable quality of service with emphasis on creativity.  Our concept is to utilize current technology and implement customized solutions specific to client needs and knowledge.â€‹ As a result, we deliver wide range of IT services and products for small and medium size environments including server-desktop virtualization and cloud solutions.							'),
+(172, 5, 9, '-5', 'Network Support				'),
+(173, 5, 9, '-3', 'Web Development				'),
+(174, 5, 9, '-4', 'Residential and business solutions including: network design, implementation, administration, and security.							'),
+(175, 5, 9, '-2', 'Design and development of business websites, logos, and custom build web applications.â€‹							'),
+(176, 5, 9, '1', 'Templar IT Solutions LLC, 2942 N 24th St., Suite 114-514, Phoenix, AZ, 85016| Tel: 860-478-7583 | ITsupport@templarit.net								'),
+(177, 5, 9, '-1', 'IT SUPPORT						'),
+(178, 5, 9, '0', 'Management and installation of home/business computers, remote assistance, and managed IT services.â€‹						'),
+(179, 5, 9, '5', 'http://www.templarit.com/'),
+(180, 5, 9, '6', 'http://www.templarit.com/'),
+(181, 5, 9, '7', 'http://www.templarit.com/'),
+(182, 5, 9, '8', 'http://www.templarit.com/'),
+(183, 5, 5, '-8', 'Subtitle 01							'),
+(184, 5, 5, '-5', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer egestas, libero eget viverra nonummy, turpis diam scelerisque dui, eu tempor quam leo quis justo. Sed velit magna, vestibulum nec, aliquam a, placerat eget, odio. Sed mbattis, ipsum in sodales vestibulum, sem mi egestas felis, et adipiscing ante enim id metus. Etiam elit dui, congue quis, interdum in, venenatis ac, orci. Vivamus vulputate. Nullam ante. Aliquam ornare, nisl at consequat laoreet, orci sem <br />\n<br />\n111111111<br />\n<br />\ncursus purus, a pulvinar diam sem ut metus. Donec eu erat non lorem lacinia commodo. Nunc bibendum. Aliquam euismod odio a nulla euismod rutrum. Proin lobortis leo. Maecenas non ante. Nam nibh. Morbi interdum elit non augue.							');
 
 -- --------------------------------------------------------
 

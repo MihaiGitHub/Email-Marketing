@@ -1,33 +1,27 @@
 <?php
 ob_start();
 session_start();
-if(!$_SESSION['auth']){
-	header('Location: index.php?authen=false');
-	exit;	
-}
+
 include 'include/dbconnect.php';
 
 if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['type'] != 'all'){
 	$stmt = $conn->prepare('SELECT id, name FROM templates WHERE user_id = :userid AND type = :type');
 	$result = $stmt->execute(array('userid' => $_SESSION['id'], 'type' => $_POST['type']));
 } else {
-//	$stmt = $conn->prepare('SELECT id, name FROM templates WHERE user_id = :userid');
-//	$result = $stmt->execute(array('userid' => $_SESSION['id']));	
-	$stmt = $conn->prepare('SELECT id, name FROM templates');
+	$stmt = $conn->prepare('SELECT id, name, picture FROM templates');
 	$result = $stmt->execute();	
 }
 ?>
- <div class="header">
-
-            <h1 class="page-title">Email Templates</h1>
-        </div>
-          <ul class="breadcrumb">
-            <li><a href="dashboard.php">Home</a> <span class="divider">/</span></li>
-            <li class="active">Email Templates</li>
-        </ul>
-
-        <div class="container-fluid">
-            <div class="row-fluid">
+<div class="header">
+	<h1 class="page-title">Email Templates</h1>
+</div>
+<ul class="breadcrumb">
+	<li><a href="dashboard.php">Home</a> <span class="divider">/</span></li>
+	<li class="active">Email Templates</li>
+</ul>
+<div class="container-fluid">
+    <div class="row-fluid">
+	
 <div id="templates">
 	<form method="post" action="templates.php">
 		<table style="width:100%;">
@@ -53,11 +47,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['type'] != 'all'){
 			<tr>
 				<td style="text-align:center;">
 	<?php while($row = $stmt->fetch()){ 
-			echo '<button type="button" class="ok" style="height:100px;width:75px;" onclick="window.location = \'template.php?id='.$row['id'].'\'">'.$row['name'].'</button>';
-	 } ?>
+			echo '<button type="button" onclick="window.location = \'template.php?id='.$row['id'].'\'"><img src="/emarketing/images/'.$row['picture'].'"></button>';
+		} ?>
 	 			</td>
-		</tr>
-	</table>
+			</tr>
+		</table>
 	</form>
 </div>
 <?php

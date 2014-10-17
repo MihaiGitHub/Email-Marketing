@@ -48,12 +48,10 @@
 		  </td>
         </tr>
         <tr>
-          <td align="center">
-		  
+          <td align="center">  
 <a href="#" title="Upload Picture" onclick="upload.init('<?php echo 2; ?>', <?php echo 4097152; ?>); return false;">
 <img style="width:598px;height:318px;" src="<?php echo (array_key_exists(2, $fields)) ? 'files/'.$fields[2] : '/emarketing/images/TechColumn/PROMO-GREEN2_02.jpg'; ?>" alt="Image" style="border: 0; display: block;" />
 </a>
-
 		  </td>
         </tr>
         <tr>
@@ -148,7 +146,6 @@
 								 </font> 
 								 <font style="font-family:Verdana, Geneva, sans-serif; color:#7bb40f; font-size:12px; line-height:20px">
 <a data-toggle="modal" data-id="6" data-value="" class="editlist" href="#editModal" style="color:#7bb40f; text-decoration:none"><strong><em>read more} </em></strong></a> 
-
 									<font style="font-family: Verdana, Geneva, sans-serif; color:#000000; font-size:13px; line-height:21px">&nbsp; </font>
 								</td>
                               </tr>
@@ -208,16 +205,7 @@
                       </tr>
                       <tr><td width="12%">&nbsp;</td>
                         <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
-                          <tr>
-                            <td>
-							<?php /*
-<a href="#" title="Upload Picture" onclick="upload.init('<?php echo 3; ?>', <?php echo 4097152; ?>); return false;">
-<img style="width:161px;height:134px;" src="<?php echo (array_key_exists(3, $fields)) ? 'files/'.$fields[3] : '/emarketing/images/TechColumn/NEWSLETTER GREEN03.jpg'; ?>" alt="Image" />
-</a>					   
-				<a href="#" target="_blank"><img src="<?php echo 'http://'.getenv('HTTP_HOST').'/images/TechColumn/NEWSLETTER GREEN03.jpg';
-?>" alt="buy her" width="181" height="144" border="0"/></a> */ ?>
-							</td>
-                          </tr>
+                          <tr><td></td></tr>
                           <tr>
                             <td>
 							 <table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -288,13 +276,8 @@
                                   </tr>
                                   <tr>
                                     <td>&nbsp;</td>
-                                    <td align="center">
-	<?php /*								
-<a href="#" target="_blank"><img src="<?php echo 'http://'.getenv('HTTP_HOST').'/emarketing/images/TechColumn/NEWSLETTER GREEN04.jpg'; ?>" alt="view more offers" width="129" height="43" style="display:block" border="0"/></a>
-			*/ ?>						
-<a data-toggle="modal" data-id="7" data-value="" class="editlist" href="#editModal" style="color:#7bb40f; text-decoration:none"><img src="<?php echo 'http://'.getenv('HTTP_HOST').'/emarketing/images/TechColumn/NEWSLETTER GREEN04.jpg'; ?>" alt="view more offers" width="129" height="43" style="display:block" border="0"/></a> 
-									
-									
+                                    <td align="center">						
+<a data-toggle="modal" data-id="8" data-value="" class="editlist" href="#editModal" style="color:#7bb40f; text-decoration:none"><img src="<?php echo 'http://'.getenv('HTTP_HOST').'/emarketing/images/TechColumn/NEWSLETTER GREEN04.jpg'; ?>" alt="view more offers" width="129" height="43" style="display:block" border="0"/></a> 
 									</td>
                                     <td>&nbsp;</td>
                                   </tr>

@@ -810,3 +810,10 @@ table.table.list tr:first-child td {
 .row-fluid {
 	margin-bottom:50px;
 }
+/* for template pictures */
+#templates button {
+	width:135px;
+	height:169px;
+	background-color:#FFF;
+	margin:15px;
+}
