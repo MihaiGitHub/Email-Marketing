@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: db543846776.db.1and1.com
--- Generation Time: Oct 16, 2014 at 10:28 PM
+-- Generation Time: Oct 18, 2014 at 01:01 AM
 -- Server version: 5.1.73-log
 -- PHP Version: 5.4.4-14+deb7u14
 
@@ -63,19 +63,6 @@ INSERT INTO `campaigns` (`id`, `user_id`, `list_id`, `subject`, `email_from`) VA
 ('C52dc2879e1af27.97660099', 3, 31, 'From Mihai', 'Chris Weidman'),
 ('C52dc2a52c214d8.96901950', 3, 31, 'Open Me', 'Alexander Gustaffson'),
 ('C52dc2ab9ca5516.62902915', 3, 34, 'Account Deletion', 'Mihai Smarandache'),
-('C5440352e422972.11191118', 5, 36, 'IT Services', 'TemplarIT'),
-('C544034d6b56018.26852892', 5, 36, 'International', 'TemplarIT'),
-('C5440340e3a3923.83409825', 5, 36, 'International', 'TemplarIT'),
-('C54403363d8e191.23814935', 5, 36, 'International', 'TemplarIT'),
-('C543b1c828c6a82.92242842', 5, 33, 'IT Services', 'TemplarIT'),
-('C543b258bc179a3.84288648', 5, 36, 'Yahooo!', 'Chris Weidman'),
-('C543b2d0db45505.24790862', 5, 37, 'IT Services', 'TemplarIT'),
-('C543b324d926b50.96173297', 5, 36, 'IT Services', 'TemplarIT'),
-('C543b34025aad66.66717846', 5, 36, 'Yahooo!3', 'Chris Weidman'),
-('C543b34a8735278.32653732', 5, 36, 'Yahooo!', 'Chris Weidman'),
-('C543b35f2b11763.83285558', 5, 36, 'IP Address Test', 'Chris Weidman'),
-('C543b373dbb76e6.74165707', 5, 36, 'IP Address Test2', 'TemplarIT'),
-('C543b38044b5a45.95986735', 5, 36, 'IP Address Test3', 'Chris Weidman'),
 ('C543b3c7bb647a0.91940373', 5, 37, 'IT Services', 'TemplarIT'),
 ('C543b687fca80d2.11728828', 5, 37, 'IT Services', 'Mihai'),
 ('C543b6cca908616.36061085', 5, 36, 'Link Test', 'Chris Weidman'),
@@ -87,7 +74,10 @@ INSERT INTO `campaigns` (`id`, `user_id`, `list_id`, `subject`, `email_from`) VA
 ('C543cafc13155c5.50340585', 5, 37, 'IT Services', 'TemplarIT'),
 ('C543da6372ae3d9.54913456', 5, 36, 'Link Test', 'Mihai'),
 ('C543f2151ad02c5.80796189', 5, 37, 'IT Services', 'TemplarIT'),
-('C543f346cd72b58.68510670', 5, 37, 'IT Services', 'TemplarIT');
+('C543f346cd72b58.68510670', 5, 37, 'IT Services', 'TemplarIT'),
+('C544168fae288f7.37991360', 5, 37, 'IT Services', 'TemplarIT'),
+('C5441f8d7dbbd72.76033456', 5, 36, 'Real Estate', 'Mihai'),
+('C5441f9ce18baa2.58487736', 5, 36, 'Email Subject', 'Mihai');
 
 -- --------------------------------------------------------
 
@@ -107,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `campaign_emails` (
   `timeopened` varchar(100) COLLATE latin1_general_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `c_id` (`c_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=1317 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=1329 ;
 
 --
 -- Dumping data for table `campaign_emails`
@@ -238,51 +228,6 @@ INSERT INTO `campaign_emails` (`id`, `c_id`, `email`, `sent`, `opened`, `ip`, `c
 (1184, 'C52dc2a52c214d8.96901950', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
 (1185, 'C52dc2ab9ca5516.62902915', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
 (1186, 'C52dc2ab9ca5516.62902915', 'xelot00007@yahoo.com', 1, 0, '', '', '', ''),
-(1316, 'C5440352e422972.11191118', 'xelot00007@yahoo.com', 1, 1, '70.190.102.179', 'United States', 'Arizona', '10/16/2014 2:15 PM'),
-(1315, 'C5440352e422972.11191118', 'mihai6744@hotmail.com', 1, 1, '65.55.129.188', 'United States', 'Washington', '10/16/2014 2:16 PM'),
-(1314, 'C5440352e422972.11191118', 'mihai.sanfran@gmail.com', 1, 1, '66.249.83.90', 'United States', 'California', '10/16/2014 2:17 PM'),
-(1313, 'C544034d6b56018.26852892', 'xelot00007@yahoo.com', 1, 1, '70.190.102.179', 'United States', 'Arizona', '10/16/2014 2:13 PM'),
-(1312, 'C544034d6b56018.26852892', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(1311, 'C544034d6b56018.26852892', 'mihai.sanfran@gmail.com', 1, 1, '66.249.83.90', 'United States', 'California', '10/16/2014 2:17 PM'),
-(1310, 'C5440340e3a3923.83409825', 'xelot00007@yahoo.com', 1, 1, '70.190.102.179', 'United States', 'Arizona', '10/16/2014 2:11 PM'),
-(1309, 'C5440340e3a3923.83409825', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(1308, 'C5440340e3a3923.83409825', 'mihai.sanfran@gmail.com', 1, 0, '', '', '', ''),
-(1307, 'C54403363d8e191.23814935', 'xelot00007@yahoo.com', 1, 2, '70.190.102.179', 'United States', 'Arizona', '10/16/2014 2:12 PM'),
-(1306, 'C54403363d8e191.23814935', 'mihai6744@hotmail.com', 1, 2, '65.55.129.188', 'United States', 'Washington', '10/16/2014 2:07 PM'),
-(1305, 'C54403363d8e191.23814935', 'mihai.sanfran@gmail.com', 1, 1, '66.249.83.90', 'United States', 'California', '10/16/2014 2:17 PM'),
-(1221, 'C543b1c828c6a82.92242842', ' ilooktheysmile@yahoo.com', 1, 0, '', '', '', ''),
-(1222, 'C543b1c828c6a82.92242842', ' mihai004@gmail.com', 1, 0, '', '', '', ''),
-(1223, 'C543b1c828c6a82.92242842', ' mihailiviu@yahoo.com', 1, 0, '', '', '', ''),
-(1224, 'C543b1c828c6a82.92242842', ' xelot00007@yahoo.com', 1, 0, '', '', '', ''),
-(1225, 'C543b1c828c6a82.92242842', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(1226, 'C543b1c828c6a82.92242842', 'mwdowiak333@gmail.com', 1, 0, '', '', '', ''),
-(1227, 'C543b1c828c6a82.92242842', 'mwdowiak333@q.com', 1, 0, '', '', '', ''),
-(1228, 'C543b1c828c6a82.92242842', 'mynewemail@yahoo.com', 1, 0, '', '', '', ''),
-(1229, 'C543b258bc179a3.84288648', 'mihai.sanfran@gmail.com', 1, 0, '', '', '', ''),
-(1230, 'C543b258bc179a3.84288648', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(1231, 'C543b258bc179a3.84288648', 'xelot00007@yahoo.com', 1, 0, '', '', '', ''),
-(1232, 'C543b2d0db45505.24790862', 'mihai.sanfran@gmail.com', 1, 3, '64.233.172.90', 'United States', 'California', '10/12/2014 7:01 PM'),
-(1233, 'C543b2d0db45505.24790862', 'mihai6744@hotmail.com', 1, 2, '65.55.129.188', 'United States', 'Washington', '10/13/2014 10:38 AM'),
-(1234, 'C543b2d0db45505.24790862', 'mwdowiak333@gmail.com', 1, 0, '', '', '', ''),
-(1235, 'C543b2d0db45505.24790862', 'xelot00007@yahoo.com', 1, 1, '70.190.102.179', 'United States', 'Arizona', '10/12/2014 6:47 PM'),
-(1236, 'C543b324d926b50.96173297', 'mihai.sanfran@gmail.com', 1, 2, '64.233.172.90', 'United States', 'California', '10/12/2014 7:08 PM'),
-(1237, 'C543b324d926b50.96173297', 'mihai6744@hotmail.com', 1, 1, '65.55.129.188', 'United States', 'Washington', '10/13/2014 10:38 AM'),
-(1238, 'C543b324d926b50.96173297', 'xelot00007@yahoo.com', 1, 0, '', '', '', ''),
-(1239, 'C543b34025aad66.66717846', 'mihai.sanfran@gmail.com', 1, 1, '64.233.172.90', '', '', '10/12/2014 10:09 PM'),
-(1240, 'C543b34025aad66.66717846', 'mihai6744@hotmail.com', 1, 2, '65.55.129.188', 'United States', 'Washington', '10/13/2014 10:38 AM'),
-(1241, 'C543b34025aad66.66717846', 'xelot00007@yahoo.com', 1, 0, '', '', '', ''),
-(1242, 'C543b34a8735278.32653732', 'mihai.sanfran@gmail.com', 1, 1, '64.233.172.90', 'United States', 'California', '10/12/2014 7:11 PM'),
-(1243, 'C543b34a8735278.32653732', 'mihai6744@hotmail.com', 1, 2, '65.55.129.188', 'United States', 'Washington', '10/13/2014 10:37 AM'),
-(1244, 'C543b34a8735278.32653732', 'xelot00007@yahoo.com', 1, 0, '', '', '', ''),
-(1245, 'C543b35f2b11763.83285558', 'mihai.sanfran@gmail.com', 1, 1, '64.233.172.90', 'United States', 'California', '10/12/2014 7:17 PM'),
-(1246, 'C543b35f2b11763.83285558', 'mihai6744@hotmail.com', 1, 2, '65.55.129.188', 'United States', 'Washington', '10/13/2014 10:37 AM'),
-(1247, 'C543b35f2b11763.83285558', 'xelot00007@yahoo.com', 1, 0, '', '', '', ''),
-(1248, 'C543b373dbb76e6.74165707', 'mihai.sanfran@gmail.com', 1, 1, '', 'United States', 'California', '10/12/2014 7:22 PM'),
-(1249, 'C543b373dbb76e6.74165707', 'mihai6744@hotmail.com', 1, 2, '65.55.129.188', 'United States', 'Washington', '10/13/2014 10:37 AM'),
-(1250, 'C543b373dbb76e6.74165707', 'xelot00007@yahoo.com', 1, 0, '', '', '', ''),
-(1251, 'C543b38044b5a45.95986735', 'mihai.sanfran@gmail.com', 1, 0, '', '', '', ''),
-(1252, 'C543b38044b5a45.95986735', 'mihai6744@hotmail.com', 1, 1, '65.55.129.188', 'United States', 'Washington', '10/13/2014 10:37 AM'),
-(1253, 'C543b38044b5a45.95986735', 'xelot00007@yahoo.com', 1, 0, '', '', '', ''),
 (1254, 'C543b3c7bb647a0.91940373', 'eli_s85710@yahoo.com', 1, 0, '', '', '', ''),
 (1255, 'C543b3c7bb647a0.91940373', 'mihai.sanfran@gmail.com', 1, 1, '64.233.172.90', 'United States', 'California', '10/12/2014 7:47 PM'),
 (1256, 'C543b3c7bb647a0.91940373', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
@@ -333,7 +278,19 @@ INSERT INTO `campaign_emails` (`id`, `c_id`, `email`, `sent`, `opened`, `ip`, `c
 (1301, 'C543f346cd72b58.68510670', 'mihai6744@hotmail.com', 1, 1, '65.55.129.188', 'United States', 'Washington', '10/15/2014 8:03 PM'),
 (1302, 'C543f346cd72b58.68510670', 'mwdowiak33@gmail.com', 1, 0, '', '', '', ''),
 (1303, 'C543f346cd72b58.68510670', 'vilisei@gmail.com', 1, 0, '', '', '', ''),
-(1304, 'C543f346cd72b58.68510670', 'xelot00007@yahoo.com', 1, 0, '', '', '', '');
+(1304, 'C543f346cd72b58.68510670', 'xelot00007@yahoo.com', 1, 0, '', '', '', ''),
+(1317, 'C544168fae288f7.37991360', 'eli_s85710@yahoo.com', 1, 0, '', '', '', ''),
+(1318, 'C544168fae288f7.37991360', 'mihai.sanfran@gmail.com', 1, 1, '66.249.83.90', 'United States', 'California', '10/17/2014 1:31 PM'),
+(1319, 'C544168fae288f7.37991360', 'mihai6744@hotmail.com', 1, 5, '65.55.129.188', 'United States', 'Washington', '10/17/2014 2:43 PM'),
+(1320, 'C544168fae288f7.37991360', 'mwdowiak33@gmail.com', 1, 2, '24.130.53.197', 'United States', 'California', '10/17/2014 7:54 PM'),
+(1321, 'C544168fae288f7.37991360', 'vilisei@gmail.com', 1, 0, '', '', '', ''),
+(1322, 'C544168fae288f7.37991360', 'xelot00007@yahoo.com', 1, 1, '70.190.102.179', 'United States', 'Arizona', '10/17/2014 4:38 PM'),
+(1323, 'C5441f8d7dbbd72.76033456', 'mihai.sanfran@gmail.com', 1, 0, '', '', '', ''),
+(1324, 'C5441f8d7dbbd72.76033456', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
+(1325, 'C5441f8d7dbbd72.76033456', 'xelot00007@yahoo.com', 1, 0, '', '', '', ''),
+(1326, 'C5441f9ce18baa2.58487736', 'mihai.sanfran@gmail.com', 1, 0, '', '', '', ''),
+(1327, 'C5441f9ce18baa2.58487736', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
+(1328, 'C5441f9ce18baa2.58487736', 'xelot00007@yahoo.com', 1, 0, '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -440,7 +397,7 @@ CREATE TABLE IF NOT EXISTS `templates` (
 INSERT INTO `templates` (`id`, `user_id`, `name`, `type`, `picture`) VALUES
 (1, 3, 'Newsletter', '', 'lcolumn.png'),
 (2, 3, 'Basic', '', 'basic.png'),
-(5, 3, 'Real Estate', 'real estate', 'basic.png'),
+(5, 3, 'Real Estate', 'real estate', 'realestate.jpg'),
 (7, 3, 'Tech Simple', 'tech', 'nocolumn.png'),
 (8, 3, 'Tech Full', 'tech', '3column.png'),
 (9, 3, 'Tech Column', 'tech', 'rcolumn.png');
@@ -461,7 +418,7 @@ CREATE TABLE IF NOT EXISTS `template_fields` (
   UNIQUE KEY `tunique` (`user_id`,`template_id`,`field`),
   KEY `template_id` (`template_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=185 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=228 ;
 
 --
 -- Dumping data for table `template_fields`
@@ -476,14 +433,6 @@ INSERT INTO `template_fields` (`id`, `user_id`, `template_id`, `field`, `value`)
 (79, 3, 1, '0', '100_0324.jpg'),
 (80, 3, 1, 'A529430cdbb864.jpg', '100_0324.jpg'),
 (117, 3, 2, '-9', 'SMITH							tempor pulvinar erat ut blandit. Nam et erat diam, vel egestas enim.									'),
-(82, 3, 5, '1', 'MAIN TITLE	22						'),
-(83, 3, 5, '3', '22Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer egestas, libero eget viverra nonummy, turpis diam scelerisque dui, eu tempor quam leo quis justo. Sed velit magna, vestibulum nec, aliquam a, placerat eget, odio. Sed mbattis, ipsum in sodales vestibulum, sem mi egestas felis, et adipiscing ante enim id metus. Etiam elit dui, congue quis, interdum in, venenatis ac, orci. Vivamus vulputate. Nullam ante. Aliquam ornare, nisl at consequat laoreet, orci sem cursus purus, a pulvinar diam sem ut metus. Donec eu erat non lorem lacinia commodo. Nunc bibendum. Aliquam euismod odio a nulla euismod rutrum. Proin lobortis leo. Maecenas non ante. Nam nibh. Morbi interdum elit non augue.							'),
-(84, 4, 5, '7', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer egestas, libero eget viverra nonummy, turpis diam scelerisque dui, eu tempor quam leo quis justo. Sed velit magna, vestibulum nec, aliquam a, placerat eget, odio. Sed mbattis, ipsum in sodales vestibulum, sem mi egestas felis, et adipiscing ante enim id metus. Etiam elit dui, congue quis, interdum in, venenatis ac, orci. Vivamus vulputate. Nullam ante. Aliquam ornare, nisl at consequat laoreet, orci sem cursus purus, a pulvinar diam sem ut metus. Donec eu erat non lorem lacinia commodo. Nunc bibendum. Aliquam euismod odio a nulla euismod rutrum. Proin lobortis leo. Maecenas non ante. Nam nibh. Morbi interdum elit non augue.							'),
-(85, 4, 5, '1', 'HOME FOR SALE						'),
-(86, 4, 5, '4', 'HOME 2							'),
-(87, 4, 5, '2', 'HOME 1							'),
-(88, 4, 5, '5', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer egestas, libero eget viverra nonummy, turpis diam scelerisque dui, eu tempor quam leo quis justo. Sed velit magna, vestibulum nec, aliquam a, placerat eget, odio. Sed mbattis, ipsum in sodales vestibulum, sem mi egestas felis, et adipiscing ante enim id metus. Etiam elit dui, congue quis, interdum in, venenatis ac, orci. Vivamus vulputate. Nullam ante. Aliquam ornare, nisl at consequat laoreet, orci sem cursus purus, a pulvinar diam sem ut metus. Donec eu erat non lorem lacinia commodo. Nunc bibendum. Aliquam euismod odio a nulla euismod rutrum. Proin lobortis leo. Maecenas non ante. Nam nibh. Morbi interdum elit non augue.							'),
-(89, 4, 5, '6', 'HOME 3						'),
 (90, 4, 6, '1', 'INFORMATION ABOUT TEMPLAR IT							'),
 (91, 4, 6, '4', 'Best IT solutions on the market							'),
 (92, 4, 6, '2', 'I am testing this particular template.						'),
@@ -519,7 +468,6 @@ INSERT INTO `template_fields` (`id`, `user_id`, `template_id`, `field`, `value`)
 (125, 5, 7, '-8', 'TemplarIT Solutions		'),
 (126, 5, 7, '-7', 'TEMPLAR IT provides Information Technology services to residential and business customers offering affordable and reliable quality of service with emphasis on creativity.  Our concept is to utilize current technology and implement customized solutions specific to client needs and knowledge.â€‹ As a result, we deliver wide range of IT services and products for small and medium size environments including server-desktop virtualization and cloud solutions.'),
 (127, 5, 7, '-6', 'Templar IT Solutions LLC, 2942 N 24th St., Suite 114-514, Phoenix, AZ, 85016| Tel: 860-478-7583 | ITsupport@templarit.net					'),
-(128, 5, 5, '-7', '999Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer egestas, libero eget viverra nonummy, turpis diam scelerisque dui, eu tempor quam leo quis justo. Sed velit magna, vestibulum nec, aliquam a, placerat eget, odio. Sed mbattis, ipsum in sodales vestibulum, sem mi egestas felis, et adipiscing ante enim id metus. Etiam elit dui, congue quis, interdum in, venenatis ac, orci. Vivamus vulputate. Nullam ante. Aliquam ornare, nisl at consequat laoreet, orci sem cursus purus, a pulvinar diam sem ut metus. Donec eu erat <br />\n<br />\n<br><br><br />\n<br><br><br />\nnon lorem lacinia commodo. Nunc bibendum. Aliquam euismod odio a nulla euismod rutrum. Proin lobortis leo. Maecenas non ante. Nam nibh. Morbi interdum elit non augue.																					'),
 (135, 5, 7, 'A543c77bcaa7e4.jpg', '0a843a_f887ec247009487d9500967e38cbec86.jpg_srz_p_988_491_75_22_0.50_1.20_0.00_jpg_srz.jpg'),
 (158, 5, 8, '-8', 'IT SERVICES'),
 (157, 5, 8, '1', 'I543cad34d0925.jpg'),
@@ -540,8 +488,27 @@ INSERT INTO `template_fields` (`id`, `user_id`, `template_id`, `field`, `value`)
 (180, 5, 9, '6', 'http://www.templarit.com/'),
 (181, 5, 9, '7', 'http://www.templarit.com/'),
 (182, 5, 9, '8', 'http://www.templarit.com/'),
-(183, 5, 5, '-8', 'Subtitle 01							'),
-(184, 5, 5, '-5', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer egestas, libero eget viverra nonummy, turpis diam scelerisque dui, eu tempor quam leo quis justo. Sed velit magna, vestibulum nec, aliquam a, placerat eget, odio. Sed mbattis, ipsum in sodales vestibulum, sem mi egestas felis, et adipiscing ante enim id metus. Etiam elit dui, congue quis, interdum in, venenatis ac, orci. Vivamus vulputate. Nullam ante. Aliquam ornare, nisl at consequat laoreet, orci sem <br />\n<br />\n111111111<br />\n<br />\ncursus purus, a pulvinar diam sem ut metus. Donec eu erat non lorem lacinia commodo. Nunc bibendum. Aliquam euismod odio a nulla euismod rutrum. Proin lobortis leo. Maecenas non ante. Nam nibh. Morbi interdum elit non augue.							');
+(225, 5, 5, '9', 'I5441f84525294.jpg'),
+(226, 5, 5, '10', 'I5441f85023006.jpg'),
+(227, 5, 5, 'A5441f89b61df3.jpg', '0a843a_f887ec247009487d9500967e38cbec86.jpg_srz_p_988_491_75_22_0.50_1.20_0.00_jpg_srz.jpg'),
+(221, 5, 5, '5', '5'),
+(222, 5, 5, '6', '6'),
+(223, 5, 5, '7', '7'),
+(224, 5, 5, '8', 'I5441f833486a1.jpg'),
+(220, 5, 5, '4', '4'),
+(218, 5, 5, '2', '2'),
+(219, 5, 5, '3', '3	'),
+(217, 5, 5, '1', '1'),
+(216, 5, 5, '0', '0'),
+(215, 5, 5, '-1', '-1'),
+(214, 5, 5, '-2', '-2	'),
+(207, 5, 5, '-9', '-9'),
+(208, 5, 5, '-8', '-8'),
+(209, 5, 5, '-7', '-7'),
+(210, 5, 5, '-6', '-6'),
+(211, 5, 5, '-5', '-5'),
+(212, 5, 5, '-4', '-4'),
+(213, 5, 5, '-3', '-3');
 
 -- --------------------------------------------------------
 
