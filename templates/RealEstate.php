@@ -161,7 +161,7 @@
 		#monkeyRewards img{
 			max-width:190px;
 		}
-</style><?php print_r($fields); ?>
+</style>
     	<center>
         	<table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="backgroundTable">
             	<tbody><tr>
@@ -220,8 +220,8 @@
                                             				<div class="edit-image" id="uniqName_17_2">
 																<div class="tpl-image-content" id="tpl-image-content-header_image">
 																	<div>
-<a href="#" title="Upload Picture" onclick="upload.init('<?php echo 10; ?>', <?php echo 4097152; ?>); return false;">
-<img src="<?php echo (array_key_exists(10, $fields)) ? 'files/'.$fields[10] : '/emarketing/images/RealEstate/logo_homeinc.png'; ?>" alt="" border="0" style="margin: 0px; padding: 0px; max-width: 600px;" id="headerImage campaign-icon" />
+<a href="#" title="Upload Picture" onclick="upload.init('<?php echo 9; ?>', <?php echo 4097152; ?>); return false;">
+<img src="<?php echo (array_key_exists(9, $fields)) ? 'files/'.$fields[9] : '/emarketing/images/RealEstate/logo_homeinc.png'; ?>" alt="" border="0" style="margin: 0px; padding: 0px; max-width: 600px;" id="headerImage campaign-icon" />
 </a>	
 																</div>
 															</div>
@@ -256,8 +256,6 @@
 		</div>
 	</div>
 </div>														
-
-																	
 																</div>
 															</div>
 														</td>
@@ -294,8 +292,8 @@
                                                                                 	<div class="edit-image" id="uniqName_17_5">
 																					<div class="tpl-image-content" id="tpl-image-content-body_image00">
 																						<div>
-<a href="#" title="Upload Picture" onclick="upload.init('<?php echo 9; ?>', <?php echo 4097152; ?>); return false;">
-<img src="<?php echo (array_key_exists(9, $fields)) ? 'files/'.$fields[9] : '/emarketing/images/RealEstate/house250.jpg'; ?>" alt="house" border="0" style="margin: 0px; padding: 0px; max-width: 250px;" />
+<a href="#" title="Upload Picture" onclick="upload.init('<?php echo 8; ?>', <?php echo 4097152; ?>); return false;">
+<img src="<?php echo (array_key_exists(8, $fields)) ? 'files/'.$fields[8] : '/emarketing/images/RealEstate/house250.jpg'; ?>" alt="house" border="0" style="margin: 0px; padding: 0px; max-width: 250px;" />
 </a>	
                                                                                 </td>
                                                                                 <td width="20">
@@ -412,8 +410,8 @@
                                                                                 	<div class="edit-image" id="uniqName_17_12">
 																						<div class="tpl-image-content" id="tpl-image-content-repeat_1:0:body_image01">
 																							<div>
-<a href="#" title="Upload Picture" onclick="upload.init('<?php echo 8; ?>', <?php echo 4097152; ?>); return false;">
-<img src="<?php echo (array_key_exists(8, $fields)) ? 'files/'.$fields[8] : '/emarketing/images/RealEstate/house2502.jpg'; ?>" alt="house" border="0" style="margin: 0px; padding: 0px; max-width: 250px;" />
+<a href="#" title="Upload Picture" onclick="upload.init('<?php echo 7; ?>', <?php echo 4097152; ?>); return false;">
+<img src="<?php echo (array_key_exists(7, $fields)) ? 'files/'.$fields[7] : '/emarketing/images/RealEstate/house2502.jpg'; ?>" alt="house" border="0" style="margin: 0px; padding: 0px; max-width: 250px;" />
 </a>
 																							</div>
 																						</div>
@@ -562,6 +560,9 @@
                                         </tr>
                                         <tr>
                                         	<td colspan="2" valign="top" class="footerContent" style="padding-top:20px;" id="uniqName_17_20"><div class="edit-content"><div class="tpl-content">
+
+						<a href="#">unsubscribe from this list</a>&nbsp;					
+<?php /*											
 <div class='inline-edit'>
 	<div class='display'><?php echo (array_key_exists(7, $fields)) ? nl2br($fields[7]) : '<a href="#">unsubscribe from this list</a> | <a href="#">update subscription preferences</a>&nbsp;'; ?>
 	</div>
@@ -572,7 +573,8 @@
 			<input type='submit' class='cancel' value=' Cancel ' />
 		</div>
 	</div>
-</div>                                          													
+</div> 
+*/ ?>                                         													
                                             </div></div></td>
                                         </tr>
                                     </tbody></table>

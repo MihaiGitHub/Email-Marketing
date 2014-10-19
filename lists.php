@@ -37,19 +37,19 @@ $result = $stmt->execute(array('user' => $_SESSION['id']));
 
         <div class="container-fluid">
             <div class="row-fluid">
-		<form method="post" action="lists.php">
-			<table>
-				<tr><td colspan="2" style="text-align:left;"><label for="name">List Name</label></td></tr>
-				<tr>
-					<td>
-						<input type="text" name="name" id="name"/> 
-					</td>
-					<td>
-						<button type="submit" name="submitbtn" value="save" class="btn btn-primary"><i class="icon-save"></i> Save</button>
-					</td>
-				</tr>
-			</table>
-		</form>
+				<form method="post" action="lists.php">
+					<table>
+						<tr><td colspan="2" style="text-align:left;"><label for="name">List Name</label></td></tr>
+						<tr>
+							<td>
+								<input type="text" name="name" id="name"/> 
+							</td>
+							<td>
+								<button type="submit" name="submitbtn" value="save" class="btn btn-primary"><i class="icon-save"></i> Save</button>
+							</td>
+						</tr>
+					</table>
+				</form>
 <div class="well">
 	<table class="table">
 	   <thead>
@@ -68,8 +68,7 @@ $result = $stmt->execute(array('user' => $_SESSION['id']));
 			$stmtcount = $conn->prepare('SELECT COUNT(id) as Total FROM emails WHERE list_id = :listid');
 			$resultcount = $stmtcount->execute(array('listid' => $row['id']));
 			$rowcount = $stmtcount->fetch();
-			
-					
+								
 echo "<tr><td>$i</td><td><a href='emails.php?id=".urlencode($row['id'])."'>".htmlentities($row['name'])."</a></td><td>".$rowcount['Total']."</td><td>".htmlentities($row['created'])."</td><td><a data-toggle=\"modal\" data-id=".$row['id']." data-value='".$row['name']."' class=\"editlist\" href=\"#editModal\"><i class='icon-pencil'></i></a>&nbsp;<a data-toggle=\"modal\" data-id=".$row['id']." class=\"deletelist\" href=\"#myModal\"><i class='icon-remove'></i></a></td></tr>";
 
 				$i++;

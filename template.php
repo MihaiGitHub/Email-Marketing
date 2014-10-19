@@ -162,8 +162,8 @@ while($rowattach = $attachments->fetch()){
 				
 					
 		
-			$stmtc = $conn->prepare('INSERT INTO campaigns (id, user_id, list_id, subject, email_from) VALUES (:cid, :userid, :listid,  :subject, :from)');
-			$resultc = $stmtc->execute(array('cid' => $_SESSION['c_id'], 'userid' => $_SESSION['id'], 'listid' => $_POST['lists'], 'subject' => $_POST['subject'], 'from' => $_POST['from']));
+			$stmtc = $conn->prepare('INSERT INTO campaigns (id, user_id, list_id, subject, email_from, email_replyto, sent) VALUES (:cid, :userid, :listid,  :subject, :from, :replyto, :sent)');
+			$resultc = $stmtc->execute(array('cid' => $_SESSION['c_id'], 'userid' => $_SESSION['id'], 'listid' => $_POST['lists'], 'subject' => $_POST['subject'], 'from' => $_POST['from'], 'replyto' => $_POST['replyto'], 'sent' => date('n/j/Y g:i A')));
 	
 			}
 
