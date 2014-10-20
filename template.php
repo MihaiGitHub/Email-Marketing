@@ -59,9 +59,16 @@ if($_POST['emailform'] == "submitted" || isset($_GET['processing'])){
 		case 'Tech Column':
 			$template = 'templates/TechColumn.html';
 		break;
+		case 'Professional':
+			$template = 'templates/Professional.html';
+		break;
+		case 'Professional_wide':
+			$template = 'templates/Professional_wide.html';
+		break;
 	}
 	
 	if($count > 14){	die('Too Many Emails!');
+	// added email_replyto and sent columns in db when inserting campaigns
 		header('refresh: 70; template.php?processing');
 		$mail = new PHPMailer();
 		
@@ -381,6 +388,12 @@ switch ($trow['name']){
 	break;
 	case 'Tech Column':
 		include 'templates/TechColumn.php';
+	break;
+	case 'Professional':
+		include 'templates/Professional.php';
+	break;
+	case 'Professional_wide':
+		include 'templates/Professional_wide.php';
 	break;
 }
 ?>

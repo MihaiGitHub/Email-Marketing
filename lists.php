@@ -117,12 +117,10 @@ $(document).on("click", ".deletelist", function () {
      $(".modal-body #listid").val( listid );
 });
 $(document).on("click", ".editlist", function () {
-	console.log(this);
-     var listid = $(this).data('id');
+    var listid = $(this).data('id');
 	var name = $(this).attr('data-value').valueOf();
-//	alert(name);
-//	exit;
-     $(".edit #listid").val( listid );
+    
+	$(".edit #listid").val( listid );
 	$(".edit #listname").val( name );
 });
 </script>

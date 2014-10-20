@@ -2,34 +2,30 @@
 ob_start();
 session_start();
 include 'include/dbconnect.php';
-if(!$_SESSION['auth']){
-	header('Location: index.php?authen=false');
-	exit;	
-}
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
-		
-	switch ($_POST['submitbtn']){
-		
+	switch ($_POST['submitbtn']){	
 		case 'saveemail':
 			$stmt = $conn->prepare('INSERT INTO emails (list_id, email) VALUES (:listid, :email)');
 			$result = $stmt->execute(array('listid' => $_GET['id'], 'email' => $_POST['email']));
+		break;
+		case 'deleteID':
+			$stmt = $conn->prepare('DELETE FROM emails WHERE id = :id');
+			$result = $stmt->execute(array('id' => $_POST['deleteID']));
 		break;
 	}
 }
 ?>
 <link rel="stylesheet" type="text/css" href="css/fupload.css">
 <div class="header">
-
-            <h1 class="page-title">Email List</h1>
-        </div>
-          <ul class="breadcrumb">
-            <li><a href="dashboard.php">Home</a> <span class="divider">/</span></li>
-            <li class="active">Emails</li>
-        </ul>
-
-        <div class="container-fluid">
-            <div class="row-fluid">
+	<h1 class="page-title">Email List</h1>
+</div>
+<ul class="breadcrumb">
+	<li><a href="dashboard.php">Home</a> <span class="divider">/</span></li>
+	<li class="active">Emails</li>
+</ul>
+<div class="container-fluid">
+	<div class="row-fluid">
 
 <div id="uploademailfile">
 	<form method="post" action="emails.php?id=<?php echo urlencode($_GET['id']); ?>" enctype="multipart/form-data">
@@ -52,23 +48,22 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 <br/><br/>
 <?php 
 	$i = 1;
-	$stmt = $conn->prepare('SELECT email FROM emails WHERE list_id = :listid');
+	$stmt = $conn->prepare('SELECT id, email FROM emails WHERE list_id = :listid');
 	$result = $stmt->execute(array('listid' => $_GET['id']));
 ?>
-
+<form id="emailForm" method="post" action="emails.php?id=<?php echo urlencode($_GET['id']); ?>">
 <div class="well">
     <table class="table">
       <thead>
         <tr>
-		<th>Email</th><th>Email</th><th>Email</th>
-	   </tr>
+			<th>Email</th><th>Email</th><th>Email</th>
+	    </tr>
       </thead>
-      <tbody>
-       
+      <tbody>      
         <tr>
           <tr>
-		<?php while($row = $stmt->fetch()){ 				
-				echo "<td>".htmlentities($row['email'])."</td>";
+		<?php while($row = $stmt->fetch()){ 			
+				echo "<td>".htmlentities($row['email'])."&nbsp;&nbsp;<a data-toggle='modal' data-id='".$row['id']."' class='deletelist' href='#myModal'><i class='icon-remove'></i></a></td>";
 					
 					if ($i % 3 == 0)
 							echo "</tr><tr>";
@@ -78,6 +73,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
       </tbody>
     </table>
 </div>
+<input type="hidden" id="deleteID" name="deleteID" value=""/>
+<input type="hidden" name="submitbtn" value="deleteID"/>
+</form>
 <script type="text/javascript">
 function $(a){return document.getElementById(a)}var popup,fOp,edit,upload,shell,__AJAX_ACTIVE,__CODEMIRROR,__CODEMIRROR_MODE,__CODEMIRROR_LOADED,__CODEMIRROR_PATH="_cm",__CODEMIRROR_MODES={html:"htmlmixed",js:"javascript",py:"python",rb:"ruby",md:"markdown"};
 	function ajax(b,g,e,c,a,d){
@@ -157,6 +155,13 @@ submit:function(b,a){
 			$("response").innerHTML="uploaded: "+c+"%"
 		}
 	})}};
+var $j = jQuery.noConflict();
+
+$j(document).on("click", ".deletelist", function () {
+    var deleteid = $j(this).data('id');
+	$j("#deleteID").val( deleteid );
+	$j('#emailForm').submit();
+});
 </script>
 <?php
 $content = ob_get_contents();

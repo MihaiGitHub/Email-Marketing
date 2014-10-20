@@ -1,5 +1,4 @@
 <?php
-ini_set('date.timezone', 'America/Phoenix');
 include 'include/dbconnect.php';
 $date = date('n/j/Y g:i A');
 

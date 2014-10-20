@@ -77,36 +77,13 @@ Name Surname'; ?>
                 <td>&nbsp;</td>
                 <td align="right" valign="top"><table width="108" border="0" cellspacing="0" cellpadding="0">
                   <tr>
-                    <td><img src="<?php echo 'http://'.getenv('HTTP_HOST').'/emarketing/images/TechSimple/PROMO-GREEN2_04_01.jpg';
-?>" width="108" height="9" style="display:block" border="0" alt=""/></td>
+                    <td><img src="<?php echo 'http://'.getenv('HTTP_HOST').'/emarketing/images/TechSimple/PROMO-GREEN2_04_01.jpg'; ?>" width="108" height="9" style="display:block" border="0" alt=""/></td>
                   </tr>
                   <tr>
                     <td align="center" valign="middle" bgcolor="#6ebe44"><font style="font-family: Georgia, 'Times New Roman', Times, serif; color:#ffffff; font-size:14px"><em>
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				<a data-toggle="modal" data-id="-5" data-value="" class="editlist" href="#editModal" style="color:#ffffff; text-decoration: underline">click here</a>
-				
-				
-				</em></font>
-				
-				
-				
-				
-
-				
-				
-				</td>
+						<a data-toggle="modal" data-id="-5" data-value="" class="editlist" href="#editModal" style="color:#ffffff; text-decoration: underline">click here</a></em></font>
+					</td>
                   </tr>
-                  
                   <tr>
                     <td height="10" align="center" valign="middle" bgcolor="#6ebe44"> </td>
                   </tr>

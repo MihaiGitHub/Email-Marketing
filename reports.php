@@ -15,8 +15,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 		break;
 	}
 } 
-//$stmt = $conn->prepare('SELECT id, subject FROM campaigns WHERE user_id = :user');
-$stmt = $conn->prepare('SELECT c.id, c.subject, c.sent, l.name FROM campaigns as c, lists as l WHERE c.user_id = :user AND c.list_id = l.id ORDER BY sent');
+$stmt = $conn->prepare('SELECT c.id, c.subject, c.sent, l.name FROM campaigns as c, lists as l WHERE c.user_id = :user AND c.list_id = l.id ORDER BY sent DESC');
 $result = $stmt->execute(array('user' => $_SESSION['id']));
 ?>
 <div class="header">
