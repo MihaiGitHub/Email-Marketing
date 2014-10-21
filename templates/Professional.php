@@ -399,13 +399,10 @@
                                         	<td align="center" valign="top">
                                             	<table border="0" cellpadding="0" cellspacing="0" width="640" class="flexibleContainer">
                                                     <tbody><tr>
-                                                        <td valign="top" class="preheaderContainer tpl-container dojoDndContainer dojoDndSource dojoDndTarget" style="padding-top:10px; padding-bottom:10px" mc:container="preheader_container" mccontainer="preheader_container"><div class="mojoMcContainerEmptyMessage" style="display: none;">Drop Content Blocks Here</div><div class="mojoMcBlock tpl-block dojoDndItem" id="mojo_neapolitan_preview_McBlock_0" widgetid="mojo_neapolitan_preview_McBlock_0" style="display: block;">
-    <div class="editedOverlay" style="display:none" data-dojo-attach-point="editedOverlay">
-        <span data-dojo-attach-point="editType"></span> by: <span class="userName" data-dojo-attach-point="editedBy"></span>
-    </div>
+                                                        <td valign="top" class="preheaderContainer tpl-container dojoDndContainer dojoDndSource dojoDndTarget" style="padding-top:10px; padding-bottom:10px"><div class="mojoMcContainerEmptyMessage" style="display: none;">Drop Content Blocks Here</div><div class="mojoMcBlock tpl-block dojoDndItem" id="mojo_neapolitan_preview_McBlock_0" style="display: block;">
 
     <!-- Content of the block will get inserted inside of this -->
-    <div data-dojo-attach-point="containerNode"><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnTextBlock">
+    <div><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnTextBlock">
     <tbody class="mcnTextBlockOuter">
         <tr>
             <td valign="top" class="mcnTextBlockInner">
@@ -414,18 +411,25 @@
                     <tbody><tr>
                         
                         <td valign="top" class="mcnTextContent" style="padding-top:9px; padding-left:18px; padding-bottom:9px; padding-right:0;">
-                        
-                            Use this area to offer a short preview of your email's content.
+<div class='inline-edit'>
+	<div class='display'><?php echo (array_key_exists(-9, $fields)) ? nl2br($fields[-9]) : 'Use this area to offer a short preview of your email\'s content.'; ?>
+	</div>
+	<div class='form'>
+		<div><div><textarea class='text'></textarea></div></div>
+		<div>
+			<input type='submit' class='save' value=' Save ' />
+			<input type='submit' class='cancel' value=' Cancel ' />
+		</div>
+	</div>
+</div>                       
                         </td>
                     </tr>
                 </tbody></table>
                 
                 <table align="right" border="0" cellpadding="0" cellspacing="0" width="211" class="mcnTextContentContainer">
                     <tbody><tr>
-                        
                         <td valign="top" class="mcnTextContent" style="padding-top:9px; padding-right:18px; padding-bottom:9px; padding-left:0;">
-                        
-                            <a href="*|ARCHIVE|*" target="_blank">View this email in your browser</a>
+                          <!--  <a href="*|ARCHIVE|*" target="_blank">View this email in your browser</a> -->
                         </td>
                     </tr>
                 </tbody></table>
@@ -434,13 +438,6 @@
         </tr>
     </tbody>
 </table></div>
-
-    <div class="tpl-block-controls">
-        <span title="Drag to Reorder" class="tpl-block-drag dojoDndHandle freddicon vellip-square"></span>
-        <a title="Edit Block" href="#" class="tpl-block-edit" data-dojo-attach-point="editBtn"><span class="freddicon edit"></span></a>
-        <a title="Duplicate Block" href="#" class="tpl-block-clone" data-dojo-attach-point="cloneBtn"><span class="freddicon duplicate"></span></a>
-        <a title="Delete Block" href="#" class="tpl-block-delete" data-dojo-attach-point="deleteBtn"><span class="freddicon trash"></span></a>
-    </div>
 </div></td>
                                                     </tr>
                                                 </tbody></table>
@@ -458,7 +455,7 @@
                                                 <table border="0" cellpadding="0" cellspacing="0">
                                                     <tbody><tr>
                                                         <td align="center" valign="top" style="padding-top:18px; padding-right:4px; padding-bottom:18px; padding-left:4px;">
-                                                            <img src="https://gallery.mailchimp.com/27aac8a65e64c994c4416d6b8/images/icon_envelope.png" height="40" width="40" class="predesignedStaticImage" style="border:0; display:block; line-height:100%; outline:none; text-decoration:none;">
+                                                            <img src="<?php echo 'http://'.getenv('HTTP_HOST').'/emarketing/images/Professional/icon_envelope.png'; ?>" height="40" width="40" class="predesignedStaticImage" style="border:0; display:block; line-height:100%; outline:none; text-decoration:none;">
                                                         </td>
                                                     </tr>
                                                 </tbody></table>
@@ -470,23 +467,22 @@
                                                             <!-- BEGIN HEADER // -->
                                                             <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateHeader">
                                                                 <tbody><tr>
-                                                                    <td valign="top" class="headerContainer tpl-container dojoDndSource dojoDndTarget dojoDndContainer" mc:container="header_container" mccontainer="header_container"><div class="mojoMcContainerEmptyMessage" style="display: none;">Drop Content Blocks Here</div><div class="mojoMcBlock tpl-block dojoDndItem" id="mojo_neapolitan_preview_McBlock_1" widgetid="mojo_neapolitan_preview_McBlock_1" style="display: block;">
-    <div class="editedOverlay" style="display:none" data-dojo-attach-point="editedOverlay">
-        <span data-dojo-attach-point="editType"></span> by: <span class="userName" data-dojo-attach-point="editedBy"></span>
-    </div>
+                                                                    <td valign="top" class="headerContainer tpl-container dojoDndSource dojoDndTarget dojoDndContainer"><div class="mojoMcBlock tpl-block dojoDndItem" id="mojo_neapolitan_preview_McBlock_1" style="display: block;">
 
     <!-- Content of the block will get inserted inside of this -->
-    <div data-dojo-attach-point="containerNode"><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnImageBlock">
+    <div><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnImageBlock">
     <tbody class="mcnImageBlockOuter">
             <tr>
                 <td valign="top" style="padding:9px" class="mcnImageBlockInner">
                     <table align="left" width="100%" border="0" cellpadding="0" cellspacing="0" class="mcnImageContentContainer">
                         <tbody><tr>
                             <td class="mcnImageContent" valign="top" style="padding-right: 9px; padding-left: 9px; padding-top: 0; padding-bottom: 0;">
-                                
-                                    
-                                        <img align="left" alt="" src="http://gallery.mailchimp.com/27aac8a65e64c994c4416d6b8/images/logo_generitech.png" width="233" style="max-width:233px; padding-bottom: 0; display: inline !important; vertical-align: bottom;" class="mcnImage blockDropTarget" id="mojo_neapolitan_preview_ImageUploader_0" widgetid="mojo_neapolitan_preview_ImageUploader_0">
-                                    
+<a href="#" title="Upload Picture" onclick="upload.init('<?php echo -5; ?>', <?php echo 4097152; ?>); return false;">
+<img width="233" style="max-width:233px; padding-bottom: 0; display: inline !important; vertical-align: bottom;" class="mcnImage blockDropTarget" id="mojo_neapolitan_preview_ImageUploader_0" src="<?php echo (array_key_exists(-5, $fields)) ? 'files/'.$fields[-5] : '/emarketing/images/Professional/pro_logo.png'; ?>" alt="Image" />
+</a>
+   <!--                            
+<img align="left" alt="" src="http://gallery.mailchimp.com/27aac8a65e64c994c4416d6b8/images/logo_generitech.png" width="233" style="max-width:233px; padding-bottom: 0; display: inline !important; vertical-align: bottom;" class="mcnImage blockDropTarget" id="mojo_neapolitan_preview_ImageUploader_0">
+    -->                                
                                 
                             </td>
                         </tr>
@@ -495,13 +491,6 @@
             </tr>
     </tbody>
 </table></div>
-
-    <div class="tpl-block-controls">
-        <span title="Drag to Reorder" class="tpl-block-drag dojoDndHandle freddicon vellip-square"></span>
-        <a title="Edit Block" href="#" class="tpl-block-edit" data-dojo-attach-point="editBtn"><span class="freddicon edit"></span></a>
-        <a title="Duplicate Block" href="#" class="tpl-block-clone" data-dojo-attach-point="cloneBtn"><span class="freddicon duplicate"></span></a>
-        <a title="Delete Block" href="#" class="tpl-block-delete" data-dojo-attach-point="deleteBtn"><span class="freddicon trash"></span></a>
-    </div>
 </div></td>
                                                                 </tr>
                                                             </tbody></table>
@@ -513,85 +502,7 @@
                                                             <!-- BEGIN BODY // -->
                                                             <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateBody">
                                                                 <tbody><tr>
-                                                                    <td valign="top" class="bodyContainer tpl-container dojoDndSource dojoDndTarget dojoDndContainer" mc:container="body_container" mccontainer="body_container"><div class="mojoMcContainerEmptyMessage" style="display: none;">Drop Content Blocks Here</div><div class="mojoMcBlock tpl-block dojoDndItem" id="mojo_neapolitan_preview_McBlock_2" widgetid="mojo_neapolitan_preview_McBlock_2" style="display: block;">
-    <div class="editedOverlay" style="display:none" data-dojo-attach-point="editedOverlay">
-        <span data-dojo-attach-point="editType"></span> by: <span class="userName" data-dojo-attach-point="editedBy"></span>
-    </div>
-
-    <!-- Content of the block will get inserted inside of this -->
-    <div data-dojo-attach-point="containerNode"><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnTextBlock">
-    <tbody class="mcnTextBlockOuter">
-        <tr>
-            <td valign="top" class="mcnTextBlockInner">
-                
-                <table align="left" border="0" cellpadding="0" cellspacing="0" width="571" class="mcnTextContentContainer">
-                    <tbody><tr>
-                        
-                        <td valign="top" class="mcnTextContent" style="padding-top:9px; padding-right: 18px; padding-bottom: 9px; padding-left: 18px;">
-                        
-                            <h1>A Letter From The President</h1>
-                        </td>
-                    </tr>
-                </tbody></table>
-                
-            </td>
-        </tr>
-    </tbody>
-</table></div>
-
-    <div class="tpl-block-controls">
-        <span title="Drag to Reorder" class="tpl-block-drag dojoDndHandle freddicon vellip-square"></span>
-        <a title="Edit Block" href="#" class="tpl-block-edit" data-dojo-attach-point="editBtn"><span class="freddicon edit"></span></a>
-        <a title="Duplicate Block" href="#" class="tpl-block-clone" data-dojo-attach-point="cloneBtn"><span class="freddicon duplicate"></span></a>
-        <a title="Delete Block" href="#" class="tpl-block-delete" data-dojo-attach-point="deleteBtn"><span class="freddicon trash"></span></a>
-    </div>
-</div><div class="mojoMcBlock tpl-block dojoDndItem" id="mojo_neapolitan_preview_McBlock_3" widgetid="mojo_neapolitan_preview_McBlock_3" style="display: block;">
-    <div class="editedOverlay" style="display:none" data-dojo-attach-point="editedOverlay">
-        <span data-dojo-attach-point="editType"></span> by: <span class="userName" data-dojo-attach-point="editedBy"></span>
-    </div>
-
-    <!-- Content of the block will get inserted inside of this -->
-    <div data-dojo-attach-point="containerNode"><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnTextBlock">
-    <tbody class="mcnTextBlockOuter">
-        <tr>
-            <td valign="top" class="mcnTextBlockInner">
-                
-                <table align="left" border="0" cellpadding="0" cellspacing="0" width="571" class="mcnTextContentContainer">
-                    <tbody><tr>
-                        
-                        <td valign="top" class="mcnTextContent" style="padding-top:9px; padding-right: 18px; padding-bottom: 9px; padding-left: 18px;">
-                        
-                            <strong>Dear Generitech Customers</strong>,<br><br>As the year comes to a close, I'd like to take the opportunity to thank you, Generitech's loyal supporters, for your continued commitment to experiencing the difference with our powerful products and solutions.<br><br>I've learned a lot from your feedback this year, and from the countless surveys and polls Generitech has conducted. I've learned that you're leaders in your industries. Your innovation is both groundbreaking and wave-making. I've learned that streamlining your company's communication efforts is your #1 priority.<br><br>I hope that our tools and solutions have improved the way you do business this year. I hope that our around-the-clock support team has impressed you with their knowledge and friendliness. I hope that your company's messaging and support streams improved when you partnered with Generitech. I hope that you've taken advantage of our Leadership Summits, Tools Expos and free whitepapers. If not, I hope you'll get involved in the new year, and I look forward to hearing your feedback.<br><br>Follow us on Twitter at <a href="#">@generitech</a>, and let us know how we're doing.<br><br>Thanks for a great year.<br><br><br>Sincerely,<br><br>Gary Terry<br><em>President, Generitech Solutions</em><br><br>
-                        </td>
-                    </tr>
-                </tbody></table>
-                
-            </td>
-        </tr>
-    </tbody>
-</table></div>
-
-    <div class="tpl-block-controls">
-        <span title="Drag to Reorder" class="tpl-block-drag dojoDndHandle freddicon vellip-square"></span>
-        <a title="Edit Block" href="#" class="tpl-block-edit" data-dojo-attach-point="editBtn"><span class="freddicon edit"></span></a>
-        <a title="Duplicate Block" href="#" class="tpl-block-clone" data-dojo-attach-point="cloneBtn"><span class="freddicon duplicate"></span></a>
-        <a title="Delete Block" href="#" class="tpl-block-delete" data-dojo-attach-point="deleteBtn"><span class="freddicon trash"></span></a>
-    </div>
-</div></td>
-                                                                </tr>
-                                                            </tbody></table>
-                                                            <!-- // END BODY -->
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td align="center" valign="top">
-                                                            <!-- BEGIN FOOTER // -->
-                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateFooter">
-                                                                <tbody><tr>
-                                                                    <td valign="top" class="footerContainer tpl-container dojoDndContainer dojoDndSource dojoDndTarget" mc:container="footer_container" style="padding-bottom:9px;" mccontainer="footer_container"><div class="mojoMcContainerEmptyMessage" style="display: none;">Drop Content Blocks Here</div><div class="mojoMcBlock tpl-block dojoDndItem" id="mojo_neapolitan_preview_McBlock_4" widgetid="mojo_neapolitan_preview_McBlock_4" style="display: block;">
-    <div class="editedOverlay" style="display:none" data-dojo-attach-point="editedOverlay">
-        <span data-dojo-attach-point="editType"></span> 777by: <span class="userName"></span>
-    </div>
+                                                                    <td valign="top" class="bodyContainer tpl-container dojoDndSource dojoDndTarget dojoDndContainer"><div class="mojoMcBlock tpl-block dojoDndItem" id="mojo_neapolitan_preview_McBlock_2" style="display: block;">
 
     <!-- Content of the block will get inserted inside of this -->
     <div><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnTextBlock">
@@ -603,19 +514,17 @@
                     <tbody><tr>
                         
                         <td valign="top" class="mcnTextContent" style="padding-top:9px; padding-right: 18px; padding-bottom: 9px; padding-left: 18px;">
-                        
-                            <em>Copyright © 2014 Ramada Investments LLC, All rights reserved.</em>
-<br>
-    <br>
-    <br>
-    <strong>Our mailing address is:</strong>
-    <br>
-    <br>
-    <br>
-    <a href="#" class="utilityLink">unsubscribe from this list</a>&nbsp;&nbsp;&nbsp;
-    <br>
-    <br>
- 
+<div class='inline-edit'>
+	<div class='display'><?php echo (array_key_exists(-8, $fields)) ? nl2br($fields[-8]) : '<h1>A Letter From The President</h1>'; ?>
+	</div>
+	<div class='form'>
+		<div><div><textarea class='text'></textarea></div></div>
+		<div>
+			<input type='submit' class='save' value=' Save ' />
+			<input type='submit' class='cancel' value=' Cancel ' />
+		</div>
+	</div>
+</div>                       
                         </td>
                     </tr>
                 </tbody></table>
@@ -624,8 +533,79 @@
         </tr>
     </tbody>
 </table></div>
+</div><div class="mojoMcBlock tpl-block dojoDndItem" id="mojo_neapolitan_preview_McBlock_3" style="display: block;">
 
+    <!-- Content of the block will get inserted inside of this -->
+    <div><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnTextBlock">
+    <tbody class="mcnTextBlockOuter">
+        <tr>
+            <td valign="top" class="mcnTextBlockInner"> 
+                <table align="left" border="0" cellpadding="0" cellspacing="0" width="571" class="mcnTextContentContainer">
+                    <tbody><tr>
+                        <td valign="top" class="mcnTextContent" style="padding-top:9px; padding-right: 18px; padding-bottom: 9px; padding-left: 18px;">
+<div class='inline-edit'>
+	<div class='display'><?php echo (array_key_exists(-7, $fields)) ? nl2br($fields[-7]) : '<strong>Dear Generitech Customers</strong>,<br><br>As the year comes to a close, I\'d like to take the opportunity to thank you, Generitech\'s loyal supporters, for your continued commitment to experiencing the difference with our powerful products and solutions.<br><br>I\'ve learned a lot from your feedback this year, and from the countless surveys and polls Generitech has conducted. I\'ve learned that you\'re leaders in your industries. Your innovation is both groundbreaking and wave-making. I\'ve learned that streamlining your company\'s communication efforts is your #1 priority.<br><br>I hope that our tools and solutions have improved the way you do business this year. I hope that our around-the-clock support team has impressed you with their knowledge and friendliness. I hope that your company\'s messaging and support streams improved when you partnered with Generitech. I hope that you\'ve taken advantage of our Leadership Summits, Tools Expos and free whitepapers. If not, I hope you\'ll get involved in the new year, and I look forward to hearing your feedback.<br><br>Follow us on Twitter at <a href="#">@generitech</a>, and let us know how we\'re doing.<br><br>Thanks for a great year.<br><br><br>Sincerely,<br><br>Gary Terry<br><em>President, Generitech Solutions</em><br><br>'; ?>
+	</div>
+	<div class='form'>
+		<div><div><textarea class='text'></textarea></div></div>
+		<div>
+			<input type='submit' class='save' value=' Save ' />
+			<input type='submit' class='cancel' value=' Cancel ' />
+		</div>
+	</div>
+</div>                        
+                        </td>
+                    </tr>
+                </tbody></table>
+            </td>
+        </tr>
+    </tbody>
+</table></div>
+</div></td>
+                                                                </tr>
+                                                            </tbody></table>
+                                                            <!-- // END BODY -->
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center" valign="top">
+                                                            <!-- BEGIN FOOTER // -->
+                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateFooter">
+                                                                <tbody><tr>
+                                                                    <td valign="top" class="footerContainer tpl-container dojoDndContainer dojoDndSource dojoDndTarget" style="padding-bottom:9px;"><div class="mojoMcBlock tpl-block dojoDndItem" id="mojo_neapolitan_preview_McBlock_4" style="display: block;">
 
+    <!-- Content of the block will get inserted inside of this -->
+    <div><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnTextBlock">
+    <tbody class="mcnTextBlockOuter">
+        <tr>
+            <td valign="top" class="mcnTextBlockInner">
+                <table align="left" border="0" cellpadding="0" cellspacing="0" width="571" class="mcnTextContentContainer">
+                    <tbody><tr>                
+                        <td valign="top" class="mcnTextContent" style="padding-top:9px; padding-right: 18px; padding-bottom: 9px; padding-left: 18px;">
+<div class='inline-edit'>
+	<div class='display'><?php echo (array_key_exists(-6, $fields)) ? nl2br($fields[-6]) : '<em>Copyright © 2014 Ramada Investments LLC, All rights reserved.</em>'; ?>
+	</div>
+	<div class='form'>
+		<div><div><textarea class='text'></textarea></div></div>
+		<div>
+			<input type='submit' class='save' value=' Save ' />
+			<input type='submit' class='cancel' value=' Cancel ' />
+		</div>
+	</div>
+</div>                       
+<br>
+    <br>
+    <a href="#" class="utilityLink">unsubscribe from this list</a>&nbsp;&nbsp;&nbsp;
+    <br>
+    <br>
+ 
+                        </td>
+                    </tr>
+                </tbody></table>
+            </td>
+        </tr>
+    </tbody>
+</table></div>
 </div></td>
                                                                 </tr>
                                                             </tbody></table>

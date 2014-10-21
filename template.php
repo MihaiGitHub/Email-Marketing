@@ -205,7 +205,7 @@ while($rowattach = $attachments->fetch()){
 						$patterns['FOOTER'] = '/FOOTER/';
 						$replacements['FOOTER'] = $rowfields['value'];
 					break;
-					default:
+					default: // For sending the demo fields - could place the demo fields in the database and check if field is empty use them (another column next to the user inputed value in db)
 						$patterns[$rowfields['field']] = '/FIELD'.$rowfields['field'].'/';
 						$replacements[$rowfields['field']] = nl2br($rowfields['value']);
 				}

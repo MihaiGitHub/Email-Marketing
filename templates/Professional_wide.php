@@ -391,7 +391,17 @@
                 <table align="left" border="0" cellpadding="0" cellspacing="0" width="392" class="mcnTextContentContainer">
                     <tbody><tr>
                         <td valign="top" class="mcnTextContent" style="padding-top:9px; padding-left:18px; padding-bottom:9px; padding-right:0;">
-                            Use this area to offer a short preview of your email's content.
+<div class='inline-edit'>
+	<div class='display'><?php echo (array_key_exists(-9, $fields)) ? nl2br($fields[-9]) : 'Use this area to offer a short preview of your email\'s content.'; ?>
+	</div>
+	<div class='form'>
+		<div><div><textarea class='text'></textarea></div></div>
+		<div>
+			<input type='submit' class='save' value=' Save ' />
+			<input type='submit' class='cancel' value=' Cancel ' />
+		</div>
+	</div>
+</div>
                         </td>
                     </tr>
                 </tbody></table>
@@ -434,8 +444,13 @@
                     <table align="left" width="100%" border="0" cellpadding="0" cellspacing="0" class="mcnImageContentContainer">
                         <tbody><tr>
                             <td class="mcnImageContent" valign="top" style="padding-right: 9px; padding-left: 9px; padding-top: 0; padding-bottom: 0; text-align:center;">
-                                <img align="center" alt="" src="http://gallery.mailchimp.com/27aac8a65e64c994c4416d6b8/images/generitech_black_vertical_125.png" width="125" style="max-width:125px; padding-bottom: 0; display: inline !important; vertical-align: bottom;" class="mcnImage blockDropTarget" id="mojo_neapolitan_preview_ImageUploader_0">
-                            </td>
+<a href="#" title="Upload Picture" onclick="upload.init('<?php echo -4; ?>', <?php echo 4097152; ?>); return false;">
+<img width="125" style="max-width:125px; padding-bottom: 0; display: inline !important; vertical-align: bottom;" class="mcnImage blockDropTarget" id="mojo_neapolitan_preview_ImageUploader_0" src="<?php echo (array_key_exists(-4, $fields)) ? 'files/'.$fields[-4] : '/emarketing/images/Professional_wide/pro_wide.png'; ?>" alt="Image" />
+</a>    
+<!--                            
+<img align="center" alt="" src="http://gallery.mailchimp.com/27aac8a65e64c994c4416d6b8/images/generitech_black_vertical_125.png" width="125" style="max-width:125px; padding-bottom: 0; display: inline !important; vertical-align: bottom;" class="mcnImage blockDropTarget" id="mojo_neapolitan_preview_ImageUploader_0">
+-->                            
+							</td>
                         </tr>
                     </tbody></table>
                 </td>
@@ -452,7 +467,17 @@
                     <tbody><tr>
                         
                         <td valign="top" class="mcnTextContent" style="padding-top:9px; padding-right: 18px; padding-bottom: 9px; padding-left: 18px;">
-                            <br><h1>A Letter From The President</h1>
+<div class='inline-edit'>
+	<div class='display'><?php echo (array_key_exists(-8, $fields)) ? nl2br($fields[-8]) : '<br><h1>A Letter From The President</h1>'; ?>
+	</div>
+	<div class='form'>
+		<div><div><textarea class='text'></textarea></div></div>
+		<div>
+			<input type='submit' class='save' value=' Save ' />
+			<input type='submit' class='cancel' value=' Cancel ' />
+		</div>
+	</div>
+</div>
                         </td>
                     </tr>
                 </tbody></table>               
@@ -486,8 +511,18 @@
             <td valign="top" class="mcnTextBlockInner">       
                 <table align="left" border="0" cellpadding="0" cellspacing="0" width="640" class="mcnTextContentContainer">
                     <tbody><tr>      
-                        <td valign="top" class="mcnTextContent" style="padding-top:9px; padding-right: 18px; padding-bottom: 9px; padding-left: 18px;">                      
-                            <h3>Dear Generitech Customers,</h3>
+                        <td valign="top" class="mcnTextContent" style="padding-top:9px; padding-right: 18px; padding-bottom: 9px; padding-left: 18px;">  
+<div class='inline-edit'>
+	<div class='display'><?php echo (array_key_exists(-7, $fields)) ? nl2br($fields[-7]) : '<h3>Dear Generitech Customers,</h3>'; ?>
+	</div>
+	<div class='form'>
+		<div><div><textarea class='text'></textarea></div></div>
+		<div>
+			<input type='submit' class='save' value=' Save ' />
+			<input type='submit' class='cancel' value=' Cancel ' />
+		</div>
+	</div>
+</div>						
                         </td>
                     </tr>
                 </tbody></table>    
@@ -497,7 +532,7 @@
 </table></div>
 </div><div class="mojoMcBlock tpl-block dojoDndItem dojoDndItemOver" id="mojo_neapolitan_preview_McBlock_4" style="display: block;">
     <!-- Content of the block will get inserted inside of this -->
-    <div data-dojo-attach-point="containerNode"><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnTextBlock">
+    <div><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnTextBlock">
     <tbody class="mcnTextBlockOuter">
         <tr>
             <td valign="top" class="mcnTextBlockInner">
@@ -505,7 +540,17 @@
                 <table align="left" border="0" cellpadding="0" cellspacing="0" width="640" class="mcnTextContentContainer">
                     <tbody><tr>
                         <td valign="top" class="mcnTextContent" style="padding-top:9px; padding-right: 18px; padding-bottom: 9px; padding-left: 18px;">
-                            As the year comes to a close, I'd like to take the opportunity to thank you, Generitech's loyal supporters, for your continued commitment to experiencing the difference with our powerful products and solutions.<br><br>I've learned a lot from your feedback this year, and from the countless surveys and polls Generitech has conducted. I've learned that you're leaders in your industries. Your innovation is both groundbreaking and wave-making. I've learned that streamlining your company's communication efforts is your #1 priority.<br><br>I hope that our tools and solutions have improved the way you do business this year. I hope that our around-the-clock support team has impressed you with their knowledge and friendliness. I hope that your company's messaging and support streams improved when you partnered with Generitech. I hope that you've taken advantage of our Leadership Summits, Tools Expos and free whitepapers. If not, I hope you'll get involved in the new year, and I look forward to hearing your feedback.<br><br>Follow us on Twitter at <a href="#">@genitech</a>, and let us know how we're doing.<br><br>Thanks for a great year.<br><br><br>Sincerely,<br><br>Gary Terry<br><em>President, Generitech Solutions</em><br><br>
+<div class='inline-edit'>
+	<div class='display'><?php echo (array_key_exists(-6, $fields)) ? nl2br($fields[-6]) : 'As the year comes to a close, I\'d like to take the opportunity to thank you, Generitech\'s loyal supporters, for your continued commitment to experiencing the difference with our powerful products and solutions.<br><br>I\'ve learned a lot from your feedback this year, and from the countless surveys and polls Generitech has conducted. I\'ve learned that you\'re leaders in your industries. Your innovation is both groundbreaking and wave-making. I\'ve learned that streamlining your company\'s communication efforts is your #1 priority.<br><br>I hope that our tools and solutions have improved the way you do business this year. I hope that our around-the-clock support team has impressed you with their knowledge and friendliness. I hope that your company\'s messaging and support streams improved when you partnered with Generitech. I hope that you\'ve taken advantage of our Leadership Summits, Tools Expos and free whitepapers. If not, I hope you\'ll get involved in the new year, and I look forward to hearing your feedback.<br><br>Follow us on Twitter at <a href="#">@genitech</a>, and let us know how we\'re doing.<br><br>Thanks for a great year.<br><br><br>Sincerely,<br><br>Gary Terry<br><em>President, Generitech Solutions</em><br><br>'; ?>
+	</div>
+	<div class='form'>
+		<div><div><textarea class='text'></textarea></div></div>
+		<div>
+			<input type='submit' class='save' value=' Save ' />
+			<input type='submit' class='cancel' value=' Cancel ' />
+		</div>
+	</div>
+</div>						                            
                         </td>
                     </tr>
                 </tbody></table>
@@ -554,14 +599,21 @@
     <div><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnTextBlock">
     <tbody class="mcnTextBlockOuter">
         <tr>
-            <td valign="top" class="mcnTextBlockInner">
-                
+            <td valign="top" class="mcnTextBlockInner">               
                 <table align="left" border="0" cellpadding="0" cellspacing="0" width="640" class="mcnTextContentContainer">
-                    <tbody><tr>
-                        
+                    <tbody><tr>                  
                         <td valign="top" class="mcnTextContent" style="padding-top:9px; padding-right: 18px; padding-bottom: 9px; padding-left: 18px;">
-                        
-                            <em>Copyright © 2014 TemplarIT, All rights reserved.</em>
+<div class='inline-edit'>
+	<div class='display'><?php echo (array_key_exists(-5, $fields)) ? nl2br($fields[-5]) : '<em>Copyright © 2014 TemplarIT, All rights reserved.</em>'; ?>
+	</div>
+	<div class='form'>
+		<div><div><textarea class='text'></textarea></div></div>
+		<div>
+			<input type='submit' class='save' value=' Save ' />
+			<input type='submit' class='cancel' value=' Cancel ' />
+		</div>
+	</div>
+</div>                       
 <br>
     <br>
     <br>
@@ -570,13 +622,11 @@
     <br>
                         </td>
                     </tr>
-                </tbody></table>
-                
+                </tbody></table> 
             </td>
         </tr>
     </tbody>
 </table></div>
-
 </div></td>
                                                     </tr>
                                                 </tbody></table>
