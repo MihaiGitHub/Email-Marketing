@@ -447,9 +447,6 @@
 <a href="#" title="Upload Picture" onclick="upload.init('<?php echo -4; ?>', <?php echo 4097152; ?>); return false;">
 <img width="125" style="max-width:125px; padding-bottom: 0; display: inline !important; vertical-align: bottom;" class="mcnImage blockDropTarget" id="mojo_neapolitan_preview_ImageUploader_0" src="<?php echo (array_key_exists(-4, $fields)) ? 'files/'.$fields[-4] : '/emarketing/images/Professional_wide/pro_wide.png'; ?>" alt="Image" />
 </a>    
-<!--                            
-<img align="center" alt="" src="http://gallery.mailchimp.com/27aac8a65e64c994c4416d6b8/images/generitech_black_vertical_125.png" width="125" style="max-width:125px; padding-bottom: 0; display: inline !important; vertical-align: bottom;" class="mcnImage blockDropTarget" id="mojo_neapolitan_preview_ImageUploader_0">
--->                            
 							</td>
                         </tr>
                     </tbody></table>
