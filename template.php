@@ -369,15 +369,15 @@ $result = $stmt->execute(array('userid' => $_SESSION['id'], 'templateid' => $_GE
 while($row = $stmt->fetch()){
 	$fields[$row['field']] = $row['value'];	
 }
-		
+	
 switch ($trow['name']){
-	case 'Newsletter':
+	case 'Elegant Email':
 		include 'templates/Newsletter.php';
 	break;
-	case 'Basic':
+	case 'Simple Text':
 		include 'templates/Basic.php';
 	break;
-	case 'Real Estate':
+	case 'Featured Homes':
 		include 'templates/RealEstate.php';
 	break;
 	case 'Tech Simple':
@@ -392,7 +392,7 @@ switch ($trow['name']){
 	case 'Professional':
 		include 'templates/Professional.php';
 	break;
-	case 'Professional_wide':
+	case 'Professional Wide':
 		include 'templates/Professional_wide.php';
 	break;
 }

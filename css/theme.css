@@ -810,10 +810,35 @@ table.table.list tr:first-child td {
 .row-fluid {
 	margin-bottom:50px;
 }
-/* for template pictures */
+/* for templates gridview */
 #templates button {
 	width:135px;
 	height:169px;
 	background-color:#FFF;
 	margin:15px;
+}
+#templates .template {
+	border: 1px solid #e0e0e0;
+	border-radius:5px;
+	width:327px;
+	text-align:left;
+	float:left;
+	margin-top:40px;
+	margin-right:20px;
+	position:relative;
+	color: #595959;
+}
+#templates .template .template-text {
+	position:absolute;
+	top:14px;
+	right:0px;
+	text-align:left;
+	width:160px;
+}
+#templates .template .template-text div:first-child{
+	font-size:17px;
+}
+#templates .template .template-text div.body{
+	font-size:13px;
+	opacity: .8;
 }
