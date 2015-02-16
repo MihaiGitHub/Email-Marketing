@@ -1,0 +1,10 @@
+<?php
+# FileName="Connection_php_mysql.htm"
+# Type="MYSQL"
+# HTTP="true"
+$hostname_connDB = "sandbox.angelleye.com";
+$database_connDB = "paypal_ipn";
+$username_connDB = "clients";
+$password_connDB = "passw0rd";
+$connDB = mysql_pconnect($hostname_connDB, $username_connDB, $password_connDB) or trigger_error(mysql_error(),E_USER_ERROR); 
+?>
