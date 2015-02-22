@@ -31,7 +31,7 @@ $result = $stmt->execute(array('user' => $_SESSION['id']));
             <h1 class="page-title">Email Lists</h1>
         </div>
           <ul class="breadcrumb">
-            <li><a href="dashboard.php">Home</a><span class="divider">/</span></li>
+            <li><a href="lists.php">Lists</a><span class="divider">/</span></li>
             <li class="active">Email Lists</li>
         </ul>
 

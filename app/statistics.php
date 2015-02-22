@@ -36,11 +36,11 @@ if($count > 0){
 ?>
  <div class="header">
 
-            <h1 class="page-title">Statistics</h1>
+            <h1 class="page-title">Campaign Statistics</h1>
         </div>
           <ul class="breadcrumb">
-            <li><a href="dashboard.php">Home</a> <span class="divider">/</span></li>
-            <li class="active">Statistics</li>
+            <li><a href="reports.php">Reports</a> <span class="divider">/</span></li>
+            <li class="active">Campaign Statistics</li>
         </ul>
 
         <div class="container-fluid">

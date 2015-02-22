@@ -448,7 +448,7 @@
                                                 <table border="0" cellpadding="0" cellspacing="0">
                                                     <tbody><tr>
                                                         <td align="center" valign="top" style="padding-top:18px; padding-right:4px; padding-bottom:18px; padding-left:4px;">
-                                                            <img src="https://gallery.mailchimp.com/27aac8a65e64c994c4416d6b8/images/icon_envelope.png" height="40" width="40" class="predesignedStaticImage" style="border:0; display:block; line-height:100%; outline:none; text-decoration:none;">
+                                                            <img src="../app/images/icon_envelope.png" height="40" width="40" class="predesignedStaticImage" style="border:0; display:block; line-height:100%; outline:none; text-decoration:none;">
                                                         </td>
                                                     </tr>
                                                 </tbody></table>
@@ -473,7 +473,7 @@
                             <td class="mcnImageContent" valign="top" style="padding-right: 9px; padding-left: 9px; padding-top: 0; padding-bottom: 0;">
                                 
                                     
-                                        <img align="left" alt="" src="http://gallery.mailchimp.com/27aac8a65e64c994c4416d6b8/images/logo_generitech.png" width="233" style="max-width:233px; padding-bottom: 0; display: inline !important; vertical-align: bottom;" class="mcnImage blockDropTarget" id="mojo_neapolitan_preview_ImageUploader_0" widgetid="mojo_neapolitan_preview_ImageUploader_0">
+                                        <img align="left" alt="" src="../app/images/logo_generitech.png" width="233" style="max-width:233px; padding-bottom: 0; display: inline !important; vertical-align: bottom;" class="mcnImage blockDropTarget" id="mojo_neapolitan_preview_ImageUploader_0" widgetid="mojo_neapolitan_preview_ImageUploader_0">
                                     
                                 
                             </td>

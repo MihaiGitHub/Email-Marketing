@@ -17,7 +17,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['type'] != 'all'){
 </div>
 <ul class="breadcrumb">
 	<li><a href="dashboard.php">Home</a> <span class="divider">/</span></li>
-	<li class="active">Email Templates</li>
+	<li class="active">Templates</li>
 </ul>
 <div class="container-fluid">
     <div class="row-fluid">
@@ -49,7 +49,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['type'] != 'all'){
 				
 <?php while($row = $stmt->fetch()){ ?>
 	<div class="template">
-		<button type="button" onclick="window.location = 'template.php?id=<?php echo $row['id']; ?>'"><img src="/emarketing/images/<?php echo $row['picture']; ?>"></button>
+		<button type="button" onclick="window.location = 'template.php?id=<?php echo $row['id']; ?>'"><img src="../app/images/<?php echo $row['picture']; ?>"></button>
 	
 		<div class="template-text">
 		    <div><?php echo $row['name']; ?></div> 

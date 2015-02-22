@@ -455,7 +455,7 @@
                                                 <table border="0" cellpadding="0" cellspacing="0">
                                                     <tbody><tr>
                                                         <td align="center" valign="top" style="padding-top:18px; padding-right:4px; padding-bottom:18px; padding-left:4px;">
-                                                            <img src="<?php echo 'http://'.getenv('HTTP_HOST').'/emarketing/images/Professional/icon_envelope.png'; ?>" height="40" width="40" class="predesignedStaticImage" style="border:0; display:block; line-height:100%; outline:none; text-decoration:none;">
+                                                            <img src="../app/images/Professional/icon_envelope.png" height="40" width="40" class="predesignedStaticImage" style="border:0; display:block; line-height:100%; outline:none; text-decoration:none;">
                                                         </td>
                                                     </tr>
                                                 </tbody></table>
@@ -478,7 +478,7 @@
                         <tbody><tr>
                             <td class="mcnImageContent" valign="top" style="padding-right: 9px; padding-left: 9px; padding-top: 0; padding-bottom: 0;">
 <a href="#" title="Upload Picture" onclick="upload.init('<?php echo -5; ?>', <?php echo 4097152; ?>); return false;">
-<img width="233" style="max-width:233px; padding-bottom: 0; display: inline !important; vertical-align: bottom;" class="mcnImage blockDropTarget" id="mojo_neapolitan_preview_ImageUploader_0" src="<?php echo (array_key_exists(-5, $fields)) ? 'files/'.$fields[-5] : '/emarketing/images/Professional/pro_logo.png'; ?>" alt="Image" />
+<img width="233" style="max-width:233px; padding-bottom: 0; display: inline !important; vertical-align: bottom;" class="mcnImage blockDropTarget" id="mojo_neapolitan_preview_ImageUploader_0" src="<?php echo (array_key_exists(-5, $fields)) ? 'files/'.$fields[-5] : '../app/images/Professional/pro_logo.png'; ?>" alt="Image" />
 </a>
                                 
                             </td>

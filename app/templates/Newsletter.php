@@ -1,4 +1,4 @@
-﻿<table cellspacing="0" border="1" style="background-image: url(images/bg.gif); background-color: #c5c5c5;" cellpadding="0" width="100%">
+﻿<table cellspacing="0" border="1" style="background-image: url(../app/images/bg.gif); background-color: #c5c5c5;" cellpadding="0" width="100%">
 	<tr>
 		<td valign="top">
 			<table cellspacing="0" border="0" align="center" style="background: #fff; border-right: 1px solid #ccc; border-left: 1px solid #ccc;" cellpadding="0" width="650">
@@ -34,7 +34,7 @@ newsletter update
 								</td>
 								<td class="header-bar" valign="top" style="color: #999; font-family: Verdana; font-size: 10px; text-transform: uppercase; padding: 0 20px; height: 15px; text-align: right;" width="200">
 <a data-toggle="modal" data-id="9" data-value="" class="editlist" href="#editModal" style="text-decoration: none; color: #fff;">
-	<img src="<?php echo 'http://'.getenv('HTTP_HOST').'/emarketing/images/facebook.png'; ?>" style="width:25px;height:25px;" alt="facebook" />
+	<img src="<?php echo '../app/images/facebook.png'; ?>" style="width:25px;height:25px;" alt="facebook" />
 </a> 
 								</td>
 							</tr>
@@ -67,7 +67,7 @@ newsletter update
 	<div class='display'>
 		<div class="list" style="color: #cc0000; text-transform: uppercase; font-family: Verdana; font-size: 11px; text-decoration: none;">
 			<strong class="subtitle" style="display: block; font-size: 11px; font-family: Verdana; text-transform: uppercase; margin: 0 0 10px 0;">
-			<?php echo (array_key_exists(-8, $fields)) ? $fields[-8] : '<img src="images/bullet.gif" alt="" style="border: 0;" />something awesome<br/><img src="images/bullet.gif" alt="" style="border: 0;" />a kind of cool thing<br/><img src="images/bullet.gif" alt="" style="border: 0;" />an even more awesome thing<br/><img src="images/bullet.gif" alt="" style="border: 0;" />the weekly joke'; ?>
+			<?php echo (array_key_exists(-8, $fields)) ? $fields[-8] : '<img src="../app/images/bullet.gif" alt="" style="border: 0;" />something awesome<br/><img src="../app/images/bullet.gif" alt="" style="border: 0;" />a kind of cool thing<br/><img src="../app/images/bullet.gif" alt="" style="border: 0;" />an even more awesome thing<br/><img src="../app/images/bullet.gif" alt="" style="border: 0;" />the weekly joke'; ?>
 			</strong>
 		</div>
 	</div>
@@ -240,7 +240,7 @@ newsletter update
 										<tr>
 											<td class="image" valign="top" style="padding: 10px 20px;" colspan="2">
 <a href="#" title="Upload Picture" onclick="upload.init('<?php echo 7; ?>', <?php echo 4097152; ?>); return false;">
-<img style="width:311px;height:179px;" src="<?php echo (array_key_exists(7, $fields)) ? 'files/'.$fields[7] : 'images/image3.jpg'; ?>" alt="Image" style="border: 0; display: block;" />
+<img style="width:311px;height:179px;" src="<?php echo (array_key_exists(7, $fields)) ? 'files/'.$fields[7] : '../app/images/image3.jpg'; ?>" alt="Image" style="border: 0; display: block;" />
 </a>
 												<br /><br />
 											</td>
@@ -304,7 +304,7 @@ newsletter update
 													<tr>
 														<td class="floated-copy" valign="top" style="padding: 0 20px 20px 20px; color: #000; font-size: 14px; font-family: Georgia; line-height: 20px;" width="350">
 <a href="#" title="Upload Picture" onclick="upload.init('<?php echo 6; ?>', <?php echo 4097152; ?>); return false;">
-<img style="margin-right:3px;width:160px;height:199px;" src="<?php echo (array_key_exists(6, $fields)) ? 'files/'.$fields[6] : 'images/image2.jpg'; ?>" alt="Image" style="border: 0; " align="left" />
+<img style="margin-right:3px;width:160px;height:199px;" src="<?php echo (array_key_exists(6, $fields)) ? '../app/files/'.$fields[6] : '../app/images/image2.jpg'; ?>" alt="Image" style="border: 0; " align="left" />
 </a>													
 <div class='inline-edit'>
 	<div class='display'><?php echo (array_key_exists(4, $fields)) ? $fields[4] : 'Suspendisse imperdiet ullamcorper est at interdum. <a href="./" style="color: #cc0000; text-decoration: none;">Suspendisse at felis nunc.</a> Integer eu felis 
@@ -341,7 +341,7 @@ newsletter update
 						<table cellspacing="0" border="0" height="202" cellpadding="0" width="600">
 							<tr>
 								<td height="20" valign="top" width="600" colspan="2">
-									<img src="images/breaker.jpg" height="20" alt="" style="border: 0;" width="650" />
+									<img src="../app/images/breaker.jpg" height="20" alt="" style="border: 0;" width="650" />
 								</td>
 							</tr>
 							<tr>
@@ -357,7 +357,7 @@ Too many emails? <a href="#" style="color: #cc0000; text-decoration: none;">unsu
 							</tr>
 							<tr>
 								<td valign="top" colspan="2">
-									<img src="images/breaker.jpg" height="20" alt="" style="border: 0;" width="650" />
+									<img src="../app/images/breaker.jpg" height="20" alt="" style="border: 0;" width="650" />
 								</td>
 							</tr>
 							<tr>

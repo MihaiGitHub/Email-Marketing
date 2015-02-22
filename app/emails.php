@@ -15,13 +15,17 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 		break;
 	}
 }
+
+$i = 1;
+$stmt = $conn->prepare('SELECT id, email FROM emails WHERE list_id = :listid');
+$result = $stmt->execute(array('listid' => $_GET['id']));
 ?>
 <link rel="stylesheet" type="text/css" href="css/fupload.css">
 <div class="header">
 	<h1 class="page-title">Email List</h1>
 </div>
 <ul class="breadcrumb">
-	<li><a href="dashboard.php">Home</a> <span class="divider">/</span></li>
+	<li><a href="lists.php">Lists</a> <span class="divider">/</span></li>
 	<li class="active">Emails</li>
 </ul>
 <div class="container-fluid">
@@ -46,11 +50,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 	</form>
 </div>
 <br/><br/>
-<?php 
-	$i = 1;
-	$stmt = $conn->prepare('SELECT id, email FROM emails WHERE list_id = :listid');
-	$result = $stmt->execute(array('listid' => $_GET['id']));
-?>
 <form id="emailForm" method="post" action="emails.php?id=<?php echo urlencode($_GET['id']); ?>">
 <div class="well">
     <table class="table">

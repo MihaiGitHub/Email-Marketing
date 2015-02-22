@@ -1,4 +1,4 @@
-﻿<table cellspacing="0" border="1" style="background-image: url(images/bg.gif); background-color: #c5c5c5;" cellpadding="0" width="100%">	
+﻿<table cellspacing="0" border="1" style="background-image: url(../app/images/bg.gif); background-color: #c5c5c5;" cellpadding="0" width="100%">	
 	<tr>
 		<td valign="top">
 			<table cellspacing="0" border="0" align="center" style="background: #fff; border-right: 1px solid #ccc; border-left: 1px solid #ccc;" cellpadding="0" width="650">		

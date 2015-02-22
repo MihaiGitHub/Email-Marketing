@@ -309,12 +309,13 @@ textarea {
 }
 </style>
 <div class="header">
-	<h1 class="page-title">Template</h1>
+	<h1 class="page-title"><?php echo $trow['name']; ?></h1>
 </div>
 
 <ul class="breadcrumb">
 	<li><a href="dashboard.php">Home</a> <span class="divider">/</span></li>
-	<li class="active">Template</li>
+	<li><a href="templates.php">Templates</a> <span class="divider">/</span></li>
+	<li class="active"><?php echo $trow['name']; ?></li>
 </ul>
 
 <div class="container-fluid">

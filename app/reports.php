@@ -19,11 +19,11 @@ $stmt = $conn->prepare('SELECT c.id, c.subject, c.sent, l.name FROM campaigns as
 $result = $stmt->execute(array('user' => $_SESSION['id']));
 ?>
 <div class="header">
-	<h1 class="page-title">Reports</h1>
+	<h1 class="page-title">Campaign Reports</h1>
 </div>
 <ul class="breadcrumb">
-	<li><a href="dashboard.php">Home</a> <span class="divider">/</span></li>
-	<li class="active">Reports</li>
+	<li><a href="reports.php">Reports</a> <span class="divider">/</span></li>
+	<li class="active">Campaign Reports</li>
 </ul>
 <div class="container-fluid">
 	<div class="row-fluid">
