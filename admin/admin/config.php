@@ -34,8 +34,8 @@ Site Admin :
 These values will be used to send administration emails to.  Errors, IPN confirmations, etc.
 */
 
-$admin_email_address = 'travelin.man2015@gmail.com';
-$admin_name = 'Mihai';
+$admin_email_address = 'xxxxxxxxxxxxxxxxxx';
+$admin_name = 'xxxxxxxxx';
 
 /*
 Database Settings : 
@@ -43,10 +43,10 @@ Fill in your MySQL credentials here.
 $db_table_prefix will be used for the names of the tables
 */
 
-$db_host = $sandbox ? 'db543846776.db.1and1.com' : 'db543846776.db.1and1.com';	
-$db_username = $sandbox ? 'dbo543846776' : 'dbo543846776';
-$db_password = $sandbox ? 'Dumbbell_007' : 'Dumbbell_007';
-$db_database = $sandbox ? 'db543846776' : 'db543846776';
+$db_host = $sandbox ? 'xxxxxxxxxxxxx' : 'xxxxxxxxxxxxxxx';	
+$db_username = $sandbox ? 'xxxxxxx' : 'xxxxxxx';
+$db_password = $sandbox ? 'xxxxxxx' : 'xxxxxxx';
+$db_database = $sandbox ? 'xxxxxxx' : 'xxxxxxxx';
 $db_table_prefix = '';  
 
 /*
