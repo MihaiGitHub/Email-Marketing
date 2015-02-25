@@ -4,7 +4,7 @@
         <tr>
           <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
               <tr>
-                <td width="61"><img src="<?php echo 'http://'.getenv('HTTP_HOST').'/emarketing/images/TechFull/PROMO-GREEN2_01_01.jpg'; ?>" width="61" height="76" border="0" alt=""/></td>
+                <td width="61"><img src="../app/images/TechFull/PROMO-GREEN2_01_01.jpg" width="61" height="76" border="0" alt=""/></td>
                 <td width="144">
 					<div class='inline-edit'>
 						<div class='display'><?php echo (array_key_exists(-9, $fields)) ? nl2br($fields[-9]) : 'COMPANY'; ?>
@@ -25,7 +25,7 @@
                     </tr>
                     <tr>
 						<td height="30">
-							<img src="<?php echo 'http://'.getenv('HTTP_HOST').'/emarketing/images/TechFull/PROMO-GREEN2_01_04.jpg'; ?>" width="393" height="30" border="0" alt=""/>
+							<img src="../app/images/TechFull/PROMO-GREEN2_01_04.jpg" width="393" height="30" border="0" alt=""/>
 						</td>
                     </tr>
                   </table></td>
@@ -36,7 +36,7 @@
 			<td align="center">
 		
 <a href="#" title="Upload Picture" onclick="upload.init('<?php echo 1; ?>', <?php echo 4097152; ?>); return false;">
-<img style="width:598px;height:318px;" src="<?php echo (array_key_exists(1, $fields)) ? 'files/'.$fields[1] : '/emarketing/images/TechFull/PROMO-GREEN2_02.jpg'; ?>" alt="Image" style="border: 0; display: block;" />
+<img style="width:598px;height:318px;" src="<?php echo (array_key_exists(1, $fields)) ? 'files/'.$fields[1] : '../app/images/TechFull/PROMO-GREEN2_02.jpg'; ?>" alt="Image" style="border: 0; display: block;" />
 </a>
 
 			</td>
@@ -97,7 +97,7 @@
                 <td width="18">&nbsp;</td>
                 <td width="175" align="center" valign="top"><table width="175" border="0" cellspacing="0" cellpadding="0">
                     <tr>
-                      <td><img src="<?php echo 'http://'.getenv('HTTP_HOST').'/emarketing/images/TechFull/PROMO-GREEN2_04_01.jpg'; ?>" width="175" height="14" style="display:block" border="0" alt=""/></td>
+                      <td><img src="../app/images/TechFull/PROMO-GREEN2_04_01.jpg" width="175" height="14" style="display:block" border="0" alt=""/></td>
                     </tr>
                     <tr>
                       <td height="30" align="center" valign="middle" bgcolor="#7bb542"><font style="font-family:'Myriad Pro', Helvetica, Arial, sans-serif; color:#ffffff; font-size:20px; text-transform:uppercase"><strong><div class='inline-edit'>
@@ -113,7 +113,7 @@
 						</div></strong></font></td>
                     </tr>
                     <tr>
-                      <td bgcolor="#7bb542"><img src="<?php echo 'http://'.getenv('HTTP_HOST').'/emarketing/images/TechFull/PROMO-GREEN2_00.jpg'; ?>" alt="" width="175" height="18" /></td>
+                      <td bgcolor="#7bb542"><img src="../app/images/TechFull/PROMO-GREEN2_00.jpg" alt="" width="175" height="18" /></td>
                     </tr>
                     <tr>
 						<td align="center" valign="middle" bgcolor="#7bb542">
@@ -131,7 +131,7 @@
                 <td width="19">&nbsp;</td>
                 <td width="175" align="center" valign="top"><table width="175" border="0" cellspacing="0" cellpadding="0">
                     <tr>
-                      <td><img src="<?php echo 'http://'.getenv('HTTP_HOST').'/emarketing/images/TechFull/PROMO-GREEN2_04_01.jpg'; ?>" width="175" height="14" style="display:block" border="0" alt=""/></td>
+                      <td><img src="../app/images/TechFull/PROMO-GREEN2_04_01.jpg" width="175" height="14" style="display:block" border="0" alt=""/></td>
                     </tr>
                     <tr>
                       <td height="30" align="center" valign="middle" bgcolor="#7bb542"><font style="font-family:'Myriad Pro', Helvetica, Arial, sans-serif; color:#ffffff; font-size:20px; text-transform:uppercase"><strong><div class='inline-edit'>
@@ -147,7 +147,7 @@
 						</div></strong></font></td>
                     </tr>
                     <tr>
-                      <td bgcolor="#7bb542"><img src="<?php echo 'http://'.getenv('HTTP_HOST').'/emarketing/images/TechFull/PROMO-GREEN2_00.jpg'; ?>" alt="" width="175" height="18" /></td>
+                      <td bgcolor="#7bb542"><img src="../app/images/TechFull/PROMO-GREEN2_00.jpg" alt="" width="175" height="18" /></td>
                     </tr>
                     <tr>
                       <td align="center" valign="middle" bgcolor="#7bb542">
@@ -165,7 +165,7 @@
                 <td width="19">&nbsp;</td>
                 <td width="175" align="center" valign="top"><table width="175" border="0" cellspacing="0" cellpadding="0">
                     <tr>
-                      <td><img src="<?php echo 'http://'.getenv('HTTP_HOST').'/emarketing/images/TechFull/PROMO-GREEN2_04_01.jpg'; ?>" width="175" height="14" style="display:block" border="0" alt=""/></td>
+                      <td><img src="../app/images/TechFull/PROMO-GREEN2_04_01.jpg" width="175" height="14" style="display:block" border="0" alt=""/></td>
                     </tr>
                     <tr>
                       <td height="30" align="center" valign="middle" bgcolor="#7bb542"><font style="font-family:'Myriad Pro', Helvetica, Arial, sans-serif; color:#ffffff; font-size:20px; text-transform:uppercase"><strong><div class='inline-edit'>
@@ -181,7 +181,7 @@
 						</div></strong></font></td>
                     </tr>
                     <tr>
-                      <td bgcolor="#7bb542"><img src="<?php echo 'http://'.getenv('HTTP_HOST').'/emarketing/images/TechFull/PROMO-GREEN2_00.jpg'; ?>" alt="" width="175" height="18" /></td>
+                      <td bgcolor="#7bb542"><img src="../app/images/TechFull/PROMO-GREEN2_00.jpg" alt="" width="175" height="18" /></td>
                     </tr>
                     <tr>
                       <td align="center" valign="middle" bgcolor="#7bb542">
@@ -204,7 +204,7 @@
           <td>&nbsp;</td>
         </tr>
         <tr>
-          <td><img src="<?php echo 'http://'.getenv('HTTP_HOST').'/emarketing/images/TechFull/PROMO-GREEN2_07.jpg'; ?>" width="598" height="7" style="display:block" border="0" alt=""/></td>
+          <td><img src="../app/images/TechFull/PROMO-GREEN2_07.jpg" width="598" height="7" style="display:block" border="0" alt=""/></td>
         </tr>
         <tr>
           <td>&nbsp;</td>
