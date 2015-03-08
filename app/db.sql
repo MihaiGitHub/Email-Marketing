@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: db543846776.db.1and1.com
--- Generation Time: Feb 16, 2015 at 08:28 PM
+-- Generation Time: Mar 07, 2015 at 07:22 PM
 -- Server version: 5.1.73-log
 -- PHP Version: 5.4.36-0+deb7u3
 
@@ -152,7 +152,35 @@ INSERT INTO `campaigns` (`id`, `user_id`, `list_id`, `subject`, `email_from`, `e
 ('C544a9f262b54a0.99267571', 5, 36, 'International', 'Mihai', 'mihai004@gmail.com', '10/24/2014 11:49 AM'),
 ('C544ac8e7a4c3e3.35069871', 5, 36, 'Email Subject', 'TemplarIT', 'mwdowiak33@gmail.com', '10/24/2014 2:47 PM'),
 ('C544accbea71e81.97338062', 5, 36, 'IT Services', 'TemplarIT', 'mwdowiak33@gmail.com', '10/24/2014 3:03 PM'),
-('C544ad6dd4598e7.63081989', 5, 37, 'IT Services', 'TemplarIT', 'mwdowiak33@gmail.com', '10/24/2014 3:46 PM');
+('C544ad6dd4598e7.63081989', 5, 37, 'IT Services', 'TemplarIT', 'mwdowiak33@gmail.com', '10/24/2014 3:46 PM'),
+('C54ea3de5e2ebd9.62011513', 5, 36, 'dsfsfds', 'mihai6744@hotmail.com', 'mihai6744@hotmail.com', '2/22/2015 1:36 PM'),
+('C54ea40bfe36eb0.23390239', 5, 36, 'Massive', 'mihai6744@hotmail.com', 'mihai6744@hotmail.com', '2/22/2015 1:49 PM'),
+('C54ed4fcaa114d3.18878451', 5, 36, 'International', 'mihai@gmail.com', 'mihai@gmail.com', '2/24/2015 9:30 PM'),
+('C54fb699f0e3e70.53252673', 5, 37, 'asdasdf', 'mihai@gmail.com', 'mihai@gmail.com', '3/7/2015 2:11 PM'),
+('C54fb6fdc978288.15052839', 5, 36, 'International', 'mihai@gmail.com', 'mihai@gmail.com', '3/7/2015 2:38 PM'),
+('C54fb7d9c491ef4.19620369', 5, 36, 'International', 'mihai@gmail.com', 'mihai@gmail.com', '3/7/2015 3:37 PM'),
+('C54fb7daeebb1a8.31558788', 5, 36, 'International', 'mihai@gmail.com', 'mihai@gmail.com', '3/7/2015 3:37 PM'),
+('C54fb7fe746eaa1.98040610', 5, 36, 'International', 'mihai@gmail.com', 'mihai@gmail.com', '3/7/2015 3:47 PM'),
+('C54fb806c5beed9.88812595', 5, 36, 'International', 'mihai@gmail.com', 'mihai@gmail.com', '3/7/2015 3:49 PM'),
+('C54fb80e3a8a7a5.87434579', 5, 36, 'International', 'mihai@gmail.com', 'mihai@gmail.com', '3/7/2015 3:51 PM'),
+('C54fb863d4f0c99.60963296', 5, 36, 'International', 'mihai@gmail.com', 'mihai@gmail.com', '3/7/2015 4:14 PM'),
+('C54fb87f3ca3b60.93486473', 5, 36, 'International', 'mihai@gmail.com', 'mihai@gmail.com', '3/7/2015 4:21 PM'),
+('C54fb88ac96f422.92578069', 5, 36, 'International', '2014-1-31', 'mihai@gmail.com', '3/7/2015 4:24 PM'),
+('C54fb8e628d3728.75230637', 5, 36, 'International', 'mihai@gmail.com', 'mihai@gmail.com', '3/7/2015 4:48 PM'),
+('C54fb8fbd84e6c9.60062049', 5, 36, 'International', 'mihai@gmail.com', 'mihai@gmail.com', '3/7/2015 4:54 PM'),
+('C54fb92ceb3aa17.04896521', 5, 36, 'International', 'mihai@gmail.com', 'mihai@gmail.com', '3/7/2015 5:07 PM'),
+('C54fb931e9c42e5.05857343', 5, 36, 'International', 'mihai@gmail.com', 'mihai@gmail.com', '3/7/2015 5:09 PM'),
+('C54fb977d749bd5.85796946', 3, 34, 'International', 'mihai@gmail.com', 'mihai@gmail.com', '3/7/2015 5:27 PM'),
+('C54fb97b12cc860.68021130', 3, 31, 'International', 'mihai@gmail.com', 'mihai@gmail.com', '3/7/2015 5:28 PM'),
+('C54fb97dec350e8.61496177', 3, 31, 'International', 'mihai@gmail.com', 'mihai@gmail.com', '3/7/2015 5:29 PM'),
+('C54fb9b03d3e1f5.98880411', 5, 36, 'International', 'mihai@gmail.com', 'mihai@gmail.com', '3/7/2015 5:42 PM'),
+('C54fb9b6d286a80.00427786', 5, 36, 'International', 'mihai@gmail.com', 'mihai@gmail.com', '3/7/2015 5:44 PM'),
+('C54fb9b8c7bf3f1.23259498', 5, 36, 'International', 'mihai@gmail.com', 'mihai@gmail.com', '3/7/2015 5:45 PM'),
+('C54fb9c08b61ce9.72750797', 5, 36, 'International', 'mihai@gmail.com', 'mihai@gmail.com', '3/7/2015 5:47 PM'),
+('C54fb9cb5cc0818.04626588', 5, 36, 'International', 'mihai@gmail.com', 'mihai@gmail.com', '3/7/2015 5:49 PM'),
+('C54fb9ce62d96b2.16339196', 5, 36, 'International', 'mihai@gmail.com', 'mihai@gmail.com', '3/7/2015 5:50 PM'),
+('C54fb9d3cdc53f0.51324581', 5, 36, 'International', 'mihai@gmail.com', 'mihai@gmail.com', '3/7/2015 5:52 PM'),
+('C54fb9d5b0358c0.71773206', 5, 36, 'International', 'mihai@gmail.com', 'mihai@gmail.com', '3/7/2015 5:52 PM');
 
 -- --------------------------------------------------------
 
@@ -172,7 +200,7 @@ CREATE TABLE IF NOT EXISTS `campaign_emails` (
   `timeopened` varchar(100) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `c_id` (`c_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1427 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1518 ;
 
 --
 -- Dumping data for table `campaign_emails`
@@ -260,7 +288,98 @@ INSERT INTO `campaign_emails` (`id`, `c_id`, `email`, `sent`, `opened`, `ip`, `c
 (1423, 'C544ad6dd4598e7.63081989', 'mihai6744@hotmail.com', 1, 1, '65.55.129.188', 'United States', 'Washington', '10/24/2014 3:47 PM'),
 (1424, 'C544ad6dd4598e7.63081989', 'mwdowiak33@gmail.com', 1, 10, '65.55.129.188', 'United States', 'Washington', '10/26/2014 5:38 PM'),
 (1425, 'C544ad6dd4598e7.63081989', 'vilisei@gmail.com', 1, 0, '', '', '', ''),
-(1426, 'C544ad6dd4598e7.63081989', 'xelot00007@yahoo.com', 1, 2, '70.190.102.179', 'United States', 'Arizona', '10/24/2014 3:47 PM');
+(1426, 'C544ad6dd4598e7.63081989', 'xelot00007@yahoo.com', 1, 2, '70.190.102.179', 'United States', 'Arizona', '10/24/2014 3:47 PM'),
+(1427, 'C54ea3de5e2ebd9.62011513', 'mihai.sanfran@gmail.com', 1, 0, '', '', '', ''),
+(1428, 'C54ea3de5e2ebd9.62011513', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
+(1429, 'C54ea3de5e2ebd9.62011513', 'vilisei@gmail.com', 1, 0, '', '', '', ''),
+(1430, 'C54ea3de5e2ebd9.62011513', 'xelot00007@yahoo.com', 1, 0, '', '', '', ''),
+(1431, 'C54ea40bfe36eb0.23390239', 'mihai.sanfran@gmail.com', 1, 0, '', '', '', ''),
+(1432, 'C54ea40bfe36eb0.23390239', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
+(1433, 'C54ea40bfe36eb0.23390239', 'vilisei@gmail.com', 1, 0, '', '', '', ''),
+(1434, 'C54ea40bfe36eb0.23390239', 'xelot00007@yahoo.com', 1, 0, '', '', '', ''),
+(1435, 'C54ed4fcaa114d3.18878451', 'mihai.sanfran@gmail.com', 1, 0, '', '', '', ''),
+(1436, 'C54ed4fcaa114d3.18878451', 'mihai6744@hotmail.com', 1, 2, '65.55.129.188', 'United States', 'Washington', '2/25/2015 9:11 AM'),
+(1437, 'C54ed4fcaa114d3.18878451', 'vilisei@gmail.com', 1, 8, '66.249.84.139', 'United States', 'California', '3/2/2015 12:38 PM'),
+(1438, 'C54ed4fcaa114d3.18878451', 'xelot00007@yahoo.com', 1, 1, '24.255.2.31', 'United States', 'Arizona', '2/24/2015 10:01 PM'),
+(1439, 'C54fb699f0e3e70.53252673', 'eli_s85710@yahoo.com', 0, 0, '', '', '', ''),
+(1440, 'C54fb699f0e3e70.53252673', 'mihai.sanfran@gmail.com', 0, 0, '', '', '', ''),
+(1441, 'C54fb699f0e3e70.53252673', 'mihai6744@hotmail.com', 0, 0, '', '', '', ''),
+(1442, 'C54fb699f0e3e70.53252673', 'mwdowiak33@gmail.com', 0, 0, '', '', '', ''),
+(1443, 'C54fb699f0e3e70.53252673', 'vilisei@gmail.com', 0, 0, '', '', '', ''),
+(1444, 'C54fb699f0e3e70.53252673', 'xelot00007@yahoo.com', 0, 0, '', '', '', ''),
+(1445, 'C54fb6fdc978288.15052839', 'mihai.sanfran@gmail.com', 1, 0, '', '', '', ''),
+(1446, 'C54fb6fdc978288.15052839', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
+(1447, 'C54fb6fdc978288.15052839', 'vilisei@gmail.com', 1, 0, '', '', '', ''),
+(1448, 'C54fb6fdc978288.15052839', 'xelot00007@yahoo.com', 1, 0, '', '', '', ''),
+(1449, 'C54fb7d9c491ef4.19620369', 'mihai.sanfran@gmail.com', 1, 0, '', '', '', ''),
+(1450, 'C54fb7d9c491ef4.19620369', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
+(1451, 'C54fb7d9c491ef4.19620369', 'vilisei@gmail.com', 1, 0, '', '', '', ''),
+(1452, 'C54fb7d9c491ef4.19620369', 'xelot00007@yahoo.com', 1, 0, '', '', '', ''),
+(1453, 'C54fb7daeebb1a8.31558788', 'mihai.sanfran@gmail.com', 1, 0, '', '', '', ''),
+(1454, 'C54fb7daeebb1a8.31558788', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
+(1455, 'C54fb7daeebb1a8.31558788', 'vilisei@gmail.com', 1, 0, '', '', '', ''),
+(1456, 'C54fb7daeebb1a8.31558788', 'xelot00007@yahoo.com', 1, 0, '', '', '', ''),
+(1457, 'C54fb7fe746eaa1.98040610', 'mihai.sanfran@gmail.com', 1, 0, '', '', '', ''),
+(1458, 'C54fb7fe746eaa1.98040610', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
+(1459, 'C54fb7fe746eaa1.98040610', 'vilisei@gmail.com', 1, 0, '', '', '', ''),
+(1460, 'C54fb7fe746eaa1.98040610', 'xelot00007@yahoo.com', 1, 0, '', '', '', ''),
+(1461, 'C54fb806c5beed9.88812595', 'mihai.sanfran@gmail.com', 1, 0, '', '', '', ''),
+(1462, 'C54fb806c5beed9.88812595', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
+(1463, 'C54fb806c5beed9.88812595', 'vilisei@gmail.com', 1, 0, '', '', '', ''),
+(1464, 'C54fb8e628d3728.75230637', 'mihai.sanfran@gmail.com', 1, 1, '24.255.2.31', 'United States', 'Arizona', '3/7/2015 4:48 PM'),
+(1465, 'C54fb8e628d3728.75230637', 'mihai6744@hotmail.com', 1, 2, '65.55.129.188', 'United States', 'Washington', '3/7/2015 4:51 PM'),
+(1466, 'C54fb8e628d3728.75230637', 'vilisei@gmail.com', 1, 1, '24.255.2.31', 'United States', 'Arizona', '3/7/2015 4:48 PM'),
+(1467, 'C54fb8e628d3728.75230637', 'xelot00007@yahoo.com', 1, 1, '24.255.2.31', 'United States', 'Arizona', '3/7/2015 4:48 PM'),
+(1468, 'C54fb8fbd84e6c9.60062049', 'mihai.sanfran@gmail.com', 1, 0, '', '', '', ''),
+(1469, 'C54fb8fbd84e6c9.60062049', 'mihai6744@hotmail.com', 1, 1, '65.55.129.188', 'United States', 'Washington', '3/7/2015 5:33 PM'),
+(1470, 'C54fb8fbd84e6c9.60062049', 'vilisei@gmail.com', 1, 0, '', '', '', ''),
+(1471, 'C54fb8fbd84e6c9.60062049', 'xelot00007@yahoo.com', 1, 0, '', '', '', ''),
+(1472, 'C54fb92ceb3aa17.04896521', 'mihai.sanfran@gmail.com', 1, 0, '', '', '', ''),
+(1473, 'C54fb92ceb3aa17.04896521', 'mihai6744@hotmail.com', 1, 1, '65.55.129.188', 'United States', 'Washington', '3/7/2015 5:33 PM'),
+(1474, 'C54fb92ceb3aa17.04896521', 'vilisei@gmail.com', 1, 0, '', '', '', ''),
+(1475, 'C54fb977d749bd5.85796946', 'mihai6744@hotmail.com', 1, 2, '65.55.129.188', 'United States', 'Washington', '3/7/2015 5:33 PM'),
+(1476, 'C54fb977d749bd5.85796946', 'xelot00007@yahoo.com', 1, 0, '', '', '', ''),
+(1477, 'C54fb97b12cc860.68021130', ' ilooktheysmile@yahoo.com', 1, 0, '', '', '', ''),
+(1478, 'C54fb97b12cc860.68021130', ' mihai004@gmail.com', 1, 0, '', '', '', ''),
+(1479, 'C54fb97b12cc860.68021130', ' mihailiviu@yahoo.com', 1, 0, '', '', '', ''),
+(1480, 'C54fb97b12cc860.68021130', ' xelot00007@yahoo.com', 1, 0, '', '', '', ''),
+(1481, 'C54fb97b12cc860.68021130', 'mihai.sanfran@gmail.com', 1, 0, '', '', '', ''),
+(1482, 'C54fb97b12cc860.68021130', 'mihai6744@hotmail.com', 1, 2, '65.55.129.188', 'United States', 'Washington', '3/7/2015 5:33 PM'),
+(1483, 'C54fb97dec350e8.61496177', ' ilooktheysmile@yahoo.com', 1, 0, '', '', '', ''),
+(1484, 'C54fb97dec350e8.61496177', ' mihai004@gmail.com', 1, 0, '', '', '', ''),
+(1485, 'C54fb97dec350e8.61496177', ' mihailiviu@yahoo.com', 1, 0, '', '', '', ''),
+(1486, 'C54fb97dec350e8.61496177', ' xelot00007@yahoo.com', 1, 0, '', '', '', ''),
+(1487, 'C54fb9b03d3e1f5.98880411', 'mihai.sanfran@gmail.com', 1, 0, '', '', '', ''),
+(1488, 'C54fb9b03d3e1f5.98880411', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
+(1489, 'C54fb9b03d3e1f5.98880411', 'vilisei@gmail.com', 1, 0, '', '', '', ''),
+(1490, 'C54fb9b03d3e1f5.98880411', 'xelot00007@yahoo.com', 1, 0, '', '', '', ''),
+(1491, 'C54fb9b6d286a80.00427786', 'mihai.sanfran@gmail.com', 1, 0, '', '', '', ''),
+(1492, 'C54fb9b6d286a80.00427786', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
+(1493, 'C54fb9b6d286a80.00427786', 'vilisei@gmail.com', 1, 0, '', '', '', ''),
+(1494, 'C54fb9b6d286a80.00427786', 'xelot00007@yahoo.com', 1, 0, '', '', '', ''),
+(1495, 'C54fb9b8c7bf3f1.23259498', 'mihai.sanfran@gmail.com', 1, 0, '', '', '', ''),
+(1496, 'C54fb9b8c7bf3f1.23259498', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
+(1497, 'C54fb9b8c7bf3f1.23259498', 'vilisei@gmail.com', 1, 0, '', '', '', ''),
+(1498, 'C54fb9b8c7bf3f1.23259498', 'xelot00007@yahoo.com', 1, 0, '', '', '', ''),
+(1499, 'C54fb9c08b61ce9.72750797', 'mihai.sanfran@gmail.com', 1, 0, '', '', '', ''),
+(1500, 'C54fb9c08b61ce9.72750797', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
+(1501, 'C54fb9c08b61ce9.72750797', 'vilisei@gmail.com', 1, 0, '', '', '', ''),
+(1502, 'C54fb9c08b61ce9.72750797', 'xelot00007@yahoo.com', 1, 0, '', '', '', ''),
+(1503, 'C54fb9cb5cc0818.04626588', 'mihai.sanfran@gmail.com', 1, 0, '', '', '', ''),
+(1504, 'C54fb9cb5cc0818.04626588', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
+(1505, 'C54fb9cb5cc0818.04626588', 'vilisei@gmail.com', 1, 0, '', '', '', ''),
+(1506, 'C54fb9cb5cc0818.04626588', 'xelot00007@yahoo.com', 1, 0, '', '', '', ''),
+(1507, 'C54fb9ce62d96b2.16339196', 'mihai.sanfran@gmail.com', 1, 0, '', '', '', ''),
+(1508, 'C54fb9ce62d96b2.16339196', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
+(1509, 'C54fb9ce62d96b2.16339196', 'vilisei@gmail.com', 1, 0, '', '', '', ''),
+(1510, 'C54fb9ce62d96b2.16339196', 'xelot00007@yahoo.com', 1, 0, '', '', '', ''),
+(1511, 'C54fb9d3cdc53f0.51324581', 'mihai.sanfran@gmail.com', 1, 0, '', '', '', ''),
+(1512, 'C54fb9d3cdc53f0.51324581', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
+(1513, 'C54fb9d3cdc53f0.51324581', 'vilisei@gmail.com', 1, 0, '', '', '', ''),
+(1514, 'C54fb9d3cdc53f0.51324581', 'xelot00007@yahoo.com', 1, 0, '', '', '', ''),
+(1515, 'C54fb9d5b0358c0.71773206', 'mihai.sanfran@gmail.com', 1, 0, '', '', '', ''),
+(1516, 'C54fb9d5b0358c0.71773206', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
+(1517, 'C54fb9d5b0358c0.71773206', 'vilisei@gmail.com', 1, 0, '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -19359,7 +19478,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `receiver_id` varchar(15) COLLATE utf8_bin DEFAULT NULL,
   `test_ipn` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=19 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=20 ;
 
 --
 -- Dumping data for table `orders`
@@ -19383,7 +19502,8 @@ INSERT INTO `orders` (`id`, `raw_log_id`, `receiver_email`, `payment_status`, `p
 (15, 15, 'travelin.man2015@gmail.com', 'Completed', '', '13:35:33 Feb 16, 2015 PST', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', 'Default', '3074656', 5, 0.45, 0, 0, 0, 0, 0, 0, 0, 'USD', '2A7890669D738894J', 'web_accept', 'Mihai', 'Smarandache', '', '', '', '', '', '', 'mihai.sanfran@gmail.com', 'verified', 'instant', '3.8', 'AbVpE46Hdzh6d29Gu3X3iR8qqXBgAmRiUo.57d1TUk1yVVHKjmocJ.JD', '', '', 'Ineligible', 'Invalid', '', '', '', '', '500 Email Credits', '', '', 0, '', '', 0, '2015-02-16 21:35:46', '', '', 'AVCAHSW235QLG', 1),
 (16, 16, 'travelin.man2015@gmail.com', 'Completed', '', '13:39:33 Feb 16, 2015 PST', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', 'Default', '3074656', 5, 0.45, 0, 0, 0, 0, 0, 0, 0, 'USD', '3W0178813U462161N', 'web_accept', 'Mihai', 'Smarandache', '', '', '', '', '', '', 'mihai.sanfran@gmail.com', 'verified', 'instant', '3.8', 'AFgT5txRPJpoPaom.H0IysN0p364AAb8HQudrsMVlchKDfT6ubVO5rZx', '', '', 'Ineligible', 'Invalid', '', '', '', '', '500 Email Credits', '', '', 0, '', '', 0, '2015-02-16 21:39:37', '', '', 'AVCAHSW235QLG', 1),
 (17, 17, 'travelin.man2015@gmail.com', 'Completed', '', '14:07:50 Feb 16, 2015 PST', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', 'Default', '3075140', 200, 6.1, 0, 0, 0, 0, 0, 0, 0, 'USD', '9HD21974PM004850F', 'web_accept', 'Mihai', 'Smarandache', '', '', '', '', '', '', 'mihai.sanfran@gmail.com', 'verified', 'instant', '3.8', 'AuaofqQd2e-2NuLkob0HpzqE3dYDAnjDMbs6ZCrH6w0XJtgqQwlafQvO', '', '', 'Ineligible', 'Invalid', '', '', '', '', '10000 Email Credits', '', '', 0, '', '', 0, '2015-02-16 22:07:55', '', '', 'AVCAHSW235QLG', 1),
-(18, 18, 'travelin.man2015@gmail.com', 'Completed', '', '15:08:27 Feb 16, 2015 PST', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', 'Default', '3075135', 30, 1.17, 0, 0, 0, 0, 0, 0, 0, 'USD', '0EX20152HD142800G', 'web_accept', 'Mariusz', 'Wdowiak', '', '', '', '', '', '', 'mwdowiak33@gmail.com', 'verified', 'instant', '3.8', 'AlFPbbw2kPrbTIUswGLU2BRjFYcxA7LPiosgCBiHSUhnu8fApl.bF.gX', '', '', 'Ineligible', 'Invalid', '', '', '', '', '1000 Email Credits', '', '', 0, '', '', 0, '2015-02-16 23:08:30', '', '', 'AVCAHSW235QLG', 1);
+(18, 18, 'travelin.man2015@gmail.com', 'Completed', '', '15:08:27 Feb 16, 2015 PST', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', 'Default', '3075135', 30, 1.17, 0, 0, 0, 0, 0, 0, 0, 'USD', '0EX20152HD142800G', 'web_accept', 'Mariusz', 'Wdowiak', '', '', '', '', '', '', 'mwdowiak33@gmail.com', 'verified', 'instant', '3.8', 'AlFPbbw2kPrbTIUswGLU2BRjFYcxA7LPiosgCBiHSUhnu8fApl.bF.gX', '', '', 'Ineligible', 'Invalid', '', '', '', '', '1000 Email Credits', '', '', 0, '', '', 0, '2015-02-16 23:08:30', '', '', 'AVCAHSW235QLG', 1),
+(19, 23, 'travelin.man2015@gmail.com', 'Completed', '', '10:48:19 Mar 07, 2015 PST', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', 'Default', '3075135', 30, 1.17, 0, 0, 0, 0, 0, 0, 0, 'USD', '3MT88711T6625122Y', 'web_accept', 'Mihai', 'Smarandache', '', '', '', '', '', '', 'mihai.sanfran@gmail.com', 'verified', 'instant', '3.8', 'AYkfPMj3Yw-OwsXtwJg49fQYox8cAP4QGG0WN9MjtjrJkxsSdUnu-sey', '', '', 'Ineligible', 'Invalid', '', '', '', '', '1000 Email Credits', '', '', 0, '', '', 0, '2015-03-07 18:48:24', '', '', 'AVCAHSW235QLG', 1);
 
 -- --------------------------------------------------------
 
@@ -19445,7 +19565,7 @@ CREATE TABLE IF NOT EXISTS `raw_log` (
   `created_timestamp` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `ipn_data_serialized` text COLLATE utf8_bin,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=19 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=24 ;
 
 --
 -- Dumping data for table `raw_log`
@@ -19469,7 +19589,12 @@ INSERT INTO `raw_log` (`id`, `created_timestamp`, `ipn_data_serialized`) VALUES
 (15, '2015-02-16 21:35:46', 'a:38:{s:8:"mc_gross";s:4:"5.00";s:22:"protection_eligibility";s:10:"Ineligible";s:8:"payer_id";s:13:"BL5JEN2YBC2WC";s:3:"tax";s:4:"0.00";s:12:"payment_date";s:25:"13:35:33 Feb 16, 2015 PST";s:14:"payment_status";s:9:"Completed";s:7:"charset";s:12:"windows-1252";s:10:"first_name";s:5:"Mihai";s:6:"mc_fee";s:4:"0.45";s:14:"notify_version";s:3:"3.8";s:6:"custom";s:0:"";s:12:"payer_status";s:8:"verified";s:8:"business";s:26:"travelin.man2015@gmail.com";s:8:"quantity";s:1:"1";s:11:"verify_sign";s:56:"AbVpE46Hdzh6d29Gu3X3iR8qqXBgAmRiUo.57d1TUk1yVVHKjmocJ.JD";s:11:"payer_email";s:23:"mihai.sanfran@gmail.com";s:6:"txn_id";s:17:"2A7890669D738894J";s:12:"payment_type";s:7:"instant";s:6:"btn_id";s:7:"3074656";s:9:"last_name";s:11:"Smarandache";s:14:"receiver_email";s:26:"travelin.man2015@gmail.com";s:11:"payment_fee";s:4:"0.45";s:17:"shipping_discount";s:4:"0.00";s:16:"insurance_amount";s:4:"0.00";s:11:"receiver_id";s:13:"AVCAHSW235QLG";s:8:"txn_type";s:10:"web_accept";s:9:"item_name";s:17:"500 Email Credits";s:8:"discount";s:4:"0.00";s:11:"mc_currency";s:3:"USD";s:11:"item_number";s:0:"";s:17:"residence_country";s:2:"US";s:8:"test_ipn";s:1:"1";s:15:"handling_amount";s:4:"0.00";s:15:"shipping_method";s:7:"Default";s:19:"transaction_subject";s:0:"";s:13:"payment_gross";s:4:"5.00";s:8:"shipping";s:4:"0.00";s:12:"ipn_track_id";s:13:"71f0155346e4f";}'),
 (16, '2015-02-16 21:39:37', 'a:38:{s:8:"mc_gross";s:4:"5.00";s:22:"protection_eligibility";s:10:"Ineligible";s:8:"payer_id";s:13:"BL5JEN2YBC2WC";s:3:"tax";s:4:"0.00";s:12:"payment_date";s:25:"13:39:33 Feb 16, 2015 PST";s:14:"payment_status";s:9:"Completed";s:7:"charset";s:12:"windows-1252";s:10:"first_name";s:5:"Mihai";s:6:"mc_fee";s:4:"0.45";s:14:"notify_version";s:3:"3.8";s:6:"custom";s:0:"";s:12:"payer_status";s:8:"verified";s:8:"business";s:26:"travelin.man2015@gmail.com";s:8:"quantity";s:1:"1";s:11:"verify_sign";s:56:"AFgT5txRPJpoPaom.H0IysN0p364AAb8HQudrsMVlchKDfT6ubVO5rZx";s:11:"payer_email";s:23:"mihai.sanfran@gmail.com";s:6:"txn_id";s:17:"3W0178813U462161N";s:12:"payment_type";s:7:"instant";s:6:"btn_id";s:7:"3074656";s:9:"last_name";s:11:"Smarandache";s:14:"receiver_email";s:26:"travelin.man2015@gmail.com";s:11:"payment_fee";s:4:"0.45";s:17:"shipping_discount";s:4:"0.00";s:16:"insurance_amount";s:4:"0.00";s:11:"receiver_id";s:13:"AVCAHSW235QLG";s:8:"txn_type";s:10:"web_accept";s:9:"item_name";s:17:"500 Email Credits";s:8:"discount";s:4:"0.00";s:11:"mc_currency";s:3:"USD";s:11:"item_number";s:0:"";s:17:"residence_country";s:2:"US";s:8:"test_ipn";s:1:"1";s:15:"handling_amount";s:4:"0.00";s:15:"shipping_method";s:7:"Default";s:19:"transaction_subject";s:0:"";s:13:"payment_gross";s:4:"5.00";s:8:"shipping";s:4:"0.00";s:12:"ipn_track_id";s:13:"55ba252043754";}'),
 (17, '2015-02-16 22:07:55', 'a:38:{s:8:"mc_gross";s:6:"200.00";s:22:"protection_eligibility";s:10:"Ineligible";s:8:"payer_id";s:13:"BL5JEN2YBC2WC";s:3:"tax";s:4:"0.00";s:12:"payment_date";s:25:"14:07:50 Feb 16, 2015 PST";s:14:"payment_status";s:9:"Completed";s:7:"charset";s:12:"windows-1252";s:10:"first_name";s:5:"Mihai";s:6:"mc_fee";s:4:"6.10";s:14:"notify_version";s:3:"3.8";s:6:"custom";s:0:"";s:12:"payer_status";s:8:"verified";s:8:"business";s:26:"travelin.man2015@gmail.com";s:8:"quantity";s:1:"1";s:11:"verify_sign";s:56:"AuaofqQd2e-2NuLkob0HpzqE3dYDAnjDMbs6ZCrH6w0XJtgqQwlafQvO";s:11:"payer_email";s:23:"mihai.sanfran@gmail.com";s:6:"txn_id";s:17:"9HD21974PM004850F";s:12:"payment_type";s:7:"instant";s:6:"btn_id";s:7:"3075140";s:9:"last_name";s:11:"Smarandache";s:14:"receiver_email";s:26:"travelin.man2015@gmail.com";s:11:"payment_fee";s:4:"6.10";s:17:"shipping_discount";s:4:"0.00";s:16:"insurance_amount";s:4:"0.00";s:11:"receiver_id";s:13:"AVCAHSW235QLG";s:8:"txn_type";s:10:"web_accept";s:9:"item_name";s:19:"10000 Email Credits";s:8:"discount";s:4:"0.00";s:11:"mc_currency";s:3:"USD";s:11:"item_number";s:0:"";s:17:"residence_country";s:2:"US";s:8:"test_ipn";s:1:"1";s:15:"handling_amount";s:4:"0.00";s:15:"shipping_method";s:7:"Default";s:19:"transaction_subject";s:0:"";s:13:"payment_gross";s:6:"200.00";s:8:"shipping";s:4:"0.00";s:12:"ipn_track_id";s:13:"4ae8d63b6780c";}'),
-(18, '2015-02-16 23:08:30', 'a:38:{s:8:"mc_gross";s:5:"30.00";s:22:"protection_eligibility";s:10:"Ineligible";s:8:"payer_id";s:13:"AVELS58W7YF98";s:3:"tax";s:4:"0.00";s:12:"payment_date";s:25:"15:08:27 Feb 16, 2015 PST";s:14:"payment_status";s:9:"Completed";s:7:"charset";s:12:"windows-1252";s:10:"first_name";s:7:"Mariusz";s:6:"mc_fee";s:4:"1.17";s:14:"notify_version";s:3:"3.8";s:6:"custom";s:0:"";s:12:"payer_status";s:8:"verified";s:8:"business";s:26:"travelin.man2015@gmail.com";s:8:"quantity";s:1:"1";s:11:"verify_sign";s:56:"AlFPbbw2kPrbTIUswGLU2BRjFYcxA7LPiosgCBiHSUhnu8fApl.bF.gX";s:11:"payer_email";s:20:"mwdowiak33@gmail.com";s:6:"txn_id";s:17:"0EX20152HD142800G";s:12:"payment_type";s:7:"instant";s:6:"btn_id";s:7:"3075135";s:9:"last_name";s:7:"Wdowiak";s:14:"receiver_email";s:26:"travelin.man2015@gmail.com";s:11:"payment_fee";s:4:"1.17";s:17:"shipping_discount";s:4:"0.00";s:16:"insurance_amount";s:4:"0.00";s:11:"receiver_id";s:13:"AVCAHSW235QLG";s:8:"txn_type";s:10:"web_accept";s:9:"item_name";s:18:"1000 Email Credits";s:8:"discount";s:4:"0.00";s:11:"mc_currency";s:3:"USD";s:11:"item_number";s:0:"";s:17:"residence_country";s:2:"US";s:8:"test_ipn";s:1:"1";s:15:"handling_amount";s:4:"0.00";s:15:"shipping_method";s:7:"Default";s:19:"transaction_subject";s:0:"";s:13:"payment_gross";s:5:"30.00";s:8:"shipping";s:4:"0.00";s:12:"ipn_track_id";s:13:"ff9e56896f8df";}');
+(18, '2015-02-16 23:08:30', 'a:38:{s:8:"mc_gross";s:5:"30.00";s:22:"protection_eligibility";s:10:"Ineligible";s:8:"payer_id";s:13:"AVELS58W7YF98";s:3:"tax";s:4:"0.00";s:12:"payment_date";s:25:"15:08:27 Feb 16, 2015 PST";s:14:"payment_status";s:9:"Completed";s:7:"charset";s:12:"windows-1252";s:10:"first_name";s:7:"Mariusz";s:6:"mc_fee";s:4:"1.17";s:14:"notify_version";s:3:"3.8";s:6:"custom";s:0:"";s:12:"payer_status";s:8:"verified";s:8:"business";s:26:"travelin.man2015@gmail.com";s:8:"quantity";s:1:"1";s:11:"verify_sign";s:56:"AlFPbbw2kPrbTIUswGLU2BRjFYcxA7LPiosgCBiHSUhnu8fApl.bF.gX";s:11:"payer_email";s:20:"mwdowiak33@gmail.com";s:6:"txn_id";s:17:"0EX20152HD142800G";s:12:"payment_type";s:7:"instant";s:6:"btn_id";s:7:"3075135";s:9:"last_name";s:7:"Wdowiak";s:14:"receiver_email";s:26:"travelin.man2015@gmail.com";s:11:"payment_fee";s:4:"1.17";s:17:"shipping_discount";s:4:"0.00";s:16:"insurance_amount";s:4:"0.00";s:11:"receiver_id";s:13:"AVCAHSW235QLG";s:8:"txn_type";s:10:"web_accept";s:9:"item_name";s:18:"1000 Email Credits";s:8:"discount";s:4:"0.00";s:11:"mc_currency";s:3:"USD";s:11:"item_number";s:0:"";s:17:"residence_country";s:2:"US";s:8:"test_ipn";s:1:"1";s:15:"handling_amount";s:4:"0.00";s:15:"shipping_method";s:7:"Default";s:19:"transaction_subject";s:0:"";s:13:"payment_gross";s:5:"30.00";s:8:"shipping";s:4:"0.00";s:12:"ipn_track_id";s:13:"ff9e56896f8df";}'),
+(19, '2015-03-07 17:51:34', 'a:0:{}'),
+(20, '2015-03-07 18:26:16', 'a:0:{}'),
+(21, '2015-03-07 18:26:31', 'a:0:{}'),
+(22, '2015-03-07 18:27:09', 'a:0:{}'),
+(23, '2015-03-07 18:48:24', 'a:38:{s:8:"mc_gross";s:5:"30.00";s:22:"protection_eligibility";s:10:"Ineligible";s:8:"payer_id";s:13:"BL5JEN2YBC2WC";s:3:"tax";s:4:"0.00";s:12:"payment_date";s:25:"10:48:19 Mar 07, 2015 PST";s:14:"payment_status";s:9:"Completed";s:7:"charset";s:12:"windows-1252";s:10:"first_name";s:5:"Mihai";s:6:"mc_fee";s:4:"1.17";s:14:"notify_version";s:3:"3.8";s:6:"custom";s:0:"";s:12:"payer_status";s:8:"verified";s:8:"business";s:26:"travelin.man2015@gmail.com";s:8:"quantity";s:1:"1";s:11:"verify_sign";s:56:"AYkfPMj3Yw-OwsXtwJg49fQYox8cAP4QGG0WN9MjtjrJkxsSdUnu-sey";s:11:"payer_email";s:23:"mihai.sanfran@gmail.com";s:6:"txn_id";s:17:"3MT88711T6625122Y";s:12:"payment_type";s:7:"instant";s:6:"btn_id";s:7:"3075135";s:9:"last_name";s:11:"Smarandache";s:14:"receiver_email";s:26:"travelin.man2015@gmail.com";s:11:"payment_fee";s:4:"1.17";s:17:"shipping_discount";s:4:"0.00";s:16:"insurance_amount";s:4:"0.00";s:11:"receiver_id";s:13:"AVCAHSW235QLG";s:8:"txn_type";s:10:"web_accept";s:9:"item_name";s:18:"1000 Email Credits";s:8:"discount";s:4:"0.00";s:11:"mc_currency";s:3:"USD";s:11:"item_number";s:0:"";s:17:"residence_country";s:2:"US";s:8:"test_ipn";s:1:"1";s:15:"handling_amount";s:4:"0.00";s:15:"shipping_method";s:7:"Default";s:19:"transaction_subject";s:0:"";s:13:"payment_gross";s:5:"30.00";s:8:"shipping";s:4:"0.00";s:12:"ipn_track_id";s:13:"7bdd6a5e3e206";}');
 
 -- --------------------------------------------------------
 
@@ -19745,7 +19870,7 @@ CREATE TABLE IF NOT EXISTS `template_fields` (
   UNIQUE KEY `tunique` (`user_id`,`template_id`,`field`),
   KEY `template_id` (`template_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=301 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=302 ;
 
 --
 -- Dumping data for table `template_fields`
@@ -19771,7 +19896,7 @@ INSERT INTO `template_fields` (`id`, `user_id`, `template_id`, `field`, `value`)
 (108, 3, 9, '8', 'SPECIAL 333COLUMN							'),
 (109, 3, 9, '9', 'Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum au2222ctor, nisi elit consequat ipsum,							'),
 (110, 3, 7, '2', 'Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum5555 auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. <br />\n<br><br><br />\nMauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim.<br />\n<br><br><br />\nOn behalf of the Company<br><br />\nName Surname							'),
-(116, 5, 2, '-9', 'TEMPLAR IT provides Information Technology services to residential and business customers offering affordable and reliable quality of service with emphasis on creativity.  Our concept is to utilize current technology and implement customized solutions specific to client needs and <br />\n<br><br><br><br><br><br><br><br><br />\n<a href="http://www.templarit.com/"><br><br><br><br><br />\nTemplar IT</a><br><br><br><br><br />\n<br><br><br><br><br />\n<br><br><br><br><br />\n<br><br><br />\n<br><br><br />\n<br><br><br />\nknowledge.â€‹ As a result, we deliver wide <br><br><br />\n<br><br><br />\n<br><br><br />\n<br><br><br />\n<br><br><br />\nrange of IT services and products for small and medium size environments including server-desktop virtualization and cloud solutions.http://www.templarit.com/																																																																			'),
+(116, 5, 2, '-9', 'dont show IP address in reports<br><br><br />\n<br><br>Map of countries in reports<br><br><br />\nevery email is a link that will lead to a page with details about that email: opens, links that were clicked in the email	<br><br><br />\n<br><br><br><br><br />\nbetter inline editor for simple text email																																																																																			'),
 (118, 5, 2, 'A543ad83c8f78a.txt', 'emails.txt'),
 (164, 5, 8, '0', 'http://www.templarit.com/'),
 (159, 5, 8, '-7', 'TEMPLAR IT provides Information Technology services to residential and business customers offering affordable and reliable quality of service with emphasis on creativity.  Our concept is to utilize current technology and implement customized solutions specific to client needs and knowledge.â€‹ As a result, we deliver wide range of IT services and products for small and medium size environments including server-desktop virtualization and cloud solutions.																'),
@@ -19782,11 +19907,11 @@ INSERT INTO `template_fields` (`id`, `user_id`, `template_id`, `field`, `value`)
 (123, 5, 7, '-9', 'TemplarIT					'),
 (124, 5, 7, '-5', 'http://www.templarit.com/'),
 (125, 5, 7, '-8', 'TemplarIT Solutions		'),
-(126, 5, 7, '-7', 'TEMPLAR IT provides Information Technology services to residential and business customers offering affordable and reliable quality of service with emphasis on creativity.  Our concept is to utilize current technology and implement customized solutions specific to client needs and knowledge.â€‹ As a result, we deliver wide range of IT services and products for small and medium size environments including server-desktop virtualization and cloud solutions.'),
+(126, 5, 7, '-7', 'TEMPLAR IT provides Information Technology services to residential and business customers offering affordable and reliable quality of service with emphasis on creativity.  Our concept is to utilize current technology and implement customized solutions specific to client needs and knowledge.â€‹ As a result, we deliver wide range of IT services and products for small and medium size environments including server-desktop virtualization and cloud solutions.			sss				'),
 (127, 5, 7, '-6', 'Templar IT Solutions LLC, 2942 N 24th St., Suite 114-514, Phoenix, AZ, 85016| Tel: 860-478-7583 | ITsupport@templarit.net					'),
 (135, 5, 7, 'A543c77bcaa7e4.jpg', '0a843a_f887ec247009487d9500967e38cbec86.jpg_srz_p_988_491_75_22_0.50_1.20_0.00_jpg_srz.jpg'),
 (158, 5, 8, '-8', 'IT SERVICES'),
-(157, 5, 8, '1', 'I543cad34d0925.jpg'),
+(157, 5, 8, '1', 'I54ed4b68a0d6c.jpg'),
 (156, 5, 8, '-9', 'TemplarIT												'),
 (167, 5, 9, '-9', 'Templar IT				'),
 (168, 5, 9, '-8', '											'),
@@ -19824,10 +19949,11 @@ INSERT INTO `template_fields` (`id`, `user_id`, `template_id`, `field`, `value`)
 (292, 5, 1, '8', 'http://www.templarit.com/'),
 (288, 5, 1, '4', 'Design and development of business websites, logos, and custom build web applications.â€‹'),
 (289, 5, 1, '-7', '<strong class="subtitle" style="display: block; font-size: 11px; font-family: Verdana; text-transform: uppercase; margin: 0 0 10px 0;">OVERVIEW</strong><br />\n	'),
-(290, 5, 1, '-6', 'TEMPLAR IT provides Information Technology services to residential and business customers offering affordable and reliable quality of service with emphasis on creativity.  Our concept is to utilize current technology and implement customized solutions specific to client needs and knowledge.â€‹ As a result, we deliver wide range of IT services and products for small and medium size environments including server-desktop virtualization and cloud solutions.'),
+(290, 5, 1, '-6', 'Mihai was here<br><br><br>Victor Was here<br />\n	'),
+(301, 3, 1, '0', 'Suspendisse imperdiet ullamcorper est at interdum. Suspendisse at felis nunc. Integer eu felis lacus, <br />\n			sdafds	id blandit augue. <a href="./" style="color: #cc0000; text-decoration: none;">Mauris commodo hendrerit risus</a>, quis vehicula mi adipiscing...	'),
 (287, 5, 1, '3', 'WEB DEVELOPMENT<br />\n	'),
 (283, 5, 1, '-1', 'IT SUPPORT'),
-(284, 5, 1, '0', 'Management and installation of home/business computers, remote assistance, and managed IT services.â€‹	'),
+(284, 5, 1, '0', 'Management and installation of home/business computers, remote assistance, and managed IT services.â€‹555		'),
 (285, 5, 1, '1', 'NETWORK SUPPORT'),
 (286, 5, 1, '2', 'Residential and business solutions including: network design, implementation, administration, and security'),
 (281, 5, 1, '-9', 'Templar IT Solutions'),
@@ -19848,23 +19974,20 @@ CREATE TABLE IF NOT EXISTS `users` (
   `username` varchar(30) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
   `password` varchar(50) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
   `role` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
+  `emails` int(11) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=16 ;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `role`, `timestamp`) VALUES
-(4, 'mark', 'ea82410c7a9991816b5eeeebe195e20a', 'admin', '2015-02-16 21:15:13'),
-(3, 'smith', 'a66e44736e753d4533746ced572ca821', 'admin', '2015-02-16 21:15:19'),
-(5, 'demo', 'fe01ce2a7fbac8fafaed7c982a04e229', 'admin', '2015-02-16 21:15:23'),
-(6, 'TestUsername', '7fd3c5eeaeed8ce580c24a2f62ed535c', 'buyer', '2015-02-16 21:30:25'),
-(7, 'TestUsername', '2a77e77949239599d20fd09222a2e7e8', 'buyer', '2015-02-16 21:35:47'),
-(8, 'TestUsername', '61cde6cf481b7ee9b33fd4c4dba831fa', 'buyer', '2015-02-16 21:39:38'),
-(9, 'TestUsername', '5663f80af947ada0b64db7295db8dc35', 'buyer', '2015-02-16 22:07:57'),
-(10, 'TestUsername', 'ef98bcb7649772f4fadfa9e040988cbe', 'buyer', '2015-02-16 23:08:31');
+INSERT INTO `users` (`id`, `username`, `password`, `role`, `emails`, `timestamp`) VALUES
+(4, 'mark', 'ea82410c7a9991816b5eeeebe195e20a', 'admin', 0, '2015-02-16 21:15:13'),
+(3, 'smith', 'a66e44736e753d4533746ced572ca821', 'admin', 12, '2015-03-07 20:41:47'),
+(5, 'demo', 'fe01ce2a7fbac8fafaed7c982a04e229', 'admin', 0, '2015-03-08 00:52:43'),
+(15, 'TestUsername', '914abb4f0e08a70084fc6d2c5b959d46', 'buyer', 1000, '2015-03-07 18:48:24');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
