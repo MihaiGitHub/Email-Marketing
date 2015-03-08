@@ -13,7 +13,8 @@ if(isset($_GET['id']))
 	
 // Load the correct template
 $tstmt = $conn->prepare('SELECT name FROM templates WHERE id = :id');
-$tresult = $tstmt->execute(array('id' => $_SESSION['templateid']));
+$tstmt->execute(array('id' => $_SESSION['templateid']));
+$tstmt->setFetchMode(PDO::FETCH_ASSOC);
 $trow = $tstmt->fetch();
 
 if($_POST['emailform'] == "submitted" || isset($_GET['processing'])){
@@ -36,18 +37,18 @@ if($_POST['emailform'] == "submitted" || isset($_GET['processing'])){
 
 	// Select all emails corresponding to the chosen list
 	$stmtmain = $conn->prepare('SELECT id, email FROM emails WHERE list_id = :listid');
-	$resultmain = $stmtmain->execute(array('listid' => $_SESSION['listid']));
-	
+	$stmtmain->execute(array('listid' => $_SESSION['listid']));
+
 	$count = $stmtmain->rowCount();
 		
 	switch ($trow['name']){
-		case 'Newsletter':
+		case 'Elegant Email':
 			$template = 'templates/Newsletter.html';
 		break;
-		case 'Basic':
+		case 'Simple Text':
 			$template = 'templates/Basic.html';
 		break;
-		case 'Real Estate':
+		case 'Featured Homes':
 			$template = 'templates/RealEstate.html';
 		break;
 		case 'Tech Simple':
@@ -62,11 +63,11 @@ if($_POST['emailform'] == "submitted" || isset($_GET['processing'])){
 		case 'Professional':
 			$template = 'templates/Professional.html';
 		break;
-		case 'Professional_wide':
+		case 'Professional Wide':
 			$template = 'templates/Professional_wide.html';
 		break;
 	}
-	
+		
 	if($count > 14){	die('Too Many Emails!');
 	// added email_replyto and sent columns in db when inserting campaigns
 		header('refresh: 70; template.php?processing');
@@ -86,16 +87,21 @@ $stmtc = $conn->prepare('INSERT INTO campaigns (id, user_id, list_id, subject, e
 $resultc = $stmtc->execute(array('cid' => $_SESSION['c_id'], 'userid' => $_SESSION['id'], 'listid' => $_POST['lists'], 'subject' => $_POST['subject'], 'from' => $_POST['from']));
 			
 
-				while($campaignemails = $stmtmain->fetch()){ 
-
-					// put all emails in campaign emails
-					$stmcemails = $conn->prepare('INSERT INTO campaign_emails (c_id, email) VALUES (:cid, :email)');
-					$resulctemails = $stmcemails->execute(array('cid' => $_SESSION['c_id'], 'email' => $campaignemails['email']));	
-	
+				while($campaignemails = $stmtmain->fetch()){
+					// If the user has more than 0 emails left to send, it will create a campaign with the number of emails left
+					if($_SESSION['emails'] > 0){ echo 'session emails '.$_SESSION['emails'];
+						// put all emails in campaign emails and subtract from emails remaining
+						$stmcemails = $conn->prepare('INSERT INTO campaign_emails (c_id, email) VALUES (:cid, :email)');
+						$resulctemails = $stmcemails->execute(array('cid' => $_SESSION['c_id'], 'email' => $campaignemails['email']));
+						$_SESSION['emails']--;
+					} else { echo 'Loop has ended';
+						$error = true;
+						break;
+					}
 				}
-	
 			}
-						
+
+
 			// Set additional parameters for mail object
 			$mail->SetFrom($_SESSION['fromemail'], $_SESSION['from']);
 			$mail->AddReplyTo($_SESSION['replyto']);
@@ -160,26 +166,32 @@ while($rowattach = $attachments->fetch()){
 			} // The while loop
 			echo '</table>';
 
-	} else {
+	} else { // this has the most updated version
 		// if there are more than 0 emails but less than 20 do once and finish right then
 		if($count > 0){ 
-		
+
 			// handle file upload if there is one
 			if(!isset($_GET['processing'])){
 				
 					
 		
 			$stmtc = $conn->prepare('INSERT INTO campaigns (id, user_id, list_id, subject, email_from, email_replyto, sent) VALUES (:cid, :userid, :listid,  :subject, :from, :replyto, :sent)');
-			$resultc = $stmtc->execute(array('cid' => $_SESSION['c_id'], 'userid' => $_SESSION['id'], 'listid' => $_POST['lists'], 'subject' => $_POST['subject'], 'from' => $_POST['from'], 'replyto' => $_POST['replyto'], 'sent' => date('n/j/Y g:i A')));
+			$stmtc->execute(array('cid' => $_SESSION['c_id'], 'userid' => $_SESSION['id'], 'listid' => $_POST['lists'], 'subject' => $_POST['subject'], 'from' => $_POST['from'], 'replyto' => $_POST['replyto'], 'sent' => date('n/j/Y g:i A')));
 	
 			}
 
 
 			while($campaignemails = $stmtmain->fetch()){ 
-
-					// put all emails in campaign emails
-					$stmcemails = $conn->prepare('INSERT INTO campaign_emails (c_id, email) VALUES (:cid, :email)');
-					$resulctemails = $stmcemails->execute(array('cid' => $_SESSION['c_id'], 'email' => $campaignemails['email']));	
+					
+					// If the user has more than 0 emails left to send, it will create a campaign with the number of emails left
+					if($_SESSION['emails'] > 0){ echo 'session emails '.$_SESSION['emails'];
+						// put all emails in campaign emails and subtract from emails remaining
+						$stmcemails = $conn->prepare('INSERT INTO campaign_emails (c_id, email) VALUES (:cid, :email)');
+						$resulctemails = $stmcemails->execute(array('cid' => $_SESSION['c_id'], 'email' => $campaignemails['email']));
+						$_SESSION['emails']--;
+					} else {
+						break;
+					}	
 	
 			}
 			
@@ -190,7 +202,8 @@ while($rowattach = $attachments->fetch()){
 			
 			// Select all fields from template_fields and put them in template
 			$stmtfields = $conn->prepare('SELECT field, value FROM template_fields WHERE user_id = :userid AND template_id = :templateid');
-			$resultfields = $stmtfields->execute(array('userid' => $_SESSION['id'], 'templateid' => $_GET['id']));
+			$stmtfields->execute(array('userid' => $_SESSION['id'], 'templateid' => $_GET['id']));
+			$stmtfields->setFetchMode(PDO::FETCH_ASSOC);
 
 			while($rowfields = $stmtfields->fetch()){
 				switch($rowfields['field']){
@@ -210,15 +223,12 @@ while($rowattach = $attachments->fetch()){
 						$replacements[$rowfields['field']] = nl2br($rowfields['value']);
 				}
 			} 
-		 		
-//////////////
-echo '<pre>';
-//print_r($replacements);
-echo '</pre>';
 
 			/// Select all emails from campaign_emails inserted above
 			$stmtcid = $conn->prepare('SELECT id, c_id, email FROM campaign_emails WHERE c_id = :cid AND sent = 0 LIMIT 14');
-			$resultcid = $stmtcid->execute(array('cid' => $_SESSION['c_id']));
+			$stmtcid->execute(array('cid' => $_SESSION['c_id']));
+			$stmtcid->setFetchMode(PDO::FETCH_ASSOC);
+			
 			echo '<table class="sending">';
 			
 		while($rowcid = $stmtcid->fetch()){
@@ -232,15 +242,12 @@ echo '</pre>';
 			$replacements[101] = getenv('HTTP_HOST');
 			$replacements[102] = $rowcid['id'];
 			///////////////////////////////////////////
-			
-		
+
 			$body = file_get_contents($template);
 		
 			$body = preg_replace($patterns, $replacements, $body);
 			
 			////////////////////////////////////
-//echo $body;
-//exit;
 
 			$mail = new PHPMailer();
 			$mail->SMTPDebug  = 2;                    
@@ -252,7 +259,7 @@ echo '</pre>';
 
 // ATTACH FILES FOR EACH EMAIL
 $attachments = $conn->prepare('SELECT field, value FROM template_fields WHERE user_id = :userid AND template_id = :templateid AND field LIKE "A%"');
-$resultattach = $attachments->execute(array('userid' => $_SESSION['id'], 'templateid' => $_GET['id']));
+$attachments->execute(array('userid' => $_SESSION['id'], 'templateid' => $_GET['id']));
 
 while($rowattach = $attachments->fetch()){
 	$mail->AddAttachment('files/'.$rowattach['field']);
@@ -263,8 +270,8 @@ while($rowattach = $attachments->fetch()){
 			$mail->MsgHTML($body); 
 			$mail->AddAddress($rowcid['email']);
 			
-			if(!$mail->Send()) {
-			  echo "Mailer Error: " . $mail->ErrorInfo;
+			if(!$mail->Send()) {				
+			  echo "Mailer Error: " . $mail->ErrorInfo."<br/>";
 			} else {
 			  echo "Message sent to ".$rowcid['email']."<br/>";
 			}
@@ -276,7 +283,11 @@ while($rowattach = $attachments->fetch()){
 	
 		} // should be the while loop
 			echo '</table>';
-			
+
+		// Update the total number of emails remaining
+		$stmtc = $conn->prepare('UPDATE users SET emails = :emails WHERE id = :userid');
+		$stmtc->execute(array('emails' => $_SESSION['emails'], 'userid' => $_SESSION['id']));
+
 		//	header('Location: templates.php?finished');
 		//	exit;
 		
@@ -320,14 +331,16 @@ textarea {
 
 <div class="container-fluid">
   <div class="row-fluid">
-<?php 
-$stmt = $conn->prepare('SELECT id, name FROM lists WHERE user_id = :userid');
-$result = $stmt->execute(array('userid' => $_SESSION['id']));
-while($row = $stmt->fetch()){ 
-	$options .= "<option value=".$row['id'].">".$row['name']."</option>";
-}
+  	<form method="post" action="template.php?id=<?php echo $_GET['id']; ?>" enctype="multipart/form-data">
+
+<?php
+if($_SESSION['emails'] > 0){
+	$stmt = $conn->prepare('SELECT id, name FROM lists WHERE user_id = :userid');
+	$result = $stmt->execute(array('userid' => $_SESSION['id']));
+	while($row = $stmt->fetch()){ 
+		$options .= "<option value=".$row['id'].">".$row['name']."</option>";
+	}
 ?>
-<form method="post" action="template.php?id=<?php echo $_GET['id']; ?>" enctype="multipart/form-data">
 <table>
 	<tr>
 		<td>
@@ -357,13 +370,18 @@ while($row = $stmt->fetch()){
 	</tr>
 </table>
 <?php // DISPLAYING ALL ATTACHED FILES
-$attachments = $conn->prepare('SELECT field, value FROM template_fields WHERE user_id = :userid AND template_id = :templateid AND field LIKE "A%"');
-$resultattach = $attachments->execute(array('userid' => $_SESSION['id'], 'templateid' => $_GET['id']));
-
-while($rowattach = $attachments->fetch()){
-	echo '<a target="_blank" href="files/'.$rowattach['field'].'">'.$rowattach['value'].'</a><br/>';
+	$attachments = $conn->prepare('SELECT field, value FROM template_fields WHERE user_id = :userid AND template_id = :templateid AND field LIKE "A%"');
+	$resultattach = $attachments->execute(array('userid' => $_SESSION['id'], 'templateid' => $_GET['id']));
+	
+	while($rowattach = $attachments->fetch()){
+		echo '<a target="_blank" href="files/'.$rowattach['field'].'">'.$rowattach['value'].'</a><br/>';
+	}
+} else { // end error if ?>
+	<div class="alert alert-danger" role="alert">
+      <strong>Oh snap!</strong> <a href="#" class="alert-link">Change a few things up</a> and try submitting again.
+    </div>
+	<?php
 }
-
 // Store all field values that have been completed into an array. Fields in template are named 1, 2, 3... in order from beg to end
 $stmt = $conn->prepare('SELECT field, value FROM template_fields WHERE user_id = :userid AND template_id = :templateid');
 $result = $stmt->execute(array('userid' => $_SESSION['id'], 'templateid' => $_GET['id']));
