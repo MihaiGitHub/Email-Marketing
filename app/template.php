@@ -377,10 +377,10 @@ if($_SESSION['emails'] > 0){
 		echo '<a target="_blank" href="files/'.$rowattach['field'].'">'.$rowattach['value'].'</a><br/>';
 	}
 } else { // end error if ?>
-	<div class="alert alert-danger" role="alert">
-      <strong>Oh snap!</strong> <a href="#" class="alert-link">Change a few things up</a> and try submitting again.
-    </div>
-	<?php
+	<div class="alertt alertt-danger" role="alert">
+		 <strong>Warning!</strong> Your account is out of emails. <a href="#" class="alertt-link">Purchase more</a>.
+	</div>
+<?php
 }
 // Store all field values that have been completed into an array. Fields in template are named 1, 2, 3... in order from beg to end
 $stmt = $conn->prepare('SELECT field, value FROM template_fields WHERE user_id = :userid AND template_id = :templateid');

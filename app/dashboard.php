@@ -11,7 +11,11 @@ session_start();
 </ul>
 <div class="container-fluid">
     <div class="row-fluid">	
-		<div class="new-emailcampaign-div"> 
+	     <div class="aalert aalert-success" role="alert">
+      		<strong>Well done!</strong> You have successfully created an account. You now have <?php echo $_SESSION['emails']; ?> emails. <a href="#" class="aalert-link">Purchase more</a>.
+		</div>
+
+		<div class="new-emailcampaign-div">
 			<a href="templates.php">
 				<div class="new-emailcampaign"> 
 					<img class="icon" src="images/email-icon.svg" role="presentation">

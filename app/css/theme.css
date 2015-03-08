@@ -842,3 +842,40 @@ table.table.list tr:first-child td {
 	font-size:13px;
 	opacity: .8;
 }
+/* alerts */
+.alertt-danger {
+	color: #a94442;
+	background-color: #f2dede;
+	border-color: #ebccd1;
+}
+.alertt {
+	padding: 15px;
+	border: 1px solid #ebccd1;
+	border-radius: 4px;
+}
+alertt strong {
+	font-weight: 700;
+}
+.alertt-danger .alertt-link {
+	color: #843534;
+}
+.alertt .alertt-link {
+	font-weight: 700;
+}
+.aalert {
+	padding: 15px;
+	border: 1px solid #d6e9c6;
+	border-radius: 4px;
+	margin-bottom: 7px;
+}
+.aalert-success {
+	color: #3c763d;
+	background-color: #dff0d8;
+	border-color: #d6e9c6;
+}
+.aalert-success .aalert-link {
+	color: #2b542c;
+}
+.aalert .aalert-link {
+	font-weight: 700;
+}
