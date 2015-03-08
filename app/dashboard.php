@@ -12,7 +12,7 @@ session_start();
 <div class="container-fluid">
     <div class="row-fluid">	
 	     <div class="aalert aalert-success" role="alert">
-      		<strong>Well done!</strong> You have successfully created an account. You now have <?php echo $_SESSION['emails']; ?> emails. <a href="#" class="aalert-link">Purchase more</a>.
+      		<strong>Well done!</strong> Your account is currently active. You now have <?php echo $_SESSION['emails']; ?> emails remaining. <a href="#" class="aalert-link">Purchase more</a>.
 		</div>
 
 		<div class="new-emailcampaign-div">
