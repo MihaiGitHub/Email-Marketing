@@ -20,7 +20,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 	$stmt = $conn->prepare('SELECT id, username, password, role, emails FROM users WHERE username = :username');
 	$result = $stmt->execute(array('username' => $_POST['username']));
 	while($row = $stmt->fetch()){
-		if(md5($_POST['password']) == $row['password']){
+		if(md5(trim($_POST['password'])) == $row['password']){
 			$_SESSION['id'] = $row['id'];
 			$_SESSION['role'] = $row['role'];
 			$_SESSION['emails'] = $row['emails'];

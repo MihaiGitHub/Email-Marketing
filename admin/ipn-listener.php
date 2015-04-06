@@ -5,7 +5,10 @@
 /////////////////////////////////////////////////////////
 
 require_once('admin/config.php');
+require_once('../app/PHPMailer_5.2.1/class.phpmailer.php');
 
+/*
+// migrate to using your php mailer. It's newer version
 if($php_version == '5')
 {
 	require_once('includes/phpmailer/class.phpmailer.php');
@@ -16,12 +19,21 @@ else
 	require_once('includes/phpmailer/php_4/class.phpmailer.php');
 	require_once('includes/phpmailer/php_4/class.smtp.php');
 }
+*/
 
 require_once('includes/database.class.php');
 require_once('includes/functions.php');
 
-// Configure SMTP email settings
 $mail = new PHPMailer();
+$mail->SMTPDebug  = 2;                    
+
+$mail->SetFrom($email_from_address, $email_from_name);
+$mail->AddReplyTo($email_from_address);
+
+
+// Configure SMTP email settings
+//$mail = new PHPMailer();
+/*
 if($smtp_auth)
 {
 	$mail -> IsSMTP();
@@ -40,16 +52,16 @@ else
 	else
 		$mail -> IsMail();	
 }
-
-$mail -> IsHTML(true);		 										
-$mail -> From = $email_from_address;				
-$mail -> FromName = $email_from_name;					
+*/
+//$mail -> IsHTML(true);		 										
+//$mail -> From = $email_from_address;				
+//$mail -> FromName = $email_from_name;					
 
 // Configure new database object
 $db = new Database($db_host, $db_username, $db_password, $db_database, $db_table_prefix);
 $db -> connect();
   
-// Read the post from PayPal system and add 'cmd'   
+// Read the post from PayPal system and add 'cmd'
 $req = 'cmd=_notify-validate';   
   
 // Store each $_POST value in a NVP string: 1 string encoded and 1 string decoded   
@@ -78,7 +90,9 @@ if(count($db -> errors) > 0)
 		$error_email_body .= $error . '<br />';
 		
 	$mail -> Subject  =  'PayPal IPN : Connection to database failed!';
-	$mail -> Body =  $error_email_body . '<br /><br />' . $ipn_email;
+	$body =  $error_email_body . '<br /><br />' . $ipn_email;
+	$mail->MsgHTML($body); 
+
 	$mail -> AddAddress($admin_email_address, $admin_name);
 	$mail -> Send();
 	$mail -> ClearAddresses();
@@ -168,25 +182,62 @@ if(count($db -> errors) > 0)
 		$error_email_body .= $error . '<br />';
 		
 	$mail -> Subject  =  'PayPal IPN : Error(s) adding data to database.';
-	$mail -> Body =  $error_email_body . '<br /><br />' . $ipn_email;
+	$body = $error_email_body . '<br /><br />' . $ipn_email;
+	$mail->MsgHTML($body); 
+
 	$mail -> AddAddress($admin_email_address, $admin_name);
 	$mail -> Send();
 	$mail -> ClearAddresses();
 }
 else
 {
+
 	$mail -> Subject  =  'PayPal IPN : Completed Successfully';
-	$mail -> Body = $ipn_email;
+	$mail->MsgHTML($ipn_email);
 	$mail -> AddAddress($admin_email_address, $admin_name);
 	$mail -> Send();
 	$mail -> ClearAddresses();
 	
 	// Send buyer login details
-	$mail -> Subject  =  $_POST['item_name'].' Purchase';
-	$mail -> Body = $_POST['first_name'].' '.$_POST['last_name'].'This is your username and password'.$_POST['payer_email'];
-	$mail -> AddAddress('mihai.sanfran@gmail.com', 'buyerName');
-	$mail -> Send();
+	$patterns = array();
+	$replacements = array();
+
+	$chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&";
+	$password = substr( str_shuffle( $chars ), 0, 10 );
+	$arr = explode(' ',trim($_POST['item_name']));
+	
+	$user['username'] = $_POST['payer_email'];
+	$user['password'] = md5($password);
+	$user['role'] = 'buyer';
+	$user['emails'] = $arr[0];
+	$db -> query_insert('users', $user);
+
+	$mail->Subject = 'PayPal Purchase : Completed Successfully : '.$_POST['item_name'];
+	$mail->AltBody    = "To view the message, please use an HTML compatible email viewer!"; 
+	
+	$patterns['name'] = '/FNAME/';
+	$patterns['payment'] = '/GROSS/';
+	$patterns['currency'] = '/CURRENCY/';
+	$patterns['username'] = '/USERNAME/';
+	$patterns['password'] = '/PASSWORD/';
+	$patterns['root'] = '/ROOT/';
+	
+	$replacements['name'] = $_POST['first_name'];
+	$replacements['payment'] = $_POST['mc_gross'];
+	$replacements['currency'] = $_POST['mc_currency'];
+	$replacements['username'] = $_POST['payer_email'];
+	$replacements['password'] = $password;
+	$replacements['root'] = getenv('HTTP_HOST');
+	
+	$body = file_get_contents('../app/templates/ConfirmationEmail.html');
+	$body = preg_replace($patterns, $replacements, $body);
+
+	$mail->MsgHTML($body); 
+	$mail->AddAddress($_POST['payer_email'], $_POST['first_name']);
+
+	$mail->Send();
 	$mail -> ClearAddresses();
+	
 }
 	
 $db -> close();
