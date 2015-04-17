@@ -2,6 +2,8 @@
 ob_start();
 session_start();
 include 'include/dbconnect.php';
+/////////////////
+$_SESSION['list'] = $_GET['id'];
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
 	switch ($_POST['submitbtn']){	
@@ -33,16 +35,35 @@ $result = $stmt->execute(array('listid' => $_GET['id']));
 
 <div id="uploademailfile">
 	<form method="post" action="emails.php?id=<?php echo urlencode($_GET['id']); ?>" enctype="multipart/form-data">
-		<table>
+		<table style="width:100%;">
 			<tbody>
 				<tr>
 					<td>
+                    <!--
 						<a href="#" title="Upload File" onclick="upload.init('<?php echo '.'; ?>', <?php echo 2097152; ?>); return false;"><img style="width:50px;height:60px;" src="images/file_upload-128.png" alt="Upload File"></a>
-					</td>
-					<td>
+                        -->
+            <button type="button" name="submitbtn" class="btn btn-primary" data-toggle="modal" href="#addEmail"> Add Email</button>&nbsp;
+           
+             <button onclick="upload.init('<?php echo '.'; ?>', <?php echo 2097152; ?>); return false;" type="button" name="submitbtn" value="uploadcsv" class="btn btn-primary"> Upload CSV</button>
+
+                    
+              
+                    <!--
 					    <label for="email">Upload file or add email</label>
 					    <input type="text" name="email" />
-					    <button type="submit" name="submitbtn" value="saveemail" class="btn btn-primary"><i class="icon-envelope-alt"></i> Save</button>
+                        <button type="submit" name="submitbtn" value="saveemail" class="btn btn-primary"><i class="icon-envelope-alt"></i> Save</button>
+                        -->
+                        
+                        
+                        
+                        
+					    &nbsp;<button data-toggle="modal" type="button" href="#importModal" name="submitbtn" value="importcontacts" class="btn btn-primary"><i class="fa fa-sign-in"></i> Import Contacts</button>
+					
+                    
+                    
+                    </td>
+					<td style="text-align:right;">
+					    <button type="button" name="submitbtn" class="btn"> Download CSV</button>
 					</td>
 				</tr>
 			</tbody>
@@ -75,6 +96,48 @@ $result = $stmt->execute(array('listid' => $_GET['id']));
 <input type="hidden" id="deleteID" name="deleteID" value=""/>
 <input type="hidden" name="submitbtn" value="deleteID"/>
 </form>
+<div class="modal small hide fade" id="addEmail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<form method="post" action="emails.php?id=<?php echo $_GET['id']; ?>">
+	    <div class="modal-header">
+		   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		   <h3 id="myModalLabel">Add New Email</h3>
+	    </div>
+	    <div class="modal-body edit">
+		   <p class="error-text"><i class="icon-warning-sign modal-icon"></i>
+		     <input type="text" />
+		   </p>
+		   <input type="hidden" name="listid" id="listid" value=""/>
+	    </div>
+	    <div class="modal-footer">
+		   <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+		   <button type="submit" name="submitbtn" value="edit" class="btn btn-danger">Save</button>
+	    </div>
+    </form>
+</div>
+<div class="modal small hide fade" id="importModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<form method="post" action="lists.php">
+	    <div class="modal-header">
+		   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		   <h3 id="myModalLabel">Select Email Provider</h3>
+	    </div>
+	    <div class="modal-body edit">
+		   <p class="error-text"><i class="icon-warning-sign modal-icon"></i>
+		     <select name="type" onChange="location = this.options[this.selectedIndex].value;">
+				<option></option>
+				<option value="#">Hotmail</option>
+				<option value="https://accounts.google.com/o/oauth2/auth?client_id=35316327914-4sdoc4ihn46qcc0ihnnlp06p1u0dv52n.apps.googleusercontent.com&redirect_uri=http://mihaismarandache.com/emarketing/app/lists.php&scope=https://www.google.com/m8/feeds/&response_type=code">GMail</option>
+				<option value="#">Yahoo</option>
+			</select>
+		   </p>
+		   <input type="hidden" name="listid" id="listid" value=""/>
+	    </div>
+	    <div class="modal-footer">
+		   <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+		   <button type="submit" name="submitbtn" value="edit" class="btn btn-danger">Save</button>
+	    </div>
+    </form>
+</div>
+<script src="lib/bootstrap/js/bootstrap.js"></script>
 <script type="text/javascript">
 function $(a){return document.getElementById(a)}var popup,fOp,edit,upload,shell,__AJAX_ACTIVE,__CODEMIRROR,__CODEMIRROR_MODE,__CODEMIRROR_LOADED,__CODEMIRROR_PATH="_cm",__CODEMIRROR_MODES={html:"htmlmixed",js:"javascript",py:"python",rb:"ruby",md:"markdown"};
 	function ajax(b,g,e,c,a,d){
