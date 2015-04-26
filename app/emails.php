@@ -2,7 +2,7 @@
 ob_start();
 session_start();
 include 'include/dbconnect.php';
-/////////////////
+
 $_SESSION['list'] = $_GET['id'];
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -70,7 +70,6 @@ $result = $stmt->execute(array('listid' => $_GET['id']));
 		</table>
 	</form>
 </div>
-<br/><br/>
 <form id="emailForm" method="post" action="emails.php?id=<?php echo urlencode($_GET['id']); ?>">
 <div class="well">
     <table class="table">
@@ -104,13 +103,12 @@ $result = $stmt->execute(array('listid' => $_GET['id']));
 	    </div>
 	    <div class="modal-body edit">
 		   <p class="error-text"><i class="icon-warning-sign modal-icon"></i>
-		     <input type="text" />
+		     <input type="text" name="email"/>
 		   </p>
-		   <input type="hidden" name="listid" id="listid" value=""/>
 	    </div>
 	    <div class="modal-footer">
 		   <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-		   <button type="submit" name="submitbtn" value="edit" class="btn btn-danger">Save</button>
+		   <button type="submit" name="submitbtn" value="saveemail" class="btn btn-danger">Save</button>
 	    </div>
     </form>
 </div>
@@ -129,7 +127,6 @@ $result = $stmt->execute(array('listid' => $_GET['id']));
 				<option value="#">Yahoo</option>
 			</select>
 		   </p>
-		   <input type="hidden" name="listid" id="listid" value=""/>
 	    </div>
 	    <div class="modal-footer">
 		   <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
