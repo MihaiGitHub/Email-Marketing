@@ -22,7 +22,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['type'] != 'all'){
 <div class="container-fluid">
     <div class="row-fluid">
 	
-<div id="templates">
+<div>
 	<form method="post" action="templates.php">
 		<table style="width:100%;">
 			<tr>
@@ -43,20 +43,24 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['type'] != 'all'){
 						</select>
 					
 				</td>
+                <td style="text-align:right;">
+                	    <button type="button" name="button" class="btn btn-primary"> Create Template</button>
+                </td>
 			</tr>
-			<tr>
-				<td>
+			<tr id="templates">
+				<td colspan="2">
 				
-<?php while($row = $stmt->fetch()){ ?>
-	<div class="template">
-		<button type="button" onclick="window.location = 'template.php?id=<?php echo $row['id']; ?>'"><img src="../app/images/<?php echo $row['picture']; ?>"></button>
-	
-		<div class="template-text">
-		    <div><?php echo $row['name']; ?></div> 
-			<div class="body"><?php echo $row['type']; ?></div> 
-		</div>
-	</div>
-<?php } ?>
+					<?php while($row = $stmt->fetch()){ ?>
+                        <div class="template">
+                            <button type="button" onclick="window.location = 'template.php?id=<?php echo $row['id']; ?>'"><img src="../app/images/<?php echo $row['picture']; ?>"></button>
+                        
+                            <div class="template-text">
+                                <div><?php echo $row['name']; ?></div> 
+                                <div class="body"><?php echo $row['type']; ?></div> 
+                            </div>
+
+                        </div>
+                    <?php } ?>
 
 	 			</td>
 			</tr>
