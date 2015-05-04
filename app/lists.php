@@ -25,7 +25,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 	}
 }
 
-////////////////////////////////////////////////
 if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['code'])){
 	$message = true;
 	$client_id='35316327914-4sdoc4ihn46qcc0ihnnlp06p1u0dv52n.apps.googleusercontent.com';
@@ -83,13 +82,13 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['code'])){
 	if((strlen(stristr($xmlresponse,'Authorization required'))>0) && (strlen(stristr($xmlresponse,'Error '))>0)) //At times you get Authorization error from Google.
 	{
 		echo "<h2>OOPS !! Something went wrong. Please try reloading the page.</h2>";
-		exit();
+		exit;
 	}
 	
 	$xml =  new SimpleXMLElement($xmlresponse);
 	$xml->registerXPathNamespace('gd', 'http://schemas.google.com/g/2005');
 	$result = $xml->xpath('//gd:email');
-	 
+
 	foreach ($result as $title) {
 			$stmt = $conn->prepare('INSERT INTO emails (list_id, email) VALUES (:id, :email)');
 			$result = $stmt->execute(array('id' => $_SESSION['list'], 'email' => $title->attributes()->address));
@@ -97,9 +96,10 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['code'])){
 	 // echo $title->attributes()->address . "<br>";
 	}
 	
+	$stmtlist = $conn->prepare('SELECT id, name FROM lists WHERE id = :id');
+	$resultlist = $stmtlist->execute(array('id' => $_SESSION['list']));
+	$rowlist = $stmtlist->fetch();
 }
-///////////////////////////////////
-
 
 $stmt = $conn->prepare('SELECT id, name, created FROM lists WHERE user_id = :user');
 $result = $stmt->execute(array('user' => $_SESSION['id']));
@@ -116,20 +116,11 @@ $result = $stmt->execute(array('user' => $_SESSION['id']));
             <div class="row-fluid">
 		  <?php if($message){ ?>
 		  	<div class="aalert aalert-success" role="alert">
-      			<strong>Success!</strong> Your contacts have been imported and added to your list
+      			<strong>Success!</strong> Your contacts have been imported and added to the <a href="emails.php?id=<?php echo urlencode($rowlist['id']); ?>"><strong style="color:#3c763d;"><?php echo $rowlist['name']; ?></strong></a> list.
 			</div>
 		  <?php } ?>
 			<form method="post" action="lists.php">
             	<button type="button" name="submitbtn" value="save" class="btn btn-primary" data-toggle="modal" href="#addList"> Add List</button>
-            <!--
-				<table>
-					<tr>
-						<td colspan="2" style="text-align:left;"><label for="name" style="margin-bottom:0px;">List Name</label></td>
-						<td><input type="text" name="name" id="name" style="margin-bottom:0px;"/></td>
-						<td><button type="submit" name="submitbtn" value="save" class="btn btn-primary"><i class="icon-save"></i> Save</button></td>
-					</tr>
-				</table>
-                -->
 			</form>
 <div class="well">
 	<table class="table">
@@ -197,12 +188,12 @@ echo "<tr><td>$i</td><td><a href='emails.php?id=".urlencode($row['id'])."'>".htm
 		   <h3 id="myModalLabel">Add List</h3>
 	    </div>
 	    <div class="modal-body edit">
-		   <p class="error-text"><i class="icon-warning-sign modal-icon"></i><input type="text" name="listname" id="listname" value=""/></p>
+		   <p class="error-text"><i class="icon-warning-sign modal-icon"></i><input type="text" name="name" id="name" value=""/></p>
 		   <input type="hidden" name="listid" id="listid" value=""/>
 	    </div>
 	    <div class="modal-footer">
 		   <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-		   <button type="submit" name="submitbtn" value="edit" class="btn btn-danger">Save</button>
+		   <button type="submit" name="submitbtn" value="save" class="btn btn-danger">Save</button>
 	    </div>
     </form>
 </div>
