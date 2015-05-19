@@ -4,7 +4,7 @@ ini_set('display_errors', '1');
 
 if(!$_SESSION['auth']){ 
 	header('Location: index.php?authen=false');
-	exit;	
+	exit;
 }
 // Session timeout after 15 minutes
 if((time() - $_SESSION['last_access']) > 900){
@@ -32,74 +32,102 @@ $row = $stmt->fetch();
 $emailsopened = $row['count'];
 ?>
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Email Marketing</title>
-    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" type="image/png" href="images/email_favicon.jpeg">
-	<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css">
-    
-    <link rel="stylesheet" type="text/css" href="css/theme.css">
-    <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.css">
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+	<meta charset="utf-8" />
+	<title>Email Marketer</title>
+	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+	<meta content="" name="description" />
+	<meta content="" name="author" />
+	<link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="assets/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" />
+	<link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+	<link href="css/style.css" rel="stylesheet" />
+	<link href="css/style_responsive.css" rel="stylesheet" />
+	<link href="css/style_default.css" rel="stylesheet" id="style_color" />
 
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<link href="assets/fancybox/source/jquery.fancybox.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="assets/uniform/css/uniform.default.css" />
+</head>
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+<body class="fixed-top">
+	<!-- BEGIN HEADER -->
+	<div id="header" class="navbar navbar-inverse navbar-fixed-top">
+		<!-- BEGIN TOP NAVIGATION BAR -->
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<!-- BEGIN LOGO -->
+				<a class="brand" href="index.html">
+				   <span style="color: white;">Email Marketer</span>
+				</a>
+				<!-- END LOGO -->
+				<!-- BEGIN RESPONSIVE MENU TOGGLER -->
+				<a class="btn btn-navbar collapsed" id="main_menu_trigger" data-toggle="collapse" data-target=".nav-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="arrow"></span>
+				</a>
+				<!-- END RESPONSIVE MENU TOGGLER -->
+				
+                <div class="top-nav ">
+                    <ul class="nav pull-right top-menu">
+						<!-- BEGIN USER LOGIN DROPDOWN -->
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <img src="img/avatar-mini.png" alt="">
+                                <span class="username">Mihai Smarandache</span>
+							<b class="caret"></b>
+							</a>
+							<ul class="dropdown-menu">
+								<li><a href="#"><i class="icon-user"></i> My Profile</a></li>
+								<li class="divider"></li>
+								<li><a href="login.html"><i class="icon-key"></i> Log Out</a></li>
+							</ul>
+						</li>
+						<!-- END USER LOGIN DROPDOWN -->
+					</ul>
+					<!-- END TOP NAVIGATION MENU -->
+				</div>
+			</div>
+		</div>
+		<!-- END TOP NAVIGATION BAR -->
+	</div>
+	<!-- END HEADER -->
+	<!-- BEGIN CONTAINER -->
+	<div id="container" class="row-fluid">
+		<!-- BEGIN SIDEBAR -->
+		<div id="sidebar" class="nav-collapse collapse">
+			<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+			<div class="sidebar-toggler hidden-phone"></div>
+			<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
 
-    <style type="text/css">
-        #line-chart {
-            height:300px;
-            width:800px;
-            margin: 0px auto;
-            margin-top: 1em;
-        }
-        .brand { font-family: georgia, serif; }
-        .brand .first {
-            color: #ccc;
-            font-style: italic;
-        }
-        .brand .second {
-            color: #fff;
-            font-weight: bold;
-        }
-    </style>
-
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-  </head>
-
-  <!--[if lt IE 7 ]> <body class="ie ie6"> <![endif]-->
-  <!--[if IE 7 ]> <body class="ie ie7 "> <![endif]-->
-  <!--[if IE 8 ]> <body class="ie ie8 "> <![endif]-->
-  <!--[if IE 9 ]> <body class="ie ie9 "> <![endif]-->
-  <!--[if (gt IE 9)|!(IE)]><!--> 
-  <body> 
-  <!--<![endif]-->
-    
-    <div class="navbar">
-        <div class="navbar-inner">
-                <ul class="nav pull-right">
-                    <li id="fat-menu" class="dropdown">
-                        <a href="index.php?logout" role="button" class="dropdown-toggle">
-                            <i class="icon-user"></i> Log Out
-                        </a>
-                    </li>                   
-                </ul>
-                <a class="brand" href="index.html"><span class="first">Email</span> <span class="second">Marketing</span></a>
-        </div>
-    </div>
-    <div class="sidebar-nav">
-        <a href="dashboard.php" class="nav-header" data-toggle="collapse"><i class="icon-dashboard"></i>Dashboard</a>
-        <ul id="dashboard-menu" class="nav nav-list collapse in">
-            <li><a href="dashboard.php">Home</a></li>
-          <!--  <li ><a href="create.php">Create</a></li> -->
-            <li><a href="lists.php">Lists</a></li>
-            <li><a href="reports.php">Reports</a></li>        
-        </ul>
-    </div>
-    <div class="content">    
+			<!-- BEGIN SIDEBAR MENU -->
+			<ul class="sidebar-menu">
+				<li class="has-sub active">
+					<a href="dashboard" class="">
+					    <span class="icon-box"> <i class="icon-dashboard"></i></span> Dashboard
+                        <span class="arrow"></span>
+                    </a>
+				</li>
+				<li class="has-sub">
+					<a href="lists" class="">
+					    <span class="icon-box"> <i class="icon-list-alt"></i></span> Lists
+					    <span class="arrow"></span>
+					</a>
+				</li>
+				<li class="has-sub">
+					<a href="reports" class="">
+					<span class="icon-box"><i class="icon-bar-chart"></i></span> Reports
+					<span class="arrow"></span>
+					</a>
+				</li>
+                
+			</ul>
+			<!-- END SIDEBAR MENU -->
+		</div>
+		<!-- END SIDEBAR -->

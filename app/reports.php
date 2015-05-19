@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 ob_start();
 session_start();
 include 'include/dbconnect.php';
@@ -18,62 +18,89 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 $stmt = $conn->prepare('SELECT c.id, c.subject, c.sent, l.name FROM campaigns as c, lists as l WHERE c.user_id = :user AND c.list_id = l.id ORDER BY sent DESC');
 $result = $stmt->execute(array('user' => $_SESSION['id']));
 ?>
-<div class="header">
-	<h1 class="page-title">Campaign Reports</h1>
-</div>
-<ul class="breadcrumb">
-	<li><a href="reports.php">Reports</a> <span class="divider">/</span></li>
-	<li class="active">Campaign Reports</li>
-</ul>
-<div class="container-fluid">
-	<div class="row-fluid">
-		<div class="well">
-			<table class="table">
-			   <thead>
-				<tr>
-					<th>#</th>
-					<th>Campaign Name</th>
-					<th>List</th>
-					<th>Sent</th>
-					<th style="width: 26px;"></th>
-				</tr>
-			   </thead>
-			   <tbody>
+<!-- BEGIN PAGE -->
+<link rel="stylesheet" href="assets/data-tables/DT_bootstrap.css" />
+
+      <div id="main-content">
+         <!-- BEGIN PAGE CONTAINER-->
+         <div class="container-fluid">
+            <!-- BEGIN PAGE HEADER-->
+            <div class="row-fluid">
+               <div class="span12">
+                  <!-- BEGIN PAGE TITLE & BREADCRUMB-->     
+                  <h3 class="page-title">
+                     Campaign List
+                     
+                  </h3>
+                   <ul class="breadcrumb">
+                       <li>
+                           <a href="#"><i class="icon-home"></i></a><span class="divider">&nbsp;</span>
+                       </li>
+                       <li><a href="#">Campaigns</a><span class="divider-last">&nbsp;</span></li>
+                   </ul>
+                  <!-- END PAGE TITLE & BREADCRUMB-->
+               </div>
+            </div>
+            <!-- END PAGE HEADER-->
+
+            <!-- BEGIN ADVANCED TABLE widget-->
+            <div class="row-fluid">
+                <div class="span12">
+                    <!-- BEGIN EXAMPLE TABLE widget-->
+                    <div class="widget">
+                        <div class="widget-title">
+                            <h4><i class="icon-reorder"></i>Campaign List</h4>
+                           
+                        </div>
+                        <div class="widget-body">
+                            <div class="portlet-body">
+                                
+                                
+                                <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
+                                    <thead>
+                                    <tr>
+										<th>#</th>
+										<th>Campaign Name</th>
+										<th>List</th>
+										<th>Sent</th>
+										<th>Edit</th>
+										<th>Delete</th>
+									</tr>
+                                    </thead>
+                                    <tbody>
 		<?php 
 		$i = 1;
 		while($row = $stmt->fetch()){ 				
-				echo "<tr><td>$i</td><td><a href='statistics.php?id=".urlencode($row['id'])."'>".htmlentities($row['subject'])."</a></td><td>".htmlentities($row['name'])."</td><td>".htmlentities($row['sent'])."</td><td>
-					<a data-toggle=\"modal\" data-id=".$row['id']." class=\"deletelist\" href=\"#myModal\"><i class='icon-remove'></i></a>
-					</td></tr>";
+				echo "<tr><td>$i</td><td><a href='statistics.php?id=".urlencode($row['id'])."'>".htmlentities($row['subject'])."</a></td><td>".htmlentities($row['name'])."</td><td>".htmlentities($row['sent'])."</td>
+				<td><a class='edit' href='javascript:;'>Edit</a></td><td><a class='delete' href='javascript:;'>Delete</a></td></tr>";
 				$i++;
 		} 
-		if($i == 1) echo '<tr><td colspan="5" style="text-align:center;" class="align-center">There are no campaigns to display</td></tr>'; ?>
-			   </tbody>
-			</table>
-		</div>
-<div class="modal small hide fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<form method="post" action="reports.php">
-	    <div class="modal-header">
-		   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-		   <h3 id="myModalLabel">Delete Confirmation</h3>
-	    </div>
-	    <div class="modal-body">
-		   <p class="error-text"><i class="icon-warning-sign modal-icon"></i>Are you sure you want to delete this campaign?</p>
-		    <input type="hidden" name="cid" id="cid" value=""/>
-	    </div>
-	    <div class="modal-footer">
-		   <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-		   <button type="submit" name="submitbtn" value="delete" class="btn btn-danger">Delete</button>
-	    </div>
-    </form>
-</div>
-<script src="lib/bootstrap/js/bootstrap.js"></script>
-<script type="text/javascript">
-$(document).on("click", ".deletelist", function () {
-     var cid = $(this).data('id');
-     $(".modal-body #cid").val( cid );
-});
-</script>
+		if($i == 1) echo '<tr><td colspan="6" style="text-align:center;" class="align-center">There are no campaigns to display</td></tr>'; ?>
+                                    <tr class="">
+                                        <td>Rafiqul</td>
+                                        <td>Rafiqul dulal</td>
+                                        <td>62</td>
+                                        <td class="center">new user</td>
+                                        <td><a class="edit" href="javascript:;">Edit</a></td>
+                                        <td><a class="delete" href="javascript:;">Delete</a></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END EXAMPLE TABLE widget-->
+                </div>
+            </div>
+
+            <!-- END ADVANCED TABLE widget-->
+
+            <!-- END PAGE CONTENT-->
+         </div>
+         <!-- END PAGE CONTAINER-->
+
+      </div>
+      <!-- END PAGE -->
 <?php
 $content = ob_get_contents();
 ob_end_clean();

@@ -39,86 +39,106 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Email Marketing</title>
-    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-	
-    <link rel="icon" type="image/png" href="images/email_favicon.jpeg">
-    <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="css/theme.css">
-    <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.css">
-  
-    <style type="text/css">
-        #line-chart {
-            height:300px;
-            width:800px;
-            margin: 0px auto;
-            margin-top: 1em;
-        }
-        .brand { font-family: georgia, serif; }
-        .brand .first {
-            color: #ccc;
-            font-style: italic;
-        }
-        .brand .second {
-            color: #fff;
-            font-weight: bold;
-        }
-    </style>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+  <meta charset="utf-8" />
+  <title>Email Marketer</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta content="" name="description" />
+  <meta content="" name="author" />
+  <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+  <link href="css/style.css" rel="stylesheet" />
+  <link href="css/style_responsive.css" rel="stylesheet" />
+  <link href="css/style_default.css" rel="stylesheet" id="style_color" />
+</head>
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+<body id="login-body">
+  <div class="login-header">
+      <!-- BEGIN LOGO -->
+      <div id="logo" class="center">
+          <img src="img/logo.png" alt="logo" class="center" />
+      </div>
+      <!-- END LOGO -->
+  </div>
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-  </head>
-
-  <!--[if lt IE 7 ]> <body class="ie ie6"> <![endif]-->
-  <!--[if IE 7 ]> <body class="ie ie7 "> <![endif]-->
-  <!--[if IE 8 ]> <body class="ie ie8 "> <![endif]-->
-  <!--[if IE 9 ]> <body class="ie ie9 "> <![endif]-->
-  <!--[if (gt IE 9)|!(IE)]><!--> 
-  <body class=""> 
-  <!--<![endif]-->
-    
-    <div class="navbar">
-        <div class="navbar-inner">
-                <ul class="nav pull-right">
-                    
-                </ul>
-                <a class="brand" href="index.html"><span class="first">Email</span> <span class="second">Marketing</span></a>
-        </div>
-    </div>   
-    <div class="row-fluid">
-	    <div class="dialog">
-		   <div class="block">
-			  <p class="block-heading">Sign In</p>
-			  <div class="block-body">
-				<?php if(isset($red)) echo "<div class='n_error'>$red</div>"; ?>
+  <!-- BEGIN LOGIN -->
+  <div id="login">
+    <!-- BEGIN LOGIN FORM -->
+    <form id="loginform" class="form-vertical no-padding no-margin" action="index.php" method="post">
+      <div class="lock">
+          <i class="icon-lock"></i>
+      </div>
+      <div class="control-wrap">
+	  				<?php if(isset($red)) echo "<div class='n_error'>$red</div>"; ?>
 				<?php if(isset($green)) echo "<div class='n_success'>$green</div>"; ?>
 
-				<form action="index.php" method="post">
-					<label>Username</label>
-					<input type="text" name="username" class="span12">
-					<label>Password</label>
-					<input type="password" name="password" class="span12">
-					<button type="submit" class="btn btn-primary pull-right">Login</button>
-					<label class="remember-me"><input type="checkbox"> Remember me</label>
-					<div class="clearfix"></div>
-				 </form>
-			  </div>
-		   </div>
-	    </div>
-	</div>
-  </body>
+          <h4>User Login</h4>
+          <div class="control-group">
+              <div class="controls">
+                  <div class="input-prepend">
+                      <span class="add-on"><i class="icon-user"></i></span><input name="username" id="input-username" type="text" placeholder="Username" />
+                  </div>
+              </div>
+          </div>
+          <div class="control-group">
+              <div class="controls">
+                  <div class="input-prepend">
+                      <span class="add-on"><i class="icon-key"></i></span><input name="password" id="input-password" type="password" placeholder="Password" />
+                  </div>
+                  <div class="mtop10">
+                      <div class="block-hint pull-left small">
+                          <input type="checkbox" id=""> Remember Me
+                      </div>
+                      <div class="block-hint pull-right">
+                          <a href="javascript:;" class="" id="forget-password">Forgot Password?</a>
+                      </div>
+                  </div>
+
+                  <div class="clearfix space5"></div>
+              </div>
+
+          </div>
+      </div>
+
+      <input type="submit" id="login-btn" class="btn btn-block login-btn" value="Login" />
+    </form>
+    <!-- END LOGIN FORM -->        
+    <!-- BEGIN FORGOT PASSWORD FORM -->
+    <form id="forgotform" class="form-vertical no-padding no-margin hide" action="index.html">
+      <p class="center">Enter your e-mail address below to reset your password.</p>
+      <div class="control-group">
+        <div class="controls">
+          <div class="input-prepend">
+            <span class="add-on"><i class="icon-envelope"></i></span><input id="input-email" type="text" placeholder="Email"  />
+          </div>
+        </div>
+        <div class="space20"></div>
+      </div>
+      <input type="button" id="forget-btn" class="btn btn-block login-btn" value="Submit" />
+    </form>
+    <!-- END FORGOT PASSWORD FORM -->
+  </div>
+  <!-- END LOGIN -->
+  <!-- BEGIN COPYRIGHT -->
+  <div id="login-copyright">
+      &copy; 2015 Designed and developed by TemplarIT
+  </div>
+  <!-- END COPYRIGHT -->
+  <!-- BEGIN JAVASCRIPTS -->
+  <script src="js/jquery-1.8.3.min.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="js/scripts.js"></script>
+  <script>
+    jQuery(document).ready(function() {     
+      App.initLogin();
+    });
+  </script>
+  <!-- END JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
 </html>
-<?php
-$content = ob_get_contents();
-ob_end_clean();
-print $content;
-?>

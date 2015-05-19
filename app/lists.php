@@ -1,4 +1,4 @@
-﻿<?php 
+<?php 
 ob_start();
 session_start();
 
@@ -104,113 +104,99 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['code'])){
 $stmt = $conn->prepare('SELECT id, name, created FROM lists WHERE user_id = :user');
 $result = $stmt->execute(array('user' => $_SESSION['id']));
 ?>
-<div class="header">
-            <h1 class="page-title">Email Lists</h1>
-        </div>
-          <ul class="breadcrumb">
-            <li><a href="lists.php">Lists</a><span class="divider">/</span></li>
-            <li class="active">Email Lists</li>
-        </ul>
+      <!-- BEGIN PAGE -->
+	     <link rel="stylesheet" href="assets/data-tables/DT_bootstrap.css" />
 
-        <div class="container-fluid">
+      <div id="main-content">
+         <!-- BEGIN PAGE CONTAINER-->
+         <div class="container-fluid">
+            <!-- BEGIN PAGE HEADER-->
             <div class="row-fluid">
-		  <?php if($message){ ?>
-		  	<div class="aalert aalert-success" role="alert">
-      			<strong>Success!</strong> Your contacts have been imported and added to the <a href="emails.php?id=<?php echo urlencode($rowlist['id']); ?>"><strong style="color:#3c763d;"><?php echo $rowlist['name']; ?></strong></a> list.
-			</div>
-		  <?php } ?>
-			<form method="post" action="lists.php">
-            	<button type="button" name="submitbtn" value="save" class="btn btn-primary" data-toggle="modal" href="#addList"> Add List</button>
-			</form>
-<div class="well">
-	<table class="table">
-	   <thead>
-		<tr>
-			<th>#</th>
-			<th>List Name</th>
-			<th>Subscribers</th>
-			<th>Date Created</th>
-			<th style="width: 26px;"></th>
-		</tr>
-	   </thead>
-	   <tbody>
-		<?php 
+               <div class="span12">
+                  <!-- BEGIN PAGE TITLE & BREADCRUMB-->     
+                  <h3 class="page-title">
+                     Email Lists
+                     
+                  </h3>
+                   <ul class="breadcrumb">
+                       <li>
+                           <a href="#"><i class="icon-home"></i></a><span class="divider">&nbsp;</span>
+                       </li>
+                       <li><a href="#">Lists</a><span class="divider-last">&nbsp;</span></li>
+                   </ul>
+                  <!-- END PAGE TITLE & BREADCRUMB-->
+               </div>
+            </div>
+            <!-- END PAGE HEADER-->
+
+            <!-- BEGIN ADVANCED TABLE widget-->
+            <div class="row-fluid">
+                <div class="span12">
+                    <!-- BEGIN EXAMPLE TABLE widget-->
+                    <div class="widget">
+                        <div class="widget-title">
+                            <h4><i class="icon-reorder"></i>Email Lists</h4>
+                           
+                        </div>
+                        <div class="widget-body">
+                            <div class="portlet-body">
+                                <div class="clearfix">
+                                    <div class="btn-group">
+                                        <button id="sample_editable_1_new" class="btn green">
+                                            Add New <i class="icon-plus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="space15"></div>
+                                <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
+                                    <thead>
+                                    <tr>
+										<th>#</th>
+										<th>List Name</th>
+										<th>Subscribers</th>
+										<th>Date Created</th>
+										<th>Edit</th>
+										<th>Delete</th>
+									</tr>
+                                    </thead>
+                                    <tbody>
+		<?php
 		$i = 1;
 		while($row = $stmt->fetch()){ 
 			$stmtcount = $conn->prepare('SELECT COUNT(id) as Total FROM emails WHERE list_id = :listid');
 			$resultcount = $stmtcount->execute(array('listid' => $row['id']));
 			$rowcount = $stmtcount->fetch();
 								
-echo "<tr><td>$i</td><td><a href='emails.php?id=".urlencode($row['id'])."'>".htmlentities($row['name'])."</a></td><td>".$rowcount['Total']."</td><td>".htmlentities($row['created'])."</td><td><a data-toggle=\"modal\" data-id=".$row['id']." data-value='".$row['name']."' class=\"editlist\" href=\"#editModal\"><i class='icon-pencil'></i></a>&nbsp;<a data-toggle=\"modal\" data-id=".$row['id']." class=\"deletelist\" href=\"#myModal\"><i class='icon-remove'></i></a></td></tr>";
+echo "<tr><td>$i</td><td><a href='emails?id=".urlencode($row['id'])."'>".htmlentities($row['name'])."</a></td><td>".$rowcount['Total']."</td><td>".htmlentities($row['created'])."</td><td><a class='edit' href='javascript:;'>Edit</a></td><td><a class='delete' href='javascript:;'>Delete</a></td></tr>";
 
 				$i++;
 		} 
-		if($i == 1) echo '<tr><td colspan="5" style="text-align:center;" class="align-center">There are no lists to display</td></tr>'; ?>
-	   </tbody>
-	</table>
-</div>
-<div class="modal small hide fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<form method="post" action="lists.php">
-	    <div class="modal-header">
-		   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-		   <h3 id="myModalLabel">Delete Confirmation</h3>
-	    </div>
-	    <div class="modal-body">
-		   <p class="error-text"><i class="icon-warning-sign modal-icon"></i>Are you sure you want to delete this list?</p>
-		    <input type="hidden" name="listid" id="listid" value=""/>
-	    </div>
-	    <div class="modal-footer">
-		   <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-		   <button type="submit" name="submitbtn" value="delete" class="btn btn-danger">Delete</button>
-	    </div>
-    </form>
-</div>
-<div class="modal small hide fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<form method="post" action="lists.php">
-	    <div class="modal-header">
-		   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-		   <h3 id="myModalLabel">Edit List</h3>
-	    </div>
-	    <div class="modal-body edit">
-		   <p class="error-text"><i class="icon-warning-sign modal-icon"></i><input type="text" name="listname" id="listname" value=""/></p>
-		   <input type="hidden" name="listid" id="listid" value=""/>
-	    </div>
-	    <div class="modal-footer">
-		   <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-		   <button type="submit" name="submitbtn" value="edit" class="btn btn-danger">Save</button>
-	    </div>
-    </form>
-</div>
-<div class="modal small hide fade" id="addList" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<form method="post" action="lists.php">
-	    <div class="modal-header">
-		   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-		   <h3 id="myModalLabel">Add List</h3>
-	    </div>
-	    <div class="modal-body edit">
-		   <p class="error-text"><i class="icon-warning-sign modal-icon"></i><input type="text" name="name" id="name" value=""/></p>
-		   <input type="hidden" name="listid" id="listid" value=""/>
-	    </div>
-	    <div class="modal-footer">
-		   <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-		   <button type="submit" name="submitbtn" value="save" class="btn btn-danger">Save</button>
-	    </div>
-    </form>
-</div>
-<script src="lib/bootstrap/js/bootstrap.js"></script>
-<script type="text/javascript">
-$(document).on("click", ".deletelist", function () {
-     var listid = $(this).data('id');
-     $(".modal-body #listid").val( listid );
-});
-$(document).on("click", ".editlist", function () {
-    var listid = $(this).data('id');
-	var name = $(this).attr('data-value').valueOf();
-    
-	$(".edit #listid").val( listid );
-	$(".edit #listname").val( name );
-});
-</script>
+		if($i == 1) echo '<tr><td colspan="6" style="text-align:center;" class="align-center">There are no lists to display</td></tr>'; ?>
+                                    <tr class="">
+                                        <td>Rafiqul</td>
+                                        <td>Rafiqul dulal</td>
+                                        <td>62</td>
+                                        <td class="center">new user</td>
+                                        <td><a class="edit" href="javascript:;">Edit</a></td>
+                                        <td><a class="delete" href="javascript:;">Delete</a></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END EXAMPLE TABLE widget-->
+                </div>
+            </div>
+
+            <!-- END ADVANCED TABLE widget-->
+
+            <!-- END PAGE CONTENT-->
+         </div>
+         <!-- END PAGE CONTAINER-->
+      </div>
+
+      <!-- END PAGE -->
 <?php
 $content = ob_get_contents();
 ob_end_clean();

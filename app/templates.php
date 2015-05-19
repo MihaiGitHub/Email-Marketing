@@ -12,61 +12,155 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['type'] != 'all'){
 	$result = $stmt->execute();	
 }
 ?>
-<div class="header">
-	<h1 class="page-title">Email Templates</h1>
-</div>
-<ul class="breadcrumb">
-	<li><a href="dashboard.php">Home</a> <span class="divider">/</span></li>
-	<li class="active">Templates</li>
-</ul>
-<div class="container-fluid">
-    <div class="row-fluid">
+
+      <!-- BEGIN PAGE -->  
+      <div id="main-content">
+         <!-- BEGIN PAGE CONTAINER-->
+         <div class="container-fluid">
+            <!-- BEGIN PAGE HEADER-->   
+            <div class="row-fluid">
+               <div class="span12">
+                   
+                  <h3 class="page-title">
+                     Email Templates
+                     <small>template selection</small>
+                  </h3>
+                   <ul class="breadcrumb">
+                       <li>
+                           <a href="#"><i class="icon-home"></i></a><span class="divider">&nbsp;</span>
+                       </li>
+                       
+                       <li><a href="#">Templates</a><span class="divider-last">&nbsp;</span></li>
+                   </ul>
+               </div>
+            </div>
+            <!-- END PAGE HEADER-->
+            <!-- BEGIN PAGE CONTENT-->
+            <div class="row-fluid">
+               <div class="span12">
+                  <div class="widget box blue" id="form_wizard_1">
+                     <div class="widget-title">
+                        <h4>
+                           <i class="icon-reorder"></i> Campaign Wizard - <span class="step-title">Step 1 of 3</span>
+                        </h4>
+                      
+                     </div>
+                     <div class="widget-body form">
+                        <form action="#" class="form-horizontal">
+                           <div class="form-wizard">
+                              <div class="navbar steps">
+                                 <div class="navbar-inner">
+                                    <ul class="row-fluid">
+                                       <li class="span3">
+                                          <a href="#tab1" data-toggle="tab" class="step active">
+                                          <span class="number">1</span>
+                                          <span class="desc"><i class="icon-ok"></i> Choose template</span>
+                                          </a>
+                                       </li>
+                                       <li class="span3">
+                                          <a href="#tab2" data-toggle="tab" class="step">
+                                          <span class="number">2</span>
+                                          <span class="desc"><i class="icon-ok"></i> Edit template</span>
+                                          </a>
+                                       </li>
+                                       <li class="span3">
+                                          <a href="#tab3" data-toggle="tab" class="step">
+                                          <span class="number">3</span>
+                                          <span class="desc"><i class="icon-ok"></i> Complete form</span>
+                                          </a>
+                                       </li>
+                                       
+                                    </ul>
+                                 </div>
+                              </div>
+                              <div id="bar" class="progress progress-striped">
+                                 <div class="bar"></div>
+                              </div>
+                              <div class="tab-content">
+                                 <div class="tab-pane active" id="tab1">
+                                    <h3>Choose template</h3>
+<?php while($row = $stmt->fetch()){ ?>
+	<div class="template">
 	
-<div>
-	<form method="post" action="templates.php">
-		<table style="width:100%;">
-			<tr>
-				<td style="text-align:left;">
-						
-						<select name="type" onChange="this.form.submit()">
-							<option value="all">ALL</option>
-							<option <?php if($_POST['type'] == 'art') echo 'selected'; ?> value="art">Art</option>
-							<option <?php if($_POST['type'] == 'basic') echo 'selected'; ?> value="basic">Basic</option>
-							<option <?php if($_POST['type'] == 'coupons') echo 'selected'; ?> value="coupons">Coupons</option>
-							<option <?php if($_POST['type'] == 'custom') echo 'selected'; ?> value="custom">Custom</option>
-							<option <?php if($_POST['type'] == 'ecommerce') echo 'selected'; ?> value="ecommerce">ECommerce</option>
-							<option <?php if($_POST['type'] == 'events') echo 'selected'; ?> value="events">Events</option>
-							<option <?php if($_POST['type'] == 'fitness') echo 'selected'; ?> value="fitness">Fitness</option>
-							<option <?php if($_POST['type'] == 'food') echo 'selected'; ?> value="food">Food</option>
-							<option <?php if($_POST['type'] == 'realestate') echo 'selected'; ?> value="realestate">Real Estate</option>
-							<option <?php if($_POST['type'] == 'tech') echo 'selected'; ?> value="tech">Technology</option>
-						</select>
-					
-				</td>
-                <td style="text-align:right;">
-                	    <button type="button" name="button" class="btn btn-primary"> Create Template</button>
-                </td>
-			</tr>
-			<tr id="templates">
-				<td colspan="2">
-				
-					<?php while($row = $stmt->fetch()){ ?>
-                        <div class="template">
-                            <button type="button" onclick="window.location = 'template.php?id=<?php echo $row['id']; ?>'"><img src="../app/images/<?php echo $row['picture']; ?>"></button>
-                        
-                            <div class="template-text">
-                                <div><?php echo $row['name']; ?></div> 
-                                <div class="body"><?php echo $row['type']; ?></div> 
-                            </div>
+		<button type="button" onclick="window.location = 'template.php?id=<?php echo $row['id']; ?>'">
+		<img src="../app/images/<?php echo $row['picture']; ?>"></button>
+	
+		<div class="template-text">
+			<div><?php echo $row['name']; ?></div> 
+		</div>
 
-                        </div>
-                    <?php } ?>
+	</div>
+<?php } ?>
+                                 </div>
+                                 <div class="tab-pane" id="tab2">
+                                    <h4>Edit template</h4>
+                                    <div id="edittemplate">
+									
+									</div>
+                                 </div>
+                                 
+                                 <div class="tab-pane" id="tab3">
+                                    <h4>Complete form</h4>
+                                    <div class="control-group">
+                                       <label class="control-label">List Name</label>
+                                       <div class="controls">
+                                          <input type="text" class="span6" />
+                                          <span class="help-inline">Give your First Name</span>
+                                       </div>
+                                    </div>
+                                    <div class="control-group">
+                                       <label class="control-label">Subject</label>
+                                       <div class="controls">
+                                          <input type="text" class="span6" />
+                                          <span class="help-inline">Give your Last Name</span>
+                                       </div>
+                                    </div>
+                                    <div class="control-group">
+                                       <label class="control-label">From (Name)</label>
+                                       <div class="controls">
+                                          <input type="text" class="span6" />
+                                          <span class="help-inline">Give your Last Name</span>
+                                       </div>
+                                    </div>
+									<div class="control-group">
+                                       <label class="control-label">From (Email)</label>
+                                       <div class="controls">
+                                          <input type="text" class="span6" />
+                                          <span class="help-inline">Give your Last Name</span>
+                                       </div>
+                                    </div>
+									<div class="control-group">
+                                       <label class="control-label">Reply To (Email)</label>
+                                       <div class="controls">
+                                          <input type="text" class="span6" />
+                                          <span class="help-inline">Give your Last Name</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="form-actions clearfix">
+                                 <a href="javascript:;" class="btn button-previous">
+                                 <i class="icon-angle-left"></i> Back 
+                                 </a>
+                                 <div id="continuebtn"  class="btn btn-primary blue button-next">
+                                 Continue <i class="icon-angle-right"></i>
+                                 </div>
+                                 <a href="javascript:;" class="btn btn-success button-submit">
+                                 Submit <i class="icon-ok"></i>
+                                 </a>
+                              </div>
+                           </div>
+                        </form>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <!-- END PAGE CONTENT-->
+         </div>
+         <!-- END PAGE CONTAINER-->
 
-	 			</td>
-			</tr>
-		</table>
-	</form>
-</div>
+      </div>
+      <!-- END PAGE -->
 <?php
 $content = ob_get_contents();
 ob_end_clean();
