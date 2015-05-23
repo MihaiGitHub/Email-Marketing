@@ -76,14 +76,7 @@ $result = $stmt->execute(array('user' => $_SESSION['id']));
 				$i++;
 		} 
 		if($i == 1) echo '<tr><td colspan="6" style="text-align:center;" class="align-center">There are no campaigns to display</td></tr>'; ?>
-                                    <tr class="">
-                                        <td>Rafiqul</td>
-                                        <td>Rafiqul dulal</td>
-                                        <td>62</td>
-                                        <td class="center">new user</td>
-                                        <td><a class="edit" href="javascript:;">Edit</a></td>
-                                        <td><a class="delete" href="javascript:;">Delete</a></td>
-                                    </tr>
+                                   
                                     </tbody>
                                 </table>
                             </div>
