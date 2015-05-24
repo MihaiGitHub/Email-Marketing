@@ -83,6 +83,7 @@ h1.block, h2.block, h3.block, h4.block, h5.block, h6.block {
 }
 
 .page-title {
+	font-style: italic;
     font-size: 28px;
     display: block;
     font-weight: normal !important;
