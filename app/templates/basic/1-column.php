@@ -432,6 +432,9 @@
 				.footerContent a{display:block !important;} /* Place footer social and utility links on their own lines, for easier access */
 			}
 		</style>
+        <link href="assets/ck-editor/css/ck-editor.css" rel="stylesheet"/>
+        <script>var CKEDITOR_BASEPATH = 'assets/ckeditor/';</script>
+        <script src="assets/ckeditor/js/ckeditor.js"></script>
     </head>
     <body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0">
     	<center>
@@ -446,7 +449,7 @@
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templatePreheader">
                                         <tr>
                                             <td valign="top" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:20px;" mc:edit="preheader_content00">
-                                                Use this area to offer a short teaser of your email's content. Text here will show in the preview area of some email clients.
+                                         <div id="editable" contenteditable="true">       Use this area to offer a short teaser of your email's content. Text here will show in the preview area of some email clients.</div>
                                             </td>
                                             <!-- *|IFNOT:ARCHIVE_PAGE|* -->
                                             <td valign="top" width="180" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:0;" mc:edit="preheader_content01">

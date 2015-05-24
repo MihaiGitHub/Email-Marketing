@@ -28,8 +28,11 @@ session_start();
 				</div>
 				<!-- END PAGE HEADER-->
 				<!-- BEGIN PAGE CONTENT-->
-				<style>
-				.new-emailcampaign-div {
+<style>
+.new-emailcampaign-div a {
+	text-decoration: none;
+}
+.new-emailcampaign-div {
   width: 25%;
 }
 .new-emailcampaign *, .new-emailcampaign *:before, .new-emailcampaign *:after {
@@ -53,16 +56,18 @@ session_start();
   font-size: 1.625em;
   margin: 0px auto;
   max-width: 640px;
+  color: #595959;
+    font-weight: bold;
 }
 </style>
 				<div id="page" class="dashboard">
                     <!-- BEGIN OVERVIEW STATISTIC BLOCKS-->
                     <div class="row-fluid circle-state-overview">
 				<div class="new-emailcampaign-div">
-					<a href="templates">
+					<a href="templates.php">
 						<div class="new-emailcampaign"> 
 							<img class="icon" src="img/email-icon.svg" role="presentation">
-							<h2>New Campaign</h2> 
+							<h2>Create Campaign</h2> 
 						</div>
 					</a>
 				</div>

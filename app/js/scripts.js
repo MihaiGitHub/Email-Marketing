@@ -24,7 +24,7 @@ var App = function () {
 				  dataType: 'json',
 				  success: function(data) {
 					  $('#edittemplate').html(data);
-					 console.log(data)
+					 
 				  },
 				  
 			   });

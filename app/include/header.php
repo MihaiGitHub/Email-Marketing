@@ -109,19 +109,19 @@ $emailsopened = $row['count'];
 			<!-- BEGIN SIDEBAR MENU -->
 			<ul class="sidebar-menu">
 				<li class="has-sub active">
-					<a href="dashboard" class="">
+					<a href="dashboard.php" class="">
 					    <span class="icon-box"> <i class="icon-dashboard"></i></span> Dashboard
                         <span class="arrow"></span>
                     </a>
 				</li>
 				<li class="has-sub">
-					<a href="lists" class="">
+					<a href="lists.php" class="">
 					    <span class="icon-box"> <i class="icon-list-alt"></i></span> Lists
 					    <span class="arrow"></span>
 					</a>
 				</li>
 				<li class="has-sub">
-					<a href="reports" class="">
+					<a href="reports.php" class="">
 					<span class="icon-box"><i class="icon-bar-chart"></i></span> Reports
 					<span class="arrow"></span>
 					</a>
