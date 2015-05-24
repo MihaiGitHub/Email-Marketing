@@ -22,8 +22,11 @@ var App = function () {
 					console.log('error', error)
 				  },
 				  dataType: 'json',
-				  success: function(data) {
-					  $('#edittemplate').html(data);
+				  success: function(data) { 
+				  
+				  	$('#edittemplate').html(data);
+					  $('#edittemplate').fadeIn('slow');
+					 
 					 
 				  },
 				  

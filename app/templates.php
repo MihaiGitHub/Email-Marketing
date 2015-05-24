@@ -94,7 +94,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['type'] != 'all'){
                                  </div>
                                  <div class="tab-pane" id="tab2">
                                     <h4>Edit template</h4>
-                                    <div id="edittemplate">
+                                    <div id="edittemplate" style="display:none;">
 									
 									</div>
                                  </div>
