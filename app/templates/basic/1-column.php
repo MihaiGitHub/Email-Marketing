@@ -474,13 +474,17 @@
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templatePreheader">
                                         <tr>
                                             <td valign="top" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:20px;" mc:edit="preheader_content00">
-                                         <div id="block1" contenteditable="true" class="editable">Use this area to offer a short teaser of your email's content. Text here will show in the preview area of some email clients.</div>
+                             <div id="block1" contenteditable="true" class="editable">
+                                 Use this area to offer a short teaser of your email's content. Text here will show in the preview area of some email clients.
+                             </div>
                                             </td>
-                                            <!-- *|IFNOT:ARCHIVE_PAGE|* -->
+                                            
                                             <td valign="top" width="180" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:0;" mc:edit="preheader_content01">
-                                              <div id="block2" contenteditable="true" class="editable">  Email not displaying correctly?<br /><a href="#" target="_blank">View it in your browser</a>.</div>
+                              <div id="block2" contenteditable="true" class="editable">  
+                              		Email not displaying correctly?<br /><a href="#" target="_blank">View it in your browser</a>.
+                              </div>
                                             </td>
-                                            <!-- *|END:IF|* -->
+                            
                                         </tr>
                                     </table>
                                     <!-- // END PREHEADER -->

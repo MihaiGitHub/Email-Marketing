@@ -14,28 +14,23 @@ var App = function () {
 				
 				if(page == 1){ 	
 						
-						
 						$(this).attr('data-page', 2);
-						
-						
-						
 						
 						$.ajax({
 						  type: 'POST',
 						  url: 'template.php',
 						  async: true,
 						  data: {
-							 id: 2
+							 id: 69
 						  },
 						  error: function(error) {
 							console.log('error', error)
 						  },
 						  dataType: 'json',
-						  success: function(data) { 
+						  success: function(data) {
 						  
-							$('#edittemplate').html(data);
+							  $('#edittemplate').html(data);
 							  $('#edittemplate').fadeIn('slow');
-							 
 							 
 						  },
 						  
