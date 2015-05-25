@@ -38,7 +38,7 @@ $emailsopened = $row['count'];
 <!-- BEGIN HEAD -->
 <head>
 	<meta charset="utf-8" />
-	<title>Email Marketer</title>
+	<title>Bulk Mailer</title>
 	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
@@ -61,8 +61,8 @@ $emailsopened = $row['count'];
 		<div class="navbar-inner">
 			<div class="container-fluid">
 				<!-- BEGIN LOGO -->
-				<a class="brand" href="index.html">
-				   <span style="color: white;">Email Marketer</span>
+				<a class="brand" href="dashboard.php">
+				   <span style="color: white;">Bulk Mailer</span>
 				</a>
 				<!-- END LOGO -->
 				<!-- BEGIN RESPONSIVE MENU TOGGLER -->
@@ -86,7 +86,7 @@ $emailsopened = $row['count'];
 							<ul class="dropdown-menu">
 								<li><a href="#"><i class="icon-user"></i> My Profile</a></li>
 								<li class="divider"></li>
-								<li><a href="login.html"><i class="icon-key"></i> Log Out</a></li>
+								<li><a href="index.php?logout"><i class="icon-key"></i> Log Out</a></li>
 							</ul>
 						</li>
 						<!-- END USER LOGIN DROPDOWN -->

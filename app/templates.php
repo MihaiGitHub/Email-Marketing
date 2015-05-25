@@ -27,7 +27,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['type'] != 'all'){
                   </h3>
                    <ul class="breadcrumb">
                        <li>
-                           <a href="#"><i class="icon-home"></i></a><span class="divider">&nbsp;</span>
+                           <a href="dashboard.php"><i class="icon-home"></i></a><span class="divider">&nbsp;</span>
                        </li>
                        
                        <li><a href="#">Templates</a><span class="divider-last">&nbsp;</span></li>
@@ -139,14 +139,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['type'] != 'all'){
                                  </div>
                               </div>
                               <div class="form-actions clearfix">
-                                 <a href="javascript:;" class="btn button-previous">
-                                 <i class="icon-angle-left"></i> Back 
+                                 <a id="backbtn" href="javascript:;" class="btn button-previous">
+                                 	<i class="icon-angle-left"></i> Back 
                                  </a>
-                                 <div id="continuebtn"  class="btn btn-primary blue button-next">
-                                 Continue <i class="icon-angle-right"></i>
+                                 <div id="continuebtn" data-page="1" class="btn btn-primary blue button-next">
+                                 	Continue <i class="icon-angle-right"></i>
                                  </div>
                                  <a href="javascript:;" class="btn btn-success button-submit">
-                                 Submit <i class="icon-ok"></i>
+                                 	Submit <i class="icon-ok"></i>
                                  </a>
                               </div>
                            </div>

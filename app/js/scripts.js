@@ -7,32 +7,90 @@ var App = function () {
 	var handleAjax = function () {
 		
 		
-		$('#continuebtn').click(function () {
-		//		var jData = {};
-		//		jData.id = 2;
+		
+		$('#continuebtn').click(function (eventt) {
+		
+				var page = $(this).attr('data-page');
 				
-				$.ajax({
-				  type: 'POST',
-				  url: 'template',
-				  async: true,
-				  data: {
-					 id: 2
-				  },
-				  error: function(error) {
-					console.log('error', error)
-				  },
-				  dataType: 'json',
-				  success: function(data) { 
-				  
-				  	$('#edittemplate').html(data);
-					  $('#edittemplate').fadeIn('slow');
-					 
-					 
-				  },
-				  
-			   });
+				if(page == 1){ 	
+						
+						
+						$(this).attr('data-page', 2);
+						
+						
+						
+						
+						$.ajax({
+						  type: 'POST',
+						  url: 'template.php',
+						  async: true,
+						  data: {
+							 id: 2
+						  },
+						  error: function(error) {
+							console.log('error', error)
+						  },
+						  dataType: 'json',
+						  success: function(data) { 
+						  
+							$('#edittemplate').html(data);
+							  $('#edittemplate').fadeIn('slow');
+							 
+							 
+						  },
+						  
+					   });
+					   
+				} else {
+					$(this).attr('data-page', 3);
+					
+					var jData = {};
+					jData['template_id'] = 69;
+					
+					for (var i in CKEDITOR.instances) {
+												
+							jData[i] = CKEDITOR.instances[i].getData();
+						
+					}
+					
+				
+							$.ajax({
+								  type: 'POST',
+								  url: 'savetemplate.php',
+								  async: true,
+								  data: jData,
+								  error: function(error) {
+									console.log('error', error)
+								  },
+								  dataType: 'json',
+								  success: function(data) { 
+								  
+									console.log('success')
+									 
+									 
+								  },
+						   });
+					
+					console.log('jData ',jData)
+					
+					
+				}
+				
+				
         });
 		
+		$('#backbtn').click(function (eventt) {
+				var page = $('#continuebtn').attr('data-page');
+				
+				if(page == 2){
+						$('#continuebtn').attr('data-page', 1);
+
+				} else {
+						$('#continuebtn').attr('data-page', 2);
+
+				}
+
+		});
 	}
 
     var handleJQVMAP = function () {

@@ -474,11 +474,11 @@
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templatePreheader">
                                         <tr>
                                             <td valign="top" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:20px;" mc:edit="preheader_content00">
-                                         <div id="editable" contenteditable="true" class="edit">       Use this area to offer a short teaser of your email's content. Text here will show in the preview area of some email clients.</div>
+                                         <div id="block1" contenteditable="true" class="editable">Use this area to offer a short teaser of your email's content. Text here will show in the preview area of some email clients.</div>
                                             </td>
                                             <!-- *|IFNOT:ARCHIVE_PAGE|* -->
                                             <td valign="top" width="180" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:0;" mc:edit="preheader_content01">
-                                              <div id="email" contenteditable="true">  Email not displaying correctly?<br /><a href="*|ARCHIVE|*" target="_blank">View it in your browser</a>.</div>
+                                              <div id="block2" contenteditable="true" class="editable">  Email not displaying correctly?<br /><a href="#" target="_blank">View it in your browser</a>.</div>
                                             </td>
                                             <!-- *|END:IF|* -->
                                         </tr>
@@ -492,7 +492,7 @@
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateHeader">
                                         <tr>
                                             <td valign="top" class="headerContent">
-                                            	<div id="image" contenteditable="true"><img src="http://gallery.mailchimp.com/2425ea8ad3/images/header_placeholder_600px.png" style="max-width:600px;" id="headerImage" mc:label="header_image" mc:edit="header_image" mc:allowdesigner mc:allowtext /></div>
+                                            	<div id="block3" contenteditable="true" class="editable"><img src="http://gallery.mailchimp.com/2425ea8ad3/images/header_placeholder_600px.png" style="max-width:600px;" id="headerImage" mc:label="header_image" mc:edit="header_image" mc:allowdesigner mc:allowtext /></div>
                                             </td>
                                         </tr>
                                     </table>
@@ -505,7 +505,7 @@
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateBody">
                                         <tr>
                                             <td valign="top" class="bodyContent" mc:edit="body_content">
-                                            <div id="mainbody" contenteditable="true">
+                                            <div id="block4" contenteditable="true" class="editable">
                                                 <h1>Designing Your Template</h1>
                                                 <h3>Creating a good-looking email is simple</h3>
                                                 Customize your template by clicking on the style editor tabs above. Set your fonts, colors, and styles. After setting your styling is all done you can click here in this area, delete the text, and start adding your own awesome content.
@@ -528,7 +528,7 @@
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateFooter">
                                         <tr>
                                             <td valign="top" class="footerContent" mc:edit="footer_content00">
-                                             <div id="social" contenteditable="true">
+                                             <div id="block5" contenteditable="true" class="editable">
                                                 <a href="#">Follow on Twitter</a>&nbsp;&nbsp;&nbsp;<a href="*|FACEBOOK:PROFILEURL|*">Friend on Facebook</a>&nbsp;&nbsp;&nbsp;<a href="#">Forward to Friend</a>&nbsp;
                                               </div>
                                             </td>
