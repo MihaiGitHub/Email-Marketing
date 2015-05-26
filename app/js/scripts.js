@@ -8,7 +8,7 @@ var App = function () {
 		
 		
 		
-		$('#continuebtn').click(function (eventt) {
+		$('#continuebtn2').click(function (eventt) {
 		
 				var page = $(this).attr('data-page');
 				
@@ -48,33 +48,28 @@ var App = function () {
 						
 					}
 					
-				
-							$.ajax({
-								  type: 'POST',
-								  url: 'savetemplate.php',
-								  async: true,
-								  data: jData,
-								  error: function(error) {
-									console.log('error', error)
-								  },
-								  dataType: 'json',
-								  success: function(data) { 
-								  
-									console.log('success')
-									 
-									 
-								  },
-						   });
-					
-					console.log('jData ',jData)
-					
+					$.ajax({
+						  type: 'POST',
+						  url: 'savetemplate.php',
+						  async: true,
+						  data: jData,
+						  error: function(error) {
+							console.log('error', error)
+						  },
+						  dataType: 'json',
+						  success: function(data) { 
+						  
+							console.log('success')
+							 
+						  },
+				   });
 					
 				}
 				
 				
         });
 		
-		$('#backbtn').click(function (eventt) {
+		$('#backbtn6').click(function (eventt) {
 				var page = $('#continuebtn').attr('data-page');
 				
 				if(page == 2){
@@ -843,59 +838,6 @@ var App = function () {
 
         if ($("#chart_1").size() == 0) {
             return;
-        }
-
-        //Basic Chart
-        function chart1() {
-            var d1 = [];
-            for (var i = 0; i < Math.PI * 2; i += 0.25)
-            d1.push([i, Math.sin(i)]);
-
-            var d2 = [];
-            for (var i = 0; i < Math.PI * 2; i += 0.25)
-            d2.push([i, Math.cos(i)]);
-
-            var d3 = [];
-            for (var i = 0; i < Math.PI * 2; i += 0.1)
-            d3.push([i, Math.tan(i)]);
-
-            $.plot($("#chart_1"), [{
-                label: "sin(x)",
-                data: d1
-            }, {
-                label: "cos(x)",
-                data: d2
-            }, {
-                label: "tan(x)",
-                data: d3
-            }], {
-                series: {
-                    lines: {
-                        show: true
-                    },
-                    points: {
-                        show: true
-                    }
-                },
-                xaxis: {
-                    ticks: [0, [Math.PI / 2, "\u03c0/2"],
-                        [Math.PI, "\u03c0"],
-                        [Math.PI * 3 / 2, "3\u03c0/2"],
-                        [Math.PI * 2, "2\u03c0"]
-                    ]
-                },
-                yaxis: {
-                    ticks: 10,
-                    min: -2,
-                    max: 2
-                },
-                grid: {
-                    backgroundColor: {
-                        colors: ["#fff", "#eee"]
-                    }
-                }
-            });
-
         }
 
         //Interactive Chart
@@ -2087,31 +2029,95 @@ var App = function () {
             return;
         }
 
-        $('#form_wizard_1').bootstrapWizard({
+        $('#form_wizard_1').bootstrapWizard({ // 777
             'nextSelector': '.button-next',
             'previousSelector': '.button-previous',
             onTabClick: function (tab, navigation, index) {
-                alert('on tab click disabled');
+               // alert('on tab click disabled');
                 return false;
             },
             onNext: function (tab, navigation, index) {
                 var total = navigation.find('li').length;
                 var current = index + 1;
+				
                 // set wizard title
                 $('.step-title', $('#form_wizard_1')).text('Step ' + (index + 1) + ' of ' + total);
+				
                 // set done steps
                 jQuery('li', $('#form_wizard_1')).removeClass("done");
                 var li_list = navigation.find('li');
+				
                 for (var i = 0; i < index; i++) {
                     jQuery(li_list[i]).addClass("done");
                 }
 
                 if (current == 1) {
+				
+					
                     $('#form_wizard_1').find('.button-previous').hide();
                 } else {
-                    $('#form_wizard_1').find('.button-previous').show();
-                }
+					$('#form_wizard_1').find('.button-next').show();
+					if (current == 2){
 
+							$.ajax({
+								  type: 'POST',
+								  url: 'template.php',
+								  async: true,
+								  data: {
+									 id: 69
+								  },
+								  error: function(error) {
+									console.log('error', error)
+								  },
+								  dataType: 'json',
+								  success: function(data) {
+								  
+									  $('#edittemplate').html(data);
+									  $('#edittemplate').fadeIn('slow');
+									 
+								  },
+						   });
+						   
+						   
+						   $.getScript( "assets/ck-editor/ckeditor.js", function( data, textStatus, jqxhr ) {
+									  console.log( data ); // Data returned
+									  console.log( textStatus ); // Success
+									  console.log( jqxhr.status ); // 200
+									  console.log( "Load was performed." );
+							});
+						   
+					} else {
+							var jData = {};
+							jData['template_id'] = 69;
+							
+							for (var i in CKEDITOR.instances) {
+														
+									jData[i] = CKEDITOR.instances[i].getData();
+								
+							}
+							
+							$.ajax({
+								  type: 'POST',
+								  url: 'savetemplate.php',
+								  async: true,
+								  data: jData,
+								  error: function(error) {
+									console.log('error', error)
+								  },
+								  dataType: 'json',
+								  success: function(data) { 
+								  
+									console.log('success')
+									 
+								  },
+						   });
+						   $('#form_wizard_1').find('#continuebtn').hide();
+						   $('#form_wizard_1').find('.button-submit').show();
+					}
+					
+					$('#form_wizard_1').find('.button-previous').show();
+                }
+/*
                 if (current >= total) {
                     $('#form_wizard_1').find('.button-next').hide();
                     $('#form_wizard_1').find('.button-submit').show();
@@ -2119,6 +2125,7 @@ var App = function () {
                     $('#form_wizard_1').find('.button-next').show();
                     $('#form_wizard_1').find('.button-submit').hide();
                 }
+				*/
                 App.scrollTo($('.page-title'));
             },
             onPrevious: function (tab, navigation, index) {
@@ -2134,18 +2141,24 @@ var App = function () {
                 }
 
                 if (current == 1) {
+					$('#form_wizard_1').find('#continuebtn').hide();
                     $('#form_wizard_1').find('.button-previous').hide();
                 } else {
+					$('#form_wizard_1').find('.button-submit').hide();
                     $('#form_wizard_1').find('.button-previous').show();
+					$('#form_wizard_1').find('#continuebtn').show();
                 }
 
+
+/*
                 if (current >= total) {
                     $('#form_wizard_1').find('.button-next').hide();
                     $('#form_wizard_1').find('.button-submit').show();
                 } else {
-                    $('#form_wizard_1').find('.button-next').show();
+                //    $('#form_wizard_1').find('.button-next').show();
                     $('#form_wizard_1').find('.button-submit').hide();
                 }
+				*/
 
                 App.scrollTo($('.page-title'));
             },
@@ -2156,12 +2169,31 @@ var App = function () {
                 $('#form_wizard_1').find('.bar').css({
                     width: $percent + '%'
                 });
+				
             }
         });
-
         $('#form_wizard_1').find('.button-previous').hide();
         $('#form_wizard_1 .button-submit').click(function () {
-            alert('Finished!');
+            $('#tempform').submit();
+			// 777
+			/*
+					$.ajax({
+						  type: 'POST',
+						  url: 'send.php',
+						  async: true,
+						  data: jData,
+						  error: function(error) {
+							console.log('error', error)
+						  },
+						  dataType: 'json',
+						  success: function(data) { 
+						  
+							console.log('success')
+							 
+						  },
+				   });
+				   */
+			
         }).hide();
     }
 

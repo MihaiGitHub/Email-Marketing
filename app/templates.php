@@ -11,8 +11,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['type'] != 'all'){
 	$stmt = $conn->prepare('SELECT id, name, type, picture FROM templates');
 	$result = $stmt->execute();	
 }
-?>
 
+$stmtlists = $conn->prepare('SELECT id, name FROM lists WHERE user_id = :userid');
+$resultlists = $stmtlists->execute(array('userid' => $_SESSION['id']));
+while($rowlists = $stmtlists->fetch()){ 
+	$options .= "<option value=".$rowlists['id'].">".$rowlists['name']."</option>";
+}
+?>
       <!-- BEGIN PAGE -->  
       <div id="main-content">
          <!-- BEGIN PAGE CONTAINER-->
@@ -46,7 +51,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['type'] != 'all'){
                       
                      </div>
                      <div class="widget-body form">
-                        <form action="#" class="form-horizontal">
+                        <form id="tempform" method="post" action="send.php" class="form-horizontal">
+                        
+                        <input type="hidden" name=""
+                        
                            <div class="form-wizard">
                               <div class="navbar steps">
                                  <div class="navbar-inner">
@@ -82,8 +90,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['type'] != 'all'){
 <?php while($row = $stmt->fetch()){ ?>
 	<div class="template">
 	
-		<button type="button" onclick="window.location = 'template.php?id=<?php echo $row['id']; ?>'">
-		<img src="../app/images/<?php echo $row['picture']; ?>"></button>
+		<button class="button-next" type="button">
+			<img src="../app/images/<?php echo $row['picture']; ?>">
+        </button>
 	
 		<div class="template-text">
 			<div><?php echo $row['name']; ?></div> 
@@ -92,6 +101,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['type'] != 'all'){
 	</div>
 <?php } ?>
                                  </div>
+        
                                  <div class="tab-pane" id="tab2">
                                     <h4>Edit template</h4>
                                     <div id="edittemplate" style="display:none;">
@@ -104,36 +114,35 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['type'] != 'all'){
                                     <div class="control-group">
                                        <label class="control-label">List Name</label>
                                        <div class="controls">
-                                          <input type="text" class="span6" />
-                                          <span class="help-inline">Give your First Name</span>
+                                          <select name="lists" class="span6"><?php echo $options; ?></select>
                                        </div>
                                     </div>
                                     <div class="control-group">
                                        <label class="control-label">Subject</label>
                                        <div class="controls">
                                           <input type="text" class="span6" />
-                                          <span class="help-inline">Give your Last Name</span>
+                                          <span class="help-inline">The subject of your email</span>
                                        </div>
                                     </div>
                                     <div class="control-group">
                                        <label class="control-label">From (Name)</label>
                                        <div class="controls">
                                           <input type="text" class="span6" />
-                                          <span class="help-inline">Give your Last Name</span>
+                                          <span class="help-inline">The name that will appear as having sent the email</span>
                                        </div>
                                     </div>
 									<div class="control-group">
                                        <label class="control-label">From (Email)</label>
                                        <div class="controls">
                                           <input type="text" class="span6" />
-                                          <span class="help-inline">Give your Last Name</span>
+                                          <span class="help-inline">The email that will appear as having sent the email</span>
                                        </div>
                                     </div>
 									<div class="control-group">
                                        <label class="control-label">Reply To (Email)</label>
                                        <div class="controls">
                                           <input type="text" class="span6" />
-                                          <span class="help-inline">Give your Last Name</span>
+                                          <span class="help-inline">Email for end user to reply to</span>
                                        </div>
                                     </div>
                                  </div>
@@ -142,7 +151,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['type'] != 'all'){
                                  <a id="backbtn" href="javascript:;" class="btn button-previous">
                                  	<i class="icon-angle-left"></i> Back 
                                  </a>
-                                 <div id="continuebtn" data-page="1" class="btn btn-primary blue button-next">
+                                 <div id="continuebtn" class="btn btn-primary blue button-next" style="display:none;">
                                  	Continue <i class="icon-angle-right"></i>
                                  </div>
                                  <a href="javascript:;" class="btn btn-success button-submit">

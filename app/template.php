@@ -5,7 +5,7 @@ include 'include/dbconnect.php';
 
 // Store template id for loop
 //if(isset($_GET['id']))
-//	$_SESSION['templateid'] = $_GET['id'];
+$_SESSION['templateid'] = $_POST['id'];
 	
 // Load the correct template
 $tstmt = $conn->prepare('SELECT name, saved FROM templates WHERE id = :id');

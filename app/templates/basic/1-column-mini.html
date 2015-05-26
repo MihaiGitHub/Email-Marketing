@@ -431,35 +431,9 @@
 
 				.footerContent a{display:block !important;} /* Place footer social and utility links on their own lines, for easier access */
 			}
-						/***************************/
-			
-		/* Style a bit the inline editables. */
-.cke_editable.cke_editable_inline
-{
-	cursor: pointer;
-}
-
-/* Once an editable element gets focused, the "cke_focus" class is
-   added to it, so we can style it differently. */
-.cke_editable.cke_editable_inline.cke_focus
-{
-	box-shadow: inset 0px 0px 20px 3px #ddd, inset 0 0 1px #000;
-	outline: none;
-	background: #eee;
-	cursor: text;
-}
-
-/* Avoid pre-formatted overflows inline editable. */
-.cke_editable_inline pre
-{
-	white-space: pre-wrap;
-	word-wrap: break-word;
-}
-
-/*****************************************/
+				
 
 		</style>
-     
 
     </head>
     <body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0">
@@ -474,8 +448,8 @@
                                 	<!-- BEGIN PREHEADER // -->
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templatePreheader">
                                         <tr>
-                                            <td valign="top" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:20px;" mc:edit="preheader_content00"><div id="block1" contenteditable="true">%block1%</div></td>
-                                            <td valign="top" width="180" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:0;" mc:edit="preheader_content01"><div id="block2" contenteditable="true">%block2%</div></td>
+                                            <td valign="top" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:20px;" mc:edit="preheader_content00">%block1%</td>
+                                            <td valign="top" width="180" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:0;" mc:edit="preheader_content01">%block2%</td>
                                         </tr>
                                     </table>
                                     <!-- // END PREHEADER -->
@@ -487,7 +461,7 @@
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateHeader">
                                         <tr>
                                             <td valign="top" class="headerContent">
-                                            	<div id="block3" contenteditable="true">%block3%</div>
+                                            	%block3%
                                             </td>
                                         </tr>
                                     </table>
@@ -500,7 +474,7 @@
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateBody">
                                         <tr>
                                             <td valign="top" class="bodyContent" mc:edit="body_content">
-                                                <div id="block4" contenteditable="true">%block4%</div>
+                                                %block4%
                                             </td>
                                         </tr>
                                     </table>
@@ -513,7 +487,7 @@
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateFooter">
                                         <tr>
                                             <td valign="top" class="footerContent" mc:edit="footer_content00">
-                                                <div id="block5" contenteditable="true">%block5%</div>
+                                                %block5%
                                             </td>
                                         </tr>
                                         <tr>
@@ -547,4 +521,3 @@
         </center>
     </body>
 </html>
-
