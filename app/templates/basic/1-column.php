@@ -458,8 +458,6 @@
 
 /*****************************************/
 		</style>
-        <script>var CKEDITOR_BASEPATH = 'assets/ck-editor/';</script>
-        <script src="assets/ck-editor/ckeditor.js"></script>
     </head>
     <body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0">
     	<center>
@@ -533,7 +531,7 @@
                                         <tr>
                                             <td valign="top" class="footerContent" mc:edit="footer_content00">
                                              <div id="block5" contenteditable="true" class="editable">
-                                                <a href="#">Follow on Twitter</a>&nbsp;&nbsp;&nbsp;<a href="*|FACEBOOK:PROFILEURL|*">Friend on Facebook</a>&nbsp;&nbsp;&nbsp;<a href="#">Forward to Friend</a>&nbsp;
+                                                <a href="#">Follow on Twitter</a>&nbsp;&nbsp;&nbsp;<a href="#">Friend on Facebook</a>&nbsp;&nbsp;&nbsp;<a href="#">Forward to Friend</a>&nbsp;
                                               </div>
                                             </td>
                                         </tr>
