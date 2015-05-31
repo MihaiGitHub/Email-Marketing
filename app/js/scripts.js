@@ -4,86 +4,14 @@ var App = function () {
     var isMapPage = false;
     var isIE8 = false;
 
-	var handleAjax = function () {
-		
-		
-		
-		$('#continuebtn2').click(function (eventt) {
-		
-				var page = $(this).attr('data-page');
-				
-				if(page == 1){ 	
-						
-						$(this).attr('data-page', 2);
-						
-						$.ajax({
-						  type: 'POST',
-						  url: 'template.php',
-						  async: true,
-						  data: {
-							 id: 69
-						  },
-						  error: function(error) {
-							console.log('error', error)
-						  },
-						  dataType: 'json',
-						  success: function(data) {
-						  
-							  $('#edittemplate').html(data);
-							  $('#edittemplate').fadeIn('slow');
-							 
-						  },
-						  
-					   });
-					   
-				} else {
-					$(this).attr('data-page', 3);
-					
-					var jData = {};
-					jData['template_id'] = 69;
-					
-					for (var i in CKEDITOR.instances) {
-												
-							jData[i] = CKEDITOR.instances[i].getData();
-						
-					}
-					
-					$.ajax({
-						  type: 'POST',
-						  url: 'savetemplate.php',
-						  async: true,
-						  data: jData,
-						  error: function(error) {
-							console.log('error', error)
-						  },
-						  dataType: 'json',
-						  success: function(data) { 
-						  
-							console.log('success')
-							 
-						  },
-				   });
-					
-				}
-				
-				
-        });
-		
-		$('#backbtn6').click(function (eventt) {
-				var page = $('#continuebtn').attr('data-page');
-				
-				if(page == 2){
-						$('#continuebtn').attr('data-page', 1);
-
-				} else {
-						$('#continuebtn').attr('data-page', 2);
-
-				}
-
+	var handleTemplate = function () {
+		$('button.template-btn').click(function() {
+			var id = $(this).attr('id');
+			sessionStorage.setItem('tid', id);
 		});
 	}
-
-    var handleJQVMAP = function () {
+	
+	var handleJQVMAP = function () {
 
         if (!sample_data) {
             return;
@@ -2023,7 +1951,8 @@ var App = function () {
             });
         });
     }
-
+	
+	var first = 0;
     var handleFormWizards = function () {
         if (!jQuery().bootstrapWizard) {
             return;
@@ -2037,6 +1966,10 @@ var App = function () {
                 return false;
             },
             onNext: function (tab, navigation, index) {
+		//		console.log('tab ',tab)
+		//		console.log('navigation ',navigation)
+		//		console.log('index ',index)
+				
                 var total = navigation.find('li').length;
                 var current = index + 1;
 				
@@ -2051,42 +1984,69 @@ var App = function () {
                     jQuery(li_list[i]).addClass("done");
                 }
 
+
+
+
+
                 if (current == 1) {
 				
 					
                     $('#form_wizard_1').find('.button-previous').hide();
                 } else {
 					$('#form_wizard_1').find('.button-next').show();
-					if (current == 2){
+					if (current == 2){ 
+				//	$('#form_wizard_1').find('#backbtn').removeClass('button-previous');
+					
+					var tid = sessionStorage.getItem('tid');
 
+/*$('#backbtn2').click(function() { console.log('replaced')
+		//	window.location = 'templates.php';
+		location.reload();
+});
+*/
+										
+
+					
+					if(first == 0){ console.log('first')
+							first = 1;
+							
+							
 							$.ajax({
 								  type: 'POST',
 								  url: 'template.php',
 								  async: true,
 								  data: {
-									 id: 69
+									 id: tid
 								  },
 								  error: function(error) {
-									console.log('error', error)
+									console.log('error', error.error())
 								  },
 								  dataType: 'json',
 								  success: function(data) {
 								  
 									  $('#edittemplate').html(data);
 									  $('#edittemplate').fadeIn('slow');
-									 
+								//	 $('#form_wizard_1').find('#backbtn').removeClass('button-previous');
 								  },
 						   });
 						   
 						   
 						   $.getScript( "assets/ck-editor/ckeditor.js", function( data, textStatus, jqxhr ) {
-									  console.log( data ); // Data returned
+								//	  console.log( data ); // Data returned
 									  console.log( textStatus ); // Success
-									  console.log( jqxhr.status ); // 200
-									  console.log( "Load was performed." );
+								//	  console.log( jqxhr.status ); // 200
+								//	  console.log( "Load was performed." );
 							});
+							
+							
+							
+					}
 						   
-					} else {
+					} else { 
+					
+					console.log('333333333333')
+					console.log(current)
+					
 							var jData = {};
 							jData['template_id'] = 69;
 							
@@ -2115,24 +2075,29 @@ var App = function () {
 						   $('#form_wizard_1').find('.button-submit').show();
 					}
 					
-					$('#form_wizard_1').find('.button-previous').show();
+					//$('#form_wizard_1').find('.button-previous').show();
                 }
-/*
-                if (current >= total) {
-                    $('#form_wizard_1').find('.button-next').hide();
-                    $('#form_wizard_1').find('.button-submit').show();
-                } else {
-                    $('#form_wizard_1').find('.button-next').show();
-                    $('#form_wizard_1').find('.button-submit').hide();
-                }
-				*/
                 App.scrollTo($('.page-title'));
             },
             onPrevious: function (tab, navigation, index) {
+				
+				console.log('hit back')
+				// Destroy the editor.
+	//		editor.destroy();
+	//		editor = null;
+
+											//		  $('#edittemplate').html('');
+
+				
+				
+				
+				
                 var total = navigation.find('li').length;
                 var current = index + 1;
+				
                 // set wizard title
                 $('.step-title', $('#form_wizard_1')).text('Step ' + (index + 1) + ' of ' + total);
+				
                 // set done steps
                 jQuery('li', $('#form_wizard_1')).removeClass("done");
                 var li_list = navigation.find('li');
@@ -2141,9 +2106,13 @@ var App = function () {
                 }
 
                 if (current == 1) {
-					$('#form_wizard_1').find('#continuebtn').hide();
-                    $('#form_wizard_1').find('.button-previous').hide();
+					console.log('current1 ', current)
+		//			$('#form_wizard_1').find('#continuebtn').hide();
+        //            $('#form_wizard_1').find('.button-previous').hide();
                 } else {
+					console.log('current else ',current)
+					
+					
 					$('#form_wizard_1').find('.button-submit').hide();
                     $('#form_wizard_1').find('.button-previous').show();
 					$('#form_wizard_1').find('#continuebtn').show();
@@ -2303,7 +2272,7 @@ var App = function () {
                 handleAllJQVMAP(); // handles vector maps for interactive map page
             }
 
-			handleAjax(); // handles template wizard AJAX calls
+			handleTemplate(); // handles template ID in template wizard
             handleScrollers(); // handles slim scrolling contents
             handleUniform(); // handles uniform elements
             handleClockfaceTimePickers(); //handles form clockface timepickers

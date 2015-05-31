@@ -70,6 +70,9 @@ while($rowlists = $stmtlists->fetch()){
                                           <span class="number">2</span>
                                           <span class="desc"><i class="icon-ok"></i> Edit template</span>
                                           </a>
+                                          
+         
+                                          
                                        </li>
                                        <li class="span3">
                                           <a href="#tab3" data-toggle="tab" class="step">
@@ -88,10 +91,10 @@ while($rowlists = $stmtlists->fetch()){
                                  <div class="tab-pane active" id="tab1">
                                     <h3>Choose template</h3>
 <?php while($row = $stmt->fetch()){ ?>
-	<div class="template">
+	<div id="frfr4444" class="template">
 	
-		<button class="button-next" type="button">
-			<img src="../app/images/<?php echo $row['picture']; ?>">
+		<button id="<?php echo $row['id']; ?>" class="button-next template-btn" type="button">
+			<img id="asdf" src="../app/images/<?php echo $row['picture']; ?>">
         </button>
 	
 		<div class="template-text">
@@ -104,6 +107,16 @@ while($rowlists = $stmtlists->fetch()){
         
                                  <div class="tab-pane" id="tab2">
                                     <h4>Edit template</h4>
+                                    <input type="button" onClick="window.location = 'templates.php'" value="Go Back" style="float:right;"/>
+                                    
+                                    <div id="continuebtn" class="btn btn-primary blue button-next" style="display:none;">
+                                 	Continue <i class="icon-angle-right"></i>
+                                 </div>
+         <!--                           <button onClick="window.location = 'templates.php'">Go Back</button>
+         <a id="backbtn" href="#" class="btn">
+            <i class="icon-angle-left"></i> Back 
+         </a>
+         -->
                                     <div id="edittemplate" style="display:none;">
 									
 									</div>
@@ -148,12 +161,14 @@ while($rowlists = $stmtlists->fetch()){
                                  </div>
                               </div>
                               <div class="form-actions clearfix">
-                                 <a id="backbtn" href="javascript:;" class="btn button-previous">
+                                 <a href="javascript:;" class="btn button-previous">
                                  	<i class="icon-angle-left"></i> Back 
                                  </a>
+                                 <!--
                                  <div id="continuebtn" class="btn btn-primary blue button-next" style="display:none;">
                                  	Continue <i class="icon-angle-right"></i>
                                  </div>
+                                 -->
                                  <a href="javascript:;" class="btn btn-success button-submit">
                                  	Submit <i class="icon-ok"></i>
                                  </a>

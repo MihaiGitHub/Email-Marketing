@@ -20,7 +20,22 @@ $result = $stmt->execute(array('userid' => $_SESSION['id'], 'templateid' => $_PO
 
 switch ($trow['name']){
 	case 'Basic':
-	//	include 'templates/Newsletter.php';
+	/*
+				if($trow['saved'] == 1){
+						$str = file_get_contents('templates/basic/1-column.html');
+				
+						while($row = $stmt->fetch()){
+															
+								$str = str_replace('%'.$row['field'].'%', $row['value'], $str);
+						}
+				
+						echo json_encode($str);
+				} else {
+					
+						$str = file_get_contents('templates/basic/1-column.php');
+						echo json_encode($str);
+				}
+				*/
 	break;
 	case 'Basic-1-Column':
 
@@ -47,13 +62,52 @@ switch ($trow['name']){
 		
 	break;
 	case 'Basic-1-2-Column':
-	//	include 'templates/RealEstate.php';
+				if($trow['saved'] == 1){
+						$str = file_get_contents('templates/basic/1-2-column.html');
+				
+						while($row = $stmt->fetch()){
+															
+								$str = str_replace('%'.$row['field'].'%', $row['value'], $str);
+						}
+				
+						echo json_encode($str);
+				} else {
+					
+						$str = file_get_contents('templates/basic/1-2-column.php');
+						echo json_encode($str);
+				}
 	break;
 	case 'Basic-1-1-2-Column':
-	//	include 'templates/TechSimple.php';
+				if($trow['saved'] == 1){
+						$str = file_get_contents('templates/basic/1-1-2-column.html');
+				
+						while($row = $stmt->fetch()){
+															
+								$str = str_replace('%'.$row['field'].'%', $row['value'], $str);
+						}
+				
+						echo json_encode($str);
+				} else {
+					
+						$str = file_get_contents('templates/basic/1-1-2-column.php');
+						echo json_encode($str);
+				}
 	break;
 	case 'Basic-1-1-3-Column':
-	//	include 'templates/TechFull.php';
+				if($trow['saved'] == 1){
+						$str = file_get_contents('templates/basic/1-1-3-column.html');
+				
+						while($row = $stmt->fetch()){
+															
+								$str = str_replace('%'.$row['field'].'%', $row['value'], $str);
+						}
+				
+						echo json_encode($str);
+				} else {
+					
+						$str = file_get_contents('templates/basic/1-1-3-column.php');
+						echo json_encode($str);
+				}
 	break;
 	
 }
