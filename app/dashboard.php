@@ -1,6 +1,7 @@
 <?php 
 ob_start(); 
 session_start();
+$dashboard = true;
 ?>
 		<!-- BEGIN PAGE -->
 		<div id="main-content">

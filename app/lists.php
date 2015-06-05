@@ -103,6 +103,8 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['code'])){
 
 $stmt = $conn->prepare('SELECT id, name, created FROM lists WHERE user_id = :user');
 $result = $stmt->execute(array('user' => $_SESSION['id']));
+
+$lists = true;
 ?>
       <!-- BEGIN PAGE -->
 	     <link rel="stylesheet" href="assets/data-tables/DT_bootstrap.css" />

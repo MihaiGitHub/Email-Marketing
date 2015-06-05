@@ -17,6 +17,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 } 
 $stmt = $conn->prepare('SELECT c.id, c.subject, c.sent, l.name FROM campaigns as c, lists as l WHERE c.user_id = :user AND c.list_id = l.id ORDER BY sent DESC');
 $result = $stmt->execute(array('user' => $_SESSION['id']));
+
+$reports = true;
 ?>
 <!-- BEGIN PAGE -->
 <link rel="stylesheet" href="assets/data-tables/DT_bootstrap.css" />
