@@ -1,9 +1,9 @@
 var App = function () {
 
-    var isMainPage = false;
-    var isMapPage = false;
-    var isIE8 = false;
-
+     var isMainPage = false;
+     var isMapPage = false;
+     var isIE8 = false;
+	
 	var handleTemplate = function () {
 		$('button.template-btn').click(function() {
 			var id = $(this).attr('id');
@@ -2045,10 +2045,11 @@ var App = function () {
 					} else { 
 					
 					console.log('333333333333')
-					console.log(current)
+					
 					
 							var jData = {};
 							jData['template_id'] = 69;
+							$('#form_wizard_1').find('.button-previous').show();
 							
 							for (var i in CKEDITOR.instances) {
 														
@@ -2106,15 +2107,15 @@ var App = function () {
                 }
 
                 if (current == 1) {
-					console.log('current1 ', current)
+					console.log('current 1111111111 ', current)
 		//			$('#form_wizard_1').find('#continuebtn').hide();
         //            $('#form_wizard_1').find('.button-previous').hide();
                 } else {
-					console.log('current else ',current)
+					console.log('current 222222222 ',current)
 					
 					
 					$('#form_wizard_1').find('.button-submit').hide();
-                    $('#form_wizard_1').find('.button-previous').show();
+                    $('#form_wizard_1').find('.button-previous').hide();
 					$('#form_wizard_1').find('#continuebtn').show();
                 }
 
@@ -2143,14 +2144,85 @@ var App = function () {
         });
         $('#form_wizard_1').find('.button-previous').hide();
         $('#form_wizard_1 .button-submit').click(function () {
-            $('#tempform').submit();
+			
+var progressTimer,
+      progressbar = $( "#progressbar" ),
+      progressLabel = $( ".progress-label" ),
+      dialogButtons = [{
+        click: closeDownload
+      }],
+      dialog = $( "#dialog" ).dialog({
+        autoOpen: false,
+        closeOnEscape: false,
+        resizable: false,
+       // buttons: dialogButtons,
+        open: function() { // after 2 seconds it executes progress() function
+		console.log('execute progress')
+          progressTimer = setTimeout( progress, 2000 );
+        }
+});
+	  
+ // progress function which makes the percent and color go across modal
+progressbar.progressbar({
+      value: false,
+      change: function() {
+        progressLabel.text( "Current Progress: " + progressbar.progressbar( "value" ) + "%" );
+      },
+      complete: function() {
+        progressLabel.text( "Complete!" );
+		callback();
+			
+		
+        dialog.dialog( "option", "buttons", [{
+          text: "Close",
+          click: closeDownload
+        }]);
+        
+		$(".ui-dialog button").last().focus();
+      }
+});
+
+			
+		
+			
+			
+  // progress function which makes the percent and color go across modal
+function progress() {
+      var val = progressbar.progressbar( "value" ) || 0;
+ 
+ 
+      if ( val <= 99 ) {
+        progressTimer = setTimeout( progress, 50 );
+		
+		progressbar.progressbar( "value", val + Math.floor( Math.random() * 3 ) );
+
+      }
+}
+
+function closeDownload() {
+      clearTimeout( progressTimer );
+	  
+      dialog.dialog( "option", "buttons", dialogButtons ).dialog( "close" );
+	  
+
+}
+	
+function callback(){
+		console.log('FINISHED')
+}
+          //  $('#tempform').submit();
 			// 777
-			/*
 					$.ajax({
 						  type: 'POST',
 						  url: 'send.php',
 						  async: true,
-						  data: jData,
+				//		  data: jData,
+						  beforeSend: function() { 
+	
+							  $('.overlay').fadeIn('slow');   
+							  dialog.dialog( "open" );
+						
+						  },
 						  error: function(error) {
 							console.log('error', error)
 						  },
@@ -2161,7 +2233,7 @@ var App = function () {
 							 
 						  },
 				   });
-				   */
+				   
 			
         }).hide();
     }
@@ -2272,7 +2344,7 @@ var App = function () {
                 handleAllJQVMAP(); // handles vector maps for interactive map page
             }
 
-			handleTemplate(); // handles template ID in template wizard
+		  handleTemplate(); // handles template ID in template wizard
             handleScrollers(); // handles slim scrolling contents
             handleUniform(); // handles uniform elements
             handleClockfaceTimePickers(); //handles form clockface timepickers

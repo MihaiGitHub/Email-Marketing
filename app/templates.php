@@ -53,7 +53,7 @@ while($rowlists = $stmtlists->fetch()){
                      <div class="widget-body form">
                         <form id="tempform" method="post" action="send.php" class="form-horizontal">
                         
-                        <input type="hidden" name=""
+                        
                         
                            <div class="form-wizard">
                               <div class="navbar steps">
@@ -124,8 +124,24 @@ while($rowlists = $stmtlists->fetch()){
                                  
                                  <div class="tab-pane" id="tab3">
                                     <h4>Complete form</h4>
+                                    <!--
+                                                                       <input type="button" onClick="window.location = 'templates.php'" value="Go Back" style="float:right;"/>
+
+                                    
+                                <a href="javascript:;" class="btn button-previous">
+                                 	<i class="icon-angle-left"></i> Back 
+                                 </a>
+                                    -->
+                                    
+                                    
+                                    
+                                    
                                     <div class="control-group">
                                        <label class="control-label">List Name</label>
+                                       
+
+
+
                                        <div class="controls">
                                           <select name="lists" class="span6"><?php echo $options; ?></select>
                                        </div>
@@ -185,6 +201,44 @@ while($rowlists = $stmtlists->fetch()){
 
       </div>
       <!-- END PAGE -->
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
+       <style>
+  #progressbar {
+    margin-top: 20px;
+  }
+ 
+  .progress-label {
+    font-weight: bold;
+    text-shadow: 1px 1px 0 #fff;
+  }
+ 
+  .ui-dialog-titlebar-close {
+    display: none;
+  }
+  </style>
+<div id="dialog" title="Sending emails...">
+  <div class="progress-label">Preparing template...</div>
+  <div id="progressbar"></div>
+</div>
+
+
+ <style>
+ .ui-widget-overlay {
+  background: #aaaaaa url("img/ui-bg_flat_0_aaaaaa_40x100.png") 50% 50% repeat-x;
+  opacity: .3;
+ 
+}
+
+.ui-widget-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+</style>
+<div class="ui-widget-overlay overlay" style="z-index: 101; display: none;"></div>
 <?php
 $content = ob_get_contents();
 ob_end_clean();
