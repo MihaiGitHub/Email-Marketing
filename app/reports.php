@@ -73,11 +73,18 @@ $reports = true;
 		<?php 
 		$i = 1;
 		while($row = $stmt->fetch()){ 				
-				echo "<tr><td>$i</td><td><a href='statistics.php?id=".urlencode($row['id'])."'>".htmlentities($row['subject'])."</a></td><td>".htmlentities($row['name'])."</td><td>".htmlentities($row['sent'])."</td>
-				<td><a class='edit' href='javascript:;'>Edit</a></td><td><a class='delete' href='javascript:;'>Delete</a></td></tr>";
+				echo "<tr>
+		<td>$i</td>
+		<td><a href='statistics.php?id=".urlencode($row['id'])."'>".htmlentities($row['subject'])."</a></td>
+		<td>".htmlentities($row['name'])."</td>
+		<td>".htmlentities($row['sent'])."</td>
+		<td><a class='edit' href='javascript:;'>Edit</a></td>
+		<td><a class='delete' href='javascript:;'>Delete</a></td>
+	</tr>";
 				$i++;
 		} 
-		if($i == 1) echo '<tr><td colspan="6" style="text-align:center;" class="align-center">There are no campaigns to display</td></tr>'; ?>
+		if($i == 1) echo '<tr><td>&nbsp;</td><td>There are no campaigns to display</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>';
+		?>
                                    
                                     </tbody>
                                 </table>
