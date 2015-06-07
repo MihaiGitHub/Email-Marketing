@@ -45,7 +45,6 @@ switch ($trow['name']){
 		
 				while($row = $stmt->fetch()){
 					
-					//	$fields[$row['field']] = $row['value'];	
 						
 						$str = str_replace('%'.$row['field'].'%', $row['value'], $str);
 

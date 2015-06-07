@@ -1,6 +1,11 @@
 <?php
 session_start();
 
+if(!$_SESSION['auth']){
+	header('Location: index.php?authen=false');
+	exit;	
+}
+
 date_default_timezone_set('Europe/London');
 
 include 'include/dbconnect.php';
@@ -68,7 +73,7 @@ if($count > 0){
 	$stmtfields->execute(array('userid' => $_SESSION['id'], 'templateid' => $_SESSION['templateid']));
 	$stmtfields->setFetchMode(PDO::FETCH_ASSOC);
 						
-	$body = file_get_contents('templates/basic/1-column-mini.html');
+	$body = file_get_contents($template);
 
 	while($rowfields = $stmtfields->fetch()){
 		

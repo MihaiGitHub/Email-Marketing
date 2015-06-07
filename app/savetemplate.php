@@ -8,17 +8,13 @@ if(!$_SESSION['auth']){
 
 include 'include/dbconnect.php';
 
-$tid = $_POST['template_id'];
-
 $stmt = $conn->prepare('UPDATE templates SET saved = 1 WHERE id = :tid');
-$result = $stmt->execute(array('tid' => $tid));
+$result = $stmt->execute(array('tid' => $_SESSION['templateid']));
 
-foreach($_POST as $key => $value){
+foreach($_POST as $key => $value){ echo 'key '.$key;
 	
-	if($key != 'template_id'){
 		$stmt = $conn->prepare('INSERT INTO template_fields (user_id, template_id, field, value) VALUES (:userid, :tid, :field, :value) ON DUPLICATE KEY UPDATE value = :uvalue');
-		$result = $stmt->execute(array('userid' => $_SESSION['id'], 'tid' => $tid, 'field' => $key, 'value' => $value, 'uvalue' => $value));
-	}
+		$result = $stmt->execute(array('userid' => $_SESSION['id'], 'tid' => $_SESSION['templateid'], 'field' => $key, 'value' => $value, 'uvalue' => $value));
 
 }
 ?>

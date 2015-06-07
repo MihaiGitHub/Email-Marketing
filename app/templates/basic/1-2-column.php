@@ -526,11 +526,11 @@
                                             <td valign="top" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:20px;" mc:edit="preheader_content00">
                                                <div id="block1" contenteditable="true"> Use this area to offer a short teaser of your email's content. Text here will show in the preview area of some email clients.</div>
                                             </td>
-                                            <!-- *|IFNOT:ARCHIVE_PAGE|* -->
+                                           
                                             <td valign="top" width="180" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:0;" mc:edit="preheader_content01">
                                                 <div id="block2" contenteditable="true">Email not displaying correctly?<br /><a href="*|ARCHIVE|*" target="_blank">View it in your browser</a>.</div>
                                             </td>
-                                            <!-- *|END:IF|* -->
+                                            
                                         </tr>
                                     </table>
                                     <!-- // END PREHEADER -->
@@ -581,11 +581,14 @@
                                             	<table border="0" cellpadding="20" cellspacing="0" width="100%">
                                                 	<tr>
                                                     	<td class="rightColumnContent">
+                                                        <div id="block6" contenteditable="true">
                                                         	<img src="http://gallery.mailchimp.com/27aac8a65e64c994c4416d6b8/images/header_placeholder_260px.png" style="max-width:260px;" class="columnImage" mc:label="right_column_image" mc:edit="right_column_image" />
+                                                         </div>
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                    	<td valign="top" class="rightColumnContent" mc:edit="right_column_content"><div id="block6" contenteditable="true">
+                                                    	<td valign="top" class="rightColumnContent" mc:edit="right_column_content">
+                                                        <div id="block7" contenteditable="true">
                                                             <h3>Repeatable Content</h3>
                                                             <a href="http://kb.mailchimp.com/article/how-do-i-work-with-repeatable-content-blocks" target="_blank">Repeatable sections</a> are noted with plus and minus signs so that you can add and subtract content blocks.
                                                             <br />
@@ -606,10 +609,10 @@
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateFooter">
                                         <tr>
                                             <td valign="top" class="footerContent" mc:edit="footer_content00">
-                                                <div id="block7" contenteditable="true" style="float:left;">
+                                                <div id="block8" contenteditable="true" style="float:left;">
                                                     <a href="#">Follow on Twitter</a>&nbsp;&nbsp;&nbsp;<a href="#">Friend on Facebook</a>
                                                 </div>
-                                                <div id="block8" style="float:right;">
+                                                <div style="float:right;">
                                                     <a href="#">unsubscribe from this list</a>
                                                 </div>
                                             </td>

@@ -2046,15 +2046,11 @@ var App = function () {
 					
 					console.log('333333333333')
 					
-					
-							var jData = {};
-							jData['template_id'] = 69;
 							$('#form_wizard_1').find('.button-previous').show();
 							
-							for (var i in CKEDITOR.instances) {
-														
+							var jData = {};
+							for (var i in CKEDITOR.instances) {						
 									jData[i] = CKEDITOR.instances[i].getData();
-								
 							}
 							
 							$.ajax({
@@ -2065,10 +2061,9 @@ var App = function () {
 								  error: function(error) {
 									console.log('error', error)
 								  },
-								  dataType: 'json',
 								  success: function(data) { 
 								  
-									console.log('success')
+										console.log('saved template success')
 									 
 								  },
 						   });
