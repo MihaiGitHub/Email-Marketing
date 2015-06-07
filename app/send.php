@@ -13,7 +13,7 @@ print_r($_SESSION);
 echo '</pre>';
 
 $_SESSION['c_id'] = uniqid('C',true);
-$_SESSION['listid'] = 51;
+$_SESSION['listid'] = $_POST['listId'];
 
 // Load the correct template
 $tstmt = $conn->prepare('SELECT name FROM templates WHERE id = :id');
@@ -43,7 +43,7 @@ if($count > 0){
 		require_once('phpmailer/class.phpmailer.php');
 
 		$stmtc = $conn->prepare('INSERT INTO campaigns (id, user_id, list_id, subject, email_from, email_replyto, sent) VALUES (:cid, :userid, :listid,  :subject, :from, :replyto, :sent)');
-		$stmtc->execute(array('cid' => $_SESSION['c_id'], 'userid' => $_SESSION['id'], 'listid' => $_POST['lists'], 'subject' => $_POST['subject'], 'from' => $_POST['from'], 'replyto' => $_POST['replyto'], 'sent' => date('n/j/Y g:i A')));
+		$stmtc->execute(array('cid' => $_SESSION['c_id'], 'userid' => $_SESSION['id'], 'listid' => $_SESSION['listid'], 'subject' => $_POST['subject'], 'from' => $_POST['fromEmail'], 'replyto' => $_POST['replyTo'], 'sent' => date('n/j/Y g:i A')));
 
 	/*		// handle file upload if there is one
 			if(!isset($_GET['processing'])){
@@ -135,23 +135,9 @@ while($campaignemails = $stmtmain->fetch()){
 			$mail = new PHPMailer();
 			$mail->SMTPDebug  = 2;                    
 			
-		//	$mail->SetFrom($_SESSION['fromemail'], $_SESSION['from']);
-		$mail->SetFrom('mihai.sanfran@gmail.com', 'Mihai');
-		//	$mail->AddReplyTo($_SESSION['replyto']);
-						$mail->AddReplyTo('mihai.sanfran@gmail.com');
-
-		//	$mail->Subject = $_SESSION['subject'];
-$mail->Subject = 'First Email';
-// ATTACH FILES FOR EACH EMAIL
-/*
-$attachments = $conn->prepare('SELECT field, value FROM template_fields WHERE user_id = :userid AND template_id = :templateid AND field LIKE "A%"');
-$attachments->execute(array('userid' => $_SESSION['id'], 'templateid' => $_GET['id']));
-
-while($rowattach = $attachments->fetch()){
-	$mail->AddAttachment('files/'.$rowattach['field']);
-}
-*/
-/////////////////
+			$mail->SetFrom($_POST['fromEmail'], $_POST['fromName']);
+			$mail->AddReplyTo($_POST['replyTo']);
+			$mail->Subject = $_POST['subject'];
 
 			$mail->AltBody    = "To view the message, please use an HTML compatible email viewer!"; 
 			$mail->MsgHTML($body); 

@@ -70,12 +70,12 @@ $reports = true;
 									</tr>
                                     </thead>
                                     <tbody>
-		<?php 
+		<?php //<a href='statistics.php?id=".urlencode($row['id'])."'></a>
 		$i = 1;
 		while($row = $stmt->fetch()){ 				
 				echo "<tr>
 		<td>$i</td>
-		<td><a href='statistics.php?id=".urlencode($row['id'])."'>".htmlentities($row['subject'])."</a></td>
+		<td>".htmlentities($row['subject'])."</td>
 		<td>".htmlentities($row['name'])."</td>
 		<td>".htmlentities($row['sent'])."</td>
 		<td><a class='edit' href='javascript:;'>Edit</a></td>

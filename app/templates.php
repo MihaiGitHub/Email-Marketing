@@ -91,10 +91,10 @@ while($rowlists = $stmtlists->fetch()){
                                  <div class="tab-pane active" id="tab1">
                                     <h3>Choose template</h3>
 <?php while($row = $stmt->fetch()){ ?>
-	<div id="frfr4444" class="template">
+	<div id="frfr4444" class="template" style="float:left;">
 	
-		<button id="<?php echo $row['id']; ?>" class="button-next template-btn" type="button">
-			<img id="asdf" src="../app/images/<?php echo $row['picture']; ?>">
+		<button id="<?php echo $row['id']; ?>" class="button-next template-btn" type="button" style="width:25%;">
+			<img id="asdf" src="../app/templates/images/<?php echo $row['picture']; ?>" >
         </button>
 	
 		<div class="template-text">
@@ -143,34 +143,34 @@ while($rowlists = $stmtlists->fetch()){
 
 
                                        <div class="controls">
-                                          <select name="lists" class="span6"><?php echo $options; ?></select>
+                                          <select id="lists" name="lists" class="span6"><?php echo $options; ?></select>
                                        </div>
                                     </div>
                                     <div class="control-group">
                                        <label class="control-label">Subject</label>
                                        <div class="controls">
-                                          <input type="text" class="span6" />
+                                          <input id="subject" type="text" class="span6" />
                                           <span class="help-inline">The subject of your email</span>
                                        </div>
                                     </div>
                                     <div class="control-group">
                                        <label class="control-label">From (Name)</label>
                                        <div class="controls">
-                                          <input type="text" class="span6" />
+                                          <input id="from-name" type="text" class="span6" />
                                           <span class="help-inline">The name that will appear as having sent the email</span>
                                        </div>
                                     </div>
 									<div class="control-group">
                                        <label class="control-label">From (Email)</label>
                                        <div class="controls">
-                                          <input type="text" class="span6" />
+                                          <input id="from-email" type="text" class="span6" />
                                           <span class="help-inline">The email that will appear as having sent the email</span>
                                        </div>
                                     </div>
 									<div class="control-group">
                                        <label class="control-label">Reply To (Email)</label>
                                        <div class="controls">
-                                          <input type="text" class="span6" />
+                                          <input id="replyto" type="text" class="span6" />
                                           <span class="help-inline">Email for end user to reply to</span>
                                        </div>
                                     </div>
@@ -200,28 +200,38 @@ while($rowlists = $stmtlists->fetch()){
          <!-- END PAGE CONTAINER-->
 
       </div>
-      <!-- END PAGE -->
-  <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-
        <style>
-  #progressbar {
-    margin-top: 20px;
-  }
  
   .progress-label {
     font-weight: bold;
     text-shadow: 1px 1px 0 #fff;
   }
  
-  .ui-dialog-titlebar-close {
-    display: none;
-  }
   </style>
-<div id="dialog" title="Sending emails...">
-  <div class="progress-label">Preparing template...</div>
-  <div id="progressbar"></div>
+  
+  
+  
+  
+  
+  
+<div id="dialog" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="false" style="width:560px !important;display:block;">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<h3 id="myModalLabel1">Sending Emails...</h3>
+	</div>
+	<div class="modal-body">
+    <div class="progress-label">Preparing template...</div>
+		<div id="progressbar"></div>
+        
+        							<div class="progress progress-striped progress-success active">
+                                        <div id="email-bar" class="bar"></div>
+                                    </div>
+	</div>
+	<div class="modal-footer">
+	<!--	<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button> -->
+		<button id="email-bar-close" class="btn btn-primary" data-dismiss="modal">Close</button>
+	</div>
 </div>
-
 
  <style>
  .ui-widget-overlay {

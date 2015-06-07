@@ -2144,84 +2144,71 @@ var App = function () {
         });
         $('#form_wizard_1').find('.button-previous').hide();
         $('#form_wizard_1 .button-submit').click(function () {
-			
-var progressTimer,
-      progressbar = $( "#progressbar" ),
-      progressLabel = $( ".progress-label" ),
-      dialogButtons = [{
-        click: closeDownload
-      }],
-      dialog = $( "#dialog" ).dialog({
-        autoOpen: false,
-        closeOnEscape: false,
-        resizable: false,
-       // buttons: dialogButtons,
-        open: function() { // after 2 seconds it executes progress() function
-		console.log('execute progress')
-          progressTimer = setTimeout( progress, 2000 );
-        }
-});
-	  
- // progress function which makes the percent and color go across modal
-progressbar.progressbar({
-      value: false,
-      change: function() {
-        progressLabel.text( "Current Progress: " + progressbar.progressbar( "value" ) + "%" );
-      },
-      complete: function() {
-        progressLabel.text( "Complete!" );
-		callback();
-			
-		
-        dialog.dialog( "option", "buttons", [{
-          text: "Close",
-          click: closeDownload
-        }]);
-        
-		$(".ui-dialog button").last().focus();
-      }
-});
-
-			
-		
-			
-			
-  // progress function which makes the percent and color go across modal
-function progress() {
-      var val = progressbar.progressbar( "value" ) || 0;
- 
- 
-      if ( val <= 99 ) {
-        progressTimer = setTimeout( progress, 50 );
-		
-		progressbar.progressbar( "value", val + Math.floor( Math.random() * 3 ) );
-
-      }
-}
-
-function closeDownload() {
-      clearTimeout( progressTimer );
-	  
-      dialog.dialog( "option", "buttons", dialogButtons ).dialog( "close" );
-	  
-
-}
+			  //$('#tempform').submit();
+			  
+			  
+		var progressTimer, progressLabel = $( ".progress-label" ), progressbar = $( "#progressbar" );
 	
-function callback(){
-		console.log('FINISHED')
-}
-          //  $('#tempform').submit();
+			
+			$('.overlay').fadeIn('slow');
+			$('#dialog').addClass('in');
+			
+			function openmodal() { 
+					
+					progressTimer = setTimeout( progress, 2000 );
+			  
+			}			
+		
+			var emailprogressbar = $('div#email-bar');
+			
+			function progress() {
+			
+			 		var val = parseInt(emailprogressbar.css('width')) || 0;
+			 
+			 
+				    if ( val <= 99 ) { 
+							progressTimer = setTimeout( progress, 50 );
+					
+							var width = val + Math.floor( Math.random() * 3 );
+				
+							progressLabel.html("Current Progress: " + width + "%");
+					
+				  }
+				  
+				  if ( val >= 100 ){
+					  progressLabel.html( "Complete!" );
+					  emailprogressbar.width('100%');
+					  callback();
+				  }
+				  
+				  
+				  emailprogressbar.width(width+'%');
+			}
+
+			$('#email-bar-close').click(function () {	
+				window.location = 'reports.php';
+			})
+	
+			function callback(){
+					console.log('FINISHED')
+			}
+			
+			var jData = {};
+			jData.listId = $('#lists').val();
+			jData.subject = $('#subject').val();
+			jData.fromName = $('#from-name').val();
+			jData.fromEmail = $('#from-email').val();
+			jData.replyTo = $('#replyto').val();
+        
 			// 777
 					$.ajax({
 						  type: 'POST',
 						  url: 'send.php',
 						  async: true,
-				//		  data: jData,
+						  data: jData,
 						  beforeSend: function() { 
 	
-							  $('.overlay').fadeIn('slow');   
-							  dialog.dialog( "open" );
-						
+							openmodal();
 						  },
 						  error: function(error) {
 							console.log('error', error)
