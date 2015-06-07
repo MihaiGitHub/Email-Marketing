@@ -606,29 +606,12 @@
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateFooter">
                                         <tr>
                                             <td valign="top" class="footerContent" mc:edit="footer_content00">
-                                            <div id="block7" contenteditable="true">
-                                                <a href="#">Follow on Twitter</a>&nbsp;&nbsp;&nbsp;<a href="#">Friend on Facebook</a>&nbsp;&nbsp;&nbsp;<a href="#">Forward to Friend</a>&nbsp;
-                                            </div></td>
-                                        </tr>
-                                        <tr>
-                                            <td valign="top" class="footerContent" style="padding-top:0;" mc:edit="footer_content01">
-                                            <!--
-                                                <em>Copyright &copy; *|CURRENT_YEAR|* *|LIST:COMPANY|*, All rights reserved.</em>
-                                                <br />
-                                                *|IFNOT:ARCHIVE_PAGE|* *|LIST:DESCRIPTION|*
-                                                <br />
-                                                <br />
-                                                <strong>Our mailing address is:</strong>
-                                                <br />
-                                                *|HTML:LIST_ADDRESS_HTML|* *|END:IF|* 
-                                                -->
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td valign="top" class="footerContent" style="padding-top:0;" mc:edit="footer_content02">
-                                            <div id="block8" contenteditable="true">
-                                            	<a href="#">unsubscribe from this list</a>&nbsp;&nbsp;&nbsp;<a href="#">update subscription preferences</a>&nbsp;
-                                            </div>
+                                                <div id="block7" contenteditable="true" style="float:left;">
+                                                    <a href="#">Follow on Twitter</a>&nbsp;&nbsp;&nbsp;<a href="#">Friend on Facebook</a>
+                                                </div>
+                                                <div id="block8" style="float:right;">
+                                                    <a href="#">unsubscribe from this list</a>
+                                                </div>
                                             </td>
                                         </tr>
                                     </table>
