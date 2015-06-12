@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>*|MC:SUBJECT|*</title>
+        <title>Subject</title>
         <style type="text/css">
 			/* /\/\/\/\/\/\/\/\/ CLIENT-SPECIFIC STYLES /\/\/\/\/\/\/\/\/ */
 			#outlook a{padding:0;} /* Force Outlook to provide a "view in browser" message */
@@ -623,7 +623,6 @@
                                             <td valign="top" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:20px;" mc:edit="preheader_content00"><div id="block1" contenteditable="true">
                                                 Use this area to offer a short teaser of your email's content. Text here will show in the preview area of some email clients.</div>
                                             </td>
-                                            <!-- *|IFNOT:ARCHIVE_PAGE|* -->
                                             <td valign="top" width="180" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:0;" mc:edit="preheader_content01"><div id="block2" contenteditable="true">
                                                 Email not displaying correctly?<br /><a href="#" target="_blank">View it in your browser</a>.</div>
                                             </td>
@@ -639,7 +638,7 @@
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateHeader">
                                         <tr>
                                             <td valign="top" class="headerContent">
-                                            	<div id="block3" contenteditable="true"><img src="http://gallery.mailchimp.com/2425ea8ad3/images/header_placeholder_600px.png" style="max-width:600px;" id="headerImage" mc:label="header_image" mc:edit="header_image" mc:allowdesigner mc:allowtext /></div>
+                                            	<div id="block3" contenteditable="true"><img src="templates/images/header_placeholder_600px.png" style="max-width:600px;" id="headerImage" /></div>
                                             </td>
                                         </tr>
                                     </table>
@@ -651,16 +650,16 @@
                                 	<!-- BEGIN BODY // -->
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateBody">
                                         <tr>
-                                            <td valign="top" class="bodyContent" mc:edit="body_content">
+                                            <td valign="top" class="bodyContent">
                                             <div id="block4" contenteditable="true">
                                                 <h1>Designing Your Template</h1>
                                                 <h3>Creating a good-looking email is simple</h3>
-                                                Customize your template by clicking on the style editor tabs up above. Set your fonts, colors, and styles. After setting your styling is all done you can click here in this area, delete the text, and start adding your own awesome content.
+                                                Customize your template by hovering over the text and clicking. This will activate the style editor. Set your fonts, colors, and styles. After setting your styling is all done you can click here in this area, delete the text, and start adding your own awesome content.
                                                 <br />
                                                 <br />
                                                 <h2>Styling Your Content</h2>
                                                 <h4>Make your email easy to read</h4>
-                                                After you enter your content, highlight the text you want to style and select the options you set in the style editor in the "<em>styles</em>" drop down box. Want to <a href="http://www.mailchimp.com/kb/article/im-using-the-style-designer-and-i-cant-get-my-formatting-to-change" target="_blank">get rid of styling on a bit of text</a>, but having trouble doing it? Just use the "<em>remove formatting</em>" button to strip the text of any formatting and reset your style. 
+                                                After you enter your content, highlight the text you want to style and select the options you set in the style editor in the "<em>styles</em>" drop down box. Want to <a href="#" target="_blank">get rid of styling on a bit of text</a>, but having trouble doing it? Just use the "<em>remove formatting</em>" button to strip the text of any formatting and reset your style. 
                                             </div>
                                             </td>
                                         </tr>
@@ -677,14 +676,14 @@
                                             	<table border="0" cellpadding="20" cellspacing="0" width="100%">
                                                 	<tr>
                                                     	<td class="leftColumnContent">
-                                                        	<div id="block5" contenteditable="true"><img src="http://gallery.mailchimp.com/569c0869e0552eb4cd827f095/images/image_placeholder_160px.png" style="max-width:160px;" class="columnImage" mc:label="left_column_image" mc:edit="left_column_image" />
+                                                        	<div id="block5" contenteditable="true"><img src="templates/images/image_placeholder_160px.png" style="max-width:160px;" class="columnImage" />
                                                         </div></td>
                                                     </tr>
                                                     <tr>
-                                                    	<td valign="top" class="leftColumnContent" mc:edit="left_column_content">
+                                                    	<td valign="top" class="leftColumnContent">
                                                         <div id="block6" contenteditable="true">
                                                             <h3>Repeatable Content</h3>
-                                                            <a href="http://kb.mailchimp.com/article/how-do-i-work-with-repeatable-content-blocks" target="_blank">Repeatable sections</a> are noted with plus and minus signs so that you can add and subtract content blocks.
+                                                            <a href="#" target="_blank">Repeatable sections</a> are noted with plus and minus signs so that you can add and subtract content blocks.
                                                             <br />
                                                             <br />
                                                             You can also get a little fancy; repeat blocks and remove all text to make image galleries, or do the opposite and remove images for text-only blocks.</div>
@@ -696,14 +695,14 @@
                                             	<table border="0" cellpadding="20" cellspacing="0" width="100%">
                                                 	<tr>
                                                     	<td class="centerColumnContent">
-                                                        	<div id="block7" contenteditable="true"><img src="http://gallery.mailchimp.com/569c0869e0552eb4cd827f095/images/image_placeholder_160px.png" style="max-width:160px;" class="columnImage" mc:label="center_column_image" mc:edit="center_column_image" /></div>
+                                                        	<div id="block7" contenteditable="true"><img src="templates/images/image_placeholder_160px.png" style="max-width:160px;" class="columnImage" /></div>
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                    	<td valign="top" class="centerColumnContent" mc:edit="center_column_content">
+                                                    	<td valign="top" class="centerColumnContent">
                                                         <div id="block8" contenteditable="true">
                                                             <h3>Repeatable Content</h3>
-                                                            <a href="http://kb.mailchimp.com/article/how-do-i-work-with-repeatable-content-blocks" target="_blank">Repeatable sections</a> are noted with plus and minus signs so that you can add and subtract content blocks.
+                                                            <a href="#" target="_blank">Repeatable sections</a> are noted with plus and minus signs so that you can add and subtract content blocks.
                                                             <br />
                                                             <br />
                                                             You can also get a little fancy; repeat blocks and remove all text to make image galleries, or do the opposite and remove images for text-only blocks.</div>
@@ -715,14 +714,14 @@
                                             	<table border="0" cellpadding="20" cellspacing="0" width="100%">
                                                 	<tr>
                                                     	<td class="rightColumnContent">
-                                                        	<div id="block9" contenteditable="true"><img src="http://gallery.mailchimp.com/569c0869e0552eb4cd827f095/images/image_placeholder_160px.png" style="max-width:160px;" class="columnImage" mc:label="right_column_image" mc:edit="right_column_image" /></div>
+                                                        	<div id="block9" contenteditable="true"><img src="templates/images/image_placeholder_160px.png" style="max-width:160px;" class="columnImage" /></div>
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                    	<td valign="top" class="rightColumnContent" mc:edit="right_column_content">
+                                                    	<td valign="top" class="rightColumnContent">
                                                         <div id="block10" contenteditable="true">
                                                             <h3>Repeatable Content</h3>
-                                                            <a href="http://kb.mailchimp.com/article/how-do-i-work-with-repeatable-content-blocks" target="_blank">Repeatable sections</a> are noted with plus and minus signs so that you can add and subtract content blocks.
+                                                            <a href="#" target="_blank">Repeatable sections</a> are noted with plus and minus signs so that you can add and subtract content blocks.
                                                             <br />
                                                             <br />
                                                             You can also get a little fancy; repeat blocks and remove all text to make image galleries, or do the opposite and remove images for text-only blocks.</div>
@@ -740,7 +739,7 @@
                                 	<!-- BEGIN FOOTER // -->
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateFooter">
                                         <tr>
-                                            <td valign="top" class="footerContent" mc:edit="footer_content00">
+                                            <td valign="top" class="footerContent">
                                             	<div id="block11" contenteditable="true" style="float:left;">
                                                 	<a href="#">Follow on Twitter</a>&nbsp;&nbsp;&nbsp;<a href="#">Friend on Facebook</a>
                                                 </div>

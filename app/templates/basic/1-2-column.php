@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>*|MC:SUBJECT|*</title>
+        <title>Subject</title>
         <style type="text/css">
 			/* /\/\/\/\/\/\/\/\/ CLIENT-SPECIFIC STYLES /\/\/\/\/\/\/\/\/ */
 			#outlook a{padding:0;} /* Force Outlook to provide a "view in browser" message */
@@ -528,7 +528,7 @@
                                             </td>
                                            
                                             <td valign="top" width="180" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:0;" mc:edit="preheader_content01">
-                                                <div id="block2" contenteditable="true">Email not displaying correctly?<br /><a href="*|ARCHIVE|*" target="_blank">View it in your browser</a>.</div>
+                                                <div id="block2" contenteditable="true">Email not displaying correctly?<br /><a href="#" target="_blank">View it in your browser</a>.</div>
                                             </td>
                                             
                                         </tr>
@@ -543,7 +543,7 @@
                                         <tr>
                                             <td valign="top" class="headerContent">
                                             <div id="block3" contenteditable="true">
-                                            	<img src="http://gallery.mailchimp.com/2425ea8ad3/images/header_placeholder_600px.png" style="max-width:600px;" id="headerImage" mc:label="header_image" mc:edit="header_image" mc:allowdesigner mc:allowtext />
+                                            	<img src="templates/images/header_placeholder_600px.png" style="max-width:600px;" id="headerImage" />
                                             </div>
                                             </td>
                                         </tr>
@@ -561,7 +561,7 @@
                                                 	<tr>
                                                     	<td class="leftColumnContent">
                                                         <div id="block4" contenteditable="true">
-                                                        	<img src="http://gallery.mailchimp.com/27aac8a65e64c994c4416d6b8/images/header_placeholder_260px.png" style="max-width:260px;" class="columnImage" mc:label="left_column_image" mc:edit="left_column_image" />
+                                                        	<img src="templates/images/header_placeholder_260px.png" style="max-width:260px;" class="columnImage" />
                                                         </div>
                                                         </td>
                                                     </tr>
@@ -569,7 +569,7 @@
                                                     	<td valign="top" class="leftColumnContent" mc:edit="left_column_content">
                                                         <div id="block5" contenteditable="true">
                                                             <h3>Repeatable Content</h3>
-                                                            <a href="http://kb.mailchimp.com/article/how-do-i-work-with-repeatable-content-blocks" target="_blank">Repeatable sections</a> are noted with plus and minus signs so that you can add and subtract content blocks.
+                                                            <a href="#" target="_blank">Repeatable sections</a> are noted with plus and minus signs so that you can add and subtract content blocks.
                                                             <br />
                                                             <br />
                                                             You can also get a little fancy; repeat blocks and remove all text to make image galleries, or do the opposite and remove images for text-only blocks.
@@ -582,7 +582,7 @@
                                                 	<tr>
                                                     	<td class="rightColumnContent">
                                                         <div id="block6" contenteditable="true">
-                                                        	<img src="http://gallery.mailchimp.com/27aac8a65e64c994c4416d6b8/images/header_placeholder_260px.png" style="max-width:260px;" class="columnImage" mc:label="right_column_image" mc:edit="right_column_image" />
+                                                        	<img src="templates/images/header_placeholder_260px.png" style="max-width:260px;" class="columnImage" mc:label="right_column_image" mc:edit="right_column_image" />
                                                          </div>
                                                         </td>
                                                     </tr>
@@ -590,7 +590,7 @@
                                                     	<td valign="top" class="rightColumnContent" mc:edit="right_column_content">
                                                         <div id="block7" contenteditable="true">
                                                             <h3>Repeatable Content</h3>
-                                                            <a href="http://kb.mailchimp.com/article/how-do-i-work-with-repeatable-content-blocks" target="_blank">Repeatable sections</a> are noted with plus and minus signs so that you can add and subtract content blocks.
+                                                            <a href="#" target="_blank">Repeatable sections</a> are noted with plus and minus signs so that you can add and subtract content blocks.
                                                             <br />
                                                             <br />
                                                             You can also get a little fancy; repeat blocks and remove all text to make image galleries, or do the opposite and remove images for text-only blocks.

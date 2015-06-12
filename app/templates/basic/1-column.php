@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>*|MC:SUBJECT|*</title>
+        <title>Subject</title>
         <style type="text/css">
 			/* /\/\/\/\/\/\/\/\/ CLIENT-SPECIFIC STYLES /\/\/\/\/\/\/\/\/ */
 			#outlook a{padding:0;} /* Force Outlook to provide a "view in browser" message */
@@ -494,7 +494,7 @@
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateHeader">
                                         <tr>
                                             <td valign="top" class="headerContent">
-                                            	<div id="block3" contenteditable="true" class="editable"><img src="http://gallery.mailchimp.com/2425ea8ad3/images/header_placeholder_600px.png" style="max-width:600px;" id="headerImage" mc:label="header_image" mc:edit="header_image" mc:allowdesigner mc:allowtext /></div>
+                                            	<div id="block3" contenteditable="true" class="editable"><img src="templates/images/header_placeholder_600px.png" style="max-width:600px;" id="headerImage" /></div>
                                             </td>
                                         </tr>
                                     </table>
@@ -510,12 +510,12 @@
                                             <div id="block4" contenteditable="true" class="editable">
                                                 <h1>Designing Your Template</h1>
                                                 <h3>Creating a good-looking email is simple</h3>
-                                                Customize your template by clicking on the style editor tabs above. Set your fonts, colors, and styles. After setting your styling is all done you can click here in this area, delete the text, and start adding your own awesome content.
+                                                Customize your template by hovering over the text and clicking. This will activate the style editor. Set your fonts, colors, and styles. After setting your styling is all done you can click here in this area, delete the text, and start adding your own awesome content.
                                                 <br />
                                                 <br />
                                                 <h2>Styling Your Content</h2>
                                                 <h4>Make your email easy to read</h4>
-                                                After you enter your content, highlight the text you want to style and select the options you set in the style editor in the "<em>styles</em>" drop down box. Want to <a href="http://www.mailchimp.com/kb/article/im-using-the-style-designer-and-i-cant-get-my-formatting-to-change" target="_blank">get rid of styling on a bit of text</a>, but having trouble doing it? Just use the "<em>remove formatting</em>" button to strip the text of any formatting and reset your style. 
+                                                After you enter your content, highlight the text you want to style and select the options you set in the style editor in the "<em>styles</em>" drop down box. Want to <a href="#" target="_blank">get rid of styling on a bit of text</a>, but having trouble doing it? Just use the "<em>remove formatting</em>" button to strip the text of any formatting and reset your style. 
                                             </div>
                                             </td>
                                         </tr>
