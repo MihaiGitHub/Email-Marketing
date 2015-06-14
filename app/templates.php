@@ -91,10 +91,10 @@ while($rowlists = $stmtlists->fetch()){
                                  <div class="tab-pane active" id="tab1">
                                     <h3>Choose template</h3>
 <?php while($row = $stmt->fetch()){ ?>
-	<div id="frfr4444" class="template" style="float:left;">
+	<div class="template" style="float:left;">
 	
 		<button id="<?php echo $row['id']; ?>" class="button-next template-btn" type="button" style="width:25%;">
-			<img id="asdf" src="../app/templates/images/<?php echo $row['picture']; ?>" >
+			<img src="../app/templates/images/<?php echo $row['picture']; ?>" >
         </button>
 	
 		<div class="template-text">

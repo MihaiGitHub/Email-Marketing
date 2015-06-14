@@ -1,18 +1,17 @@
-<?php 
-ob_start();
+<?php
 session_start();
 
 include 'include/dbconnect.php';
-/*
+
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
-	switch ($_POST['submitbtn']){
+	switch ($_POST['action']){
 		case 'save':
 			$stmt = $conn->prepare('INSERT INTO lists (user_id, name, created) VALUES (:id, :name, :created)');
 			$result = $stmt->execute(array('id' => $_SESSION['id'], 'name' => $_POST['name'], 'created' => date('m/d/Y')));
 		break;
-		case 'edit':
+		case 'update':
 			$stmt = $conn->prepare('UPDATE lists SET name = :name WHERE id = :listid');
-			$result = $stmt->execute(array('name' => $_POST['listname'], 'listid' => $_POST['listid']));
+			$result = $stmt->execute(array('name' => $_POST['name'], 'listid' => $_POST['listid']));
 		break;
 		case 'delete':
 			$stmt = $conn->prepare('DELETE FROM emails WHERE list_id = :listid');
@@ -100,101 +99,4 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['code'])){
 	$resultlist = $stmtlist->execute(array('id' => $_SESSION['list']));
 	$rowlist = $stmtlist->fetch();
 }
-*/
-$stmt = $conn->prepare('SELECT id, name, created FROM lists WHERE user_id = :user');
-$result = $stmt->execute(array('user' => $_SESSION['id']));
-
-$lists = true;
-?>
-      <!-- BEGIN PAGE -->
-	     <link rel="stylesheet" href="assets/data-tables/DT_bootstrap.css" />
-
-      <div id="main-content">
-         <!-- BEGIN PAGE CONTAINER-->
-         <div class="container-fluid">
-            <!-- BEGIN PAGE HEADER-->
-            <div class="row-fluid">
-               <div class="span12">
-                  <!-- BEGIN PAGE TITLE & BREADCRUMB-->     
-                  <h3 class="page-title">
-                     Email Lists
-                     
-                  </h3>
-                   <ul class="breadcrumb">
-                       <li>
-                           <a href="#"><i class="icon-home"></i></a><span class="divider">&nbsp;</span>
-                       </li>
-                       <li><a href="#">Lists</a><span class="divider-last">&nbsp;</span></li>
-                   </ul>
-                  <!-- END PAGE TITLE & BREADCRUMB-->
-               </div>
-            </div>
-            <!-- END PAGE HEADER-->
-
-            <!-- BEGIN ADVANCED TABLE widget-->
-            <div class="row-fluid">
-                <div class="span12">
-                    <!-- BEGIN EXAMPLE TABLE widget-->
-                    <div class="widget">
-                        <div class="widget-title">
-                            <h4><i class="icon-reorder"></i>Email Lists</h4>
-                        </div>
-                        <div class="widget-body">
-                            <div class="portlet-body">
-                                <div class="clearfix">
-                                    <div class="btn-group">
-                                        <button id="lists-add" class="btn green">
-                                            Add New <i class="icon-plus"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="space15"></div>
-                                <table class="table table-striped table-hover table-bordered" id="lists">
-                                    <thead>
-                                    <tr>
-										<th>#</th>
-										<th>List Name</th>
-										<th>Subscribers</th>
-										<th>Date Created</th>
-                                        <th>View</th>
-										<th>Edit</th>
-										<th>Delete</th>
-									</tr>
-                                    </thead>
-                                    <tbody>
-		<?php
-		$i = 1;
-		while($row = $stmt->fetch()){ 
-			$stmtcount = $conn->prepare('SELECT COUNT(id) as Total FROM emails WHERE list_id = :listid');
-			$resultcount = $stmtcount->execute(array('listid' => $row['id']));
-			$rowcount = $stmtcount->fetch();
-								
-echo "<tr id=".$row['id']."><td>$i</td><td>".htmlentities($row['name'])."</td><td>".$rowcount['Total']."</td><td>".htmlentities($row['created'])."</td><td><a href='emails.php?id=".urlencode($row['id'])."'>View</a></td><td><a class='edit' href='#'>Edit</a></td><td><a class='delete' href='#'>Delete</a></td></tr>";
-
-				$i++;
-		} 
-		if($i == 1) echo '<tr><td>&nbsp;</td><td>There are no lists to display</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>'; ?>                                   
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- END EXAMPLE TABLE widget-->
-                </div>
-            </div>
-
-            <!-- END ADVANCED TABLE widget-->
-
-            <!-- END PAGE CONTENT-->
-         </div>
-         <!-- END PAGE CONTAINER-->
-      </div>
-
-      <!-- END PAGE -->
-<?php
-$content = ob_get_contents();
-ob_end_clean();
-include 'include/header.php';
-print $content;
-include 'include/footer.php'; 
 ?>
