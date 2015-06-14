@@ -19,10 +19,6 @@ $tstmt->execute(array('id' => $_SESSION['templateid']));
 $tstmt->setFetchMode(PDO::FETCH_ASSOC);
 $trow = $tstmt->fetch();
 
-echo '<pre>';
-print_r($trow);
-echo '</pre>';
-
 // Select all emails corresponding to the chosen list
 $stmtmain = $conn->prepare('SELECT id, email FROM emails WHERE list_id = :listid');
 $stmtmain->execute(array('listid' => $_SESSION['listid']));
@@ -41,7 +37,10 @@ switch ($trow['name']){
 	break;	
 	case 'Basic-1-1-3-Column':
 		$template = 'templates/basic/1-1-3-column-mini.html';
-	break;	
+	break;
+	case 'Welcome':
+		$template = 'templates/theme/welcome-mini.html';
+	break;
 }
 
 // if there are more than 0 emails but less than 20 do once and finish right then

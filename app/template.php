@@ -108,6 +108,20 @@ switch ($trow['name']){
 						echo json_encode($str);
 				}
 	break;
-	
-}
+	case 'Welcome':
+				if($trow['saved'] == 1){
+						$str = file_get_contents('templates/theme/welcome.html');
+				
+						while($row = $stmt->fetch()){
+															
+								$str = str_replace('%'.$row['field'].'%', $row['value'], $str);
+						}
+				
+						echo json_encode($str);
+				} else {
+					
+						$str = file_get_contents('templates/theme/welcome.php');
+						echo json_encode($str);
+				}
+	break;}
 ?>
