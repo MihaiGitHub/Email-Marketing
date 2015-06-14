@@ -20,7 +20,7 @@ var TableEditable = function () {
                 oTable.fnDraw();
             }
 
-            function editRow(oTable, nRow) { console.log('editRow')
+            function editRow(oTable, nRow) {
                 var aData = oTable.fnGetData(nRow);
                 var jqTds = $('>td', nRow);
                 jqTds[0].innerHTML = '';
@@ -32,7 +32,7 @@ var TableEditable = function () {
                 jqTds[6].innerHTML = '<a class="cancel" href="#">Cancel</a>';
             }
 // SAVE NEW ROW
-            function saveRow(oTable, nRow) { console.log('save new record ajax function')
+            function saveRow(oTable, nRow) {
 				
                 var jqInputs = $('input', nRow);
 								
@@ -106,7 +106,7 @@ function updateRow(oTable, nRow, id) { console.log('update record ajax function'
                 oTable.fnDraw();
 			*/
             }
-            function cancelEditRow(oTable, nRow) { console.log('canceled')
+            function cancelEditRow(oTable, nRow) {
                 var jqInputs = $('input', nRow);
                 oTable.fnUpdate(jqInputs[0].value, nRow, 0, false);
                 oTable.fnUpdate(jqInputs[1].value, nRow, 1, false);
@@ -131,7 +131,7 @@ function updateRow(oTable, nRow, id) { console.log('update record ajax function'
 				
 			}
 
-            var oTable = $('#lists').dataTable({
+            var oTable = $('#lists-names').dataTable({
                 "aLengthMenu": [
                     [10, 50, 100, -1],
                     [10, 50, 100, "All"] // change per page values here
@@ -173,7 +173,7 @@ function updateRow(oTable, nRow, id) { console.log('update record ajax function'
 				
             });
 
-            $('#lists').on('click', 'a.delete', function (e) {
+            $('#lists-names').on('click', 'a.delete', function (e) {
 
                 e.preventDefault();
 
@@ -200,7 +200,7 @@ function updateRow(oTable, nRow, id) { console.log('update record ajax function'
 				});
             });
 
-            $('#lists').on('click', 'a.cancel', function (e) {
+            $('#lists-names').on('click', 'a.cancel', function (e) {
                 e.preventDefault();
 								
 				if ($(this).attr("data-mode") == "new") { console.log('new')
@@ -214,7 +214,7 @@ function updateRow(oTable, nRow, id) { console.log('update record ajax function'
             });
 			
 // when clicking on first save and saving record for first time		
- $('#lists').on('click', 'a.save', function (e) {
+ $('#lists-names').on('click', 'a.save', function (e) {
  	console.log('NEW SAVE')
 	e.preventDefault();
 
@@ -224,7 +224,7 @@ function updateRow(oTable, nRow, id) { console.log('update record ajax function'
 				
  });
  // when cliking on second save and updating record
-  $('#lists').on('click', 'a.update', function (e) {
+  $('#lists-names').on('click', 'a.update', function (e) {
 	
 	e.preventDefault();
 
@@ -239,7 +239,7 @@ function updateRow(oTable, nRow, id) { console.log('update record ajax function'
 				
  });
  
-            $('#lists a.edit').on('click', function (e) {
+            $('#lists-names a.edit').on('click', function (e) {
                 e.preventDefault();
 
                 var nRow = $(this).parents('tr')[0];
@@ -276,6 +276,7 @@ function updateRow(oTable, nRow, id) { console.log('update record ajax function'
                     nEditing = nRow;
                 }
             });
+			
 			
         }
 

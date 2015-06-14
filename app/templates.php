@@ -51,7 +51,7 @@ while($rowlists = $stmtlists->fetch()){
                       
                      </div>
                      <div class="widget-body form">
-                        <form id="tempform" method="post" action="send.php" class="form-horizontal">
+                        <form class="form-horizontal">
                         
                         
                         
