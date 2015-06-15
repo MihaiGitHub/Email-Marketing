@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: db543846776.db.1and1.com
--- Generation Time: Jun 07, 2015 at 02:10 PM
+-- Generation Time: Jun 14, 2015 at 11:05 PM
 -- Server version: 5.1.73-log
--- PHP Version: 5.4.39-0+deb7u2
+-- PHP Version: 5.4.41-0+deb7u1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -148,7 +148,15 @@ INSERT INTO `campaigns` (`id`, `user_id`, `list_id`, `subject`, `email_from`, `e
 ('C557492d5009d70.31021470', 60, 51, '2 column', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/7/2015 7:52 PM'),
 ('C557495e0154383.43154209', 60, 51, 'Amadeusz', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/7/2015 8:05 PM'),
 ('C5574960707e799.19479494', 60, 51, 'dsfsdf', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/7/2015 8:05 PM'),
-('C557496280053b2.50465453', 60, 51, 'fgfgfg', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/7/2015 8:06 PM');
+('C557496280053b2.50465453', 60, 51, 'fgfgfg', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/7/2015 8:06 PM'),
+('C557504a275e697.38526931', 60, 51, '', '', '', '6/8/2015 3:57 AM'),
+('C557b4e2b7a2898.57768389', 60, 51, 'Massive', 'mihai.sanfran@gmail.com', 'mihai6744@hotmail.com', '6/12/2015 10:24 PM'),
+('C557b7a0510fd96.94976742', 60, 51, '', '', '', '6/13/2015 1:32 AM'),
+('C557dcc7e23b179.04062049', 60, 51, 'Welcome', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/14/2015 7:48 PM'),
+('C557dcf61b43581.34745495', 60, 51, 'fgdfgdf', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/14/2015 8:00 PM'),
+('C557e28d1b866e3.90376904', 60, 51, 'Featured', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/15/2015 2:22 AM'),
+('C557e3759c76201.91924159', 60, 51, 'Trial', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/15/2015 3:24 AM'),
+('C557e4ed7d63568.26582236', 60, 51, 'Arrivals', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/15/2015 5:04 AM');
 
 -- --------------------------------------------------------
 
@@ -168,7 +176,7 @@ CREATE TABLE IF NOT EXISTS `campaign_emails` (
   `timeopened` varchar(100) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `c_id` (`c_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2609 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2617 ;
 
 --
 -- Dumping data for table `campaign_emails`
@@ -241,7 +249,15 @@ INSERT INTO `campaign_emails` (`id`, `c_id`, `email`, `sent`, `opened`, `ip`, `c
 (2605, 'C557492d5009d70.31021470', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
 (2606, 'C557495e0154383.43154209', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
 (2607, 'C5574960707e799.19479494', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2608, 'C557496280053b2.50465453', 'mihai6744@hotmail.com', 1, 0, '', '', '', '');
+(2608, 'C557496280053b2.50465453', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
+(2609, 'C557504a275e697.38526931', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
+(2610, 'C557b4e2b7a2898.57768389', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
+(2611, 'C557b7a0510fd96.94976742', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
+(2612, 'C557dcc7e23b179.04062049', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
+(2613, 'C557dcf61b43581.34745495', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
+(2614, 'C557e28d1b866e3.90376904', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
+(2615, 'C557e3759c76201.91924159', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
+(2616, 'C557e4ed7d63568.26582236', 'mihai6744@hotmail.com', 1, 0, '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -307,7 +323,7 @@ CREATE TABLE IF NOT EXISTS `lists` (
   `created` varchar(30) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=57 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=85 ;
 
 --
 -- Dumping data for table `lists`
@@ -317,7 +333,8 @@ INSERT INTO `lists` (`id`, `user_id`, `name`, `created`) VALUES
 (48, 59, 'Test List', '04/05/2015'),
 (50, 59, 'Another List', '04/12/2015'),
 (51, 60, 'Employees', '04/16/2015'),
-(52, 60, 'Customers', '04/16/2015');
+(58, 60, 'Another Casino List', '06/12/2015'),
+(59, 60, 'Eight list', '06/12/2015');
 
 -- --------------------------------------------------------
 
@@ -895,7 +912,7 @@ CREATE TABLE IF NOT EXISTS `templates` (
   `saved` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=70 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=74 ;
 
 --
 -- Dumping data for table `templates`
@@ -904,9 +921,13 @@ CREATE TABLE IF NOT EXISTS `templates` (
 INSERT INTO `templates` (`id`, `user_id`, `name`, `type`, `picture`, `saved`) VALUES
 (1, 60, 'Basic', 'basic', 'basic.png', 0),
 (69, 60, 'Basic-1-Column', 'basic', '1-column.png', 1),
-(5, 60, 'Basic-1-2-Column', 'basic', '1-2-column.png', 1),
-(7, 60, 'Basic-1-1-2-Column', 'basic', '1-1-2-column.png', 1),
-(8, 60, 'Basic-1-1-3-Column', 'basic', '1-1-3-column.png', 0);
+(5, 60, 'Basic-1-2-Column', 'basic', '1-2-column.png', 0),
+(7, 60, 'Basic-1-1-2-Column', 'basic', '1-1-2-column.png', 0),
+(8, 60, 'Basic-1-1-3-Column', 'basic', '1-1-3-column.png', 0),
+(70, 60, 'Welcome', 'theme', 'basic.png', 1),
+(71, 60, 'Featured', 'theme', 'basic.png', 1),
+(72, 60, 'Trial', 'theme', 'basic.png', 1),
+(73, 60, 'Arrivals', 'theme', 'basic.png', 1);
 
 -- --------------------------------------------------------
 
@@ -924,35 +945,95 @@ CREATE TABLE IF NOT EXISTS `template_fields` (
   UNIQUE KEY `tunique` (`user_id`,`template_id`,`field`),
   KEY `template_id` (`template_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=409 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=502 ;
 
 --
 -- Dumping data for table `template_fields`
 --
 
 INSERT INTO `template_fields` (`id`, `user_id`, `template_id`, `field`, `value`) VALUES
-(393, 60, 5, 'block7', '<h3>Repeatable Content</h3>\n\n<p><a href="http://kb.mailchimp.com/article/how-do-i-work-with-repeatable-content-blocks" target="_blank">Repeatable sections</a> are noted with plus and minus signs so that you can add and subtract content blocks.<br />\n<br />\nYou can also get a little fancy; repeat blocks and remove all text to make image galleries, or do the opposite and remove images for text-only blocks.</p>\n'),
-(392, 60, 5, 'block6', '<p><img src="http://gallery.mailchimp.com/27aac8a65e64c994c4416d6b8/images/header_placeholder_260px.png" /></p>\n'),
-(391, 60, 5, 'block5', '<h3>Repeatable Content</h3>\n\n<p><a href="http://kb.mailchimp.com/article/how-do-i-work-with-repeatable-content-blocks" target="_blank">Repeatable sections</a> are noted with plus and minus signs so that you can add and subtract content blocks.<br />\n<br />\nYou can also get a little fancy; repeat blocks and remove all text to make image galleries, or do the opposite and remove images for text-only blocks.</p>\n'),
-(388, 60, 5, 'block2', '<p>Email not displaying correctly?<br />\n<a href="*|ARCHIVE|*" target="_blank">View it in your browser</a>.</p>\n'),
-(389, 60, 5, 'block3', '<p><img src="http://gallery.mailchimp.com/2425ea8ad3/images/header_placeholder_600px.png" /></p>\n'),
-(390, 60, 5, 'block4', '<p><img src="http://gallery.mailchimp.com/27aac8a65e64c994c4416d6b8/images/header_placeholder_260px.png" /></p>\n'),
-(387, 60, 5, 'block1', '<p>Use this area to offer a short teaser of your email&#39;s content. Text here will show in the preview area of some email clients.</p>\n'),
-(394, 60, 5, 'block8', '<p><a href="#">Follow on Twitter</a>&nbsp;&nbsp;&nbsp;<a href="#">Friend on Facebook</a></p>\n'),
-(395, 60, 69, 'block1', '<p>Use this area to offer a short teaser of your email&#39;s content. Text here will show in the preview area of some email clients.</p>\n'),
-(396, 60, 69, 'block2', '<p>Email not displaying correctly?<br />\n<a href="#" target="_blank">View it in your browser</a>.</p>\n'),
-(397, 60, 69, 'block3', '<p><img src="http://gallery.mailchimp.com/2425ea8ad3/images/header_placeholder_600px.png" /></p>\n'),
-(398, 60, 69, 'block4', '<h1>Designing Your Template</h1>\n\n<h3>Creating a good-looking email is simple</h3>\n\n<p>Customize your template by clicking on the style editor tabs above. Set your fonts, colors, and styles. After setting your styling is all done you can click here in this area, delete the text, and start adding your own awesome content.<br />\n&nbsp;</p>\n\n<h2>Styling Your Content</h2>\n\n<p>Make your email easy to read</p>\n\n<p>After you enter your content, highlight the text you want to style and select the options you set in the style editor in the &quot;<em>styles</em>&quot; drop down box. Want to <a href="http://www.mailchimp.com/kb/article/im-using-the-style-designer-and-i-cant-get-my-formatting-to-change" target="_blank">get rid of styling on a bit of text</a>, but having trouble doing it? Just use the &quot;<em>remove formatting</em>&quot; button to strip the text of any formatting and reset your style.</p>\n'),
-(399, 60, 69, 'block5', '<p><a href="#">Follow on Twitter</a>&nbsp;&nbsp;&nbsp;<a href="#">Friend on Facebook</a></p>\n'),
-(400, 60, 7, 'block1', '<p>Use this area to offer a short teaser of your email&#39;s content. Text here will show in the preview area of some email clients.</p>\n'),
-(401, 60, 7, 'block2', '<p>Email not displaying correctly?<br />\n<a href="#" target="_blank">View it in your browser</a>.</p>\n'),
-(402, 60, 7, 'block3', '<p><img src="http://gallery.mailchimp.com/2425ea8ad3/images/header_placeholder_600px.png" /></p>\n'),
-(403, 60, 7, 'block4', '<h1>Designing Your Template</h1>\n\n<h3>Creating a good-looking email is simple</h3>\n\n<p>Customize your template by clicking on the style editor tabs up above. Set your fonts, colors, and styles. After setting your styling is all done you can click here in this area, delete the text, and start adding your own awesome content.<br />\n&nbsp;</p>\n\n<h2>Styling Your Content</h2>\n\n<p>Make your email easy to read</p>\n\n<p>After you enter your content, highlight the text you want to style and select the options you set in the style editor in the &quot;<em>styles</em>&quot; drop down box. Want to <a href="http://www.mailchimp.com/kb/article/im-using-the-style-designer-and-i-cant-get-my-formatting-to-change" target="_blank">get rid of styling on a bit of text</a>, but having trouble doing it? Just use the &quot;<em>remove formatting</em>&quot; button to strip the text of any formatting and reset your style.</p>\n'),
-(404, 60, 7, 'block5', '<p><img src="http://gallery.mailchimp.com/27aac8a65e64c994c4416d6b8/images/header_placeholder_260px.png" /></p>\n'),
-(405, 60, 7, 'block6', '<h3>Repeatable Content</h3>\n\n<p><a href="http://kb.mailchimp.com/article/how-do-i-work-with-repeatable-content-blocks" target="_blank">Repeatable sections</a> are noted with plus and minus signs so that you can add and subtract content blocks.<br />\n<br />\nYou can also get a little fancy; repeat blocks and remove all text to make image galleries, or do the opposite and remove images for text-only blocks.</p>\n'),
-(406, 60, 7, 'block7', '<p><img src="http://gallery.mailchimp.com/27aac8a65e64c994c4416d6b8/images/header_placeholder_260px.png" /></p>\n'),
-(407, 60, 7, 'block8', '<h3>Repeatable Content</h3>\n\n<p><a href="http://kb.mailchimp.com/article/how-do-i-work-with-repeatable-content-blocks" target="_blank">Repeatable sections</a> are noted with plus and minus signs so that you can add and subtract content blocks.<br />\n<br />\nYou can also get a little fancy; repeat blocks and remove all text to make image galleries, or do the opposite and remove images for text-only blocks.</p>\n'),
-(408, 60, 7, 'block9', '<p><a href="#">Follow on Twitter</a>&nbsp;&nbsp;&nbsp;<a href="#">Friend on Facebook</a></p>\n');
+(420, 60, 69, 'block1', '<p>Use this area to offer a short teaser of your email&#39;s content. Text here will show in the preview area of some email clients.</p>\n'),
+(421, 60, 69, 'block2', '<p>Email not displaying correctly?<br />\n<a href="#" target="_blank">View it in your browser</a>.</p>\n'),
+(422, 60, 69, 'block3', '<p><img src="templates/images/header_placeholder_600px.png" /></p>\n'),
+(423, 60, 69, 'block4', '<h1>Designing Your Template</h1>\n\n<h3>Creating a good-looking email is simple</h3>\n\n<p>Customize your template by hovering over the text and clicking. This will activate the style editor. Set your fonts, colors, and styles. After setting your styling is all done you can click here in this area, delete the text, and start adding your own awesome content.<br />\n&nbsp;</p>\n\n<h2>Styling Your Content</h2>\n\n<p>Make your email easy to read</p>\n\n<p>After you enter your content, highlight the text you want to style and select the options you set in the style editor in the &quot;<em>styles</em>&quot; drop down box. Want to <a href="#" target="_blank">get rid of styling on a bit of text</a>, but having trouble doing it? Just use the &quot;<em>remove formatting</em>&quot; button to strip the text of any formatting and reset your style.</p>\n'),
+(424, 60, 69, 'block5', '<p><a href="#">Follow on Twitter</a>&nbsp;&nbsp;&nbsp;<a href="#">Friend on Facebook</a></p>\n'),
+(425, 60, 70, 'block1', '<p><a href="#" target="_blank"><img alt="Metronic" src="http://artloglab.com/metromail2/images/logo.gif" style="height:19px; width:115px" /></a></p>\n'),
+(426, 60, 70, 'block2', '<p><a href="#" target="_blank"><img alt="Facebook" src="http://artloglab.com/metromail2/images/facebook.gif" style="height:19px; width:10px" /></a></p>\n'),
+(427, 60, 70, 'block3', '<p><a href="#" target="_blank"><img alt="Twitter" src="http://artloglab.com/metromail2/images/twitter.gif" style="height:16px; width:19px" /></a></p>\n'),
+(428, 60, 70, 'block4', '<p><a href="#" target="_blank"><img alt="Dribbble" src="http://artloglab.com/metromail2/images/dribbble.gif" style="height:19px; width:19px" /></a></p>\n'),
+(429, 60, 70, 'block5', '<p>Welcome to the Metronic</p>\n'),
+(430, 60, 70, 'block6', '<p>Hi Dylan, your registration is completed!</p>\n'),
+(431, 60, 70, 'block7', '<p>Lorem ipsum dolor sit amet consectetuer adipiscing elit, sed diam nonumy nibh elit esmod tincidunt ut laoreet dolore magna aliquam volutpat wisi enim ad minim veniam quis dolore.</p>\n'),
+(432, 60, 70, 'block8', '<p><a href="#" target="_blank"><img alt="CONFIRM REGISTRATION" src="http://artloglab.com/metromail2/images/confirm-reg.gif" style="height:43px; width:225px" /></a></p>\n'),
+(433, 60, 70, 'block9', '<p><a href="#" target="_blank">GENERAL QUESTIONS</a> &nbsp;&nbsp;&nbsp;&nbsp;<img alt="|" src="http://artloglab.com/metromail2/images/dot.gif" style="height:9px; width:6px" />&nbsp;&nbsp;&nbsp;&nbsp; <a href="#" target="_blank">TERMS &amp; CONDITIONS</a> &nbsp;&nbsp;&nbsp;&nbsp;<img alt="|" src="http://artloglab.com/metromail2/images/dot.gif" style="height:9px; width:6px" />&nbsp;&nbsp;&nbsp;&nbsp; <a href="#" target="_blank">UNSUBSCRIBE EMAIL</a></p>\n'),
+(434, 60, 70, 'block10', '<p>2015 &copy; Metronic. ALL Rights Reserved.</p>\n'),
+(435, 60, 71, 'block1', '<p><a href="#" target="_blank"><img alt="Metronic" src="http://artloglab.com/metromail/images/logo.gif" style="height:19px; width:115px" /></a></p>\n'),
+(436, 60, 71, 'block2', '<p><a href="#" target="_blank"><img alt="Facebook" src="http://artloglab.com/metromail/images/facebook.gif" style="height:19px; width:10px" /></a></p>\n'),
+(437, 60, 71, 'block3', '<p><a href="#" target="_blank"><img alt="Twitter" src="http://artloglab.com/metromail/images/twitter.gif" style="height:16px; width:19px" /></a></p>\n'),
+(438, 60, 71, 'block4', '<p><a href="#" target="_blank"><img alt="Dribbble" src="http://artloglab.com/metromail/images/dribbble.gif" style="height:19px; width:19px" /></a></p>\n'),
+(439, 60, 71, 'block5', '<p>Awesome User Expierence</p>\n'),
+(440, 60, 71, 'block6', '<p>Lorem ipsum dolor sit amet consectetuer sed<br />\ndiam nonumy nibh elit dolore.</p>\n'),
+(441, 60, 71, 'block7', '<p><a href="#" target="_blank"><img alt="30-DAYS FREE TRIAL" src="http://artloglab.com/metromail/images/trial.gif" style="height:43px; width:193px" /></a></p>\n'),
+(442, 60, 71, 'block8', '<p><a href="#1" target="_blank">UNLIMITED LAYOUTS</a></p>\n'),
+(443, 60, 71, 'block9', '<p>Lorem ipsum dolor sit amet consectetuer sed et diam noumy elit dolore</p>\n'),
+(444, 60, 71, 'block10', '<p><a href="#2" target="_blank">GREAT SUPPORT</a></p>\n'),
+(445, 60, 71, 'block11', '<p>Lorem ipsum dolor sit amet consectetuer sed et diam noumy elit dolore</p>\n'),
+(446, 60, 71, 'block12', '<p><a href="#3" target="_blank">CLEAN CODE</a></p>\n'),
+(447, 60, 71, 'block13', '<p>Lorem ipsum dolor sit amet consectetuer sed et diam noumy elit dolore</p>\n'),
+(448, 60, 71, 'block14', '<p><a href="#PRODUCTS" target="_blank">PRODUCTS</a> &nbsp;&nbsp;&nbsp;&nbsp;<img alt="|" src="http://artloglab.com/metromail/images/dot.gif" style="height:9px; width:9px" />&nbsp;&nbsp;&nbsp;&nbsp; <a href="#FEATURES" target="_blank">FEATURES</a> &nbsp;&nbsp;&nbsp;&nbsp;<img alt="|" src="http://artloglab.com/metromail/images/dot.gif" style="height:9px; width:9px" />&nbsp;&nbsp;&nbsp;&nbsp; <a href="#LAYOUTS" target="_blank">LAYOUTS</a> &nbsp;&nbsp;&nbsp;&nbsp;<img alt="|" src="http://artloglab.com/metromail/images/dot.gif" style="height:9px; width:9px" />&nbsp;&nbsp;&nbsp;&nbsp; <a href="#SUPPORT" target="_blank">SUPPORT</a> &nbsp;&nbsp;&nbsp;&nbsp;<img alt="|" src="http://artloglab.com/metromail/images/dot.gif" style="height:9px; width:9px" />&nbsp;&nbsp;&nbsp;&nbsp; <a href="#DISCOVER" target="_blank">DISCOVER</a></p>\n'),
+(449, 60, 71, 'block15', '<p>Featured Works</p>\n'),
+(450, 60, 71, 'block16', '<p><a href="#" target="_blank"><img alt="Image 1" src="http://artloglab.com/metromail/images/img1.jpg" style="height:auto; width:100%" /></a></p>\n'),
+(451, 60, 71, 'block17', '<p><a href="#" target="_blank"><img alt="Image 2" src="http://artloglab.com/metromail/images/img2.jpg" style="height:auto; width:100%" /></a></p>\n'),
+(452, 60, 71, 'block18', '<p><a href="#" target="_blank"><img alt="Image 3" src="http://artloglab.com/metromail/images/img3.jpg" style="height:auto; width:100%" /></a></p>\n'),
+(453, 60, 71, 'block19', '<p><a href="#" target="_blank"><img alt="Evernote" src="http://artloglab.com/metromail/images/evernote.gif" style="height:auto; width:100%" /></a></p>\n'),
+(454, 60, 71, 'block20', '<p><a href="#" target="_blank"><img alt="Pinterest" src="http://artloglab.com/metromail/images/pinterest.gif" style="height:auto; width:100%" /></a></p>\n'),
+(455, 60, 71, 'block21', '<p><a href="#" target="_blank"><img alt="National Geographic" src="http://artloglab.com/metromail/images/ng.gif" style="height:auto; width:100%" /></a></p>\n'),
+(456, 60, 71, 'block22', '<p><a href="#" target="_blank"><img alt="Shopify" src="http://artloglab.com/metromail/images/shopify.gif" style="height:auto; width:100%" /></a></p>\n'),
+(457, 60, 71, 'block23', '<p>2015 &copy; 5555.</p>\n'),
+(458, 60, 72, 'block1', '<p><a href="#" target="_blank"><img alt="Metronic" src="http://artloglab.com/metromail3/images/logo.gif" style="height:19px; width:115px" /></a></p>\n'),
+(459, 60, 72, 'block2', '<p><a href="#" target="_blank"><img alt="Facebook" src="http://artloglab.com/metromail3/images/facebook.gif" style="height:19px; width:10px" /></a></p>\n'),
+(460, 60, 72, 'block3', '<p><a href="#" target="_blank"><img alt="Twitter" src="http://artloglab.com/metromail3/images/twitter.gif" style="height:16px; width:19px" /></a></p>\n'),
+(461, 60, 72, 'block4', '<p><a href="#" target="_blank"><img alt="Dribbble" src="http://artloglab.com/metromail3/images/dribbble.gif" style="height:19px; width:19px" /></a></p>\n'),
+(462, 60, 72, 'block5', '<p>Diam nonumy <strong>nibh elit</strong> dolore amet</p>\n'),
+(463, 60, 72, 'block6', '<p>Lorem ipsum dolor sit amet consectetuer sed<br />\ndiam nonumy nibh elit dolore dolor sit.</p>\n'),
+(464, 60, 72, 'block7', '<p><a href="#" target="_blank"><img alt="30-DAYS FREE TRIAL" src="http://artloglab.com/metromail3/images/trial.gif" style="height:55px; width:308px" /></a></p>\n'),
+(465, 60, 72, 'block8', '<p><a href="#" target="_blank"><img alt="Metronic" src="http://artloglab.com/metromail3/images/img1.jpg" style="height:auto; width:100%" /></a></p>\n'),
+(466, 60, 72, 'block9', '<p><a href="#2" target="_blank">UNLIMITED LAYOUTS</a></p>\n'),
+(467, 60, 72, 'block10', '<p>Lorem ipsum dolor sit amet consectetuer sed et diam noumy elit dolore. Lorem ipsum dolor sit amet consectetuer sed et diam noumy elit dolore. Lorem ipsum dolor sit amet consectetuer sed et diam noumy elit dolore.</p>\n'),
+(468, 60, 72, 'block11', '<p><a href="#" target="_blank"><img alt="Metronic" src="http://artloglab.com/metromail3/images/img2.jpg" style="height:auto; width:100%" /></a></p>\n'),
+(469, 60, 72, 'block12', '<p><a href="#2" target="_blank">GREAT SUPPORT</a></p>\n'),
+(470, 60, 72, 'block13', '<p>Lorem ipsum dolor sit amet consectetuer sed et diam noumy elit dolore. Lorem ipsum dolor sit amet consectetuer sed et diam noumy elit dolore. Lorem ipsum dolor sit amet consectetuer sed et diam noumy elit dolore.</p>\n'),
+(471, 60, 72, 'block14', '<p><a href="#" target="_blank"><img alt="Metronic" src="http://artloglab.com/metromail3/images/img3.jpg" style="height:auto; width:100%" /></a></p>\n'),
+(472, 60, 72, 'block15', '<p><a href="#2" target="_blank">CLEAN CODE</a></p>\n'),
+(473, 60, 72, 'block16', '<p>Lorem ipsum dolor sit amet consectetuer sed et diam noumy elit dolore. Lorem ipsum dolor sit amet consectetuer sed et diam noumy elit dolore. Lorem ipsum dolor sit amet consectetuer sed et diam noumy elit dolore.</p>\n'),
+(474, 60, 72, 'block17', '<p>Get 1-month trial for free</p>\n'),
+(475, 60, 72, 'block18', '<p>Lorem ipsum dolor sit amet consectetuer sed diam nonumy nibh elit dolore dolor sit dolor sit amet consectetuer sed diam nonumy nibh elit.</p>\n'),
+(476, 60, 72, 'block19', '<p><a href="#" target="_blank"><img alt="Try it" src="http://artloglab.com/metromail3/images/try-it.gif" style="height:50px; width:234px" /></a></p>\n'),
+(477, 60, 72, 'block20', '<p><a href="#" target="_blank"><img alt="Metronic" src="http://artloglab.com/metromail3/images/logo-gray.gif" style="height:19px; width:115px" /></a></p>\n'),
+(478, 60, 72, 'block21', '<p><a href="#" target="_blank">About</a></p>\n'),
+(479, 60, 72, 'block22', '<p><a href="#" target="_blank">Blog</a></p>\n'),
+(480, 60, 72, 'block23', '<p><a href="#" target="_blank">Contact</a></p>\n'),
+(481, 60, 73, 'block1', '<p><a href="#" target="_blank"><img alt="Metronic" src="http://artloglab.com/metromail-shop/images/logo.gif" style="height:19px; width:115px" /></a></p>\n'),
+(482, 60, 73, 'block2', '<p><a href="#" target="_blank"><img alt="Promo" src="http://artloglab.com/metromail-shop/images/promo.jpg" style="height:auto; width:100%" /></a></p>\n'),
+(483, 60, 73, 'block3', '<p>Newest Products</p>\n'),
+(484, 60, 73, 'block4', '<p><a href="#" target="_blank"><img alt="Goods 1" src="http://artloglab.com/metromail-shop/images/goods1.jpg" style="height:auto; width:100%" /></a></p>\n'),
+(485, 60, 73, 'block5', '<p><a href="#" target="_blank">Lorem ipsum dolor sit</a></p>\n'),
+(486, 60, 73, 'block6', '<p>$150</p>\n'),
+(487, 60, 73, 'block7', '<p><a href="#" target="_blank"><img alt="Goods 2" src="http://artloglab.com/metromail-shop/images/goods2.jpg" style="height:auto; width:100%" /></a></p>\n'),
+(488, 60, 73, 'block8', '<p><a href="#" target="_blank">Consectetuer sed et diam</a></p>\n'),
+(489, 60, 73, 'block9', '<p>$400</p>\n'),
+(490, 60, 73, 'block10', '<p><a href="#" target="_blank"><img alt="Goods 3" src="http://artloglab.com/metromail-shop/images/goods3.jpg" style="height:auto; width:100%" /></a></p>\n'),
+(491, 60, 73, 'block11', '<p><a href="#" target="_blank">Diam nonumy nibh</a></p>\n'),
+(492, 60, 73, 'block12', '<p>$320</p>\n'),
+(493, 60, 73, 'block13', '<p><a href="#" target="_blank"><img alt="Goods 4" src="http://artloglab.com/metromail-shop/images/goods4.jpg" style="height:auto; width:100%" /></a></p>\n'),
+(494, 60, 73, 'block14', '<p><a href="#" target="_blank">Nonumy nibh elit</a></p>\n'),
+(495, 60, 73, 'block15', '<p>$680</p>\n'),
+(496, 60, 73, 'block16', '<p><a href="#" target="_blank"><img alt="Brand" src="http://artloglab.com/metromail-shop/images/brand.jpg" style="height:auto; width:100%" /></a></p>\n'),
+(497, 60, 73, 'block17', '<p><a href="#" target="_blank"><img alt="Brand" src="http://artloglab.com/metromail-shop/images/brand.jpg" style="height:auto; width:100%" /></a></p>\n'),
+(498, 60, 73, 'block18', '<p><a href="#" target="_blank"><img alt="Brand" src="http://artloglab.com/metromail-shop/images/brand.jpg" style="height:auto; width:100%" /></a></p>\n'),
+(499, 60, 73, 'block19', '<p>Need help? Call us!</p>\n'),
+(500, 60, 73, 'block20', '<p>873-426-0028</p>\n'),
+(501, 60, 73, 'block21', '<p>2015 &copy; Metronic. ALL Rights Reserved.</p>\n');
 
 -- --------------------------------------------------------
 
@@ -976,7 +1057,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `username`, `password`, `role`, `emails`, `timestamp`) VALUES
 (59, 'mihai.sanfran@gmail.com', '0991b5625c1292ded687ab18dd2fd2f1', 'buyer', 1999, '2015-04-10 03:38:23'),
-(60, 'admin', 'fe01ce2a7fbac8fafaed7c982a04e229', 'admin', 9937, '2015-06-07 19:06:16');
+(60, 'admin', 'fe01ce2a7fbac8fafaed7c982a04e229', 'admin', 9929, '2015-06-15 04:04:39');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
