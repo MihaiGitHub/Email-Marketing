@@ -139,6 +139,38 @@ switch ($trow['name']){
 						$str = file_get_contents('templates/theme/featured.php');
 						echo json_encode($str);
 				}
-	break;	
+	break;
+	case 'Trial':
+				if($trow['saved'] == 1){
+						$str = file_get_contents('templates/theme/trial.html');
+				
+						while($row = $stmt->fetch()){
+															
+								$str = str_replace('%'.$row['field'].'%', $row['value'], $str);
+						}
+				
+						echo json_encode($str);
+				} else {
+					
+						$str = file_get_contents('templates/theme/trial.php');
+						echo json_encode($str);
+				}
+	break;
+	case 'Arrivals':
+				if($trow['saved'] == 1){
+						$str = file_get_contents('templates/theme/arrivals.html');
+				
+						while($row = $stmt->fetch()){
+															
+								$str = str_replace('%'.$row['field'].'%', $row['value'], $str);
+						}
+				
+						echo json_encode($str);
+				} else {
+					
+						$str = file_get_contents('templates/theme/arrivals.php');
+						echo json_encode($str);
+				}
+	break;
 	}
 ?>
