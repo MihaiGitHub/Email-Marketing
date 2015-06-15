@@ -123,5 +123,22 @@ switch ($trow['name']){
 						$str = file_get_contents('templates/theme/welcome.php');
 						echo json_encode($str);
 				}
-	break;}
+	break;
+	case 'Featured':
+				if($trow['saved'] == 1){
+						$str = file_get_contents('templates/theme/featured.html');
+				
+						while($row = $stmt->fetch()){
+															
+								$str = str_replace('%'.$row['field'].'%', $row['value'], $str);
+						}
+				
+						echo json_encode($str);
+				} else {
+					
+						$str = file_get_contents('templates/theme/featured.php');
+						echo json_encode($str);
+				}
+	break;	
+	}
 ?>

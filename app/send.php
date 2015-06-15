@@ -41,6 +41,9 @@ switch ($trow['name']){
 	case 'Welcome':
 		$template = 'templates/theme/welcome-mini.html';
 	break;
+	case 'Featured':
+		$template = 'templates/theme/featured-mini.html';
+	break;
 }
 
 // if there are more than 0 emails but less than 20 do once and finish right then
