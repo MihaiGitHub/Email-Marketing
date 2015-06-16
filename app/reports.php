@@ -65,7 +65,7 @@ $reports = true;
 										<th>Campaign Name</th>
 										<th>List</th>
 										<th>Sent</th>
-										<th>Edit</th>
+                                        <th>View</th>
 										<th>Delete</th>
 									</tr>
                                     </thead>
@@ -74,13 +74,13 @@ $reports = true;
 		$i = 1;
 		while($row = $stmt->fetch()){ 				
 				echo "<tr>
-		<td>$i</td>
-		<td>".htmlentities($row['subject'])."</td>
-		<td>".htmlentities($row['name'])."</td>
-		<td>".htmlentities($row['sent'])."</td>
-		<td><a class='edit' href='javascript:;'>Edit</a></td>
-		<td><a class='delete' href='javascript:;'>Delete</a></td>
-	</tr>";
+					<td>$i</td>
+					<td>".htmlentities($row['subject'])."</td>
+					<td>".htmlentities($row['name'])."</td>
+					<td>".htmlentities($row['sent'])."</td>
+					<td><a href='javascript:;'>View</a></td>
+					<td><a class='delete' href='javascript:;'>Delete</a></td>
+				</tr>";
 				$i++;
 		} 
 		if($i == 1) echo '<tr><td>&nbsp;</td><td>There are no campaigns to display</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>';
