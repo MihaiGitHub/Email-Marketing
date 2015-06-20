@@ -89,9 +89,11 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
 	<tr><td align="center" bgcolor="#ffffff">
 		<!-- padding --><div style="height: 30px; line-height: 30px; font-size: 10px;">&nbsp;</div>
 		<table width="90%" border="0" cellspacing="0" cellpadding="0">
-			<tr><td align="left"><!-- 
+			<tr><td align="left"><!-- Item -->
+<table style="width:100%;">
+	<tr>
+    	<td style="text-align:left;">
 
-				Item --><div class="mob_center_bl" style="float: left; display: inline-block; width: 115px;">
 					<table class="mob_center" width="115" border="0" cellspacing="0" cellpadding="0" align="left" style="border-collapse: collapse;">
 						<tr><td align="left" valign="middle">
 							<!-- padding --><div style="height: 20px; line-height: 20px; font-size: 10px;">&nbsp;</div>
@@ -105,12 +107,9 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
 								</td></tr>
 							</table>						
 						</td></tr>
-					</table></div><!-- Item END--><!--[if gte mso 10]>
-					</td>
-					<td align="right">
-				<![endif]--><!-- 
-
-				Item --><div class="mob_center_bl" style="float: right; display: inline-block; width: 88px;">
+					</table><!-- Item END--><!-- Item -->
+</td>
+<td>
 					<table width="88" border="0" cellspacing="0" cellpadding="0" align="right" style="border-collapse: collapse;">
 						<tr><td align="right" valign="middle">
 							<!-- padding --><div style="height: 20px; line-height: 20px; font-size: 10px;">&nbsp;</div>
@@ -144,7 +143,10 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
 								</td></tr>
 							</table>
 						</td></tr>
-					</table></div><!-- Item END--></td>
+					</table><!-- Item END-->
+  </td>
+</tr>
+</table></td>
 			</tr>
 		</table>
 		<!-- padding --><div style="height: 50px; line-height: 50px; font-size: 10px;">&nbsp;</div>
@@ -171,7 +173,7 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
 						<div id="block6" contenteditable="true">Lorem ipsum dolor sit amet consectetuer sed<br> diam nonumy nibh elit dolore.</div>
 					</span></font>
 				</div>
-				<!-- padding --><div style="height: 40px; line-height: 40px; font-size: 10px;">&nbsp;</div>
+				<!-- padding --><div style="height: 10px; line-height: 40px; font-size: 10px;">&nbsp;</div>
 			</td></tr>
 			<tr><td align="center">
 				<div style="line-height: 24px;">
@@ -193,7 +195,9 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
 			<tr><td align="center">
 				<!-- padding --><div style="height: 40px; line-height: 40px; font-size: 10px;">&nbsp;</div>
 
-				<div class="mob_100" style="float: left; display: inline-block; width: 33%;">
+<table style="width:100%;">
+	<tr>
+    	<td style="text-align:left;">
 					<table class="mob_100" width="100%" border="0" cellspacing="0" cellpadding="0" align="left" style="border-collapse: collapse;">
 						<tr><td align="center" style="line-height: 14px; padding: 0 27px;">
 							<!-- padding --><div style="height: 40px; line-height: 40px; font-size: 10px;">&nbsp;</div>
@@ -214,8 +218,8 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
 							</div>
 						</td></tr>
 					</table>
-				</div>
-				<div class="mob_100" style="float: left; display: inline-block; width: 33%;">
+</td>
+<td>
 					<table class="mob_100" width="100%" border="0" cellspacing="0" cellpadding="0" align="left" style="border-collapse: collapse;">
 						<tr><td align="center" style="line-height: 14px; padding: 0 27px;">
 							<!-- padding --><div style="height: 40px; line-height: 40px; font-size: 10px;">&nbsp;</div>
@@ -234,8 +238,8 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
 							</div>
 						</td></tr>
 					</table>
-				</div>
-				<div class="mob_100" style="float: left; display: inline-block; width: 33%;">
+</td>
+<td>
 					<table class="mob_100" width="100%" border="0" cellspacing="0" cellpadding="0" align="left" style="border-collapse: collapse;">
 						<tr><td align="center" style="line-height: 14px; padding: 0 27px;">
 							<!-- padding --><div style="height: 40px; line-height: 40px; font-size: 10px;">&nbsp;</div>
@@ -254,7 +258,9 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
 							</div>
 						</td></tr>
 					</table>
-				</div>								
+</td>
+</tr>
+</table>							
 			</td></tr>
 			<tr><td><!-- padding --><div style="height: 80px; line-height: 80px; font-size: 10px;">&nbsp;</div></td></tr>
 		</table>		
@@ -307,7 +313,9 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
 					</td></tr>			
 				</table>				
 
-				<div class="mob_100" style="float: left; display: inline-block; width: 33%;">
+<table style="width:100%;">
+	<tr>
+    	<td style="text-align:left;">
 					<table class="mob_100" width="100%" border="0" cellspacing="0" cellpadding="0" align="left" style="border-collapse: collapse;">
 						<tr><td align="center" style="line-height: 14px; padding: 0 10px;">
 							<!-- padding --><div style="height: 40px; line-height: 40px; font-size: 10px;">&nbsp;</div>
@@ -320,8 +328,8 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
 							</div>
 						</td></tr>
 					</table>
-				</div>
-				<div class="mob_100" style="float: left; display: inline-block; width: 33%;">
+</td>
+<td>
 					<table class="mob_100" width="100%" border="0" cellspacing="0" cellpadding="0" align="left" style="border-collapse: collapse;">
 						<tr><td align="center" style="line-height: 14px; padding: 0 10px;">
 							<!-- padding --><div style="height: 40px; line-height: 40px; font-size: 10px;">&nbsp;</div>
@@ -334,8 +342,8 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
 							</div>
 						</td></tr>
 					</table>
-				</div>
-				<div class="mob_100" style="float: left; display: inline-block; width: 33%;">
+</td>
+<td>
 					<table class="mob_100" width="100%" border="0" cellspacing="0" cellpadding="0" align="left" style="border-collapse: collapse;">
 						<tr><td align="center" style="line-height: 14px; padding: 0 10px;">
 							<!-- padding --><div style="height: 40px; line-height: 40px; font-size: 10px;">&nbsp;</div>
@@ -348,7 +356,9 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
 							</div>
 						</td></tr>
 					</table>
-				</div>								
+</td>
+</tr>
+</table>								
 			</td></tr>
 			<tr><td><!-- padding --><div style="height: 80px; line-height: 80px; font-size: 10px;">&nbsp;</div></td></tr>
 		</table>		
@@ -360,7 +370,9 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
 		<table width="94%" border="0" cellspacing="0" cellpadding="0">
 			<tr><td align="center">
 
-				<div class="mob_100" style="float: left; display: inline-block; width: 25%;">
+<table style="width:100%;">
+	<tr>
+    	<td style="text-align:left;">
 					<table class="mob_100" width="100%" border="0" cellspacing="0" cellpadding="0" align="left" style="border-collapse: collapse;">
 						<tr><td align="center" style="line-height: 14px; padding: 0 24px;">
 							<!-- padding --><div style="height: 30px; line-height: 30px; font-size: 10px;">&nbsp;</div>
@@ -368,13 +380,12 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
                             <div id="block19" contenteditable="true">							
 								<a href="#" target="_blank" style="color: #596167; font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
 									<font face="Arial, Helvetica, sans-serif" size="2" color="#596167">
-									<img src="http://artloglab.com/metromail/images/evernote.gif" width="125" alt="Evernote" border="0" class="mob_width_50" style="display: block; width: 100%; height: auto;" /></font></a></div>
+									<img src="http://artloglab.com/metromail/images/evernote.gif" alt="Evernote" border="0" class="mob_width_50" style="display: block; width: 125px; height: auto;" /></font></a></div>
 							</div>
 						</td></tr>
 					</table>
-				</div>
-
-				<div class="mob_100" style="float: left; display: inline-block; width: 25%;">
+</td>
+<td>
 					<table class="mob_100" width="100%" border="0" cellspacing="0" cellpadding="0" align="left" style="border-collapse: collapse;">
 						<tr><td align="center" style="line-height: 14px; padding: 0 24px;">
 							<!-- padding --><div style="height: 30px; line-height: 30px; font-size: 10px;">&nbsp;</div>
@@ -382,13 +393,12 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
                             <div id="block20" contenteditable="true">							
 								<a href="#" target="_blank" style="color: #596167; font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
 									<font face="Arial, Helvetica, sans-serif" size="2" color="#596167">
-									<img src="http://artloglab.com/metromail/images/pinterest.gif" width="107" alt="Pinterest" border="0" class="mob_width_50" style="display: block; width: 100%; height: auto;" /></font></a></div>
+									<img src="http://artloglab.com/metromail/images/pinterest.gif" alt="Pinterest" border="0" class="mob_width_50" style="display: block; width: 107px; height: auto;" /></font></a></div>
 							</div>
 						</td></tr>
 					</table>
-				</div>
-
-				<div class="mob_100" style="float: left; display: inline-block; width: 25%;">
+</td>
+<td>
 					<table class="mob_100" width="100%" border="0" cellspacing="0" cellpadding="0" align="left" style="border-collapse: collapse;">
 						<tr><td align="center" style="line-height: 14px; padding: 0 24px;">
 							<!-- padding --><div style="height: 30px; line-height: 30px; font-size: 10px;">&nbsp;</div>
@@ -396,13 +406,12 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
                             <div id="block21" contenteditable="true">						
 								<a href="#" target="_blank" style="color: #596167; font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
 									<font face="Arial, Helvetica, sans-serif" size="2" color="#596167">
-									<img src="http://artloglab.com/metromail/images/ng.gif" width="103" alt="National Geographic" border="0" class="mob_width_50" style="display: block; width: 100%; height: auto;" /></font></a></div>
+									<img src="http://artloglab.com/metromail/images/ng.gif" alt="National Geographic" border="0" class="mob_width_50" style="display: block; width: 103px; height: auto;" /></font></a></div>
 							</div>
 						</td></tr>
 					</table>
-				</div>
-
-				<div class="mob_100" style="float: left; display: inline-block; width: 25%;">
+</td>
+<td>
 					<table class="mob_100" width="100%" border="0" cellspacing="0" cellpadding="0" align="left" style="border-collapse: collapse;">
 						<tr><td align="center" style="line-height: 14px; padding: 0 24px;">
 							<!-- padding --><div style="height: 30px; line-height: 30px; font-size: 10px;">&nbsp;</div>
@@ -410,11 +419,13 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
                             <div id="block22" contenteditable="true">						
 								<a href="#" target="_blank" style="color: #596167; font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
 									<font face="Arial, Helvetica, sans-serif" size="2" color="#596167">
-									<img src="http://artloglab.com/metromail/images/shopify.gif" width="116" alt="Shopify" border="0" class="mob_width_50" style="display: block; width: 100%; height: auto;" /></font></a></div>
+									<img src="http://artloglab.com/metromail/images/shopify.gif" alt="Shopify" border="0" class="mob_width_50" style="display: block; width: 116px; height: auto;" /></font></a></div>
 							</div>
 						</td></tr>
 					</table>
-				</div>
+</td>
+</tr>
+</table>
 
 			</td></tr>
 			<tr><td><!-- padding --><div style="height: 28px; line-height: 28px; font-size: 10px;">&nbsp;</div></td></tr>
