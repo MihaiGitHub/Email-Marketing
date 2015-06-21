@@ -102,14 +102,14 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
                                 <div id="block1" contenteditable="true">
 									<a href="#" target="_blank" style="color: #596167; font-family: Arial, Helvetica, sans-serif; font-size: 13px;">
 									<font face="Arial, Helvetica, sans-seri; font-size: 13px;" size="3" color="#596167">
-									<img src="http://artloglab.com/metromail/images/logo.gif" width="115" height="19" alt="Metronic" border="0" style="display: block;" /></font></a>
+									<img src="../app/templates/images/logo-2.gif" width="115" height="19" alt="Metronic" border="0" style="display: block;" /></font></a>
                                 </div>
 								</td></tr>
 							</table>						
 						</td></tr>
 					</table><!-- Item END--><!-- Item -->
 </td>
-<td>
+<td style="text-align:right;">
 					<table width="88" border="0" cellspacing="0" cellpadding="0" align="right" style="border-collapse: collapse;">
 						<tr><td align="right" valign="middle">
 							<!-- padding --><div style="height: 20px; line-height: 20px; font-size: 10px;">&nbsp;</div>
@@ -122,19 +122,19 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
                                         <div id="block2" contenteditable="true">
 											<a href="#" target="_blank" style="color: #596167; font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
 											<font face="Arial, Helvetica, sans-serif" size="2" color="#596167">
-											<img src="http://artloglab.com/metromail/images/facebook.gif" width="10" height="19" alt="Facebook" border="0" style="display: block;" /></font></a>
+											<img src="../app/templates/images/facebook-2.gif" width="10" height="19" alt="Facebook" border="0" style="display: block;" /></font></a>
                                         </div>
 										</td><td width="39" align="center" style="line-height: 19px;">
                                         <div id="block3" contenteditable="true">
 											<a href="#" target="_blank" style="color: #596167; font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
 											<font face="Arial, Helvetica, sans-serif" size="2" color="#596167">
-											<img src="http://artloglab.com/metromail/images/twitter.gif" width="19" height="16" alt="Twitter" border="0" style="display: block;" /></font></a>
+											<img src="../app/templates/images/twitter-2.gif" width="19" height="16" alt="Twitter" border="0" style="display: block;" /></font></a>
                                         </div>
 										</td><td width="29" align="right" style="line-height: 19px;">
                                         <div id="block4" contenteditable="true">
 											<a href="#" target="_blank" style="color: #596167; font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
 											<font face="Arial, Helvetica, sans-serif" size="2" color="#596167">
-											<img src="http://artloglab.com/metromail/images/dribbble.gif" width="19" height="19" alt="Dribbble" border="0" style="display: block;" /></font></a>
+											<img src="../app/templates/images/dribbble-2.gif" width="19" height="19" alt="Dribbble" border="0" style="display: block;" /></font></a>
                                         </div>
 										</td></tr>
 									</table>
@@ -144,9 +144,10 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
 							</table>
 						</td></tr>
 					</table><!-- Item END-->
-  </td>
+        </td>
 </tr>
-</table></td>
+</table>
+</td>
 			</tr>
 		</table>
 		<!-- padding --><div style="height: 50px; line-height: 50px; font-size: 10px;">&nbsp;</div>
@@ -180,7 +181,7 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
                 <div id="block7" contenteditable="true">
 					<a href="#" target="_blank" style="color: #596167; font-family: Arial, Helvetica, sans-serif; font-size: 13px;">
 						<font face="Arial, Helvetica, sans-seri; font-size: 13px;" size="3" color="#596167">
-							<img src="http://artloglab.com/metromail/images/trial.gif" width="193" height="43" alt="30-DAYS FREE TRIAL" border="0" style="display: block;" /></font></a>
+							<img src="../app/templates/images/trial.gif" width="193" height="43" alt="30-DAYS FREE TRIAL" border="0" style="display: block;" /></font></a>
                 </div>
 				</div>
 				<!-- padding --><div style="height: 60px; line-height: 60px; font-size: 10px;">&nbsp;</div>
@@ -190,36 +191,34 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
 	<!--content 1 END-->
 
 	<!--content 2 -->
+
 	<tr><td align="center" bgcolor="#ffffff" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #eff2f4;">
 		<table width="94%" border="0" cellspacing="0" cellpadding="0">
 			<tr><td align="center">
 				<!-- padding --><div style="height: 40px; line-height: 40px; font-size: 10px;">&nbsp;</div>
-
 <table style="width:100%;">
 	<tr>
-    	<td style="text-align:left;">
+    	<td>
 					<table class="mob_100" width="100%" border="0" cellspacing="0" cellpadding="0" align="left" style="border-collapse: collapse;">
 						<tr><td align="center" style="line-height: 14px; padding: 0 27px;">
 							<!-- padding --><div style="height: 40px; line-height: 40px; font-size: 10px;">&nbsp;</div>
 							<div style="line-height: 14px;">
-                            
 								<font face="Arial, Helvetica, sans-serif" size="3" color="#4db3a4" style="font-size: 14px;">
 								<strong style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #4db3a4;">
 									<div id="block8" contenteditable="true"><a href="#1" target="_blank" style="color: #4db3a4; text-decoration: none;">UNLIMITED LAYOUTS</a></div>
 								</strong></font>
-                            
 							</div>
 							<!-- padding --><div style="height: 18px; line-height: 18px; font-size: 10px;">&nbsp;</div>
 							<div style="line-height: 21px;">
 								<font face="Arial, Helvetica, sans-serif" size="3" color="#98a7b9" style="font-size: 14px;">
 								<span style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #98a7b9;">
-									<div id="block9" contenteditable="true">Lorem ipsum dolor sit amet consectetuer sed et diam noumy elit dolore</div>
+									<div id="block9" contenteditable="true">Lorem ipsum dolor sit amet consectetuer sed et diam noumy elit dolore </div>
 								</span></font>
 							</div>
 						</td></tr>
 					</table>
-</td>
-<td>
+		</td>
+        <td>
 					<table class="mob_100" width="100%" border="0" cellspacing="0" cellpadding="0" align="left" style="border-collapse: collapse;">
 						<tr><td align="center" style="line-height: 14px; padding: 0 27px;">
 							<!-- padding --><div style="height: 40px; line-height: 40px; font-size: 10px;">&nbsp;</div>
@@ -238,8 +237,8 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
 							</div>
 						</td></tr>
 					</table>
-</td>
-<td>
+		</td>
+        <td>
 					<table class="mob_100" width="100%" border="0" cellspacing="0" cellpadding="0" align="left" style="border-collapse: collapse;">
 						<tr><td align="center" style="line-height: 14px; padding: 0 27px;">
 							<!-- padding --><div style="height: 40px; line-height: 40px; font-size: 10px;">&nbsp;</div>
@@ -258,9 +257,9 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
 							</div>
 						</td></tr>
 					</table>
-</td>
-</tr>
-</table>							
+		</td>
+   </tr>
+</table>										
 			</td></tr>
 			<tr><td><!-- padding --><div style="height: 80px; line-height: 80px; font-size: 10px;">&nbsp;</div></td></tr>
 		</table>		
@@ -279,16 +278,16 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
             	<font face="Tahoma, Arial, Helvetica, sans-serif" size="2" color="#282f37" style="font-size: 12px;">
 								<span style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #5b9bd1;">
 		              <a href="#PRODUCTS" target="_blank" style="color: #5b9bd1; text-decoration: none;">PRODUCTS</a>
-		              &nbsp;&nbsp;&nbsp;&nbsp;<img src="http://artloglab.com/metromail/images/dot.gif" alt="|" width="9" height="9" class="mob_display_none" />&nbsp;&nbsp;&nbsp;&nbsp;
+		              &nbsp;&nbsp;&nbsp;&nbsp;<img src="../app/templates/images/dot.gif" alt="|" width="9" height="9" class="mob_display_none" />&nbsp;&nbsp;&nbsp;&nbsp;
 		              <a href="#FEATURES" target="_blank" style="color: #5b9bd1; text-decoration: none;">FEATURES</a>
-		              &nbsp;&nbsp;&nbsp;&nbsp;<img src="http://artloglab.com/metromail/images/dot.gif" alt="|" width="9" height="9" class="mob_display_none" />&nbsp;&nbsp;&nbsp;&nbsp;
+		              &nbsp;&nbsp;&nbsp;&nbsp;<img src="../app/templates/images/dot.gif" alt="|" width="9" height="9" class="mob_display_none" />&nbsp;&nbsp;&nbsp;&nbsp;
 		              <a href="#LAYOUTS" target="_blank" style="color: #5b9bd1; text-decoration: none;">LAYOUTS</a>
-		              &nbsp;&nbsp;&nbsp;&nbsp;<img src="http://artloglab.com/metromail/images/dot.gif" alt="|" width="9" height="9" class="mob_display_none" />&nbsp;&nbsp;&nbsp;&nbsp;
+		              &nbsp;&nbsp;&nbsp;&nbsp;<img src="../app/templates/images/dot.gif" alt="|" width="9" height="9" class="mob_display_none" />&nbsp;&nbsp;&nbsp;&nbsp;
 		              <a href="#SUPPORT" target="_blank" style="color: #5b9bd1; text-decoration: none;">SUPPORT</a>
-		              &nbsp;&nbsp;&nbsp;&nbsp;<img src="http://artloglab.com/metromail/images/dot.gif" alt="|" width="9" height="9" class="mob_display_none" />&nbsp;&nbsp;&nbsp;&nbsp;
+		              &nbsp;&nbsp;&nbsp;&nbsp;<img src="../app/templates/images/dot.gif" alt="|" width="9" height="9" class="mob_display_none" />&nbsp;&nbsp;&nbsp;&nbsp;
 		              <a href="#DISCOVER" target="_blank" style="color: #5b9bd1; text-decoration: none;">DISCOVER</a>
               </span></font>
-              </div>
+            </div>
             </td>
           </tr>                                        
         </table>
@@ -312,10 +311,9 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
 						</span></font>				
 					</td></tr>			
 				</table>				
-
 <table style="width:100%;">
 	<tr>
-    	<td style="text-align:left;">
+    	<td>
 					<table class="mob_100" width="100%" border="0" cellspacing="0" cellpadding="0" align="left" style="border-collapse: collapse;">
 						<tr><td align="center" style="line-height: 14px; padding: 0 10px;">
 							<!-- padding --><div style="height: 40px; line-height: 40px; font-size: 10px;">&nbsp;</div>
@@ -323,13 +321,13 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
                             <div id="block16" contenteditable="true">						
 								<a href="#" target="_blank" style="color: #596167; font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
 									<font face="Arial, Helvetica, sans-serif" size="2" color="#596167">
-									<img src="http://artloglab.com/metromail/images/img1.jpg" width="185" alt="Image 1" border="0" style="display: block; width: 100%; height: auto;" /></font></a>
+									<img src="../app/templates/images/img1.jpg" alt="Image 1" border="0" style="display: block; width: 185px; height: auto;" /></font></a>
                             </div>
 							</div>
 						</td></tr>
 					</table>
-</td>
-<td>
+		</td>
+        <td>
 					<table class="mob_100" width="100%" border="0" cellspacing="0" cellpadding="0" align="left" style="border-collapse: collapse;">
 						<tr><td align="center" style="line-height: 14px; padding: 0 10px;">
 							<!-- padding --><div style="height: 40px; line-height: 40px; font-size: 10px;">&nbsp;</div>
@@ -337,13 +335,13 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
                             <div id="block17" contenteditable="true">						
 								<a href="#" target="_blank" style="color: #596167; font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
 									<font face="Arial, Helvetica, sans-serif" size="2" color="#596167">
-									<img src="http://artloglab.com/metromail/images/img2.jpg" width="185" alt="Image 2" border="0" style="display: block; width: 100%; height: auto;" /></font></a>
+									<img src="../app/templates/images/img-2.jpg" alt="Image 2" border="0" style="display: block; width: 185px; height: auto;" /></font></a>
                             </div>
 							</div>
 						</td></tr>
 					</table>
-</td>
-<td>
+		</td>
+        <td>
 					<table class="mob_100" width="100%" border="0" cellspacing="0" cellpadding="0" align="left" style="border-collapse: collapse;">
 						<tr><td align="center" style="line-height: 14px; padding: 0 10px;">
 							<!-- padding --><div style="height: 40px; line-height: 40px; font-size: 10px;">&nbsp;</div>
@@ -351,13 +349,13 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
                             <div id="block18" contenteditable="true">						
 								<a href="#" target="_blank" style="color: #596167; font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
 									<font face="Arial, Helvetica, sans-serif" size="2" color="#596167">
-									<img src="http://artloglab.com/metromail/images/img3.jpg" width="185" alt="Image 3" border="0" style="display: block; width: 100%; height: auto;" /></font></a>
+									<img src="../app/templates/images/img3.jpg" alt="Image 3" border="0" style="display: block; width: 185px; height: auto;" /></font></a>
                             </div>
 							</div>
 						</td></tr>
 					</table>
-</td>
-</tr>
+		</td>
+   </tr>
 </table>								
 			</td></tr>
 			<tr><td><!-- padding --><div style="height: 80px; line-height: 80px; font-size: 10px;">&nbsp;</div></td></tr>
@@ -372,7 +370,7 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
 
 <table style="width:100%;">
 	<tr>
-    	<td style="text-align:left;">
+    	<td>
 					<table class="mob_100" width="100%" border="0" cellspacing="0" cellpadding="0" align="left" style="border-collapse: collapse;">
 						<tr><td align="center" style="line-height: 14px; padding: 0 24px;">
 							<!-- padding --><div style="height: 30px; line-height: 30px; font-size: 10px;">&nbsp;</div>
@@ -380,25 +378,27 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
                             <div id="block19" contenteditable="true">							
 								<a href="#" target="_blank" style="color: #596167; font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
 									<font face="Arial, Helvetica, sans-serif" size="2" color="#596167">
-									<img src="http://artloglab.com/metromail/images/evernote.gif" alt="Evernote" border="0" class="mob_width_50" style="display: block; width: 125px; height: auto;" /></font></a></div>
+									<img src="../app/templates/images/evernote.gif" alt="Evernote" border="0" class="mob_width_50" style="display: block; width: 125px; height: auto;" /></font></a></div>
 							</div>
 						</td></tr>
 					</table>
-</td>
-<td>
+		</td>
+        <td>			
+
 					<table class="mob_100" width="100%" border="0" cellspacing="0" cellpadding="0" align="left" style="border-collapse: collapse;">
 						<tr><td align="center" style="line-height: 14px; padding: 0 24px;">
 							<!-- padding --><div style="height: 30px; line-height: 30px; font-size: 10px;">&nbsp;</div>
 							<div style="line-height: 14px;">
-                            <div id="block20" contenteditable="true">							
+                            <div id="block20" contenteditable="true">						
 								<a href="#" target="_blank" style="color: #596167; font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
 									<font face="Arial, Helvetica, sans-serif" size="2" color="#596167">
-									<img src="http://artloglab.com/metromail/images/pinterest.gif" alt="Pinterest" border="0" class="mob_width_50" style="display: block; width: 107px; height: auto;" /></font></a></div>
+									<img src="../app/templates/images/pinterest.gif" alt="Pinterest" border="0" class="mob_width_50" style="display: block; width: 107px; height: auto;" /></font></a></div>
 							</div>
 						</td></tr>
 					</table>
-</td>
-<td>
+		</td>
+        <td>		
+
 					<table class="mob_100" width="100%" border="0" cellspacing="0" cellpadding="0" align="left" style="border-collapse: collapse;">
 						<tr><td align="center" style="line-height: 14px; padding: 0 24px;">
 							<!-- padding --><div style="height: 30px; line-height: 30px; font-size: 10px;">&nbsp;</div>
@@ -406,12 +406,13 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
                             <div id="block21" contenteditable="true">						
 								<a href="#" target="_blank" style="color: #596167; font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
 									<font face="Arial, Helvetica, sans-serif" size="2" color="#596167">
-									<img src="http://artloglab.com/metromail/images/ng.gif" alt="National Geographic" border="0" class="mob_width_50" style="display: block; width: 103px; height: auto;" /></font></a></div>
+									<img src="../app/templates/images/ng.gif" width="103" alt="National Geographic" border="0" class="mob_width_50" style="display: block; width: 100%; height: auto;" /></font></a></div>
 							</div>
 						</td></tr>
 					</table>
-</td>
-<td>
+		</td>
+        <td>		
+
 					<table class="mob_100" width="100%" border="0" cellspacing="0" cellpadding="0" align="left" style="border-collapse: collapse;">
 						<tr><td align="center" style="line-height: 14px; padding: 0 24px;">
 							<!-- padding --><div style="height: 30px; line-height: 30px; font-size: 10px;">&nbsp;</div>
@@ -419,13 +420,13 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
                             <div id="block22" contenteditable="true">						
 								<a href="#" target="_blank" style="color: #596167; font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
 									<font face="Arial, Helvetica, sans-serif" size="2" color="#596167">
-									<img src="http://artloglab.com/metromail/images/shopify.gif" alt="Shopify" border="0" class="mob_width_50" style="display: block; width: 116px; height: auto;" /></font></a></div>
+									<img src="../app/templates/images/shopify.gif" alt="Shopify" border="0" class="mob_width_50" style="display: block; width: 116px; height: auto;" /></font></a></div>
 							</div>
 						</td></tr>
 					</table>
-</td>
-</tr>
-</table>
+		</td>
+  </tr>
+</table>		
 
 			</td></tr>
 			<tr><td><!-- padding --><div style="height: 28px; line-height: 28px; font-size: 10px;">&nbsp;</div></td></tr>
