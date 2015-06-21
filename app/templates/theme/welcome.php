@@ -96,7 +96,7 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
                                 	<div id="block1" contenteditable="true">
                                         <a href="#" target="_blank" style="color: #596167; font-family: Arial, Helvetica, sans-serif; font-size: 13px;">
                                         <font face="Arial, Helvetica, sans-seri; font-size: 13px;" size="3" color="#596167">
-                                        <img src="http://artloglab.com/metromail2/images/logo.gif" width="115" height="19" alt="Metronic" border="0" style="display: block;"></font></a>
+                                        <img src="app/templates/images/logo.gif" width="115" height="19" alt="Metronic" border="0" style="display: block;"></font></a>
                                     </div>
 								</td></tr>
 							</tbody></table>						
@@ -117,19 +117,19 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
                                         <div id="block2" contenteditable="true">
 											<a href="#" target="_blank" style="color: #596167; font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
 											<font face="Arial, Helvetica, sans-serif" size="2" color="#596167">
-											<img src="http://artloglab.com/metromail2/images/facebook.gif" width="10" height="19" alt="Facebook" border="0" style="display: block;"></font></a>
+											<img src="app/templates/images/facebook.gif" width="10" height="19" alt="Facebook" border="0" style="display: block;"></font></a>
                                         </div>
 										</td><td width="39" align="center" style="line-height: 19px;">
                                         <div id="block3" contenteditable="true">
 											<a href="#" target="_blank" style="color: #596167; font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
 											<font face="Arial, Helvetica, sans-serif" size="2" color="#596167">
-											<img src="http://artloglab.com/metromail2/images/twitter.gif" width="19" height="16" alt="Twitter" border="0" style="display: block;"></font></a>
+											<img src="app/templates/images/twitter.gif" width="19" height="16" alt="Twitter" border="0" style="display: block;"></font></a>
                                         </div>
 										</td><td width="29" align="right" style="line-height: 19px;">
                                         <div id="block4" contenteditable="true">
 											<a href="#" target="_blank" style="color: #596167; font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
 											<font face="Arial, Helvetica, sans-serif" size="2" color="#596167">
-											<img src="http://artloglab.com/metromail2/images/dribbble.gif" width="19" height="19" alt="Dribbble" border="0" style="display: block;"></font></a>
+											<img src="app/templates/images/dribbble.gif" width="19" height="19" alt="Dribbble" border="0" style="display: block;"></font></a>
                                         </div>
 										</td></tr>
 									</tbody></table>
@@ -191,7 +191,7 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
                 <div id="block8" contenteditable="true">
 					<a href="#" target="_blank" style="color: #596167; font-family: Arial, Helvetica, sans-serif; font-size: 13px;">
 						<font face="Arial, Helvetica, sans-seri; font-size: 13px;" size="3" color="#596167">
-							<img src="http://artloglab.com/metromail2/images/confirm-reg.gif" width="225" height="43" alt="CONFIRM REGISTRATION" border="0" style="display: block;"></font></a>
+							<img src="app/templates/images/confirm-reg.gif" width="225" height="43" alt="CONFIRM REGISTRATION" border="0" style="display: block;"></font></a>
                 </div>
 				</div>
 				<!-- padding --><div style="height: 100px; line-height: 100px; font-size: 10px;">&nbsp;</div>
@@ -212,9 +212,9 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
 								<span style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #5b9bd1;">
                                 <div id="block9" contenteditable="true">
 		              <a href="#" target="_blank" style="color: #5b9bd1; text-decoration: none;">GENERAL QUESTIONS</a>
-		              &nbsp;&nbsp;&nbsp;&nbsp;<img src="http://artloglab.com/metromail2/images/dot.gif" alt="|" width="6" height="9" class="mob_display_none">&nbsp;&nbsp;&nbsp;&nbsp;
+		              &nbsp;&nbsp;&nbsp;&nbsp;<img src="app/templates/images/dot.gif" alt="|" width="6" height="9" class="mob_display_none">&nbsp;&nbsp;&nbsp;&nbsp;
 		              <a href="#" target="_blank" style="color: #5b9bd1; text-decoration: none;">TERMS &amp; CONDITIONS</a>
-		              &nbsp;&nbsp;&nbsp;&nbsp;<img src="http://artloglab.com/metromail2/images/dot.gif" alt="|" width="6" height="9" class="mob_display_none">&nbsp;&nbsp;&nbsp;&nbsp;
+		              &nbsp;&nbsp;&nbsp;&nbsp;<img src="app/templates/images/dot.gif" alt="|" width="6" height="9" class="mob_display_none">&nbsp;&nbsp;&nbsp;&nbsp;
 		              <a href="#" target="_blank" style="color: #5b9bd1; text-decoration: none;">UNSUBSCRIBE EMAIL</a>
                       			</div>
               </span></font>
