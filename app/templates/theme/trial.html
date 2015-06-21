@@ -103,9 +103,10 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
 	<tr><td align="center" bgcolor="#ffffff">
 		<!-- padding --><div style="height: 10px; line-height: 10px; font-size: 10px;">&nbsp;</div>
 		<table width="90%" border="0" cellspacing="0" cellpadding="0">
-			<tr><td align="left"><!-- 
-
-				Item --><div class="mob_center_bl" style="float: left; display: inline-block; width: 115px;">
+			<tr><td align="left"><!-- Item -->
+<table style="width:100%;">
+	<tr>
+    	<td>
 					<table class="mob_center" width="115" border="0" cellspacing="0" cellpadding="0" align="left" style="border-collapse: collapse;">
 						<tr><td align="left" valign="middle">
 							<!-- padding --><div style="height: 20px; line-height: 20px; font-size: 10px;">&nbsp;</div>
@@ -119,12 +120,10 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
 								</td></tr>
 							</table>						
 						</td></tr>
-					</table></div><!-- Item END--><!--[if gte mso 10]>
-					</td>
-					<td align="right">
-				<![endif]--><!-- 
+					</table><!-- Item END--><!--Item --> 
 
-				Item --><div class="mob_center_bl" style="float: right; display: inline-block; width: 88px;">
+</td>
+<td>
 					<table width="88" border="0" cellspacing="0" cellpadding="0" align="right" style="border-collapse: collapse;">
 						<tr><td align="right" valign="middle">
 							<!-- padding --><div style="height: 20px; line-height: 20px; font-size: 10px;">&nbsp;</div>
@@ -158,7 +157,10 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
 								</td></tr>
 							</table>
 						</td></tr>
-					</table></div><!-- Item END--></td>
+					</table><!-- Item END-->
+</td>
+</tr>
+</table></td>
 			</tr>
 		</table>
 		<!-- padding --><div style="height: 30px; line-height: 30px; font-size: 10px;">&nbsp;</div>
@@ -192,7 +194,7 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
                 <div id="block7" contenteditable="true">
 					<a href="#" target="_blank" style="color: #596167; font-family: Arial, Helvetica, sans-serif; font-size: 13px;">
 						<font face="Arial, Helvetica, sans-seri; font-size: 13px;" size="3" color="#596167">
-							<img src="http://artloglab.com/metromail3/images/trial.gif" width="308" height="55" alt="30-DAYS FREE TRIAL" border="0" class="mob_width_80 mob_center_bl" style="display: block;" /></font></a></div>
+							<img src="http://artloglab.com/metromail3/images/trial.gif" alt="30-DAYS FREE TRIAL" border="0" class="mob_width_80 mob_center_bl" style="display: block;width:308px;height:55px;" /></font></a></div>
 				</div>
 				<!-- padding --><div style="height: 70px; line-height: 70px; font-size: 10px;">&nbsp;</div>
 			</td></tr>
@@ -207,36 +209,32 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
 			<tr><td align="center">
 				<!-- padding --><div style="height: 74px; line-height: 74px; font-size: 10px;">&nbsp;</div>
 
-				<div class="mob_100" style="float: left; display: inline-block; width: 35%;">
-					<table class="mob_100" width="100%" border="0" cellspacing="0" cellpadding="0" align="left" style="border-collapse: collapse;">
-						<tr><td class="mob_center" style="line-height: 14px; padding: 0 25px 0 0;">
-                        <div id="block8" contenteditable="true">
-							<a href="#" target="_blank" style="color: #596167; font-family: Arial, Helvetica, sans-serif; font-size: 13px;">
-							<font face="Arial, Helvetica, sans-seri; font-size: 13px;" size="3" color="#596167">
-							<img src="http://artloglab.com/metromail3/images/img1.jpg" width="185" height="130" alt="Metronic" border="0" class="mob_center_bl" style="display: block; width: 100%; height: auto;" /></font></a></div>
-							<!-- padding --><div class="img_margin_bottom">&nbsp;</div>
-						</td></tr>
-					</table>
-				</div>
-				<div class="mob_100" style="float: left; display: inline-block; width: 65%;">
-					<table class="mob_100" width="100%" border="0" cellspacing="0" cellpadding="0" align="left" style="border-collapse: collapse;">
-						<tr><td style="line-height: 14px;" class="mob_center">
-							<div style="line-height: 18px;">
-								<font face="Arial, Helvetica, sans-serif" size="3" color="#6b6b6b" style="font-size: 18px;">
-								<strong style="font-family: Arial, Helvetica, sans-serif; font-size: 18px; color: #6b6b6b;">
-									<div id="block9" contenteditable="true"><a href="#2" target="_blank" style="color: #6b6b6b; text-decoration: none;">UNLIMITED LAYOUTS</a></div>
-								</strong></font>
-							</div>
+<table style="width:100%;">
+	<tr>
+    	<td style="width:35%;">
+					<div id="block8" contenteditable="true">
+							
+							<img src="http://artloglab.com/metromail3/images/img1.jpg" alt="Metronic" border="0" style="display: block; width: 185px; height: 138px;" />
+							
+					</div>
+</td>
+<td>
+					
+														<strong style="font-family: Arial, Helvetica, sans-serif; font-size: 18px; color: #6b6b6b;">
+		
+						<div id="block9" contenteditable="true"><a href="#2" target="_blank" style="color: #6b6b6b; text-decoration: none;">UNLIMITED LAYOUTS</a></div>
+							</strong>	
 							<!-- padding --><div style="height: 13px; line-height: 13px; font-size: 10px;">&nbsp;</div>
-							<div style="line-height: 21px;">
-								<font face="Arial, Helvetica, sans-serif" size="3" color="#9c9c9c" style="font-size: 15px;">
+							
+								
 								<span style="font-family: Arial, Helvetica, sans-serif; font-size: 15px; color: #9c9c9c;">
 									<div id="block10" contenteditable="true">Lorem ipsum dolor sit amet consectetuer sed et diam noumy elit dolore. Lorem ipsum dolor sit amet consectetuer sed et diam noumy elit dolore. Lorem ipsum dolor sit amet consectetuer sed et diam noumy elit dolore.</div>
-								</span></font>
-							</div>
-						</td></tr>
-					</table>
-				</div>							
+								</span>
+							
+					
+</td>
+</tr>
+</table>							
 			</td></tr>
 			<tr><td><!-- padding --><div style="height: 35px; line-height: 35px; font-size: 10px;">&nbsp;</div></td></tr>
 		</table>		
@@ -249,184 +247,42 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
 			<tr><td align="center">
 				<!-- padding --><div style="height: 40px; line-height: 40px; font-size: 10px;">&nbsp;</div>
 
-				<div class="mob_100" style="float: left; display: inline-block; width: 35%;">
-					<table class="mob_100" width="100%" border="0" cellspacing="0" cellpadding="0" align="left" style="border-collapse: collapse;">
-						<tr><td class="mob_center" style="line-height: 14px; padding: 0 25px 0 0;">
+<table style="width:100%;">
+	<tr>
+    	<td style="width:35%;">
                         <div id="block11" contenteditable="true">
 							<a href="#" target="_blank" style="color: #596167; font-family: Arial, Helvetica, sans-serif; font-size: 13px;">
 							<font face="Arial, Helvetica, sans-seri; font-size: 13px;" size="3" color="#596167">
-							<img src="http://artloglab.com/metromail3/images/img2.jpg" width="185" height="130" alt="Metronic" border="0" class="mob_center_bl" style="display: block; width: 100%; height: auto;" /></font></a></div>
+							<img src="http://artloglab.com/metromail3/images/img2.jpg" alt="Metronic" border="0" class="mob_center_bl" style="display: block; width: 185px; height: 138px;" /></font></a></div>
 							<!-- padding --><div class="img_margin_bottom">&nbsp;</div>
-						</td></tr>
-					</table>
-				</div>
-				<div class="mob_100" style="float: left; display: inline-block; width: 65%;">
-					<table class="mob_100" width="100%" border="0" cellspacing="0" cellpadding="0" align="left" style="border-collapse: collapse;">
-						<tr><td style="line-height: 14px;" class="mob_center">
-							<div style="line-height: 18px;">
-								<font face="Arial, Helvetica, sans-serif" size="3" color="#6b6b6b" style="font-size: 18px;">
+</td>
+<td>
+	
 								<strong style="font-family: Arial, Helvetica, sans-serif; font-size: 18px; color: #6b6b6b;">
 									<div id="block12" contenteditable="true"><a href="#2" target="_blank" style="color: #6b6b6b; text-decoration: none;">GREAT SUPPORT</a></div>
-								</strong></font>
-							</div>
+								</strong>
+							
 							<!-- padding --><div style="height: 13px; line-height: 13px; font-size: 10px;">&nbsp;</div>
-							<div style="line-height: 21px;">
-								<font face="Arial, Helvetica, sans-serif" size="3" color="#9c9c9c" style="font-size: 15px;">
 								<span style="font-family: Arial, Helvetica, sans-serif; font-size: 15px; color: #9c9c9c;">
 									<div id="block13" contenteditable="true">Lorem ipsum dolor sit amet consectetuer sed et diam noumy elit dolore. Lorem ipsum dolor sit amet consectetuer sed et diam noumy elit dolore. Lorem ipsum dolor sit amet consectetuer sed et diam noumy elit dolore.</div>
-								</span></font>
-							</div>
+								</span>
+</td>
+</tr>
+</table>							
 						</td></tr>
 					</table>
-				</div>							
+									
 			</td></tr>
 			<tr><td><!-- padding --><div style="height: 35px; line-height: 35px; font-size: 10px;">&nbsp;</div></td></tr>
 		</table>		
 	</td></tr>
 	<!--content 2-2 END-->
 
-	<!--content 2-3 -->
-	<tr><td align="center" bgcolor="#ffffff">
-		<table width="90%" border="0" cellspacing="0" cellpadding="0">
-			<tr><td align="center">
-				<!-- padding --><div style="height: 40px; line-height: 40px; font-size: 10px;">&nbsp;</div>
 
-				<div class="mob_100" style="float: left; display: inline-block; width: 35%;">
-					<table class="mob_100" width="100%" border="0" cellspacing="0" cellpadding="0" align="left" style="border-collapse: collapse;">
-						<tr><td class="mob_center" style="line-height: 14px; padding: 0 25px 0 0;">
-                        <div id="block14" contenteditable="true">
-							<a href="#" target="_blank" style="color: #596167; font-family: Arial, Helvetica, sans-serif; font-size: 13px;">
-							<font face="Arial, Helvetica, sans-seri; font-size: 13px;" size="3" color="#596167">
-							<img src="http://artloglab.com/metromail3/images/img3.jpg" width="185" height="130" alt="Metronic" border="0" class="mob_center_bl" style="display: block; width: 100%; height: auto;" /></font></a></div>
-							<!-- padding --><div class="img_margin_bottom">&nbsp;</div>
-						</td></tr>
-					</table>
-				</div>
-				<div class="mob_100" style="float: left; display: inline-block; width: 65%;">
-					<table class="mob_100" width="100%" border="0" cellspacing="0" cellpadding="0" align="left" style="border-collapse: collapse;">
-						<tr><td style="line-height: 14px;" class="mob_center">
-							<div style="line-height: 18px;">
-								<font face="Arial, Helvetica, sans-serif" size="3" color="#6b6b6b" style="font-size: 18px;">
-								<strong style="font-family: Arial, Helvetica, sans-serif; font-size: 18px; color: #6b6b6b;">
-									<div id="block15" contenteditable="true"><a href="#2" target="_blank" style="color: #6b6b6b; text-decoration: none;">CLEAN CODE</a></div>
-								</strong></font>
-							</div>
-							<!-- padding --><div style="height: 13px; line-height: 13px; font-size: 10px;">&nbsp;</div>
-							<div style="line-height: 21px;">
-								<font face="Arial, Helvetica, sans-serif" size="3" color="#9c9c9c" style="font-size: 15px;">
-								<span style="font-family: Arial, Helvetica, sans-serif; font-size: 15px; color: #9c9c9c;">
-									<div id="block16" contenteditable="true">Lorem ipsum dolor sit amet consectetuer sed et diam noumy elit dolore. Lorem ipsum dolor sit amet consectetuer sed et diam noumy elit dolore. Lorem ipsum dolor sit amet consectetuer sed et diam noumy elit dolore.</div>
-								</span></font>
-							</div>
-						</td></tr>
-					</table>
-				</div>							
-			</td></tr>
-			<tr><td><!-- padding --><div style="height: 74px; line-height: 74px; font-size: 10px;">&nbsp;</div></td></tr>
-		</table>		
-	</td></tr>
-	<!--content 2-3 END-->
 
-	<!--try -->
-	<tr><td align="center" bgcolor="#f8f8f8">
-		<table width="90%" border="0" cellspacing="0" cellpadding="0">
-			<tr><td class="mob_center">
-				<!-- padding --><div style="height: 60px; line-height: 60px; font-size: 10px;">&nbsp;</div>
-				<div style="line-height: 24px;">
-					<font face="Arial, Helvetica, sans-serif" size="5" color="#6b6b6b" style="font-size: 24px;">
-					<span style="font-family: Arial, Helvetica, sans-serif; font-size: 24px; color: #6b6b6b; text-transform: uppercase;">
-						<strong><div id="block17" contenteditable="true">Get 1-month trial for free</div></strong>
-					</span></font>
-				</div>
-				<!-- padding --><div style="height: 25px; line-height: 25px; font-size: 10px;">&nbsp;</div>
-			</td></tr>
-			<tr><td class="mob_center">
-				<div style="line-height: 24px;">
-					<font face="Arial, Helvetica, sans-serif" size="4" color="#9c9c9c" style="font-size: 15px;">
-					<span style="font-family: Arial, Helvetica, sans-serif; font-size: 15px; color: #9c9c9c;">
-						<div id="block18" contenteditable="true">Lorem ipsum dolor sit amet consectetuer sed diam nonumy nibh elit dolore dolor sit dolor sit amet consectetuer sed diam nonumy nibh elit.</div>
-					</span></font>
-				</div>
-				<!-- padding --><div style="height: 30px; line-height: 30px; font-size: 10px;">&nbsp;</div>
-			</td></tr>
-			<tr><td class="mob_center">
-				<div style="line-height: 24px;">
-                <div id="block19" contenteditable="true">
-					<a href="#" target="_blank" style="color: #596167; font-family: Arial, Helvetica, sans-serif; font-size: 13px;">
-						<font face="Arial, Helvetica, sans-seri; font-size: 13px;" size="3" color="#596167">
-							<img src="http://artloglab.com/metromail3/images/try-it.gif" width="234" height="50" alt="Try it" border="0" class="mob_width_80_center" style="display: block;" /></font></a></div>
-				</div>
-				<!-- padding --><div style="height: 60px; line-height: 60px; font-size: 10px;">&nbsp;</div>
-			</td></tr>
-		</table>		
-	</td></tr>
-	<!--try END-->
 
-	<!--footer -->
-	<tr><td align="center" bgcolor="#ffffff">
-		<!-- padding --><div style="height: 15px; line-height: 15px; font-size: 10px;">&nbsp;</div>
-		<table width="90%" border="0" cellspacing="0" cellpadding="0">
-			<tr><td align="left"><!-- 
 
-				Item --><div class="mob_center_bl" style="float: left; display: inline-block; width: 115px;">
-					<table class="mob_center" width="115" border="0" cellspacing="0" cellpadding="0" align="left" style="border-collapse: collapse;">
-						<tr><td align="left" valign="middle">
-							<!-- padding --><div style="height: 20px; line-height: 20px; font-size: 10px;">&nbsp;</div>
-							<table width="115" border="0" cellspacing="0" cellpadding="0" >
-								<tr><td align="left" valign="top" class="mob_center">
-                                <div id="block20" contenteditable="true">
-									<a href="#" target="_blank" style="color: #596167; font-family: Arial, Helvetica, sans-serif; font-size: 13px;">
-									<font face="Arial, Helvetica, sans-seri; font-size: 13px;" size="3" color="#596167">
-									<img src="http://artloglab.com/metromail3/images/logo-gray.gif" width="115" height="19" alt="Metronic" border="0" style="display: block;" /></font></a>
-                                </div>
-								</td></tr>
-							</table>						
-						</td></tr>
-					</table></div><!-- Item END--><!--[if gte mso 10]>
-					</td>
-					<td align="right">
-				<![endif]--><!-- 
 
-				Item --><div class="mob_center_bl" style="float: right; display: inline-block; width: 150px;">
-					<table class="mob_center" width="150" border="0" cellspacing="0" cellpadding="0" align="right" style="border-collapse: collapse;">
-						<tr><td align="right" valign="middle">
-							<!-- padding --><div style="height: 20px; line-height: 20px; font-size: 10px;">&nbsp;</div>
-							<table width="100%" border="0" cellspacing="0" cellpadding="0" >
-								<tr><td align="right">
-									<!--social -->
-									<div class="mob_center_bl">
-									<table border="0" cellspacing="0" cellpadding="0">
-										<tr><td align="center" style="line-height: 19px; padding-right: 20px;">
-                                        <div id="block21" contenteditable="true">
-											<a href="#" target="_blank" style="color: #9c9c9c; font-family: Arial, Helvetica, sans-serif; font-size: 12px; text-decoration: none;">
-											<font face="Arial, Helvetica, sans-serif" size="2" color="#9c9c9c">
-											About</font></a>
-                                        </div>
-										</td><td align="center" style="line-height: 19px; padding-right: 20px;">
-                                        <div id="block22" contenteditable="true">
-											<a href="#" target="_blank" style="color: #9c9c9c; font-family: Arial, Helvetica, sans-serif; font-size: 12px; text-decoration: none;">
-											<font face="Arial, Helvetica, sans-serif" size="2" color="#9c9c9c">
-											Blog</font></a>
-                                        </div>
-										</td><td align="right" style="line-height: 19px;">
-                                        <div id="block23" contenteditable="true">
-											<a href="#" target="_blank" style="color: #9c9c9c; font-family: Arial, Helvetica, sans-serif; font-size: 12px; text-decoration: none;">
-											<font face="Arial, Helvetica, sans-serif" size="2" color="#9c9c9c">
-											Contact</font></a>
-                                        </div>
-										</td></tr>
-									</table>
-									</div>
-									<!--social END-->
-								</td></tr>
-							</table>
-						</td></tr>
-					</table></div><!-- Item END--></td>
-			</tr>
-		</table>
-		<!-- padding --><div style="height: 30px; line-height: 30px; font-size: 10px;">&nbsp;</div>
-	</td></tr>
-	<!--footer END-->
 
 
 	<tr><td>

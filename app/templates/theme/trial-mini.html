@@ -55,6 +55,32 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
 .table_width_100 {
 	width: 680px;
 }
+/***************************/
+			
+/* Style a bit the inline editables. */
+.cke_editable.cke_editable_inline
+{
+	cursor: pointer;
+}
+
+/* Once an editable element gets focused, the "cke_focus" class is
+   added to it, so we can style it differently. */
+.cke_editable.cke_editable_inline.cke_focus
+{
+	box-shadow: inset 0px 0px 20px 3px #ddd, inset 0 0 1px #000;
+	outline: none;
+	background: #eee;
+	cursor: text;
+}
+
+/* Avoid pre-formatted overflows inline editable. */
+.cke_editable_inline pre
+{
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
+
+/*****************************************/
 </style>
 </head>
 
@@ -77,9 +103,10 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
 	<tr><td align="center" bgcolor="#ffffff">
 		<!-- padding --><div style="height: 10px; line-height: 10px; font-size: 10px;">&nbsp;</div>
 		<table width="90%" border="0" cellspacing="0" cellpadding="0">
-			<tr><td align="left"><!-- 
-
-				Item --><div class="mob_center_bl" style="float: left; display: inline-block; width: 115px;">
+			<tr><td align="left"><!-- Item -->
+<table style="width:100%;">
+	<tr>
+    	<td>
 					<table class="mob_center" width="115" border="0" cellspacing="0" cellpadding="0" align="left" style="border-collapse: collapse;">
 						<tr><td align="left" valign="middle">
 							<!-- padding --><div style="height: 20px; line-height: 20px; font-size: 10px;">&nbsp;</div>
@@ -89,12 +116,10 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
 								</td></tr>
 							</table>						
 						</td></tr>
-					</table></div><!-- Item END--><!--[if gte mso 10]>
-					</td>
-					<td align="right">
-				<![endif]--><!-- 
+					</table><!-- Item END--><!--Item --> 
 
-				Item --><div class="mob_center_bl" style="float: right; display: inline-block; width: 88px;">
+</td>
+<td>
 					<table width="88" border="0" cellspacing="0" cellpadding="0" align="right" style="border-collapse: collapse;">
 						<tr><td align="right" valign="middle">
 							<!-- padding --><div style="height: 20px; line-height: 20px; font-size: 10px;">&nbsp;</div>
@@ -116,7 +141,10 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
 								</td></tr>
 							</table>
 						</td></tr>
-					</table></div><!-- Item END--></td>
+					</table><!-- Item END-->
+</td>
+</tr>
+</table></td>
 			</tr>
 		</table>
 		<!-- padding --><div style="height: 30px; line-height: 30px; font-size: 10px;">&nbsp;</div>
@@ -147,7 +175,7 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
 			</td></tr>
 			<tr><td align="center">
 				<div style="line-height: 24px;">
-                %block7%
+              %block7%
 				</div>
 				<!-- padding --><div style="height: 70px; line-height: 70px; font-size: 10px;">&nbsp;</div>
 			</td></tr>
@@ -162,33 +190,28 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
 			<tr><td align="center">
 				<!-- padding --><div style="height: 74px; line-height: 74px; font-size: 10px;">&nbsp;</div>
 
-				<div class="mob_100" style="float: left; display: inline-block; width: 35%;">
-					<table class="mob_100" width="100%" border="0" cellspacing="0" cellpadding="0" align="left" style="border-collapse: collapse;">
-						<tr><td class="mob_center" style="line-height: 14px; padding: 0 25px 0 0;">
-                        %block8%
-							<!-- padding --><div class="img_margin_bottom">&nbsp;</div>
-						</td></tr>
-					</table>
-				</div>
-				<div class="mob_100" style="float: left; display: inline-block; width: 65%;">
-					<table class="mob_100" width="100%" border="0" cellspacing="0" cellpadding="0" align="left" style="border-collapse: collapse;">
-						<tr><td style="line-height: 14px;" class="mob_center">
-							<div style="line-height: 18px;">
-								<font face="Arial, Helvetica, sans-serif" size="3" color="#6b6b6b" style="font-size: 18px;">
-								<strong style="font-family: Arial, Helvetica, sans-serif; font-size: 18px; color: #6b6b6b;">
-									%block9%
-								</strong></font>
-							</div>
+<table style="width:100%;">
+	<tr>
+    	<td style="width:35%;">
+					%block8%
+</td>
+<td>
+					
+														<strong style="font-family: Arial, Helvetica, sans-serif; font-size: 18px; color: #6b6b6b;">
+		
+						%block9%
+							</strong>	
 							<!-- padding --><div style="height: 13px; line-height: 13px; font-size: 10px;">&nbsp;</div>
-							<div style="line-height: 21px;">
-								<font face="Arial, Helvetica, sans-serif" size="3" color="#9c9c9c" style="font-size: 15px;">
+							
+								
 								<span style="font-family: Arial, Helvetica, sans-serif; font-size: 15px; color: #9c9c9c;">
 									%block10%
-								</span></font>
-							</div>
-						</td></tr>
-					</table>
-				</div>							
+								</span>
+							
+					
+</td>
+</tr>
+</table>							
 			</td></tr>
 			<tr><td><!-- padding --><div style="height: 35px; line-height: 35px; font-size: 10px;">&nbsp;</div></td></tr>
 		</table>		
@@ -201,159 +224,39 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
 			<tr><td align="center">
 				<!-- padding --><div style="height: 40px; line-height: 40px; font-size: 10px;">&nbsp;</div>
 
-				<div class="mob_100" style="float: left; display: inline-block; width: 35%;">
-					<table class="mob_100" width="100%" border="0" cellspacing="0" cellpadding="0" align="left" style="border-collapse: collapse;">
-						<tr><td class="mob_center" style="line-height: 14px; padding: 0 25px 0 0;">
+<table style="width:100%;">
+	<tr>
+    	<td style="width:35%;">
                         %block11%
 							<!-- padding --><div class="img_margin_bottom">&nbsp;</div>
-						</td></tr>
-					</table>
-				</div>
-				<div class="mob_100" style="float: left; display: inline-block; width: 65%;">
-					<table class="mob_100" width="100%" border="0" cellspacing="0" cellpadding="0" align="left" style="border-collapse: collapse;">
-						<tr><td style="line-height: 14px;" class="mob_center">
-							<div style="line-height: 18px;">
-								<font face="Arial, Helvetica, sans-serif" size="3" color="#6b6b6b" style="font-size: 18px;">
+</td>
+<td>
+	
 								<strong style="font-family: Arial, Helvetica, sans-serif; font-size: 18px; color: #6b6b6b;">
 									%block12%
-								</strong></font>
-							</div>
+								</strong>
+							
 							<!-- padding --><div style="height: 13px; line-height: 13px; font-size: 10px;">&nbsp;</div>
-							<div style="line-height: 21px;">
-								<font face="Arial, Helvetica, sans-serif" size="3" color="#9c9c9c" style="font-size: 15px;">
 								<span style="font-family: Arial, Helvetica, sans-serif; font-size: 15px; color: #9c9c9c;">
 									%block13%
-								</span></font>
-							</div>
+								</span>
+</td>
+</tr>
+</table>							
 						</td></tr>
 					</table>
-				</div>							
+									
 			</td></tr>
 			<tr><td><!-- padding --><div style="height: 35px; line-height: 35px; font-size: 10px;">&nbsp;</div></td></tr>
 		</table>		
 	</td></tr>
 	<!--content 2-2 END-->
 
-	<!--content 2-3 -->
-	<tr><td align="center" bgcolor="#ffffff">
-		<table width="90%" border="0" cellspacing="0" cellpadding="0">
-			<tr><td align="center">
-				<!-- padding --><div style="height: 40px; line-height: 40px; font-size: 10px;">&nbsp;</div>
 
-				<div class="mob_100" style="float: left; display: inline-block; width: 35%;">
-					<table class="mob_100" width="100%" border="0" cellspacing="0" cellpadding="0" align="left" style="border-collapse: collapse;">
-						<tr><td class="mob_center" style="line-height: 14px; padding: 0 25px 0 0;">
-                        %block14%
-							<!-- padding --><div class="img_margin_bottom">&nbsp;</div>
-						</td></tr>
-					</table>
-				</div>
-				<div class="mob_100" style="float: left; display: inline-block; width: 65%;">
-					<table class="mob_100" width="100%" border="0" cellspacing="0" cellpadding="0" align="left" style="border-collapse: collapse;">
-						<tr><td style="line-height: 14px;" class="mob_center">
-							<div style="line-height: 18px;">
-								<font face="Arial, Helvetica, sans-serif" size="3" color="#6b6b6b" style="font-size: 18px;">
-								<strong style="font-family: Arial, Helvetica, sans-serif; font-size: 18px; color: #6b6b6b;">
-									%block15%
-								</strong></font>
-							</div>
-							<!-- padding --><div style="height: 13px; line-height: 13px; font-size: 10px;">&nbsp;</div>
-							<div style="line-height: 21px;">
-								<font face="Arial, Helvetica, sans-serif" size="3" color="#9c9c9c" style="font-size: 15px;">
-								<span style="font-family: Arial, Helvetica, sans-serif; font-size: 15px; color: #9c9c9c;">
-									%block16%
-								</span></font>
-							</div>
-						</td></tr>
-					</table>
-				</div>							
-			</td></tr>
-			<tr><td><!-- padding --><div style="height: 74px; line-height: 74px; font-size: 10px;">&nbsp;</div></td></tr>
-		</table>		
-	</td></tr>
-	<!--content 2-3 END-->
 
-	<!--try -->
-	<tr><td align="center" bgcolor="#f8f8f8">
-		<table width="90%" border="0" cellspacing="0" cellpadding="0">
-			<tr><td class="mob_center">
-				<!-- padding --><div style="height: 60px; line-height: 60px; font-size: 10px;">&nbsp;</div>
-				<div style="line-height: 24px;">
-					<font face="Arial, Helvetica, sans-serif" size="5" color="#6b6b6b" style="font-size: 24px;">
-					<span style="font-family: Arial, Helvetica, sans-serif; font-size: 24px; color: #6b6b6b; text-transform: uppercase;">
-						<strong>%block17%</strong>
-					</span></font>
-				</div>
-				<!-- padding --><div style="height: 25px; line-height: 25px; font-size: 10px;">&nbsp;</div>
-			</td></tr>
-			<tr><td class="mob_center">
-				<div style="line-height: 24px;">
-					<font face="Arial, Helvetica, sans-serif" size="4" color="#9c9c9c" style="font-size: 15px;">
-					<span style="font-family: Arial, Helvetica, sans-serif; font-size: 15px; color: #9c9c9c;">
-						%block18%
-					</span></font>
-				</div>
-				<!-- padding --><div style="height: 30px; line-height: 30px; font-size: 10px;">&nbsp;</div>
-			</td></tr>
-			<tr><td class="mob_center">
-				<div style="line-height: 24px;">
-                %block19%
-				</div>
-				<!-- padding --><div style="height: 60px; line-height: 60px; font-size: 10px;">&nbsp;</div>
-			</td></tr>
-		</table>		
-	</td></tr>
-	<!--try END-->
 
-	<!--footer -->
-	<tr><td align="center" bgcolor="#ffffff">
-		<!-- padding --><div style="height: 15px; line-height: 15px; font-size: 10px;">&nbsp;</div>
-		<table width="90%" border="0" cellspacing="0" cellpadding="0">
-			<tr><td align="left"><!-- 
 
-				Item --><div class="mob_center_bl" style="float: left; display: inline-block; width: 115px;">
-					<table class="mob_center" width="115" border="0" cellspacing="0" cellpadding="0" align="left" style="border-collapse: collapse;">
-						<tr><td align="left" valign="middle">
-							<!-- padding --><div style="height: 20px; line-height: 20px; font-size: 10px;">&nbsp;</div>
-							<table width="115" border="0" cellspacing="0" cellpadding="0" >
-								<tr><td align="left" valign="top" class="mob_center">
-                                %block20%
-								</td></tr>
-							</table>						
-						</td></tr>
-					</table></div><!-- Item END--><!--[if gte mso 10]>
-					</td>
-					<td align="right">
-				<![endif]--><!-- 
 
-				Item --><div class="mob_center_bl" style="float: right; display: inline-block; width: 150px;">
-					<table class="mob_center" width="150" border="0" cellspacing="0" cellpadding="0" align="right" style="border-collapse: collapse;">
-						<tr><td align="right" valign="middle">
-							<!-- padding --><div style="height: 20px; line-height: 20px; font-size: 10px;">&nbsp;</div>
-							<table width="100%" border="0" cellspacing="0" cellpadding="0" >
-								<tr><td align="right">
-									<!--social -->
-									<div class="mob_center_bl">
-									<table border="0" cellspacing="0" cellpadding="0">
-										<tr><td align="center" style="line-height: 19px; padding-right: 20px;">
-                                        %block21%
-										</td><td align="center" style="line-height: 19px; padding-right: 20px;">
-                                        %block22%
-										</td><td align="right" style="line-height: 19px;">
-                                        %block23%
-										</td></tr>
-									</table>
-									</div>
-									<!--social END-->
-								</td></tr>
-							</table>
-						</td></tr>
-					</table></div><!-- Item END--></td>
-			</tr>
-		</table>
-		<!-- padding --><div style="height: 30px; line-height: 30px; font-size: 10px;">&nbsp;</div>
-	</td></tr>
-	<!--footer END-->
 
 
 	<tr><td>
