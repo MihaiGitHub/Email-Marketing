@@ -115,7 +115,7 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
                                 <div id="block1" contenteditable="true">
 									<a href="#" target="_blank" style="color: #596167; font-family: Arial, Helvetica, sans-serif; font-size: 13px;">
 									<font face="Arial, Helvetica, sans-seri; font-size: 13px;" size="3" color="#596167">
-									<img src="http://artloglab.com/metromail3/images/logo.gif" width="115" height="19" alt="Metronic" border="0" style="display: block;" /></font></a>
+									<img src="../app/templates/images/logo-2.gif" width="115" height="19" alt="Metronic" border="0" style="display: block;" /></font></a>
                                 </div>
 								</td></tr>
 							</table>						
@@ -136,19 +136,19 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
                                         <div id="block2" contenteditable="true">
 											<a href="#" target="_blank" style="color: #596167; font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
 											<font face="Arial, Helvetica, sans-serif" size="2" color="#596167">
-											<img src="http://artloglab.com/metromail3/images/facebook.gif" width="10" height="19" alt="Facebook" border="0" style="display: block;" /></font></a>
+											<img src="../app/templates/images/facebook-2.gif" width="10" height="19" alt="Facebook" border="0" style="display: block;" /></font></a>
                                         </div>
 										</td><td width="39" align="center" style="line-height: 19px;">
                                         <div id="block3" contenteditable="true">
 											<a href="#" target="_blank" style="color: #596167; font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
 											<font face="Arial, Helvetica, sans-serif" size="2" color="#596167">
-											<img src="http://artloglab.com/metromail3/images/twitter.gif" width="19" height="16" alt="Twitter" border="0" style="display: block;" /></font></a>
+											<img src="../app/templates/images/twitter-2.gif" width="19" height="16" alt="Twitter" border="0" style="display: block;" /></font></a>
                                         </div>
 										</td><td width="29" align="right" style="line-height: 19px;">
                                         <div id="block4" contenteditable="true">
 											<a href="#" target="_blank" style="color: #596167; font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
 											<font face="Arial, Helvetica, sans-serif" size="2" color="#596167">
-											<img src="http://artloglab.com/metromail3/images/dribbble.gif" width="19" height="19" alt="Dribbble" border="0" style="display: block;" /></font></a>
+											<img src="../app/templates/images/dribbble-2.gif" width="19" height="19" alt="Dribbble" border="0" style="display: block;" /></font></a>
                                         </div>
 										</td></tr>
 									</table>
@@ -194,7 +194,7 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
                 <div id="block7" contenteditable="true">
 					<a href="#" target="_blank" style="color: #596167; font-family: Arial, Helvetica, sans-serif; font-size: 13px;">
 						<font face="Arial, Helvetica, sans-seri; font-size: 13px;" size="3" color="#596167">
-							<img src="http://artloglab.com/metromail3/images/trial.gif" alt="30-DAYS FREE TRIAL" border="0" class="mob_width_80 mob_center_bl" style="display: block;width:308px;height:55px;" /></font></a></div>
+							<img src="../app/templates/images/trial.gif" alt="30-DAYS FREE TRIAL" border="0" class="mob_width_80 mob_center_bl" style="display: block;width:308px;height:55px;" /></font></a></div>
 				</div>
 				<!-- padding --><div style="height: 70px; line-height: 70px; font-size: 10px;">&nbsp;</div>
 			</td></tr>
@@ -214,7 +214,7 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
     	<td style="width:35%;">
 					<div id="block8" contenteditable="true">
 							
-							<img src="http://artloglab.com/metromail3/images/img1.jpg" alt="Metronic" border="0" style="display: block; width: 185px; height: 138px;" />
+							<img src="../app/templates/images/img1.jpg" alt="Metronic" border="0" style="display: block; width: 185px; height: 138px;" />
 							
 					</div>
 </td>
@@ -253,7 +253,7 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
                         <div id="block11" contenteditable="true">
 							<a href="#" target="_blank" style="color: #596167; font-family: Arial, Helvetica, sans-serif; font-size: 13px;">
 							<font face="Arial, Helvetica, sans-seri; font-size: 13px;" size="3" color="#596167">
-							<img src="http://artloglab.com/metromail3/images/img2.jpg" alt="Metronic" border="0" class="mob_center_bl" style="display: block; width: 185px; height: 138px;" /></font></a></div>
+							<img src="../app/templates/images/img-2.jpg" alt="Metronic" border="0" class="mob_center_bl" style="display: block; width: 185px; height: 138px;" /></font></a></div>
 							<!-- padding --><div class="img_margin_bottom">&nbsp;</div>
 </td>
 <td>
@@ -291,6 +291,7 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
 </table>
 <!--[if gte mso 10]>
 </td></tr>
+
 </table>
 <![endif]-->
  
