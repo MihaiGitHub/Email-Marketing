@@ -130,6 +130,63 @@ function updateRow(oTable, nRow, id) { console.log('update record ajax function'
                 jqTds[6].innerHTML = '<a class="cancel" href="#">Cancel</a>';
 				
 			}
+/////////////////////////////////////EMAILS TABLE////////////////////////////////////////////
+function saveNewEmail(oTable, nRow){
+				
+				var aData = oTable.fnGetData(nRow);
+                var jqTds = $('>td', nRow);
+                jqTds[0].innerHTML = '<input type="text" class="m-wrap small" value="' + aData[1] + '">';
+                jqTds[1].innerHTML = '';
+                jqTds[2].innerHTML = '<a class="save" href="#">Save</a>';
+                jqTds[3].innerHTML = '<a class="cancel" href="#">Cancel</a>';
+				
+}
+			
+var oTableEmails = $('#emails-list').dataTable({
+                "aLengthMenu": [
+                    [10, 50, 100, -1],
+                    [10, 50, 100, "All"] // change per page values here
+                ],
+                // set the initial value
+                "iDisplayLength": 10,
+                "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
+                "sPaginationType": "bootstrap",
+                "oLanguage": {
+                    "sLengthMenu": "_MENU_ records per page",
+                    "oPaginate": {
+                        "sPrevious": "Prev",
+                        "sNext": "Next"
+                    }
+                },
+                "aoColumnDefs": [{
+                        'bSortable': false,
+                        'aTargets': [0]
+                    }
+                ]
+            });
+			
+			$('#email-add').click(function (e) {  console.log('oTable ',oTable)
+			 
+			 
+				e.preventDefault();
+				
+				
+				var aiNew = oTableEmails.fnAddData(['', '',
+                        '<a class="edit" href="#">Edit</a>', '<a class="cancel" data-mode="new" href="#">Cancel</a>'
+                ]);				
+
+				var nRow = oTableEmails.fnGetNodes(aiNew[0]);
+				
+				console.log('nRow ',nRow)
+				
+			//	editRow(oTable, nRow);
+				saveNewEmail(oTableEmails, nRow);
+		/*		nEditing = nRow;
+				
+				*/
+				
+            });
+//////////////////////////////////////////////////////////////////////////////////////////////////
 
             var oTable = $('#lists-names').dataTable({
                 "aLengthMenu": [
@@ -159,7 +216,7 @@ function updateRow(oTable, nRow, id) { console.log('update record ajax function'
 //
             var nEditing = null;
 
-            $('#lists-add').click(function (e) {
+            $('#lists-add').click(function (e) { console.log('oTable ',oTable)
 				e.preventDefault();
 				var aiNew = oTable.fnAddData(['', '', '', '', '',
                         '<a class="edit" href="#">Edit</a>', '<a class="cancel" data-mode="new" href="#">Cancel</a>'
@@ -172,6 +229,8 @@ function updateRow(oTable, nRow, id) { console.log('update record ajax function'
 				
 				
             });
+			
+			
 
             $('#lists-names').on('click', 'a.delete', function (e) {
 

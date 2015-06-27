@@ -63,7 +63,7 @@ $result = $stmt->execute(array('listid' => $_GET['id']));
                             <div class="portlet-body">
                                 <div class="clearfix">
                                     <div class="btn-group">
-                                        <button id="sample_editable_1_new" class="btn green">
+                                        <button id="email-add" class="btn green">
                                             Add New <i class="icon-plus"></i>
                                         </button>&nbsp;
 										<button class="btn green">
@@ -79,7 +79,7 @@ $result = $stmt->execute(array('listid' => $_GET['id']));
                                    
                                 </div>
                                 <div class="space15"></div>
-                                <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
+                                <table class="table table-striped table-hover table-bordered" id="emails-list">
                                     <thead>
                                     <tr>
                                         <th>Email Address</th>
