@@ -131,6 +131,38 @@ function updateRow(oTable, nRow, id) { console.log('update record ajax function'
 				
 			}
 /////////////////////////////////////EMAILS TABLE////////////////////////////////////////////
+// edit email row
+function editEmailRow(oTable, nRow) {
+		var aData = oTable.fnGetData(nRow);
+		var jqTds = $('>td', nRow);
+		jqTds[0].innerHTML = '<input type="text" class="m-wrap small" value="' + aData[1] + '">';
+		jqTds[1].innerHTML = '';
+		jqTds[2].innerHTML = '<a class="update" href="#">Save</a>';
+		jqTds[3].innerHTML = '<a class="cancel" href="#">Cancel</a>';
+}
+// SAVE NEW ROW
+function saveEmailRow(oTable, nRow) {
+	
+	var jqInputs = $('input', nRow);
+					
+	var jData = {};
+	jData.action = 'save';
+	jData.email = jqInputs[0].value;
+	
+	$.ajax({
+			  type: 'POST',
+			  url: 'save-emails.php',
+			  async: true,
+			  data: jData,
+			  error: function(error) {
+					console.log('error', error.error())
+			  },
+			  dataType: 'json',
+			  success: function(data) { console.log('success reload page');
+					location.reload();
+			  },
+	});
+}
 function saveNewEmail(oTable, nRow){
 				
 				var aData = oTable.fnGetData(nRow);
@@ -164,7 +196,8 @@ var oTableEmails = $('#emails-list').dataTable({
                     }
                 ]
             });
-			
+		            var nEmailEditing = null;
+	
 			$('#email-add').click(function (e) {  console.log('oTable ',oTable)
 			 
 			 
@@ -177,15 +210,25 @@ var oTableEmails = $('#emails-list').dataTable({
 
 				var nRow = oTableEmails.fnGetNodes(aiNew[0]);
 				
-				console.log('nRow ',nRow)
 				
-			//	editRow(oTable, nRow);
+				editEmailRow(oTableEmails, nRow);
 				saveNewEmail(oTableEmails, nRow);
-		/*		nEditing = nRow;
+				nEmailEditing = nRow;
 				
-				*/
+		/*		*/
 				
             });
+
+// when clicking on first save and saving record for first time		
+ $('#emails-list').on('click', 'a.save', function (e) {
+ 	console.log('NEW SAVE')
+	e.preventDefault();
+
+    var nRow = $(this).parents('tr')[0];
+	saveEmailRow(oTableEmails, nEmailEditing);
+    nEmailEditing = null;		
+				
+ });
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
             var oTable = $('#lists-names').dataTable({

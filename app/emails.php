@@ -19,7 +19,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 }
 
 $i = 1;
-$stmt = $conn->prepare('SELECT id, email FROM emails WHERE list_id = :listid');
+$stmt = $conn->prepare('SELECT id, email, date_added FROM emails WHERE list_id = :listid');
 $result = $stmt->execute(array('listid' => $_GET['id']));
 ?>
       <!-- BEGIN PAGE -->
@@ -92,12 +92,12 @@ $result = $stmt->execute(array('listid' => $_GET['id']));
                                     
 <?php while($row = $stmt->fetch()){ 			
 				
-echo "<tr><td>".htmlentities($row['email'])."</td><td>9/7/13 2:07PM</td><td><a class='edit' href='javascript:;'>Edit</a></td><td><a class='delete' href='javascript:;'>Delete</a></td></tr>";
+echo "<tr><td>".htmlentities($row['email'])."</td><td>".htmlentities($row['date_added'])."</td><td><a class='edit' href='javascript:;'>Edit</a></td><td><a class='delete' href='javascript:;'>Delete</a></td></tr>";
 					
 					
 						$i++;
 } 
-if($i == 1) echo '<tr><td colspan="4" style="text-align:center;" class="align-center">There are no emails to display</td></tr>'; ?>
+		if($i == 1) echo '<tr><td>&nbsp;</td><td>There are no emails to display</td><td>&nbsp;</td><td>&nbsp;</td></tr>'; ?>                                   
 
                                     </tbody>
                                 </table>
