@@ -24,6 +24,12 @@
     <script src="assets/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
 	<script type="text/javascript" src="assets/data-tables/jquery.dataTables.js"></script>
     <script type="text/javascript" src="assets/data-tables/DT_bootstrap.js"></script>
+    
+    
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+
+
     <script src="js/table-editable.js"></script>
 	<script src="js/scripts.js"></script>
 	<script>

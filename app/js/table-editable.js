@@ -130,6 +130,82 @@ function updateRow(oTable, nRow, id) { console.log('update record ajax function'
                 jqTds[6].innerHTML = '<a class="cancel" href="#">Cancel</a>';
 				
 			}
+			/////////////////////////////////////REPORTS TABLE////////////////////////////////////////////
+function cancelReportEditRow(oTable, nRow) {
+                var jqInputs = $('input', nRow);
+                oTable.fnUpdate(jqInputs[0].value, nRow, 0, false);
+                oTable.fnUpdate(jqInputs[1].value, nRow, 1, false);
+                oTable.fnUpdate(jqInputs[2].value, nRow, 2, false);
+                oTable.fnUpdate(jqInputs[3].value, nRow, 3, false);
+				oTable.fnUpdate(jqInputs[4].value, nRow, 4, false);
+                oTable.fnUpdate('<a class="edit" href="#">Edit</a>', nRow, 5, false);
+                oTable.fnDraw();
+}
+// restore email row
+function restoreReportRow(oTable, nRow) {
+				
+                var aData = oTable.fnGetData(nRow);
+                var jqTds = $('>td', nRow);
+
+                for (var i = 0, iLen = jqTds.length; i < iLen; i++) {
+                    oTable.fnUpdate(aData[i], nRow, i, false);
+                }
+
+                oTable.fnDraw();
+}
+			
+var oTableReports = $('#reports-list').dataTable({
+                "aLengthMenu": [
+                    [10, 50, 100, -1],
+                    [10, 50, 100, "All"] // change per page values here
+                ],
+                // set the initial value
+                "iDisplayLength": 10,
+                "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
+                "sPaginationType": "bootstrap",
+                "oLanguage": {
+                    "sLengthMenu": "_MENU_ records per page",
+                    "oPaginate": {
+                        "sPrevious": "Prev",
+                        "sNext": "Next"
+                    }
+                },
+                "aoColumnDefs": [{
+                        'bSortable': false,
+                        'aTargets': [0]
+                    }
+                ]
+            });
+		    
+			var nEmailEditing = null;
+
+ 			$('#emails-list').on('click', 'a.delete', function (e) {
+
+					e.preventDefault();
+	
+					var nRow = $(this).parents('tr')[0];
+					oTableEmails.fnDeleteRow(nRow);
+					
+					var jData = {};
+					jData.action = 'delete';
+					jData.emailid = $(this).parents('tr').attr('id').valueOf();
+					
+					$.ajax({
+							  type: 'POST',
+							  url: 'save-emails.php',
+							  async: true,
+							  data: jData,
+							  error: function(error) {
+									console.log('error', error.error())
+							  },
+							  dataType: 'json',
+							  success: function(data) {
+								//	location.reload();
+							  },
+					});
+            });
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
 /////////////////////////////////////EMAILS TABLE////////////////////////////////////////////
 function cancelEmailEditRow(oTable, nRow) {
                 var jqInputs = $('input', nRow);
@@ -486,12 +562,6 @@ $('#lists-names').on('click', 'a.update', function (e) {
 
                 if (nEditing !== null && nEditing != nRow) { 
 				
-					
-					console.log('Currently editing - but not this row - restore the old before continuing to edit mode')
-				
-				
-				
-				
                     restoreRow(oTable, nEditing);
                     editRow(oTable, nRow);
                     nEditing = nRow;
@@ -499,19 +569,10 @@ $('#lists-names').on('click', 'a.update', function (e) {
 					
                 } else if (nEditing == nRow && this.innerHTML == "Save") {
 					
-					
-					console.log('Editing this row and want to save it')
-			//		return false;
-					
-					
-					
                     saveRow(oTable, nEditing);
                     nEditing = null;
-                    
 					
-					
-                } else { console.log('No edit in progress - lets start one')
-				
+                } else {				
                     editRow(oTable, nRow);
                     nEditing = nRow;
                 }

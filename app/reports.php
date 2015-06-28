@@ -15,9 +15,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 		break;
 	}
 } 
-$stmt = $conn->prepare('SELECT c.id, c.subject, c.sent, l.name FROM campaigns as c, lists as l WHERE c.user_id = :user AND c.list_id = l.id ORDER BY sent DESC');
+//$stmt = $conn->prepare('SELECT c.id, c.subject, c.sent, l.name FROM campaigns as c, lists as l WHERE c.user_id = :user AND c.list_id = l.id ORDER BY sent DESC');
+$stmt = $conn->prepare('SELECT c.id, c.subject, c.sent, l.name FROM campaigns as c LEFT JOIN lists as l ON c.list_id = l.id WHERE c.user_id = :user ORDER BY sent DESC');
 $result = $stmt->execute(array('user' => $_SESSION['id']));
-
 $reports = true;
 ?>
 <!-- BEGIN PAGE -->
@@ -58,7 +58,7 @@ $reports = true;
                             <div class="portlet-body">
                                 
                                 
-                                <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
+                                <table class="table table-striped table-hover table-bordered" id="reports-list">
                                     <thead>
                                     <tr>
 										<th>#</th>
@@ -72,13 +72,13 @@ $reports = true;
                                     <tbody>
 		<?php //<a href='statistics.php?id=".urlencode($row['id'])."'></a>
 		$i = 1;
-		while($row = $stmt->fetch()){ 				
+		while($row = $stmt->fetch()){	
 				echo "<tr>
 					<td>$i</td>
 					<td>".htmlentities($row['subject'])."</td>
 					<td>".htmlentities($row['name'])."</td>
 					<td>".htmlentities($row['sent'])."</td>
-					<td><a href='javascript:;'>View</a></td>
+					<td><a href='statistics.php?id=".urlencode($row['id'])."'>View</a></td>
 					<td><a class='delete' href='javascript:;'>Delete</a></td>
 				</tr>";
 				$i++;

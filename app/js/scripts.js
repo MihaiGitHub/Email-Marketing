@@ -2,7 +2,76 @@ var App = function () {
 
      var isMainPage = false;
      var isMapPage = false;
+	 var isChartPage = false;
      var isIE8 = false;
+	 
+	 var handleCharts = function () {
+				$('#timeframe-container').highcharts({
+					chart: {
+						type: 'column'
+					},
+					title: {
+						text: 'Monthly Average Rainfall'
+					},
+					subtitle: {
+						text: 'Source: WorldClimate.com'
+					},
+					xAxis: {
+						categories: [
+							'Jan',
+							'Feb',
+							'Mar',
+							'Apr',
+							'May',
+							'Jun',
+							'Jul',
+							'Aug',
+							'Sep',
+							'Oct',
+							'Nov',
+							'Dec'
+						],
+						crosshair: true
+					},
+					yAxis: {
+						min: 0,
+						title: {
+							text: 'Rainfall (mm)'
+						}
+					},
+					tooltip: {
+						headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+						pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+							'<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+						footerFormat: '</table>',
+						shared: true,
+						useHTML: true
+					},
+					plotOptions: {
+						column: {
+							pointPadding: 0.2,
+							borderWidth: 0
+						}
+					},
+					series: [{
+						name: 'Tokyo',
+						data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+			
+					}, {
+						name: 'New York',
+						data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3]
+			
+					}, {
+						name: 'London',
+						data: [48.9, 38.8, 39.3, 41.4, 47.0, 48.3, 59.0, 59.6, 52.4, 65.2, 59.3, 51.2]
+			
+					}, {
+						name: 'Berlin',
+						data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4, 47.6, 39.1, 46.8, 51.1]
+			
+					}]
+			});
+	 }
 	
 	var handleTemplate = function () {
 		$('button.template-btn').click(function() {
@@ -734,467 +803,6 @@ var App = function () {
             setTimeout(update, updateInterval);
         }
         update();
-    }
-
-    var handleCharts = function () {
-
-        // used by plot functions
-        var data = [];
-        var totalPoints = 250;
-
-        // random data generator for plot charts
-        function getRandomData() {
-            if (data.length > 0) data = data.slice(1);
-            // do a random walk
-            while (data.length < totalPoints) {
-                var prev = data.length > 0 ? data[data.length - 1] : 50;
-                var y = prev + Math.random() * 10 - 5;
-                if (y < 0) y = 0;
-                if (y > 100) y = 100;
-                data.push(y);
-            }
-            // zip the generated y values with the x values
-            var res = [];
-            for (var i = 0; i < data.length; ++i) res.push([i, data[i]])
-            return res;
-        }
-
-
-        if (!jQuery.plot) {
-            return;
-        }
-
-        if ($("#chart_1").size() == 0) {
-            return;
-        }
-
-        //Interactive Chart
-        function chart2() {
-            function randValue() {
-                return (Math.floor(Math.random() * (1 + 40 - 20))) + 20;
-            }
-            var pageviews = [
-                [1, randValue()],
-                [2, randValue()],
-                [3, 2 + randValue()],
-                [4, 3 + randValue()],
-                [5, 5 + randValue()],
-                [6, 10 + randValue()],
-                [7, 15 + randValue()],
-                [8, 20 + randValue()],
-                [9, 25 + randValue()],
-                [10, 30 + randValue()],
-                [11, 35 + randValue()],
-                [12, 25 + randValue()],
-                [13, 15 + randValue()],
-                [14, 20 + randValue()],
-                [15, 45 + randValue()],
-                [16, 50 + randValue()],
-                [17, 65 + randValue()],
-                [18, 70 + randValue()],
-                [19, 85 + randValue()],
-                [20, 80 + randValue()],
-                [21, 75 + randValue()],
-                [22, 80 + randValue()],
-                [23, 75 + randValue()],
-                [24, 70 + randValue()],
-                [25, 65 + randValue()],
-                [26, 75 + randValue()],
-                [27, 80 + randValue()],
-                [28, 85 + randValue()],
-                [29, 90 + randValue()],
-                [30, 95 + randValue()]
-            ];
-            var visitors = [
-                [1, randValue() - 5],
-                [2, randValue() - 5],
-                [3, randValue() - 5],
-                [4, 6 + randValue()],
-                [5, 5 + randValue()],
-                [6, 20 + randValue()],
-                [7, 25 + randValue()],
-                [8, 36 + randValue()],
-                [9, 26 + randValue()],
-                [10, 38 + randValue()],
-                [11, 39 + randValue()],
-                [12, 50 + randValue()],
-                [13, 51 + randValue()],
-                [14, 12 + randValue()],
-                [15, 13 + randValue()],
-                [16, 14 + randValue()],
-                [17, 15 + randValue()],
-                [18, 15 + randValue()],
-                [19, 16 + randValue()],
-                [20, 17 + randValue()],
-                [21, 18 + randValue()],
-                [22, 19 + randValue()],
-                [23, 20 + randValue()],
-                [24, 21 + randValue()],
-                [25, 14 + randValue()],
-                [26, 24 + randValue()],
-                [27, 25 + randValue()],
-                [28, 26 + randValue()],
-                [29, 27 + randValue()],
-                [30, 31 + randValue()]
-            ];
-
-            var plot = $.plot($("#chart_2"), [{
-                data: pageviews,
-                label: "Unique Visits"
-            }, {
-                data: visitors,
-                label: "Page Views"
-            }], {
-                series: {
-                    lines: {
-                        show: true,
-                        lineWidth: 2,
-                        fill: true,
-                        fillColor: {
-                            colors: [{
-                                opacity: 0.05
-                            }, {
-                                opacity: 0.01
-                            }]
-                        }
-                    },
-                    points: {
-                        show: true
-                    },
-                    shadowSize: 2
-                },
-                grid: {
-                    hoverable: true,
-                    clickable: true,
-                    tickColor: "#eee",
-                    borderWidth: 0
-                },
-                colors: ["#FCB322", "#A5D16C", "#52e136"],
-                xaxis: {
-                    ticks: 11,
-                    tickDecimals: 0
-                },
-                yaxis: {
-                    ticks: 11,
-                    tickDecimals: 0
-                }
-            });
-
-
-            function showTooltip(x, y, contents) {
-                $('<div id="tooltip">' + contents + '</div>').css({
-                    position: 'absolute',
-                    display: 'none',
-                    top: y + 5,
-                    left: x + 15,
-                    border: '1px solid #333',
-                    padding: '4px',
-                    color: '#fff',
-                    'border-radius': '3px',
-                    'background-color': '#333',
-                    opacity: 0.80
-                }).appendTo("body").fadeIn(200);
-            }
-
-            var previousPoint = null;
-            $("#chart_2").bind("plothover", function (event, pos, item) {
-                $("#x").text(pos.x.toFixed(2));
-                $("#y").text(pos.y.toFixed(2));
-
-                if (item) {
-                    if (previousPoint != item.dataIndex) {
-                        previousPoint = item.dataIndex;
-
-                        $("#tooltip").remove();
-                        var x = item.datapoint[0].toFixed(2),
-                            y = item.datapoint[1].toFixed(2);
-
-                        showTooltip(item.pageX, item.pageY, item.series.label + " of " + x + " = " + y);
-                    }
-                } else {
-                    $("#tooltip").remove();
-                    previousPoint = null;
-                }
-            });
-        }
-
-        //Tracking Curves
-        function chart3() {
-            //tracking curves:
-
-            var sin = [],
-                cos = [];
-            for (var i = 0; i < 14; i += 0.1) {
-                sin.push([i, Math.sin(i)]);
-                cos.push([i, Math.cos(i)]);
-            }
-
-            plot = $.plot($("#chart_3"), [{
-                data: sin,
-                label: "sin(x) = -0.00"
-            }, {
-                data: cos,
-                label: "cos(x) = -0.00"
-            }], {
-                series: {
-                    lines: {
-                        show: true
-                    }
-                },
-                crosshair: {
-                    mode: "x"
-                },
-                grid: {
-                    hoverable: true,
-                    autoHighlight: false
-                },
-                colors: ["#FCB322", "#A5D16C", "#52e136"],
-                yaxis: {
-                    min: -1.2,
-                    max: 1.2
-                }
-            });
-
-            var legends = $("#chart_3 .legendLabel");
-            legends.each(function () {
-                // fix the widths so they don't jump around
-                $(this).css('width', $(this).width());
-            });
-
-            var updateLegendTimeout = null;
-            var latestPosition = null;
-
-            function updateLegend() {
-                updateLegendTimeout = null;
-
-                var pos = latestPosition;
-
-                var axes = plot.getAxes();
-                if (pos.x < axes.xaxis.min || pos.x > axes.xaxis.max || pos.y < axes.yaxis.min || pos.y > axes.yaxis.max) return;
-
-                var i, j, dataset = plot.getData();
-                for (i = 0; i < dataset.length; ++i) {
-                    var series = dataset[i];
-
-                    // find the nearest points, x-wise
-                    for (j = 0; j < series.data.length; ++j)
-                    if (series.data[j][0] > pos.x) break;
-
-                    // now interpolate
-                    var y, p1 = series.data[j - 1],
-                        p2 = series.data[j];
-                    if (p1 == null) y = p2[1];
-                    else if (p2 == null) y = p1[1];
-                    else y = p1[1] + (p2[1] - p1[1]) * (pos.x - p1[0]) / (p2[0] - p1[0]);
-
-                    legends.eq(i).text(series.label.replace(/=.*/, "= " + y.toFixed(2)));
-                }
-            }
-
-            $("#chart_3").bind("plothover", function (event, pos, item) {
-                latestPosition = pos;
-                if (!updateLegendTimeout) updateLegendTimeout = setTimeout(updateLegend, 50);
-            });
-        }
-
-        //Dynamic Chart
-        function chart4() {
-            //server load
-            var options = {
-                series: {
-                    shadowSize: 1
-                },
-                lines: {
-                    show: true,
-                    lineWidth: 0.5,
-                    fill: true,
-                    fillColor: {
-                        colors: [{
-                            opacity: 0.1
-                        }, {
-                            opacity: 1
-                        }]
-                    }
-                },
-                yaxis: {
-                    min: 0,
-                    max: 100,
-                    tickFormatter: function (v) {
-                        return v + "%";
-                    }
-                },
-                xaxis: {
-                    show: false
-                },
-                colors: ["#6ef146"],
-                grid: {
-                    tickColor: "#a8a3a3",
-                    borderWidth: 0
-                }
-            };
-
-            var updateInterval = 30;
-            var plot = $.plot($("#chart_4"), [getRandomData()], options);
-
-            function update() {
-                plot.setData([getRandomData()]);
-                plot.draw();
-                setTimeout(update, updateInterval);
-            }
-            update();
-        }
-
-        //bars with controls
-        function chart5() {
-            var d1 = [];
-            for (var i = 0; i <= 10; i += 1)
-            d1.push([i, parseInt(Math.random() * 30)]);
-
-            var d2 = [];
-            for (var i = 0; i <= 10; i += 1)
-            d2.push([i, parseInt(Math.random() * 30)]);
-
-            var d3 = [];
-            for (var i = 0; i <= 10; i += 1)
-            d3.push([i, parseInt(Math.random() * 30)]);
-
-            var stack = 0,
-                bars = true,
-                lines = false,
-                steps = false;
-
-            function plotWithOptions() {
-                $.plot($("#chart_5"), [d1, d2, d3], {
-                    series: {
-                        stack: stack,
-                        lines: {
-                            show: lines,
-                            fill: true,
-                            steps: steps
-                        },
-                        bars: {
-                            show: bars,
-                            barWidth: 0.6
-                        }
-                    }
-                });
-            }
-
-            $(".stackControls input").click(function (e) {
-                e.preventDefault();
-                stack = $(this).val() == "With stacking" ? true : null;
-                plotWithOptions();
-            });
-            $(".graphControls input").click(function (e) {
-                e.preventDefault();
-                bars = $(this).val().indexOf("Bars") != -1;
-                lines = $(this).val().indexOf("Lines") != -1;
-                steps = $(this).val().indexOf("steps") != -1;
-                plotWithOptions();
-            });
-
-            plotWithOptions();
-        }
-
-        //graph
-        function graphs() {
-
-            var graphData = [];
-            var series = Math.floor(Math.random() * 10) + 1;
-            for (var i = 0; i < series; i++) {
-                graphData[i] = {
-                    label: "Series" + (i + 1),
-                    data: Math.floor((Math.random() - 1) * 100) + 1
-                }
-            }
-
-            $.plot($("#graph_1"), graphData, {
-                series: {
-                    pie: {
-                        show: true,
-                        radius: 1,
-                        label: {
-                            show: true,
-                            radius: 1,
-                            formatter: function (label, series) {
-                                return '<div style="font-size:8pt;text-align:center;padding:2px;color:white;">' + label + '<br/>' + Math.round(series.percent) + '%</div>';
-                            },
-                            background: {
-                                opacity: 0.8
-                            }
-                        }
-                    }
-                },
-                legend: {
-                    show: false
-                }
-            });
-
-
-            $.plot($("#graph_2"), graphData, {
-                series: {
-                    pie: {
-                        show: true,
-                        radius: 1,
-                        label: {
-                            show: true,
-                            radius: 3 / 4,
-                            formatter: function (label, series) {
-                                return '<div style="font-size:8pt;text-align:center;padding:2px;color:white;">' + label + '<br/>' + Math.round(series.percent) + '%</div>';
-                            },
-                            background: {
-                                opacity: 0.5
-                            }
-                        }
-                    }
-                },
-                legend: {
-                    show: false
-                }
-            });
-
-            $.plot($("#graph_3"), graphData, {
-                series: {
-                    pie: {
-                        show: true
-                    }
-                },
-                grid: {
-                    hoverable: true,
-                    clickable: true
-                }
-            });
-            $("#graph_3").bind("plothover", pieHover);
-            $("#graph_3").bind("plotclick", pieClick);
-
-            function pieHover(event, pos, obj) {
-                if (!obj) return;
-                percent = parseFloat(obj.series.percent).toFixed(2);
-                $("#hover").html('<span style="font-weight: bold; color: ' + obj.series.color + '">' + obj.series.label + ' (' + percent + '%)</span>');
-            }
-
-            function pieClick(event, pos, obj) {
-                if (!obj) return;
-                percent = parseFloat(obj.series.percent).toFixed(2);
-                alert('' + obj.series.label + ': ' + percent + '%');
-            }
-
-            $.plot($("#graph_4"), graphData, {
-                series: {
-                    pie: {
-                        innerRadius: 0.5,
-                        show: true
-                    }
-                }
-            });
-        }
-
-        chart1();
-        chart2();
-        chart3();
-        chart4();
-        chart5();
-        graphs();
     }
 
     var handleFancyBox = function () {
@@ -1958,7 +1566,7 @@ var App = function () {
             return;
         }
 
-        $('#form_wizard_1').bootstrapWizard({ // 777
+        $('#form_wizard_1').bootstrapWizard({
             'nextSelector': '.button-next',
             'previousSelector': '.button-previous',
             onTabClick: function (tab, navigation, index) {
@@ -2195,7 +1803,7 @@ var App = function () {
 			jData.fromEmail = $('#from-email').val();
 			jData.replyTo = $('#replyto').val();
         
-			// 777
+			
 					$.ajax({
 						  type: 'POST',
 						  url: 'send.php',
@@ -2326,13 +1934,16 @@ var App = function () {
                 handleAllJQVMAP(); // handles vector maps for interactive map page
             }
 
-		  handleTemplate(); // handles template ID in template wizard
+			if (isChartPage) {
+				handleCharts(); // handles statistics page
+			}
+			
+		    handleTemplate(); // handles template ID in template wizard
             handleScrollers(); // handles slim scrolling contents
             handleUniform(); // handles uniform elements
             handleClockfaceTimePickers(); //handles form clockface timepickers
             handleTagsInput() // handles tag input elements
             handleTables(); // handles data tables
-            handleCharts(); // handles plot charts
             handleWidgetTools(); // handles portlet action bar functionality(refresh, configure, toggle, remove)
             handlePulsate(); // handles pulsate functionality on page elements
             handlePeity(); // handles pierty bar and line charts
@@ -2421,6 +2032,11 @@ var App = function () {
         // set map page
         setMapPage: function (flag) {
             isMapPage = flag;
+        },
+		
+		// set chart page
+        setChartPage: function (flag) {
+            isChartPage = flag;
         }
 
     };
@@ -2435,7 +2051,7 @@ var App = function () {
 
 $('.element').tooltip();
 
-
+/*
 // Slider input js
 try{
     jQuery("#Slider1").slider({ from: 5, to: 50, step: 2.5, round: 1, dimension: '&nbsp;$', skin: "round_plastic" });
@@ -2450,11 +2066,11 @@ try{
     catch (e){
     errorMessage(e);
 }
-
+*/
 
 //knob
 
-$(".knob").knob();
+//$(".knob").knob();
 
 
 
