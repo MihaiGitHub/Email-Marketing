@@ -1,4 +1,4 @@
-EmailMarketing
+Email Marketing
 ==============
 
 PHP/MySQL app for email marketing.
