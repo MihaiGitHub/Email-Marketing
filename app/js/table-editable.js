@@ -131,11 +131,61 @@ function updateRow(oTable, nRow, id) { console.log('update record ajax function'
 				
 			}
 /////////////////////////////////////EMAILS TABLE////////////////////////////////////////////
+function cancelEmailEditRow(oTable, nRow) {
+                var jqInputs = $('input', nRow);
+                oTable.fnUpdate(jqInputs[0].value, nRow, 0, false);
+                oTable.fnUpdate(jqInputs[1].value, nRow, 1, false);
+                oTable.fnUpdate(jqInputs[2].value, nRow, 2, false);
+                oTable.fnUpdate(jqInputs[3].value, nRow, 3, false);
+				oTable.fnUpdate(jqInputs[4].value, nRow, 4, false);
+                oTable.fnUpdate('<a class="edit" href="#">Edit</a>', nRow, 5, false);
+                oTable.fnDraw();
+}
+// restore email row
+function restoreEmailRow(oTable, nRow) {
+				
+                var aData = oTable.fnGetData(nRow);
+                var jqTds = $('>td', nRow);
+
+                for (var i = 0, iLen = jqTds.length; i < iLen; i++) {
+                    oTable.fnUpdate(aData[i], nRow, i, false);
+                }
+
+                oTable.fnDraw();
+}
+// UPDATE EMAIL ROW
+function updateEmailRow(oTable, nRow, id) { console.log('updating')
+				
+                var jqInputs = $('input', nRow);
+				
+								
+				var jData = {};
+				jData.action = 'update';
+				jData.email = jqInputs[0].value;
+				jData.emailid = id;
+					
+													
+				$.ajax({
+						  type: 'POST',
+						  url: 'save-emails.php',
+						  async: true,
+						  data: jData,
+						  error: function(error) {
+								console.log('error', error.error())
+						  },
+						  dataType: 'json',
+						  success: function(data) {
+						  		location.reload();
+						  },
+				});
+				
+				
+            }
 // edit email row
 function editEmailRow(oTable, nRow) {
 		var aData = oTable.fnGetData(nRow);
 		var jqTds = $('>td', nRow);
-		jqTds[0].innerHTML = '<input type="text" class="m-wrap small" value="' + aData[1] + '">';
+		jqTds[0].innerHTML = '<input type="text" class="m-wrap small" value="' + aData[0] + '">';
 		jqTds[1].innerHTML = '';
 		jqTds[2].innerHTML = '<a class="update" href="#">Save</a>';
 		jqTds[3].innerHTML = '<a class="cancel" href="#">Cancel</a>';
@@ -220,15 +270,104 @@ var oTableEmails = $('#emails-list').dataTable({
             });
 
 // when clicking on first save and saving record for first time		
- $('#emails-list').on('click', 'a.save', function (e) {
- 	console.log('NEW SAVE')
+$('#emails-list').on('click', 'a.save', function (e) {
 	e.preventDefault();
 
     var nRow = $(this).parents('tr')[0];
 	saveEmailRow(oTableEmails, nEmailEditing);
     nEmailEditing = null;		
 				
- });
+});
+ 
+// when cliking on second save and updating record
+$('#emails-list').on('click', 'a.update', function (e) {
+	
+	e.preventDefault();
+
+    var nRow = $(this).parents('tr')[0];
+	var id = $(this).parents('tr').attr('id').valueOf();
+	
+
+	
+	updateEmailRow(oTableEmails, nEmailEditing, id);
+    nEmailEditing = null;	
+	
+				
+});
+ 
+$('#emails-list').on('click', 'a.cancel', function (e) {
+                e.preventDefault();
+								
+				if ($(this).attr("data-mode") == "new") {
+                    var nRow = $(this).parents('tr')[0];
+                    oTableEmails.fnDeleteRow(nRow);
+                } else {
+                    restoreEmailRow(oTableEmails, nEmailEditing);
+                    nEmailEditing = null;
+                }
+});
+ 
+$('#emails-list a.edit').on('click', function (e) {
+                e.preventDefault();
+
+                var nRow = $(this).parents('tr')[0];
+
+                if (nEmailEditing !== null && nEmailEditing != nRow) { 
+				
+					
+					console.log('Currently editing - but not this row - restore the old before continuing to edit mode')
+				
+                    restoreEmailRow(oTableEmails, nEmailEditing);
+                    editEmailRow(oTableEmails, nRow);
+                    nEmailEditing = nRow;
+					
+					
+                } else if (nEmailEditing == nRow && this.innerHTML == "Save") {
+					
+					
+					console.log('Editing this row and want to save it')
+			//		return false;
+					
+					
+					
+                    saveEmailRow(oTableEmails, nEmailEditing);
+                    nEmailEditing = null;
+                    
+					
+					
+                } else { console.log('No edit in progress - lets start one')
+				
+                    editEmailRow(oTableEmails, nRow);
+                    nEmailEditing = nRow;
+                }
+});
+
+ $('#emails-list').on('click', 'a.delete', function (e) {
+
+                e.preventDefault();
+
+                var nRow = $(this).parents('tr')[0];
+                oTableEmails.fnDeleteRow(nRow);
+				
+                var jData = {};
+				jData.action = 'delete';
+				jData.emailid = $(this).parents('tr').attr('id').valueOf();
+
+				
+				$.ajax({
+						  type: 'POST',
+						  url: 'save-emails.php',
+						  async: true,
+						  data: jData,
+						  error: function(error) {
+								console.log('error', error.error())
+						  },
+						  dataType: 'json',
+						  success: function(data) {
+						  	//	location.reload();
+						  },
+				});
+            });
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
             var oTable = $('#lists-names').dataTable({
@@ -305,10 +444,10 @@ var oTableEmails = $('#emails-list').dataTable({
             $('#lists-names').on('click', 'a.cancel', function (e) {
                 e.preventDefault();
 								
-				if ($(this).attr("data-mode") == "new") { console.log('new')
+				if ($(this).attr("data-mode") == "new") {
                     var nRow = $(this).parents('tr')[0];
                     oTable.fnDeleteRow(nRow);
-                } else { console.log('not new')
+                } else {
                     restoreRow(oTable, nEditing);
                     nEditing = null;
                 }
@@ -316,17 +455,16 @@ var oTableEmails = $('#emails-list').dataTable({
             });
 			
 // when clicking on first save and saving record for first time		
- $('#lists-names').on('click', 'a.save', function (e) {
- 	console.log('NEW SAVE')
+$('#lists-names').on('click', 'a.save', function (e) {
 	e.preventDefault();
 
     var nRow = $(this).parents('tr')[0];
 	saveRow(oTable, nEditing);
     nEditing = null;		
 				
- });
- // when cliking on second save and updating record
-  $('#lists-names').on('click', 'a.update', function (e) {
+});
+// when cliking on second save and updating record
+$('#lists-names').on('click', 'a.update', function (e) {
 	
 	e.preventDefault();
 
@@ -339,7 +477,7 @@ var oTableEmails = $('#emails-list').dataTable({
     nEditing = null;	
 	
 				
- });
+});
  
             $('#lists-names a.edit').on('click', function (e) {
                 e.preventDefault();

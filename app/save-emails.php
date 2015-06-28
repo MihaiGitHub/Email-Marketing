@@ -17,20 +17,17 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 			
 		break;
 		case 'update':
-			/*
-			$stmt = $conn->prepare('UPDATE lists SET name = :name WHERE id = :listid');
-			$result = $stmt->execute(array('name' => $_POST['name'], 'listid' => $_POST['listid']));
-			*/
+			
+			$stmt = $conn->prepare('UPDATE emails SET email = :email WHERE id = :emailid');
+			$result = $stmt->execute(array('email' => $_POST['email'], 'emailid' => $_POST['emailid']));
+			
 		break;
 		case 'delete':
-			/*
-			$stmt = $conn->prepare('DELETE FROM emails WHERE list_id = :listid');
-			$result = $stmt->execute(array('listid' => $_POST['listid']));
-			if($result){
-				$stmt = $conn->prepare('DELETE FROM lists WHERE id = :listid');
-				$result = $stmt->execute(array('listid' => $_POST['listid']));
-			}
-			*/
+			
+			$stmt = $conn->prepare('DELETE FROM emails WHERE id = :emailid');
+			$result = $stmt->execute(array('emailid' => $_POST['emailid']));
+			
+			
 		break;
 	}
 }
