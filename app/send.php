@@ -6,7 +6,7 @@ if(!$_SESSION['auth']){
 	exit;	
 }
 
-date_default_timezone_set('Europe/London');
+date_default_timezone_set('America/Phoenix');
 
 include 'include/dbconnect.php';
 
@@ -113,7 +113,7 @@ if($count > 0){
 	$stmtcid->execute(array('cid' => $_SESSION['c_id']));
 	$stmtcid->setFetchMode(PDO::FETCH_ASSOC);
 	
-	echo '<table class="sending">';
+//	echo '<table class="sending">';
 			
 	while($rowcid = $stmtcid->fetch()){
 /*		
@@ -145,9 +145,9 @@ if($count > 0){
 		$mail->AddAddress($rowcid['email']);
 		
 		if(!$mail->Send()) {				
-		  echo "Mailer Error: " . $mail->ErrorInfo."<br/>";
+	//	  echo "Mailer Error: " . $mail->ErrorInfo."<br/>";
 		} else {
-		  echo "Message sent to ".$rowcid['email']."<br/>";
+	//	  echo "Message sent to ".$rowcid['email']."<br/>";
 		}
 
 		// Update campaign_emails that the email has been sent so next go around it will pick the non sent ones
@@ -157,7 +157,7 @@ if($count > 0){
 
 	} // should be the while loop
 	
-	echo '</table>';
+//	echo '</table>';
 
 	// Update the total number of emails remaining
 	$stmtc = $conn->prepare('UPDATE users SET emails = :emails WHERE id = :userid');
