@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>Subject</title>
+        <title>*|MC:SUBJECT|*</title>
         <style type="text/css">
 			/* /\/\/\/\/\/\/\/\/ CLIENT-SPECIFIC STYLES /\/\/\/\/\/\/\/\/ */
 			#outlook a{padding:0;} /* Force Outlook to provide a "view in browser" message */
@@ -32,7 +32,7 @@
 			* @theme page
 			*/
 			body, #bodyTable{
-				/*@editable*/ background-color:#DEE0E2;
+				/*@editable*/ background-color:#eff3f8;
 			}
 
 			/**
@@ -42,7 +42,7 @@
 			* @theme page
 			*/
 			#bodyCell{
-				/*@editable*/ border-top:4px solid #BBBBBB;
+				/*@editable border-top:4px solid #BBBBBB;*/
 			}
 
 			/**
@@ -151,7 +151,7 @@
 			* @theme header
 			*/
 			#templatePreheader{
-				/*@editable*/ background-color:#F4F4F4;
+				/*@editable*/ background-color:#FFF;
 				/*@editable*/ border-bottom:1px solid #CCCCCC;
 			}
 
@@ -186,7 +186,7 @@
 			* @theme header
 			*/
 			#templateHeader{
-				/*@editable*/ background-color:#F4F4F4;
+				/*@editable*/ background-color:#FFF;
 				/*@editable*/ border-top:1px solid #FFFFFF;
 				/*@editable*/ border-bottom:1px solid #CCCCCC;
 			}
@@ -234,7 +234,7 @@
 			* @tip Set the background color and borders for your email's body area.
 			*/
 			#templateBody{
-				/*@editable*/ background-color:#F4F4F4;
+				/*@editable*/ background-color:#FFF;
 				/*@editable*/ border-top:1px solid #FFFFFF;
 				/*@editable*/ border-bottom:1px solid #CCCCCC;
 			}
@@ -431,7 +431,7 @@
 
 				.footerContent a{display:block !important;} /* Place footer social and utility links on their own lines, for easier access */
 			}
-			/***************************/
+						/***************************/
 			
 		/* Style a bit the inline editables. */
 .cke_editable.cke_editable_inline
@@ -457,9 +457,12 @@
 }
 
 /*****************************************/
-</style>
-</head>
-<body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0">
+
+		</style>
+     
+
+    </head>
+    <body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0">
     	<center>
         	<table align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable">
             	<tr>
@@ -471,18 +474,8 @@
                                 	<!-- BEGIN PREHEADER // -->
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templatePreheader">
                                         <tr>
-                                            <td valign="top" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:20px;" mc:edit="preheader_content00">
-                             <div id="block1" contenteditable="true" class="editable">
-                                 Use this area to offer a short teaser of your email's content. Text here will show in the preview area of some email clients.
-                             </div>
-                                            </td>
-                                            
-                                            <td valign="top" width="180" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:0;" mc:edit="preheader_content01">
-                              <div id="block2" contenteditable="true" class="editable">  
-                              		Email not displaying correctly?<br /><a href="#" target="_blank">View it in your browser</a>.
-                              </div>
-                                            </td>
-                            
+                                            <td valign="top" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:20px;" mc:edit="preheader_content00"><div id="block1" contenteditable="true">%block1%</div></td>
+                                            <td valign="top" width="180" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:0;" mc:edit="preheader_content01"><div id="block2" contenteditable="true">%block2%</div></td>
                                         </tr>
                                     </table>
                                     <!-- // END PREHEADER -->
@@ -494,7 +487,7 @@
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateHeader">
                                         <tr>
                                             <td valign="top" class="headerContent">
-                                            	<div id="block3" contenteditable="true" class="editable"><img src="templates/images/header_placeholder_600px.png" style="max-width:600px;" id="headerImage" /></div>
+                                            	<div id="block3" contenteditable="true">%block3%</div>
                                             </td>
                                         </tr>
                                     </table>
@@ -507,16 +500,7 @@
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateBody">
                                         <tr>
                                             <td valign="top" class="bodyContent" mc:edit="body_content">
-                                            <div id="block4" contenteditable="true" class="editable">
-                                                <h1>Designing Your Template</h1>
-                                                <h3>Creating a good-looking email is simple</h3>
-                                                Customize your template by hovering over the text and clicking. This will activate the style editor. Set your fonts, colors, and styles. After setting your styling is all done you can click here in this area, delete the text, and start adding your own awesome content.
-                                                <br />
-                                                <br />
-                                                <h2>Styling Your Content</h2>
-                                                <h4>Make your email easy to read</h4>
-                                                After you enter your content, highlight the text you want to style and select the options you set in the style editor in the "<em>styles</em>" drop down box. Want to <a href="#" target="_blank">get rid of styling on a bit of text</a>, but having trouble doing it? Just use the "<em>remove formatting</em>" button to strip the text of any formatting and reset your style. 
-                                            </div>
+                                                <div id="block4" contenteditable="true">%block4%</div>
                                             </td>
                                         </tr>
                                     </table>
@@ -526,16 +510,11 @@
                         	<tr>
                             	<td align="center" valign="top">
                                 	<!-- BEGIN FOOTER // -->
-                                    
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateFooter">
                                         <tr>
                                             <td valign="top" class="footerContent" mc:edit="footer_content00">
-                                             <div id="block5" contenteditable="true" class="editable" style="float:left;">
-                                                <a href="#">Follow on Twitter</a>&nbsp;&nbsp;&nbsp;<a href="#">Friend on Facebook</a>
-                                              </div>
-                                              <div style="float:right;">
-                                              	<a href="#">unsubscribe from this list</a>
-                                              </div>
+                                                <div id="block5" contenteditable="true" style="float:left;">%block5%</div>
+                                                <div style="float:right;"><a href="#">unsubscribe from this list</a></div>
                                             </td>
                                         </tr>
                                     </table>
@@ -548,6 +527,5 @@
                 </tr>
             </table>
         </center>
-       
     </body>
 </html>
