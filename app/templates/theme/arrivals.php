@@ -92,7 +92,7 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
             <div id="block1" contenteditable="true">
 				<a href="#" target="_blank" style="color: #596167; font-family: Arial, Helvetica, sans-serif; font-size: 13px;">
 					<font face="Arial, Helvetica, sans-seri; font-size: 13px;" size="3" color="#596167">
-						<img src="http://artloglab.com/metromail-shop/images/logo.gif" alt="Metronic" border="0" style="width:115px;height:19px;display: block;" /></font></a>
+						<img src="../app/templates/images/logo-2.gif" alt="Metronic" border="0" style="width:115px;height:19px;display: block;" /></font></a>
             </div>
 				</td>
 			</tr>
@@ -108,7 +108,7 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
             <div id="block2" contenteditable="true">
 				<a href="#" target="_blank" style="color: #596167; font-family: Arial, Helvetica, sans-serif; font-size: 13px;">
 					<font face="Arial, Helvetica, sans-seri; font-size: 13px;" size="3" color="#596167">
-						<img src="http://artloglab.com/metromail-shop/images/promo.jpg" alt="Promo" border="0" style="display: block; width: 680px; height: auto;" /></font></a>
+						<img src="../app/templates/images/promo.jpg" alt="Promo" border="0" style="display: block; width: 680px; height: auto;" /></font></a>
             </div>
 				</td>
 			</tr>
@@ -142,7 +142,7 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
                                         <div id="block4" contenteditable="true">
 											<a href="#" target="_blank" style="color: #596167; font-family: Arial, Helvetica, sans-serif; font-size: 13px;">
 												<font face="Arial, Helvetica, sans-seri; font-size: 13px;" size="3" color="#596167">
-													<img src="http://artloglab.com/metromail-shop/images/goods1.jpg" alt="Goods 1" border="0" style="display: block; width: 272px; height: auto;" /></font></a></div>
+													<img src="../app/templates/images/goods1.jpg" alt="Goods 1" border="0" style="display: block; width: 272px; height: auto;" /></font></a></div>
 										</div>
 										<!-- padding --><div style="height: 20px; line-height: 20px; font-size: 10px;">&nbsp;</div>
 										<div style="line-height: 21px; padding: 0 10px;">
@@ -170,7 +170,7 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
                                         <div id="block7" contenteditable="true">
 											<a href="#" target="_blank" style="color: #596167; font-family: Arial, Helvetica, sans-serif; font-size: 13px;">
 												<font face="Arial, Helvetica, sans-seri; font-size: 13px;" size="3" color="#596167">
-													<img src="http://artloglab.com/metromail-shop/images/goods2.jpg" alt="Goods 2" border="0" style="display: block; width: 272px; height: auto;" /></font></a></div>
+													<img src="../app/templates/images/goods2.jpg" alt="Goods 2" border="0" style="display: block; width: 272px; height: auto;" /></font></a></div>
 										</div>
 										<!-- padding --><div style="height: 20px; line-height: 20px; font-size: 10px;">&nbsp;</div>
 										<div style="line-height: 21px; padding: 0 10px;">
@@ -204,7 +204,7 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
                                         <div id="block10" contenteditable="true">
 											<a href="#" target="_blank" style="color: #596167; font-family: Arial, Helvetica, sans-serif; font-size: 13px;">
 												<font face="Arial, Helvetica, sans-seri; font-size: 13px;" size="3" color="#596167">
-													<img src="http://artloglab.com/metromail-shop/images/goods3.jpg" alt="Goods 3" border="0" style="width:272px;display: block; height: auto;" /></font></a></div>
+													<img src="../app/templates/images/goods3.jpg" alt="Goods 3" border="0" style="width:272px;display: block; height: auto;" /></font></a></div>
 										</div>
 										<!-- padding --><div style="height: 20px; line-height: 20px; font-size: 10px;">&nbsp;</div>
 										<div style="line-height: 21px; padding: 0 10px;">
@@ -231,7 +231,7 @@ html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
                                         <div id="block13" contenteditable="true">
 											<a href="#" target="_blank" style="color: #596167; font-family: Arial, Helvetica, sans-serif; font-size: 13px;">
 												<font face="Arial, Helvetica, sans-seri; font-size: 13px;" size="3" color="#596167">
-													<img src="http://artloglab.com/metromail-shop/images/goods4.jpg" alt="Goods 4" border="0" style="width:272px;display: block; height: auto;" /></font></a></div>
+													<img src="../app/templates/images/goods4.jpg" alt="Goods 4" border="0" style="width:272px;display: block; height: auto;" /></font></a></div>
 										</div>
 										<!-- padding --><div style="height: 20px; line-height: 20px; font-size: 10px;">&nbsp;</div>
 										<div style="line-height: 21px; padding: 0 10px;">
