@@ -26,6 +26,9 @@ $stmtmain->execute(array('listid' => $_SESSION['listid']));
 $count = $stmtmain->rowCount();
 	
 switch ($trow['name']){
+	case 'Basic':
+		$template = 'templates/basic/basic-mini.html';
+	break;
 	case 'Basic-1-Column':
 		$template = 'templates/basic/1-column-mini.html';
 	break;
@@ -116,6 +119,8 @@ if($count > 0){
 //	echo '<table class="sending">';
 			
 	while($rowcid = $stmtcid->fetch()){
+					$body = str_replace('%IDD%', $rowcid['id'], $body);
+
 /*		
 		////////////////////////////REPLACING AND CONSTRUCTING THE CALLBACK LINK
 		$patterns[100] = '/EMAILL/';

@@ -20,28 +20,8 @@ $result = $stmt->execute(array('userid' => $_SESSION['id'], 'templateid' => $_PO
 
 switch ($trow['name']){
 	case 'Basic':
-	/*
-				if($trow['saved'] == 1){
-						$str = file_get_contents('templates/basic/1-column.html');
-				
-						while($row = $stmt->fetch()){
-															
-								$str = str_replace('%'.$row['field'].'%', $row['value'], $str);
-						}
-				
-						echo json_encode($str);
-				} else {
-					
-						$str = file_get_contents('templates/basic/1-column.php');
-						echo json_encode($str);
-				}
-				*/
-	break;
-	case 'Basic-1-Column':
-
 		if($trow['saved'] == 1){
-				$str = file_get_contents('templates/basic/1-column.html');
-		
+				$str = file_get_contents('templates/basic/basic.html');
 		
 				while($row = $stmt->fetch()){
 					
@@ -49,8 +29,24 @@ switch ($trow['name']){
 						$str = str_replace('%'.$row['field'].'%', $row['value'], $str);
 
 				}
+		
+				echo json_encode($str);
+		} else {			
+				$str = file_get_contents('templates/basic/basic.php');
+				echo json_encode($str);
+		}	
+	break;
+	case 'Basic-1-Column':
 
+		if($trow['saved'] == 1){
+				$str = file_get_contents('templates/basic/1-column.html');
+		
+				while($row = $stmt->fetch()){
+					
+						
+						$str = str_replace('%'.$row['field'].'%', $row['value'], $str);
 
+				}
 		
 				echo json_encode($str);
 		} else {
