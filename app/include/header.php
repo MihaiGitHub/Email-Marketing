@@ -62,7 +62,7 @@ $emailsopened = $row['count'];
 			<div class="container-fluid">
 				<!-- BEGIN LOGO -->
 				<a class="brand" href="dashboard.php">
-				   <span style="color: white;">Bulk Mailer</span>
+				   <img src="img/logo.png" alt="Logo">
 				</a>
 				<!-- END LOGO -->
 				<!-- BEGIN RESPONSIVE MENU TOGGLER -->
