@@ -96,45 +96,93 @@ include 'include/dbconnect.php';
                                <!--BEGIN TABS-->
                                  <div class="tabbable tabbable-custom">
                                     <ul class="nav nav-tabs">
-                                       <li class="active"><a href="#tab_1_1" data-toggle="tab">Unique Opens</a></li>
-                                       <li><a href="#tab_1_2" data-toggle="tab">Link Clicks</a></li>
-                                       <li><a href="#tab_1_3" data-toggle="tab">Unsubscribes</a></li>
-                                       <li><a href="#tab_1_4" data-toggle="tab">Bounces</a></li>
-                                       <li><a href="#tab_1_5" data-toggle="tab">Not Opened</a></li>
+                                       <li class="active"><a href="#unique-opens" data-toggle="tab">Unique Opens</a></li>
+                                       <li><a href="#link-clicks" data-toggle="tab">Link Clicks</a></li>
+                                       <li><a href="#unsubscribes" data-toggle="tab">Unsubscribes</a></li>
+                                       <li><a href="#bounces" data-toggle="tab">Bounces</a></li>
+                                       <li><a href="#unopened" data-toggle="tab">Not Opened</a></li>
                                     </ul>
                                     <div class="tab-content">
-                                       <div class="tab-pane active" id="tab_1_1">
-                                          <p>Section 1.</p>
-                                          <p>
-                                              Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.
-                                          </p>
+                                       <div class="tab-pane active" id="unique-opens">
+<table class="table table-striped table-hover table-bordered" id="unique-opens-table">
+    <thead>
+    <tr>
+        <th>Email</th>
+        <th>Total Opens</th>
+        <th>View</th>
+    </tr>
+    </thead>
+    <tbody>
+    	<tr><td>mihai@yahoo.com</td><td>3</td><td><a href="#">View</a></td></tr>
+    	<tr><td>mattis@yahoo.com</td><td>1</td><td><a href="#">View</a></td></tr>
+        <tr><td>scxelt@yahoo.com</td><td>1</td><td><a href="#">View</a></td></tr>
+    </tbody>
+</table>
                                        </div>
-                                       <div class="tab-pane" id="tab_1_2">
-                                          <p>Section 2.</p>
-                                          <p>
-                                             Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. Ut wisi enim ad minim veniam, quis nostrud exerci tation.
-                                          </p>
+                                       <div class="tab-pane" id="link-clicks">
+<table class="table table-striped table-hover table-bordered" id="link-clicks-table">
+    <thead>
+    <tr>
+        <th>Link</th>
+        <th>Email</th>
+		<th>Total Clicks</th>
+        <th>Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    	<tr><td>google.com</td><td>mwdowiak@yahoo.com</td><td>3</td><td>2015-12-22</td></tr>
+    	<tr><td>yahoo.com</td><td>jen24@yahoo.com</td><td>1</td><td>2015-12-11</td></tr>
+        <tr><td>templarit.com</td><td>anderson@yahoo.com</td><td>1</td><td>2015-12-05</td></tr>
+        <tr><td>amazon.com</td><td>mwdowiak@yahoo.com</td><td>1</td><td>2015-11-02</td></tr>
+    </tbody>
+</table>                                       </div>
+                                       <div class="tab-pane" id="unsubscribes">
+<table class="table table-striped table-hover table-bordered" id="unsubscribes-table">
+    <thead>
+    <tr>
+        <th>Email</th>
+        <th>Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    	<tr><td>mwdowiak@yahoo.com</td><td>2015-12-22</td></tr>
+    	<tr><td>jen24@yahoo.com</td><td>2015-12-11</td></tr>
+        <tr><td>anderson@yahoo.com</td><td>2015-12-05</td></tr>
+        <tr><td>mwdowiak@yahoo.com</td><td>2015-11-02</td></tr>
+    </tbody>
+</table>
                                        </div>
-                                       <div class="tab-pane" id="tab_1_3">
-                                          <p>Section 3.</p>
-                                          <p>
-                                             Duis autem vel eum iriure dolor in hendrerit in vulputate.
-                                             Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat
-                                          </p>
+                                        <div class="tab-pane" id="bounces">
+<table class="table table-striped table-hover table-bordered" id="bounces-table">
+    <thead>
+    <tr>
+        <th>Email</th>
+        <th>Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    	<tr><td>mwdowiak@yahoo.com</td><td>2015-12-22</td></tr>
+    	<tr><td>jen24@yahoo.com</td><td>2015-12-11</td></tr>
+        <tr><td>anderson@yahoo.com</td><td>2015-12-05</td></tr>
+        <tr><td>mwdowiak@yahoo.com</td><td>2015-11-02</td></tr>
+    </tbody>
+</table>
                                        </div>
-                                        <div class="tab-pane" id="tab_1_4">
-                                          <p>Section 3.</p>
-                                          <p>
-                                             Duis autem vel eum iriure dolor in hendrerit in vulputate.
-                                             Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat
-                                          </p>
-                                       </div>
-                                        <div class="tab-pane" id="tab_1_5">
-                                          <p>Section 3.</p>
-                                          <p>
-                                             Duis autem vel eum iriure dolor in hendrerit in vulputate.
-                                             Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat
-                                          </p>
+                                        <div class="tab-pane" id="unopened">
+<table class="table table-striped table-hover table-bordered" id="unopened-table">
+    <thead>
+    <tr>
+        <th>Email</th>
+        <th>Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    	<tr><td>mwdowiak@yahoo.com</td><td>2015-12-22</td></tr>
+    	<tr><td>jen24@yahoo.com</td><td>2015-12-11</td></tr>
+        <tr><td>anderson@yahoo.com</td><td>2015-12-05</td></tr>
+        <tr><td>mwdowiak@yahoo.com</td><td>2015-11-02</td></tr>
+    </tbody>
+</table>
                                        </div>
                                     </div>
                                  </div>
