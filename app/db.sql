@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: db543846776.db.1and1.com
--- Generation Time: Jun 14, 2015 at 11:05 PM
+-- Generation Time: Jun 29, 2015 at 11:13 PM
 -- Server version: 5.1.73-log
 -- PHP Version: 5.4.41-0+deb7u1
 
@@ -156,7 +156,63 @@ INSERT INTO `campaigns` (`id`, `user_id`, `list_id`, `subject`, `email_from`, `e
 ('C557dcf61b43581.34745495', 60, 51, 'fgdfgdf', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/14/2015 8:00 PM'),
 ('C557e28d1b866e3.90376904', 60, 51, 'Featured', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/15/2015 2:22 AM'),
 ('C557e3759c76201.91924159', 60, 51, 'Trial', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/15/2015 3:24 AM'),
-('C557e4ed7d63568.26582236', 60, 51, 'Arrivals', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/15/2015 5:04 AM');
+('C557e4ed7d63568.26582236', 60, 51, 'Arrivals', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/15/2015 5:04 AM'),
+('C557f8f2962f730.93112448', 60, 51, 'New Template', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/16/2015 3:51 AM'),
+('C5583a4fb12f229.67086786', 60, 51, 'Iipad', 'dfhmdhgm@yahoo.com', 'Vict@yahoo.com', '6/19/2015 6:13 AM'),
+('C5584e393147b11.01983998', 60, 51, 'Welcome', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/20/2015 4:52 AM'),
+('C5584e597025929.53898189', 60, 51, 'Welcome', 'mihai@yahoo.com', 'mihai@yahoo.com', '6/20/2015 5:01 AM'),
+('C5584e5d2dab034.94880590', 60, 51, 'Welcome', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/20/2015 5:02 AM'),
+('C5584e64613c4a4.45057075', 60, 51, 'Welcome 3', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/20/2015 5:04 AM'),
+('C5584e6b00eb944.28970873', 60, 51, 'Welcome 4', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/20/2015 5:06 AM'),
+('C5584eb10f0a4b0.93491868', 60, 51, 'IE Test', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/20/2015 5:24 AM'),
+('C5584ec8d41b779.14486123', 60, 51, 'IE Final', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/20/2015 5:31 AM'),
+('C5584ed518ab039.18805909', 60, 51, 'IE Test', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/20/2015 5:34 AM'),
+('C5584ee19da3eb6.71664729', 60, 51, 'mihai final', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/20/2015 5:37 AM'),
+('C55858b30839857.74754443', 60, 51, 'Featured', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/20/2015 4:48 PM'),
+('C55858bace3c1e8.14564552', 60, 51, 'Featured 2', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/20/2015 4:50 PM'),
+('C55858c0c4ced55.88297507', 60, 51, 'Featured 3', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/20/2015 4:51 PM'),
+('C55858c7421e0e4.87342387', 60, 51, 'Featured 4', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/20/2015 4:53 PM'),
+('C55858d0f7d5541.78260122', 60, 51, 'Featured Final', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/20/2015 4:55 PM'),
+('C55858d666d2267.88476151', 60, 51, 'Featured final 2', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/20/2015 4:57 PM'),
+('C5586246058ba14.96846016', 60, 51, 'Trial', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/21/2015 3:41 AM'),
+('C55862590f10094.17517050', 60, 51, 'Trial 2', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/21/2015 3:46 AM'),
+('C55864a35790931.75947042', 60, 51, 'Arrivals Final', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/21/2015 6:23 AM'),
+('C5586f56b6c6879.60440275', 60, 51, 'Assets Test', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/21/2015 6:33 PM'),
+('C558708bc1ba227.41037080', 60, 51, 'Arrivals Final', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/21/2015 7:55 PM'),
+('C558db8ebac1fc0.45247355', 60, 51, 'Email Template', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/26/2015 9:41 PM'),
+('C5590d6744ea847.51904121', 60, 86, 'Receipt', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/28/2015 10:24 PM'),
+('C5590d69c84c600.53299748', 60, 86, 'asdf', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/28/2015 10:24 PM'),
+('C5590d74dda7a47.48681761', 60, 86, 'fgdfgdf', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/28/2015 10:27 PM'),
+('C5590d7a96d5824.49214857', 60, 86, 'fgdfgdfg', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/28/2015 10:29 PM'),
+('C55918bbd261fe7.44961632', 60, 86, 'Purple', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 11:17 AM'),
+('C55919019a27a48.13272887', 60, 86, 'Mihai', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 11:36 AM'),
+('C5591906ecb4101.72640855', 60, 86, 'asdfasdf', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 11:37 AM'),
+('C559190f2ac3969.59639100', 60, 86, 'sdfsdfdsf', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 11:39 AM'),
+('C559191c1cb2396.54717384', 60, 86, 'edrfwerw', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 11:43 AM'),
+('C559192040796f1.34571160', 60, 86, 'Welcome Email', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 11:44 AM'),
+('C559192442201a7.33908049', 60, 86, 'Welcome', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 11:45 AM'),
+('C559192a08d2fe7.14443035', 60, 86, 'Welcome 2', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 11:46 AM'),
+('C55919337439001.67234604', 60, 86, 'Welcome 3', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 11:49 AM'),
+('C5591942b465710.83030799', 60, 86, 'Welcome 4', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 11:53 AM'),
+('C5591946c9b43e0.42647547', 60, 86, 'Welcome 5', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 11:54 AM'),
+('C559195d7dd4769.39344549', 60, 86, 'Welcome 6', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 12:00 PM'),
+('C559196afdd5390.28654608', 60, 86, 'Welcome 7', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 12:04 PM'),
+('C5591999905b628.84643469', 60, 86, 'Welcome Final', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 12:16 PM'),
+('C55919a5e9659c2.38138495', 60, 86, 'dfdsfsd', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 12:19 PM'),
+('C5591d50ccdffd5.54208924', 60, 86, 'Browser', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 4:30 PM'),
+('C5591d8e0020878.05180416', 60, 86, 'Browser', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 4:46 PM'),
+('C5591dc7b2a1870.03414775', 60, 86, 'Features', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 5:02 PM'),
+('C5591df2530dc40.29607654', 60, 86, 'Eureka?', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 5:13 PM'),
+('C5591e1b350cd56.46420148', 60, 86, 'Try again', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 5:24 PM'),
+('C5591e2c3b73e18.54256923', 60, 86, 'Welcome', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 5:28 PM'),
+('C5591e350482fa3.43641354', 60, 86, 'Features', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 5:31 PM'),
+('C5591e3c9873591.57601693', 60, 86, 'Features', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 5:33 PM'),
+('C5591e8a01b3272.84130430', 60, 86, 'Done?', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 5:53 PM'),
+('C5591e9781049d5.66973981', 60, 86, 'cOME ONE', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 5:57 PM'),
+('C5591ea145fdb73.06117582', 60, 86, 'almost?', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 6:00 PM'),
+('C5591fd8a5f3d91.61323263', 60, 86, 'Hello there!', 'Mihai@ITdemo.com', 'mattisb@gmail.com', '6/29/2015 7:23 PM'),
+('C5591fe0d896e35.27960566', 60, 86, 'testing', 'Bulkmailer@gmail.com', 'barrett@3shapes.com', '6/29/2015 7:25 PM'),
+('C5592093eacaff8.14934024', 60, 86, 'Test again', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 8:13 PM');
 
 -- --------------------------------------------------------
 
@@ -173,91 +229,42 @@ CREATE TABLE IF NOT EXISTS `campaign_emails` (
   `ip` varchar(50) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
   `country` varchar(100) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
   `region` varchar(100) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
-  `timeopened` varchar(100) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `c_id` (`c_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2617 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2712 ;
 
 --
 -- Dumping data for table `campaign_emails`
 --
 
-INSERT INTO `campaign_emails` (`id`, `c_id`, `email`, `sent`, `opened`, `ip`, `country`, `region`, `timeopened`) VALUES
-(2542, 'C55639cbdb1ccc6.59847615', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2543, 'C55639d6ad92d83.55167595', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2544, 'C556a5203ac4ad4.77555895', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2545, 'C556a525883ab58.58061517', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2546, 'C557348900a7964.88376977', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2547, 'C557348caf01327.79523502', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2548, 'C55734b38104134.48016376', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2549, 'C55735163a40d83.11969773', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2550, 'C557351a04148d3.82802653', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2551, 'C5573859f5414f7.99039167', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2552, 'C55738adb2cfdb4.07009778', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2553, 'C55738f5632eed0.57244595', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2554, 'C557390d5734686.96304094', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2555, 'C5573913201dda5.09957217', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2556, 'C557391d469caf7.42379179', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2557, 'C557392399ec859.32500833', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2558, 'C557392b12a18b2.02246630', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2559, 'C5573936e775872.23718954', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2560, 'C557394276a17a2.62606429', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2561, 'C5573947599fdd4.49930807', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2562, 'C557394a58955f8.44332567', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2563, 'C557394efb91d34.53993891', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2564, 'C5573953214e3e9.78478074', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2565, 'C557395cd282104.62004581', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2566, 'C55739609bf52f2.83924048', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2567, 'C5573962ed10131.20505089', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2568, 'C557396684ca279.65826878', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2569, 'C557396cd521f73.86040867', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2570, 'C55739732504b35.17229893', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2571, 'C557399bed529d4.84386593', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2572, 'C55739b5ba2c9e4.71111186', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2573, 'C55739bf2937054.66067406', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2574, 'C55739e2e41c570.15193574', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2575, 'C55739eb2485f24.62760922', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2576, 'C55739f1aa52192.72545390', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2577, 'C55739f5c654dc9.03385499', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2578, 'C55739fb41b68b3.81170423', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2579, 'C5573a0137a3cc8.18559378', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2580, 'C5573a0541d2224.36942408', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2581, 'C5573b3cf7ea0f3.30842062', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2582, 'C5573b4aaa93a99.84589078', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2583, 'C5573b53fcde2a2.23200943', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2584, 'C5573b5e8980c42.46523759', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2585, 'C5573b652d5b4a8.75297611', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2586, 'C5573b6ec38ac28.64990366', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2587, 'C5573b7f5f049c9.60978520', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2588, 'C5573b82f973c46.20505427', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2589, 'C5573b86136c624.20671955', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2590, 'C5573b91b26a800.65554635', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2591, 'C5573b967efe8f1.04648909', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2592, 'C5573b9eb6208a8.10947416', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2593, 'C5573ba149e1f05.05761641', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2594, 'C5573ba5c0311f9.44390824', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2595, 'C5573bdc915e030.16546871', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2596, 'C5573be3cda84a5.75688326', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2597, 'C5573c208b4bd67.80247548', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2598, 'C5573c2d4ca1389.17818019', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2599, 'C55748b1f702343.63514986', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2600, 'C55748e85c534e6.57376139', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2601, 'C55748ef3a61b70.57419839', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2602, 'C557490221d8405.76295159', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2603, 'C557491407c1754.06636662', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2604, 'C557492a2ef2d41.81002629', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2605, 'C557492d5009d70.31021470', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2606, 'C557495e0154383.43154209', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2607, 'C5574960707e799.19479494', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2608, 'C557496280053b2.50465453', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2609, 'C557504a275e697.38526931', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2610, 'C557b4e2b7a2898.57768389', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2611, 'C557b7a0510fd96.94976742', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2612, 'C557dcc7e23b179.04062049', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2613, 'C557dcf61b43581.34745495', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2614, 'C557e28d1b866e3.90376904', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2615, 'C557e3759c76201.91924159', 'mihai6744@hotmail.com', 1, 0, '', '', '', ''),
-(2616, 'C557e4ed7d63568.26582236', 'mihai6744@hotmail.com', 1, 0, '', '', '', '');
+INSERT INTO `campaign_emails` (`id`, `c_id`, `email`, `sent`, `opened`, `ip`, `country`, `region`) VALUES
+(2711, 'C5592093eacaff8.14934024', 'xelot00007@yahoo.com', 1, 3, '68.104.254.143', 'United States', 'Arizona'),
+(2710, 'C5592093eacaff8.14934024', 'mihai6744@hotmail.com', 1, 0, '', '', ''),
+(2709, 'C5592093eacaff8.14934024', 'mattisb@gmail.com', 1, 0, '', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `campaign_emails_detail`
+--
+
+CREATE TABLE IF NOT EXISTS `campaign_emails_detail` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `ce_id` int(11) NOT NULL,
+  `browser` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
+  `os` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `opened` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=24 ;
+
+--
+-- Dumping data for table `campaign_emails_detail`
+--
+
+INSERT INTO `campaign_emails_detail` (`id`, `ce_id`, `browser`, `os`, `opened`) VALUES
+(23, 2711, 'Chrome', 'Windows 8.1', '2015-06-30 03:19:54'),
+(22, 2711, 'Chrome', 'Windows 8.1', '2015-06-30 03:19:02'),
+(21, 2711, 'Chrome', 'Windows 8.1', '2015-06-30 03:17:03');
 
 -- --------------------------------------------------------
 
@@ -298,17 +305,19 @@ CREATE TABLE IF NOT EXISTS `emails` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `list_id` int(11) NOT NULL,
   `email` varchar(50) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `date_added` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `useremail` (`list_id`,`email`),
   KEY `user` (`list_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=54979 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=54988 ;
 
 --
 -- Dumping data for table `emails`
 --
 
-INSERT INTO `emails` (`id`, `list_id`, `email`) VALUES
-(54690, 51, 'mihai6744@hotmail.com');
+INSERT INTO `emails` (`id`, `list_id`, `email`, `date_added`) VALUES
+(54985, 86, 'xelot00007@yahoo.com', '2015-06-28 21:11:26'),
+(54986, 86, 'mihai6744@hotmail.com', '2015-06-29 05:26:54');
 
 -- --------------------------------------------------------
 
@@ -323,7 +332,7 @@ CREATE TABLE IF NOT EXISTS `lists` (
   `created` varchar(30) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=85 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=88 ;
 
 --
 -- Dumping data for table `lists`
@@ -332,9 +341,7 @@ CREATE TABLE IF NOT EXISTS `lists` (
 INSERT INTO `lists` (`id`, `user_id`, `name`, `created`) VALUES
 (48, 59, 'Test List', '04/05/2015'),
 (50, 59, 'Another List', '04/12/2015'),
-(51, 60, 'Employees', '04/16/2015'),
-(58, 60, 'Another Casino List', '06/12/2015'),
-(59, 60, 'Eight list', '06/12/2015');
+(86, 60, 'My New List', '06/27/2015');
 
 -- --------------------------------------------------------
 
@@ -924,10 +931,10 @@ INSERT INTO `templates` (`id`, `user_id`, `name`, `type`, `picture`, `saved`) VA
 (5, 60, 'Basic-1-2-Column', 'basic', '1-2-column.png', 0),
 (7, 60, 'Basic-1-1-2-Column', 'basic', '1-1-2-column.png', 0),
 (8, 60, 'Basic-1-1-3-Column', 'basic', '1-1-3-column.png', 0),
-(70, 60, 'Welcome', 'theme', 'basic.png', 1),
-(71, 60, 'Featured', 'theme', 'basic.png', 1),
-(72, 60, 'Trial', 'theme', 'basic.png', 1),
-(73, 60, 'Arrivals', 'theme', 'basic.png', 1);
+(70, 60, 'Welcome', 'theme', 'basic.png', 0),
+(71, 60, 'Featured', 'theme', 'basic.png', 0),
+(72, 60, 'Trial', 'theme', 'basic.png', 0),
+(73, 60, 'Arrivals', 'theme', 'basic.png', 0);
 
 -- --------------------------------------------------------
 
@@ -945,95 +952,18 @@ CREATE TABLE IF NOT EXISTS `template_fields` (
   UNIQUE KEY `tunique` (`user_id`,`template_id`,`field`),
   KEY `template_id` (`template_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=502 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=575 ;
 
 --
 -- Dumping data for table `template_fields`
 --
 
 INSERT INTO `template_fields` (`id`, `user_id`, `template_id`, `field`, `value`) VALUES
-(420, 60, 69, 'block1', '<p>Use this area to offer a short teaser of your email&#39;s content. Text here will show in the preview area of some email clients.</p>\n'),
-(421, 60, 69, 'block2', '<p>Email not displaying correctly?<br />\n<a href="#" target="_blank">View it in your browser</a>.</p>\n'),
-(422, 60, 69, 'block3', '<p><img src="templates/images/header_placeholder_600px.png" /></p>\n'),
-(423, 60, 69, 'block4', '<h1>Designing Your Template</h1>\n\n<h3>Creating a good-looking email is simple</h3>\n\n<p>Customize your template by hovering over the text and clicking. This will activate the style editor. Set your fonts, colors, and styles. After setting your styling is all done you can click here in this area, delete the text, and start adding your own awesome content.<br />\n&nbsp;</p>\n\n<h2>Styling Your Content</h2>\n\n<p>Make your email easy to read</p>\n\n<p>After you enter your content, highlight the text you want to style and select the options you set in the style editor in the &quot;<em>styles</em>&quot; drop down box. Want to <a href="#" target="_blank">get rid of styling on a bit of text</a>, but having trouble doing it? Just use the &quot;<em>remove formatting</em>&quot; button to strip the text of any formatting and reset your style.</p>\n'),
-(424, 60, 69, 'block5', '<p><a href="#">Follow on Twitter</a>&nbsp;&nbsp;&nbsp;<a href="#">Friend on Facebook</a></p>\n'),
-(425, 60, 70, 'block1', '<p><a href="#" target="_blank"><img alt="Metronic" src="http://artloglab.com/metromail2/images/logo.gif" style="height:19px; width:115px" /></a></p>\n'),
-(426, 60, 70, 'block2', '<p><a href="#" target="_blank"><img alt="Facebook" src="http://artloglab.com/metromail2/images/facebook.gif" style="height:19px; width:10px" /></a></p>\n'),
-(427, 60, 70, 'block3', '<p><a href="#" target="_blank"><img alt="Twitter" src="http://artloglab.com/metromail2/images/twitter.gif" style="height:16px; width:19px" /></a></p>\n'),
-(428, 60, 70, 'block4', '<p><a href="#" target="_blank"><img alt="Dribbble" src="http://artloglab.com/metromail2/images/dribbble.gif" style="height:19px; width:19px" /></a></p>\n'),
-(429, 60, 70, 'block5', '<p>Welcome to the Metronic</p>\n'),
-(430, 60, 70, 'block6', '<p>Hi Dylan, your registration is completed!</p>\n'),
-(431, 60, 70, 'block7', '<p>Lorem ipsum dolor sit amet consectetuer adipiscing elit, sed diam nonumy nibh elit esmod tincidunt ut laoreet dolore magna aliquam volutpat wisi enim ad minim veniam quis dolore.</p>\n'),
-(432, 60, 70, 'block8', '<p><a href="#" target="_blank"><img alt="CONFIRM REGISTRATION" src="http://artloglab.com/metromail2/images/confirm-reg.gif" style="height:43px; width:225px" /></a></p>\n'),
-(433, 60, 70, 'block9', '<p><a href="#" target="_blank">GENERAL QUESTIONS</a> &nbsp;&nbsp;&nbsp;&nbsp;<img alt="|" src="http://artloglab.com/metromail2/images/dot.gif" style="height:9px; width:6px" />&nbsp;&nbsp;&nbsp;&nbsp; <a href="#" target="_blank">TERMS &amp; CONDITIONS</a> &nbsp;&nbsp;&nbsp;&nbsp;<img alt="|" src="http://artloglab.com/metromail2/images/dot.gif" style="height:9px; width:6px" />&nbsp;&nbsp;&nbsp;&nbsp; <a href="#" target="_blank">UNSUBSCRIBE EMAIL</a></p>\n'),
-(434, 60, 70, 'block10', '<p>2015 &copy; Metronic. ALL Rights Reserved.</p>\n'),
-(435, 60, 71, 'block1', '<p><a href="#" target="_blank"><img alt="Metronic" src="http://artloglab.com/metromail/images/logo.gif" style="height:19px; width:115px" /></a></p>\n'),
-(436, 60, 71, 'block2', '<p><a href="#" target="_blank"><img alt="Facebook" src="http://artloglab.com/metromail/images/facebook.gif" style="height:19px; width:10px" /></a></p>\n'),
-(437, 60, 71, 'block3', '<p><a href="#" target="_blank"><img alt="Twitter" src="http://artloglab.com/metromail/images/twitter.gif" style="height:16px; width:19px" /></a></p>\n'),
-(438, 60, 71, 'block4', '<p><a href="#" target="_blank"><img alt="Dribbble" src="http://artloglab.com/metromail/images/dribbble.gif" style="height:19px; width:19px" /></a></p>\n'),
-(439, 60, 71, 'block5', '<p>Awesome User Expierence</p>\n'),
-(440, 60, 71, 'block6', '<p>Lorem ipsum dolor sit amet consectetuer sed<br />\ndiam nonumy nibh elit dolore.</p>\n'),
-(441, 60, 71, 'block7', '<p><a href="#" target="_blank"><img alt="30-DAYS FREE TRIAL" src="http://artloglab.com/metromail/images/trial.gif" style="height:43px; width:193px" /></a></p>\n'),
-(442, 60, 71, 'block8', '<p><a href="#1" target="_blank">UNLIMITED LAYOUTS</a></p>\n'),
-(443, 60, 71, 'block9', '<p>Lorem ipsum dolor sit amet consectetuer sed et diam noumy elit dolore</p>\n'),
-(444, 60, 71, 'block10', '<p><a href="#2" target="_blank">GREAT SUPPORT</a></p>\n'),
-(445, 60, 71, 'block11', '<p>Lorem ipsum dolor sit amet consectetuer sed et diam noumy elit dolore</p>\n'),
-(446, 60, 71, 'block12', '<p><a href="#3" target="_blank">CLEAN CODE</a></p>\n'),
-(447, 60, 71, 'block13', '<p>Lorem ipsum dolor sit amet consectetuer sed et diam noumy elit dolore</p>\n'),
-(448, 60, 71, 'block14', '<p><a href="#PRODUCTS" target="_blank">PRODUCTS</a> &nbsp;&nbsp;&nbsp;&nbsp;<img alt="|" src="http://artloglab.com/metromail/images/dot.gif" style="height:9px; width:9px" />&nbsp;&nbsp;&nbsp;&nbsp; <a href="#FEATURES" target="_blank">FEATURES</a> &nbsp;&nbsp;&nbsp;&nbsp;<img alt="|" src="http://artloglab.com/metromail/images/dot.gif" style="height:9px; width:9px" />&nbsp;&nbsp;&nbsp;&nbsp; <a href="#LAYOUTS" target="_blank">LAYOUTS</a> &nbsp;&nbsp;&nbsp;&nbsp;<img alt="|" src="http://artloglab.com/metromail/images/dot.gif" style="height:9px; width:9px" />&nbsp;&nbsp;&nbsp;&nbsp; <a href="#SUPPORT" target="_blank">SUPPORT</a> &nbsp;&nbsp;&nbsp;&nbsp;<img alt="|" src="http://artloglab.com/metromail/images/dot.gif" style="height:9px; width:9px" />&nbsp;&nbsp;&nbsp;&nbsp; <a href="#DISCOVER" target="_blank">DISCOVER</a></p>\n'),
-(449, 60, 71, 'block15', '<p>Featured Works</p>\n'),
-(450, 60, 71, 'block16', '<p><a href="#" target="_blank"><img alt="Image 1" src="http://artloglab.com/metromail/images/img1.jpg" style="height:auto; width:100%" /></a></p>\n'),
-(451, 60, 71, 'block17', '<p><a href="#" target="_blank"><img alt="Image 2" src="http://artloglab.com/metromail/images/img2.jpg" style="height:auto; width:100%" /></a></p>\n'),
-(452, 60, 71, 'block18', '<p><a href="#" target="_blank"><img alt="Image 3" src="http://artloglab.com/metromail/images/img3.jpg" style="height:auto; width:100%" /></a></p>\n'),
-(453, 60, 71, 'block19', '<p><a href="#" target="_blank"><img alt="Evernote" src="http://artloglab.com/metromail/images/evernote.gif" style="height:auto; width:100%" /></a></p>\n'),
-(454, 60, 71, 'block20', '<p><a href="#" target="_blank"><img alt="Pinterest" src="http://artloglab.com/metromail/images/pinterest.gif" style="height:auto; width:100%" /></a></p>\n'),
-(455, 60, 71, 'block21', '<p><a href="#" target="_blank"><img alt="National Geographic" src="http://artloglab.com/metromail/images/ng.gif" style="height:auto; width:100%" /></a></p>\n'),
-(456, 60, 71, 'block22', '<p><a href="#" target="_blank"><img alt="Shopify" src="http://artloglab.com/metromail/images/shopify.gif" style="height:auto; width:100%" /></a></p>\n'),
-(457, 60, 71, 'block23', '<p>2015 &copy; 5555.</p>\n'),
-(458, 60, 72, 'block1', '<p><a href="#" target="_blank"><img alt="Metronic" src="http://artloglab.com/metromail3/images/logo.gif" style="height:19px; width:115px" /></a></p>\n'),
-(459, 60, 72, 'block2', '<p><a href="#" target="_blank"><img alt="Facebook" src="http://artloglab.com/metromail3/images/facebook.gif" style="height:19px; width:10px" /></a></p>\n'),
-(460, 60, 72, 'block3', '<p><a href="#" target="_blank"><img alt="Twitter" src="http://artloglab.com/metromail3/images/twitter.gif" style="height:16px; width:19px" /></a></p>\n'),
-(461, 60, 72, 'block4', '<p><a href="#" target="_blank"><img alt="Dribbble" src="http://artloglab.com/metromail3/images/dribbble.gif" style="height:19px; width:19px" /></a></p>\n'),
-(462, 60, 72, 'block5', '<p>Diam nonumy <strong>nibh elit</strong> dolore amet</p>\n'),
-(463, 60, 72, 'block6', '<p>Lorem ipsum dolor sit amet consectetuer sed<br />\ndiam nonumy nibh elit dolore dolor sit.</p>\n'),
-(464, 60, 72, 'block7', '<p><a href="#" target="_blank"><img alt="30-DAYS FREE TRIAL" src="http://artloglab.com/metromail3/images/trial.gif" style="height:55px; width:308px" /></a></p>\n'),
-(465, 60, 72, 'block8', '<p><a href="#" target="_blank"><img alt="Metronic" src="http://artloglab.com/metromail3/images/img1.jpg" style="height:auto; width:100%" /></a></p>\n'),
-(466, 60, 72, 'block9', '<p><a href="#2" target="_blank">UNLIMITED LAYOUTS</a></p>\n'),
-(467, 60, 72, 'block10', '<p>Lorem ipsum dolor sit amet consectetuer sed et diam noumy elit dolore. Lorem ipsum dolor sit amet consectetuer sed et diam noumy elit dolore. Lorem ipsum dolor sit amet consectetuer sed et diam noumy elit dolore.</p>\n'),
-(468, 60, 72, 'block11', '<p><a href="#" target="_blank"><img alt="Metronic" src="http://artloglab.com/metromail3/images/img2.jpg" style="height:auto; width:100%" /></a></p>\n'),
-(469, 60, 72, 'block12', '<p><a href="#2" target="_blank">GREAT SUPPORT</a></p>\n'),
-(470, 60, 72, 'block13', '<p>Lorem ipsum dolor sit amet consectetuer sed et diam noumy elit dolore. Lorem ipsum dolor sit amet consectetuer sed et diam noumy elit dolore. Lorem ipsum dolor sit amet consectetuer sed et diam noumy elit dolore.</p>\n'),
-(471, 60, 72, 'block14', '<p><a href="#" target="_blank"><img alt="Metronic" src="http://artloglab.com/metromail3/images/img3.jpg" style="height:auto; width:100%" /></a></p>\n'),
-(472, 60, 72, 'block15', '<p><a href="#2" target="_blank">CLEAN CODE</a></p>\n'),
-(473, 60, 72, 'block16', '<p>Lorem ipsum dolor sit amet consectetuer sed et diam noumy elit dolore. Lorem ipsum dolor sit amet consectetuer sed et diam noumy elit dolore. Lorem ipsum dolor sit amet consectetuer sed et diam noumy elit dolore.</p>\n'),
-(474, 60, 72, 'block17', '<p>Get 1-month trial for free</p>\n'),
-(475, 60, 72, 'block18', '<p>Lorem ipsum dolor sit amet consectetuer sed diam nonumy nibh elit dolore dolor sit dolor sit amet consectetuer sed diam nonumy nibh elit.</p>\n'),
-(476, 60, 72, 'block19', '<p><a href="#" target="_blank"><img alt="Try it" src="http://artloglab.com/metromail3/images/try-it.gif" style="height:50px; width:234px" /></a></p>\n'),
-(477, 60, 72, 'block20', '<p><a href="#" target="_blank"><img alt="Metronic" src="http://artloglab.com/metromail3/images/logo-gray.gif" style="height:19px; width:115px" /></a></p>\n'),
-(478, 60, 72, 'block21', '<p><a href="#" target="_blank">About</a></p>\n'),
-(479, 60, 72, 'block22', '<p><a href="#" target="_blank">Blog</a></p>\n'),
-(480, 60, 72, 'block23', '<p><a href="#" target="_blank">Contact</a></p>\n'),
-(481, 60, 73, 'block1', '<p><a href="#" target="_blank"><img alt="Metronic" src="http://artloglab.com/metromail-shop/images/logo.gif" style="height:19px; width:115px" /></a></p>\n'),
-(482, 60, 73, 'block2', '<p><a href="#" target="_blank"><img alt="Promo" src="http://artloglab.com/metromail-shop/images/promo.jpg" style="height:auto; width:100%" /></a></p>\n'),
-(483, 60, 73, 'block3', '<p>Newest Products</p>\n'),
-(484, 60, 73, 'block4', '<p><a href="#" target="_blank"><img alt="Goods 1" src="http://artloglab.com/metromail-shop/images/goods1.jpg" style="height:auto; width:100%" /></a></p>\n'),
-(485, 60, 73, 'block5', '<p><a href="#" target="_blank">Lorem ipsum dolor sit</a></p>\n'),
-(486, 60, 73, 'block6', '<p>$150</p>\n'),
-(487, 60, 73, 'block7', '<p><a href="#" target="_blank"><img alt="Goods 2" src="http://artloglab.com/metromail-shop/images/goods2.jpg" style="height:auto; width:100%" /></a></p>\n'),
-(488, 60, 73, 'block8', '<p><a href="#" target="_blank">Consectetuer sed et diam</a></p>\n'),
-(489, 60, 73, 'block9', '<p>$400</p>\n'),
-(490, 60, 73, 'block10', '<p><a href="#" target="_blank"><img alt="Goods 3" src="http://artloglab.com/metromail-shop/images/goods3.jpg" style="height:auto; width:100%" /></a></p>\n'),
-(491, 60, 73, 'block11', '<p><a href="#" target="_blank">Diam nonumy nibh</a></p>\n'),
-(492, 60, 73, 'block12', '<p>$320</p>\n'),
-(493, 60, 73, 'block13', '<p><a href="#" target="_blank"><img alt="Goods 4" src="http://artloglab.com/metromail-shop/images/goods4.jpg" style="height:auto; width:100%" /></a></p>\n'),
-(494, 60, 73, 'block14', '<p><a href="#" target="_blank">Nonumy nibh elit</a></p>\n'),
-(495, 60, 73, 'block15', '<p>$680</p>\n'),
-(496, 60, 73, 'block16', '<p><a href="#" target="_blank"><img alt="Brand" src="http://artloglab.com/metromail-shop/images/brand.jpg" style="height:auto; width:100%" /></a></p>\n'),
-(497, 60, 73, 'block17', '<p><a href="#" target="_blank"><img alt="Brand" src="http://artloglab.com/metromail-shop/images/brand.jpg" style="height:auto; width:100%" /></a></p>\n'),
-(498, 60, 73, 'block18', '<p><a href="#" target="_blank"><img alt="Brand" src="http://artloglab.com/metromail-shop/images/brand.jpg" style="height:auto; width:100%" /></a></p>\n'),
-(499, 60, 73, 'block19', '<p>Need help? Call us!</p>\n'),
-(500, 60, 73, 'block20', '<p>873-426-0028</p>\n'),
-(501, 60, 73, 'block21', '<p>2015 &copy; Metronic. ALL Rights Reserved.</p>\n');
+(574, 60, 69, 'block5', '<p><a href="#">Follow on Twitter</a>&nbsp;&nbsp;&nbsp;<a href="#">Friend on Facebook</a></p>\n'),
+(571, 60, 69, 'block2', '<p>Email not displaying correctly?<br />\n<a href="#" target="_blank">View it in your browser</a>.</p>\n'),
+(572, 60, 69, 'block3', '<p><img src="templates/images/header_placeholder_600px.png" /></p>\n'),
+(573, 60, 69, 'block4', '<h1>Designing Your Template</h1>\n\n<h3>Creating a good-looking email is simple</h3>\n\n<p>Customize your template by hovering over the text and clicking. This will activate the style editor. Set your fonts, colors, and styles. After setting your styling is all done you can click here in this area, delete the text, and start adding your own awesome content.<br />\n&nbsp;</p>\n\n<h2>Styling Your Content</h2>\n\n<p>Make your email easy to read</p>\n\n<p>After you enter your content, highlight the text you want to style and select the options you set in the style editor in the &quot;<em>styles</em>&quot; drop down box. Want to <a href="#" target="_blank">get rid of styling on a bit of text</a>, but having trouble doing it? Just use the &quot;<em>remove formatting</em>&quot; button to strip the text of any formatting and reset your style.</p>\n'),
+(570, 60, 69, 'block1', '<p>Use this area to offer a short teaser of your email&#39;s content. Text here will show in the preview area of some email clients.</p>\n');
 
 -- --------------------------------------------------------
 
@@ -1057,7 +987,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `username`, `password`, `role`, `emails`, `timestamp`) VALUES
 (59, 'mihai.sanfran@gmail.com', '0991b5625c1292ded687ab18dd2fd2f1', 'buyer', 1999, '2015-04-10 03:38:23'),
-(60, 'admin', 'fe01ce2a7fbac8fafaed7c982a04e229', 'admin', 9929, '2015-06-15 04:04:39');
+(60, 'admin', 'fe01ce2a7fbac8fafaed7c982a04e229', 'admin', 9836, '2015-06-30 03:13:02');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
