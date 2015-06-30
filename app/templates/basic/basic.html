@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>*|MC:SUBJECT|*</title>
+        <title>Subject</title>
         <style type="text/css">
 			/* /\/\/\/\/\/\/\/\/ CLIENT-SPECIFIC STYLES /\/\/\/\/\/\/\/\/ */
 			#outlook a{padding:0;} /* Force Outlook to provide a "view in browser" message */
@@ -32,7 +32,7 @@
 			* @theme page
 			*/
 			body, #bodyTable{
-				/*@editable*/ background-color:#DEE0E2;
+				/*@editable*/ background-color:#eff3f8;
 			}
 
 			/**
@@ -42,7 +42,7 @@
 			* @theme page
 			*/
 			#bodyCell{
-				/*@editable*/ border-top:4px solid #BBBBBB;
+				/*@editable border-top:4px solid #BBBBBB;*/
 			}
 
 			/**
@@ -234,7 +234,7 @@
 			* @tip Set the background color and borders for your email's body area.
 			*/
 			#templateBody{
-				/*@editable*/ background-color:#F4F4F4;
+				/*@editable*/ background-color:#FFF;
 				/*@editable*/ border-top:1px solid #FFFFFF;
 				/*@editable*/ border-bottom:1px solid #CCCCCC;
 			}
@@ -431,7 +431,7 @@
 
 				.footerContent a{display:block !important;} /* Place footer social and utility links on their own lines, for easier access */
 			}
-						/***************************/
+			/***************************/
 			
 		/* Style a bit the inline editables. */
 .cke_editable.cke_editable_inline
@@ -457,12 +457,9 @@
 }
 
 /*****************************************/
-
-		</style>
-     
-
-    </head>
-    <body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0">
+</style>
+</head>
+<body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0">
     	<center>
         	<table align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable">
             	<tr>
@@ -471,36 +468,22 @@
                     	<table border="0" cellpadding="0" cellspacing="0" id="templateContainer">
                         	<tr>
                             	<td align="center" valign="top">
-                                	<!-- BEGIN PREHEADER // -->
-                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templatePreheader">
-                                        <tr>
-                                            <td valign="top" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:20px;" mc:edit="preheader_content00"><div id="block1" contenteditable="true">%block1%</div></td>
-                                            <td valign="top" width="180" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:0;" mc:edit="preheader_content01"><div id="block2" contenteditable="true">%block2%</div></td>
-                                        </tr>
-                                    </table>
-                                    <!-- // END PREHEADER -->
-                                </td>
-                            </tr>
-                        	<tr>
-                            	<td align="center" valign="top">
-                                	<!-- BEGIN HEADER // -->
-                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateHeader">
-                                        <tr>
-                                            <td valign="top" class="headerContent">
-                                            	<div id="block3" contenteditable="true">%block3%</div>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <!-- // END HEADER -->
-                                </td>
-                            </tr>
-                        	<tr>
-                            	<td align="center" valign="top">
                                 	<!-- BEGIN BODY // -->
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateBody">
                                         <tr>
                                             <td valign="top" class="bodyContent" mc:edit="body_content">
-                                                <div id="block4" contenteditable="true">%block4%</div>
+                                            <div id="block1" contenteditable="true" class="editable">
+                                                <h1>Dear Customer</h1><br/>
+                                                
+                                                I started my business because I thought I had something special to offer that could help others, and that would be profitable for me. I make a product that people want, or offer a service that people need. I am an expert in my field and have done a lot of work honing my skills or enhancing my products. 
+                                                <br /><br/>
+                                                
+                                               
+                                                I want to provide excellent service to you, I really do. But sometimes you make it hard to do that. When you call me on the phone and start screaming at me, or come into my place of business and are ranting and raving, it’s really hard to help you. I understand that you’re frustrated, but I’m really trying my best, and screaming at me definitely doesn’t help. <br/><br/>
+                                                We all want, and deserve, to make a living, you and me both. I’m delighted that I can provide you with something you want or need, and that you’re willing to buy it from me. So let’s make it work. With so many other things wrong in the world, doing business with each other shouldn’t be such hard work. Thank you for listening. Now, let me place that order for you. <br/><br/>
+                                                Happy to serve you, <br/><br/>
+Your vendor 
+                                            </div>
                                             </td>
                                         </tr>
                                     </table>
@@ -510,11 +493,16 @@
                         	<tr>
                             	<td align="center" valign="top">
                                 	<!-- BEGIN FOOTER // -->
+                                    
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateFooter">
                                         <tr>
                                             <td valign="top" class="footerContent" mc:edit="footer_content00">
-                                                <div id="block5" contenteditable="true" style="float:left;">%block5%</div>
-                                                <div style="float:right;"><a href="#">unsubscribe from this list</a></div>
+                                             <div id="block2" contenteditable="true" class="editable" style="float:left;">
+                                                <a href="#">Follow on Twitter</a>&nbsp;&nbsp;&nbsp;<a href="#">Friend on Facebook</a>
+                                              </div>
+                                              <div style="float:right;">
+                                              	<a href="#">unsubscribe from this list</a>
+                                              </div>
                                             </td>
                                         </tr>
                                     </table>
@@ -527,5 +515,6 @@
                 </tr>
             </table>
         </center>
+       
     </body>
 </html>

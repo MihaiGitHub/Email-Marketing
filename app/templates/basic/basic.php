@@ -32,7 +32,7 @@
 			* @theme page
 			*/
 			body, #bodyTable{
-				/*@editable*/ background-color:#DEE0E2;
+				/*@editable*/ background-color:#eff3f8;
 			}
 
 			/**
@@ -42,7 +42,7 @@
 			* @theme page
 			*/
 			#bodyCell{
-				/*@editable*/ border-top:4px solid #BBBBBB;
+				/*@editable border-top:4px solid #BBBBBB;*/
 			}
 
 			/**
@@ -234,7 +234,7 @@
 			* @tip Set the background color and borders for your email's body area.
 			*/
 			#templateBody{
-				/*@editable*/ background-color:#F4F4F4;
+				/*@editable*/ background-color:#FFF;
 				/*@editable*/ border-top:1px solid #FFFFFF;
 				/*@editable*/ border-bottom:1px solid #CCCCCC;
 			}
@@ -468,54 +468,21 @@
                     	<table border="0" cellpadding="0" cellspacing="0" id="templateContainer">
                         	<tr>
                             	<td align="center" valign="top">
-                                	<!-- BEGIN PREHEADER // -->
-                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templatePreheader">
-                                        <tr>
-                                            <td valign="top" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:20px;" mc:edit="preheader_content00">
-                             <div id="block1" contenteditable="true" class="editable">
-                                 Use this area to offer a short teaser of your email's content. Text here will show in the preview area of some email clients.
-                             </div>
-                                            </td>
-                                            
-                                            <td valign="top" width="180" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:0;" mc:edit="preheader_content01">
-                              <div id="block2" contenteditable="true" class="editable">  
-                              		Email not displaying correctly?<br /><a href="#" target="_blank">View it in your browser</a>.
-                              </div>
-                                            </td>
-                            
-                                        </tr>
-                                    </table>
-                                    <!-- // END PREHEADER -->
-                                </td>
-                            </tr>
-                        	<tr>
-                            	<td align="center" valign="top">
-                                	<!-- BEGIN HEADER // -->
-                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateHeader">
-                                        <tr>
-                                            <td valign="top" class="headerContent">
-                                            	<div id="block3" contenteditable="true" class="editable"><img src="templates/images/header_placeholder_600px.png" style="max-width:600px;" id="headerImage" /></div>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <!-- // END HEADER -->
-                                </td>
-                            </tr>
-                        	<tr>
-                            	<td align="center" valign="top">
                                 	<!-- BEGIN BODY // -->
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateBody">
                                         <tr>
                                             <td valign="top" class="bodyContent" mc:edit="body_content">
-                                            <div id="block4" contenteditable="true" class="editable">
-                                                <h1>Designing Your Template</h1>
-                                                <h3>Creating a good-looking email is simple</h3>
-                                                Customize your template by hovering over the text and clicking. This will activate the style editor. Set your fonts, colors, and styles. After setting your styling is all done you can click here in this area, delete the text, and start adding your own awesome content.
-                                                <br />
-                                                <br />
-                                                <h2>Styling Your Content</h2>
-                                                <h4>Make your email easy to read</h4>
-                                                After you enter your content, highlight the text you want to style and select the options you set in the style editor in the "<em>styles</em>" drop down box. Want to <a href="#" target="_blank">get rid of styling on a bit of text</a>, but having trouble doing it? Just use the "<em>remove formatting</em>" button to strip the text of any formatting and reset your style. 
+                                            <div id="block1" contenteditable="true" class="editable">
+                                                <h1>Dear Customer</h1><br/>
+                                                
+                                                I started my business because I thought I had something special to offer that could help others, and that would be profitable for me. I make a product that people want, or offer a service that people need. I am an expert in my field and have done a lot of work honing my skills or enhancing my products. 
+                                                <br /><br/>
+                                                
+                                               
+                                                I want to provide excellent service to you, I really do. But sometimes you make it hard to do that. When you call me on the phone and start screaming at me, or come into my place of business and are ranting and raving, it’s really hard to help you. I understand that you’re frustrated, but I’m really trying my best, and screaming at me definitely doesn’t help. <br/><br/>
+                                                We all want, and deserve, to make a living, you and me both. I’m delighted that I can provide you with something you want or need, and that you’re willing to buy it from me. So let’s make it work. With so many other things wrong in the world, doing business with each other shouldn’t be such hard work. Thank you for listening. Now, let me place that order for you. <br/><br/>
+                                                Happy to serve you, <br/><br/>
+Your vendor 
                                             </div>
                                             </td>
                                         </tr>
@@ -530,7 +497,7 @@
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateFooter">
                                         <tr>
                                             <td valign="top" class="footerContent" mc:edit="footer_content00">
-                                             <div id="block5" contenteditable="true" class="editable" style="float:left;">
+                                             <div id="block2" contenteditable="true" class="editable" style="float:left;">
                                                 <a href="#">Follow on Twitter</a>&nbsp;&nbsp;&nbsp;<a href="#">Friend on Facebook</a>
                                               </div>
                                               <div style="float:right;">
