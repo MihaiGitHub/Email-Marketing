@@ -26,16 +26,16 @@ $smtp_auth = false;
 $smtp_username = '';
 $smtp_password = '';
 $smtp_host = '';
-$email_from_address = '';
-$email_from_name = '';
+$email_from_address = 'mihai.sanfran@gmail.com';
+$email_from_name = 'Admin';
 
 /*
 Site Admin : 
 These values will be used to send administration emails to.  Errors, IPN confirmations, etc.
 */
 
-$admin_email_address = 'xxxxxxxxxxxxxxxxxx';
-$admin_name = 'xxxxxxxxx';
+$admin_email_address = 'travelin.man2015@gmail.com';
+$admin_name = 'Admin';
 
 /*
 Database Settings : 
@@ -43,10 +43,10 @@ Fill in your MySQL credentials here.
 $db_table_prefix will be used for the names of the tables
 */
 
-$db_host = $sandbox ? 'xxxxxxxxxxxxx' : 'xxxxxxxxxxxxxxx';	
-$db_username = $sandbox ? 'xxxxxxx' : 'xxxxxxx';
-$db_password = $sandbox ? 'xxxxxxx' : 'xxxxxxx';
-$db_database = $sandbox ? 'xxxxxxx' : 'xxxxxxxx';
+$db_host = $sandbox ? 'msmarandache.com.mysql' : 'msmarandache.com.mysql';	
+$db_username = $sandbox ? 'msmarandache_co' : 'msmarandache_co';
+$db_password = $sandbox ? 'wurus6Tw' : 'wurus6Tw';
+$db_database = $sandbox ? 'msmarandache_co' : 'msmarandache_co';
 $db_table_prefix = '';  
 
 /*

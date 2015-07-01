@@ -28,7 +28,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['code'])){
 	$message = true;
 	$client_id='35316327914-4sdoc4ihn46qcc0ihnnlp06p1u0dv52n.apps.googleusercontent.com';
 	$client_secret='rISHHURG8t7XVqMlHXNBqcVD';
-	$redirect_uri='http://mihaismarandache.com/emarketing/app/lists.php';
+	$redirect_uri='http://mmarandache.com/emarketing/app/lists.php';
 	$max_results = 1000;
 	 
 	$auth_code = $_GET["code"];
