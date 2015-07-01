@@ -30,6 +30,8 @@ $stmt = $conn->prepare('SELECT COUNT(id) AS count FROM emails WHERE user = :user
 $result = $stmt->execute(array('user' => $_SESSION['id']));
 $row = $stmt->fetch();
 $emailsopened = $row['count'];
+
+
 ?>
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
@@ -80,7 +82,7 @@ $emailsopened = $row['count'];
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <img src="img/avatar-mini.png" alt="">
-                                <span class="username">Mihai Smarandache</span>
+                                <span class="username"><?php echo htmlentities($_SESSION['username']); ?></span>
 							<b class="caret"></b>
 							</a>
 							<ul class="dropdown-menu">

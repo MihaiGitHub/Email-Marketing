@@ -24,6 +24,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 			$_SESSION['id'] = $row['id'];
 			$_SESSION['role'] = $row['role'];
 			$_SESSION['emails'] = $row['emails'];
+			$_SESSION['username'] = $row['username'];
 			$_SESSION['auth'] = true;
 			$_SESSION['last_access'] = time();
 			break;

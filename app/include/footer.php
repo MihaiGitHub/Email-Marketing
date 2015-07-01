@@ -26,16 +26,15 @@
     <script type="text/javascript" src="assets/data-tables/DT_bootstrap.js"></script>
     
     
-    <script src="http://code.highcharts.com/highcharts.js"></script>
-<script src="http://code.highcharts.com/modules/exporting.js"></script>
-
+    <script src="assets/highcharts/highcharts.js"></script>
+	<script src="assets/highcharts/exporting.js"></script>
+	<script src="http://code.highcharts.com/modules/drilldown.js"></script>
 
     <script src="js/table-editable.js"></script>
 	<script src="js/scripts.js"></script>
 	<script>
 		jQuery(document).ready(function() {
 			// initiate layout and plugins
-		//	App.setMainPage(true);
 			App.init();
 			TableEditable.init();
 		});
