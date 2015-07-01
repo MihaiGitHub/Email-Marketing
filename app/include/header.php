@@ -7,7 +7,7 @@ if(!$_SESSION['auth']){
 	exit;
 }
 // Session timeout after 15 minutes
-if((time() - $_SESSION['last_access']) > 900){
+if((time() - $_SESSION['last_access']) > 1200){
 	header('Location: index.php?timeout');
 	exit;
 } else {
