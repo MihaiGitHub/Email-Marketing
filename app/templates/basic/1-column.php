@@ -460,24 +460,27 @@
 
 		</style>
      
-
-    </head>
-    <body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0">
-    	<center>
-        	<table align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable">
-            	<tr>
-                	<td align="center" valign="top" id="bodyCell">
-                    	<!-- BEGIN TEMPLATE // -->
-                    	<table border="0" cellpadding="0" cellspacing="0" id="templateContainer">
-                        	<tr>
+</head>
+   <body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0">
+     	<center>
+         	<table align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable">
+             	<tr>
+                 	<td align="center" valign="top" id="bodyCell">
+                    
+                    
+                    
+                    
+                    
+                     	<table border="0" cellpadding="0" cellspacing="0" id="templateContainer">
+                        	<tbody><tr>
                             	<td align="center" valign="top">
                                 	<!-- BEGIN PREHEADER // -->
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templatePreheader">
-                                        <tr>
-                                            <td valign="top" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:20px;" mc:edit="preheader_content00"><div id="block1" contenteditable="true">%block1%</div></td>
-                                            <td valign="top" width="180" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:0;" mc:edit="preheader_content01"><div id="block2" contenteditable="true">%block2%</div></td>
+                                        <tbody><tr>
+                                            <td valign="top" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:20px;" mc:edit="preheader_content00"><div id="block1" contenteditable="true" class="cke_editable cke_editable_inline cke_contents_ltr cke_show_borders" tabindex="0" spellcheck="false" style="position: relative;" role="textbox" aria-label="Rich Text Editor, block1" title="Rich Text Editor, block1" aria-describedby="cke_68"><p>Use this area to offer a short teaser of your email's content. Text here will show in the preview area of some email clients.</p></div></td>
+                                            <td valign="top" width="180" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:0;" mc:edit="preheader_content01"><div id="block2" contenteditable="true" class="cke_editable cke_editable_inline cke_contents_ltr cke_show_borders" tabindex="0" spellcheck="false" style="position: relative;" role="textbox" aria-label="Rich Text Editor, block2" title="Rich Text Editor, block2" aria-describedby="cke_112"><p>Email not displaying correctly?<br><a data-cke-saved-href="#" href="#" target="_blank">View it in your browser</a>.</p></div></td>
                                         </tr>
-                                    </table>
+                                    </tbody></table>
                                     <!-- // END PREHEADER -->
                                 </td>
                             </tr>
@@ -485,12 +488,12 @@
                             	<td align="center" valign="top">
                                 	<!-- BEGIN HEADER // -->
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateHeader">
-                                        <tr>
+                                        <tbody><tr>
                                             <td valign="top" class="headerContent">
-                                            	<div id="block3" contenteditable="true">%block3%</div>
+                                            	<div id="block3" contenteditable="true" class="cke_editable cke_editable_inline cke_contents_ltr cke_show_borders" tabindex="0" spellcheck="false" style="position: relative;" role="textbox" aria-label="Rich Text Editor, block3" title="Rich Text Editor, block3" aria-describedby="cke_156"><p><img data-cke-saved-src="templates/images/header_placeholder_600px.png" src="templates/images/header_placeholder_600px.png"></p></div>
                                             </td>
                                         </tr>
-                                    </table>
+                                    </tbody></table>
                                     <!-- // END HEADER -->
                                 </td>
                             </tr>
@@ -498,12 +501,12 @@
                             	<td align="center" valign="top">
                                 	<!-- BEGIN BODY // -->
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateBody">
-                                        <tr>
+                                        <tbody><tr>
                                             <td valign="top" class="bodyContent" mc:edit="body_content">
-                                                <div id="block4" contenteditable="true">%block4%</div>
+                                                <div id="block4" contenteditable="true" class="cke_editable cke_editable_inline cke_contents_ltr cke_show_borders" tabindex="0" spellcheck="false" style="position: relative;" role="textbox" aria-label="Rich Text Editor, block4" title="Rich Text Editor, block4" aria-describedby="cke_200"><h1>Designing Your Template</h1><h3>Creating a good-looking email is simple</h3><p>Customize your template by hovering over the text and clicking. This will activate the style editor. Set your fonts, colors, and styles. After setting your styling is all done you can click here in this area, delete the text, and start adding your own awesome content.<br><br></p><h2>Styling Your Content</h2><p>Make your email easy to read</p><p>After you enter your content, highlight the text you want to style and select the options you set in the style editor in the "<em>styles</em>" drop down box. Want to <a data-cke-saved-href="#" href="#" target="_blank">get rid of styling on a bit of text</a>, but having trouble doing it? Just use the "<em>remove formatting</em>" button to strip the text of any formatting and reset your style.</p></div>
                                             </td>
                                         </tr>
-                                    </table>
+                                    </tbody></table>
                                     <!-- // END BODY -->
                                 </td>
                             </tr>
@@ -511,21 +514,27 @@
                             	<td align="center" valign="top">
                                 	<!-- BEGIN FOOTER // -->
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateFooter">
-                                        <tr>
+                                        <tbody><tr>
                                             <td valign="top" class="footerContent" mc:edit="footer_content00">
-                                                <div id="block5" contenteditable="true" style="float:left;">%block5%</div>
+                                                <div id="block5" contenteditable="true" style="float: left; position: relative;" class="cke_editable cke_editable_inline cke_contents_ltr cke_show_borders" tabindex="0" spellcheck="false" role="textbox" aria-label="Rich Text Editor, block5" title="Rich Text Editor, block5" aria-describedby="cke_244"><p><a data-cke-saved-href="#" href="#">Follow on Twitter</a>&nbsp;&nbsp;&nbsp;<a data-cke-saved-href="#" href="#">Friend on Facebook</a></p></div>
                                                 <div style="float:right;"><a href="#">unsubscribe from this list</a></div>
                                             </td>
                                         </tr>
-                                    </table>
+                                    </tbody></table>
                                     <!-- // END FOOTER -->
                                 </td>
                             </tr>
-                        </table>
-                        <!-- // END TEMPLATE -->
-                    </td>
-                </tr>
-            </table>
-        </center>
-    </body>
-</html>
+                        </tbody></table>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                     </td>
+                 </tr>
+             </table>
+         </center>    
+     </body>
+ </html>

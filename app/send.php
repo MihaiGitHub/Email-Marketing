@@ -84,11 +84,16 @@ if($count > 0){
 	$stmtfields->execute(array('userid' => $_SESSION['id'], 'templateid' => $_SESSION['templateid']));
 	$stmtfields->setFetchMode(PDO::FETCH_ASSOC);
 						
-	$body = file_get_contents($template);
+//	$body = file_get_contents($template);
+
+	$placeholders = [];
+	$values = [];
 
 	while($rowfields = $stmtfields->fetch()){
-		
-			$body = str_replace('%'.$rowfields['field'].'%', $rowfields['value'], $body);
+		$placeholders[] = '%'.$rowfields['field'].'%';
+		$values[] = $rowfields['value'];
+		// old
+		//	$body = str_replace('%'.$rowfields['field'].'%', $rowfields['value'], $body);
 
 		
 		/*
@@ -117,10 +122,21 @@ if($count > 0){
 	$stmtcid->setFetchMode(PDO::FETCH_ASSOC);
 	
 //	echo '<table class="sending">';
-			
-	while($rowcid = $stmtcid->fetch()){
-					$body = str_replace('%IDD%', $rowcid['id'], $body);
 
+		
+	while($rowcid = $stmtcid->fetch()){
+		
+		
+		$tracker = THIS_WEBSITE_URI . '/receipt.php?id=' . urlencode( $rowcid['id'] );
+
+		
+		
+		$body = file_get_contents($template);
+		$body = str_replace($placeholders, $values, $body);
+		$body .= '<img style="display:none;" border="0" src="'.$tracker.'" width="1" height="1" />';
+		
+			//		$body = str_replace('%IDD%', $rowcid['id'], $body);
+//echo 'body '.$body;
 /*		
 		////////////////////////////REPLACING AND CONSTRUCTING THE CALLBACK LINK
 		$patterns[100] = '/EMAILL/';
@@ -138,7 +154,40 @@ if($count > 0){
 		
 		////////////////////////////////////
 */
+///////////////////////////////////////////////PHP MAILER /////////////////////////////////////////////////
+
+
+$mail = new PHPMailer();
+ 
+ 
+$mail->SMTPDebug  = 2;                    
+ 
+// from email seems to matter if it the email on the domain where the email was sent from
+//$mail->From     = "mihai@msmarandache.com";
+	$mail->SetFrom("mihai@msmarandache.com", $_POST['fromName']);
+	//$mail->SetFrom($_POST['fromEmail'], $_POST['fromName']);
+	//$mail->SetFrom('mihai.sanfran@gmail.com', 'mihai smarandache');
+	
+$mail->AddAddress($rowcid['email']);
+ 
+		$mail->AddReplyTo($_POST['replyTo']);
+		$mail->Subject = $_POST['subject'];
+		$mail->AltBody    = "To view the message, please use an HTML compatible email viewer!"; 
+		$mail->MsgHTML($body); 
+ 
+if(!$mail->Send()) {
+ // echo 'Message was not sent.';
+ // echo 'Mailer error: ' . $mail->ErrorInfo;
+} else {
+ // echo 'Message has been sent.';
+}
+
+
+
+/* old
 		$mail = new PHPMailer();
+		$mail->isSMTP();
+		$mail->Host = "send.one.com";
 		$mail->SMTPDebug  = 2;                    
 		
 		$mail->SetFrom($_POST['fromEmail'], $_POST['fromName']);
@@ -154,7 +203,7 @@ if($count > 0){
 		} else {
 	//	  echo "Message sent to ".$rowcid['email']."<br/>";
 		}
-
+************************************/
 		// Update campaign_emails that the email has been sent so next go around it will pick the non sent ones
 		$stmtupdatesent = $conn->prepare('UPDATE campaign_emails SET sent = 1 WHERE id = :id');
 		$resultupdatesent = $stmtupdatesent->execute(array('id' => $rowcid['id']));
