@@ -1,6 +1,6 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
+//error_reporting(E_ALL);
+//ini_set('display_errors', '1');
 
 if(!$_SESSION['auth']){ 
 	header('Location: index.php?authen=false');
@@ -13,8 +13,9 @@ if((time() - $_SESSION['last_access']) > 1200){
 } else {
 	$_SESSION['last_access'] = time();
 }
-
+/*
 include 'include/dbconnect.php';
+
 // total emails for user
 $stmt = $conn->prepare('SELECT COUNT(id) AS count FROM emails WHERE user = :user');
 $result = $stmt->execute(array('user' => $_SESSION['id']));
@@ -30,8 +31,7 @@ $stmt = $conn->prepare('SELECT COUNT(id) AS count FROM emails WHERE user = :user
 $result = $stmt->execute(array('user' => $_SESSION['id']));
 $row = $stmt->fetch();
 $emailsopened = $row['count'];
-
-
+*/
 ?>
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
