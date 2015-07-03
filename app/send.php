@@ -81,82 +81,31 @@ if($count > 0){
 	$stmtfields = $conn->prepare('SELECT field, value FROM template_fields WHERE user_id = :userid AND template_id = :templateid');
 	$stmtfields->execute(array('userid' => $_SESSION['id'], 'templateid' => $_SESSION['templateid']));
 	$stmtfields->setFetchMode(PDO::FETCH_ASSOC);
-						
-//	$body = file_get_contents($template);
 
 	$placeholders = [];
 	$values = [];
 
+	// store fields to be replaced in arrays for replacement later
 	while($rowfields = $stmtfields->fetch()){
 		$placeholders[] = '%'.$rowfields['field'].'%';
 		$values[] = $rowfields['value'];
-		// old
-		//	$body = str_replace('%'.$rowfields['field'].'%', $rowfields['value'], $body);
-
-		
-		/*
-		switch($rowfields['field']){
-			case 'PIC1':
-				$patterns[1000] = '/PIC1/';
-				$replacements[1000] = $rowfields['value'];
-			break;	
-			case 'LINK1':
-			
-			break;
-			case 'FOOTER':
-				$patterns['FOOTER'] = '/FOOTER/';
-				$replacements['FOOTER'] = $rowfields['value'];
-			break;
-			default: // For sending the demo fields - could place the demo fields in the database and check if field is empty use them (another column next to the user inputed value in db)
-				$patterns[$rowfields['field']] = '/FIELD'.$rowfields['field'].'/';
-				$replacements[$rowfields['field']] = nl2br($rowfields['value']);
-		}
-		*/
 	}
 
 	/// Select all emails from campaign_emails inserted above
 	$stmtcid = $conn->prepare('SELECT id, c_id, email FROM campaign_emails WHERE c_id = :cid AND sent = 0 LIMIT 14');
 	$stmtcid->execute(array('cid' => $_SESSION['c_id']));
 	$stmtcid->setFetchMode(PDO::FETCH_ASSOC);
-	
-//	echo '<table class="sending">';
-
 		
-	while($rowcid = $stmtcid->fetch()){
+	while($rowcid = $stmtcid->fetch()){	
 		
-		
-		$tracker = THIS_WEBSITE_URI . '/receipt.php?id=' . urlencode( $rowcid['id'] );
-
-		
+		$tracker = THIS_WEBSITE_URI . '/receipt.php?id=' . urlencode( $rowcid['id'] ) . '&cid=' . urlencode( $rowcid['c_id'] );
 		
 		$body = file_get_contents($template);
 		$body = str_replace($placeholders, $values, $body);
 		$body .= '<img style="display:none;" border="0" src="'.$tracker.'" width="1" height="1" />';
 		
-			//		$body = str_replace('%IDD%', $rowcid['id'], $body);
-//echo 'body '.$body;
-/*		
-		////////////////////////////REPLACING AND CONSTRUCTING THE CALLBACK LINK
-		$patterns[100] = '/EMAILL/';
-		$patterns[101] = '/ROOT/';
-		$patterns[102] = '/IDD/';
-
-		$replacements[100] = $rowcid['email'];
-		$replacements[101] = getenv('HTTP_HOST');
-		$replacements[102] = $rowcid['id'];
-		///////////////////////////////////////////
-
-		$body = file_get_contents($template);
-	
-		$body = preg_replace($patterns, $replacements, $body);
-		
-		////////////////////////////////////
-*/
-///////////////////////////////////////////////PHP MAILER /////////////////////////////////////////////////
-
 
 $mail = new PHPMailer();
- 
  
 $mail->SMTPDebug  = 2;                    
  
@@ -208,8 +157,6 @@ if(!$mail->Send()) {
 
 
 	} // should be the while loop
-	
-//	echo '</table>';
 
 	// Update the total number of emails remaining
 	$stmtc = $conn->prepare('UPDATE users SET emails = :emails WHERE id = :userid');

@@ -105,13 +105,17 @@ $user_browser   =   getBrowser();
 
 //////////////////////
 // Update parent email table with total opened count
+/* OLD
 $stmt = $conn->prepare('UPDATE campaign_emails SET opened = opened + 1, ip = :ip, country = :country, region = :region WHERE id = :id');
 //$result = $stmt->execute(array('ip' => $_SERVER['REMOTE_ADDR'], 'country' => $data->country_name, 'region' => $data->region_name, 'id' => $_GET['id']));
 $result = $stmt->execute(array('ip' => $_SERVER['REMOTE_ADDR'], 'country' => 'TEMP', 'region' => 'TEMP', 'id' => $_GET['id']));
+*/
+$stmt = $conn->prepare('UPDATE campaign_emails SET opened = opened + 1 WHERE id = :id');
+$result = $stmt->execute(array('id' => $_GET['id']));
 
 // Insert a new record every time they reopen with more details about their environment
-$stmt2 = $conn->prepare('INSERT INTO campaign_emails_detail (ce_id, browser, os) VALUES (:id, :browser, :os)');
-$result2 = $stmt2->execute(array('id' => $_GET['id'], 'browser' => $user_browser, 'os' => $user_os));
+$stmt = $conn->prepare('INSERT INTO campaign_emails_detail (c_id, ce_id, ip, browser, os, opened) VALUES (:cid, :ce_id, :ip, :browser, :os, :opened)');
+$result = $stmt->execute(array('cid' => $_GET['cid'], 'ce_id' => $_GET['id'], 'ip' => $_SERVER['REMOTE_ADDR'], 'browser' => $user_browser, 'os' => $user_os, 'opened' => date('Y-m-d H')));
 
 ////////////////////////////////////////////////////////////////////////
 //define( 'THIS_ABSOLUTE_PATH', dirname( __FILE__ ) );
