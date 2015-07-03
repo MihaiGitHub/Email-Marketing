@@ -1,6 +1,11 @@
 <?php
 session_start();
 
+if(!$_SESSION['auth']){
+	header('Location: index.php?authen=false');
+	exit;	
+}
+
 include 'include/dbconnect.php';
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){

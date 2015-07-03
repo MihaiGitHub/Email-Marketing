@@ -6,8 +6,6 @@ if(!$_SESSION['auth']){
 	exit;	
 }
 
-date_default_timezone_set('America/Phoenix');
-
 include 'include/dbconnect.php';
 
 $_SESSION['c_id'] = uniqid('C',true);
