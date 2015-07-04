@@ -6,72 +6,236 @@ var App = function () {
      var isIE8 = false;
 	 
 	 var handleCharts = function () {
-				$('#timeframe-container').highcharts({
+	 
+	 	var cid =	sessionStorage.getItem('cid');
+
+		var jData = {};
+		jData.cid = cid;
+		
+		$.ajax({
+			  type: 'POST',
+			  url: 'charts.php',
+			  async: true,
+			  data: jData,
+			  error: function(error) {
+				console.log('error', error.error())
+			  },
+			  dataType: 'json',
+			  success: function(data) {
+							
+							var myData = [];
+							
+							for (var i = 0; i < data.emails.length; i++) {
+								
+								var dateStr = data.emails[i]['opened'];
+								var a=dateStr.split(" ");
+								var d=a[0].split("-");
+								var t=a[1].split(":");
+								
+								var d = new Date(d[0],(d[1]-1),d[2],t[0]);
+								
+								var year = d.getFullYear();
+								var month = d.getMonth();
+								var day = d.getDate();
+								var hour = d.getHours();
+								
+								myData.push([Date.UTC(year, month, day, hour), parseInt(data.emails[i]['count'])]);
+							}				
+										
+							$('#timeframe-container').highcharts({
+								credits: {
+									enabled: false
+								},
+								chart: {
+									type: 'column'
+								},
+								title: {
+									text: 'Timeframe'
+								},
+								subtitle: {
+									text: 'Daily number of email opens and link clicks after campaign has been sent'
+								},
+								xAxis: {
+									type: "datetime",
+								//	dateTimeLabelFormats: {
+								//		day: '%e of %b'
+								//	}
+								},
+								yAxis: {
+									min: 0,
+									title: {
+										text: null
+									}
+								}/*,
+								tooltip: {
+									headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+									pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+										'<td style="padding:0"><b>{point.y}</b></td></tr>',
+									footerFormat: '</table>',
+									shared: true,
+									useHTML: true
+								} */,
+								plotOptions: {
+									column: {
+										pointPadding: 0.2,
+										borderWidth: 0
+									}
+								},
+								series: [{
+									name: 'Email opens',
+									data: myData
+							
+								}/*, {
+									name: 'Email clicks',
+									data: [
+										[Date.UTC(2012, 0, 1), 4],
+										[Date.UTC(2012, 0, 2), 6],
+										[Date.UTC(2012, 0, 3), 9],
+										[Date.UTC(2012, 0, 4), 2]
+									]
+							
+								} */]
+							});
+			  },
+		});
+				   
+		
+			
+			// Create the chart
+			$('#breakdown-container').highcharts({
+				    credits: {
+						enabled: false
+				    },
 					chart: {
-						type: 'column'
+						type: 'pie'
 					},
 					title: {
-						text: 'Monthly Average Rainfall'
+						text: 'Browser market shares. January, 2015 to May, 2015'
 					},
 					subtitle: {
-						text: 'Source: WorldClimate.com'
-					},
-					xAxis: {
-						categories: [
-							'Jan',
-							'Feb',
-							'Mar',
-							'Apr',
-							'May',
-							'Jun',
-							'Jul',
-							'Aug',
-							'Sep',
-							'Oct',
-							'Nov',
-							'Dec'
-						],
-						crosshair: true
-					},
-					yAxis: {
-						min: 0,
-						title: {
-							text: 'Rainfall (mm)'
-						}
-					},
-					tooltip: {
-						headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-						pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-							'<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
-						footerFormat: '</table>',
-						shared: true,
-						useHTML: true
+						text: 'Click the slices to view versions. Source: netmarketshare.com.'
 					},
 					plotOptions: {
-						column: {
-							pointPadding: 0.2,
-							borderWidth: 0
+						series: {
+							dataLabels: {
+								enabled: true,
+								format: '{point.name}: {point.y:.1f}%'
+							}
+						},
+						pie: {
+							size: 250
 						}
 					},
+			
+					tooltip: {
+						headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+						pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
+					},
 					series: [{
-						name: 'Tokyo',
-						data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
-			
-					}, {
-						name: 'New York',
-						data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3]
-			
-					}, {
-						name: 'London',
-						data: [48.9, 38.8, 39.3, 41.4, 47.0, 48.3, 59.0, 59.6, 52.4, 65.2, 59.3, 51.2]
-			
-					}, {
-						name: 'Berlin',
-						data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4, 47.6, 39.1, 46.8, 51.1]
-			
-					}]
+						name: "Brands",
+						colorByPoint: true,
+						data: [{
+							name: "Microsoft Internet Explorer",
+							y: 56.33,
+							drilldown: "Microsoft Internet Explorer"
+						}, {
+							name: "Chrome",
+							y: 24.030000000000005,
+							drilldown: "Chrome"
+						}, {
+							name: "Firefox",
+							y: 10.38,
+							drilldown: "Firefox"
+						}, {
+							name: "Safari",
+							y: 4.77,
+							drilldown: "Safari"
+						}, {
+							name: "Opera",
+							y: 0.9100000000000001,
+							drilldown: "Opera"
+						}, {
+							name: "Proprietary or Undetectable",
+							y: 0.2,
+							drilldown: null
+						}]
+					}],
+					drilldown: {
+						series: [{
+							name: "Microsoft Internet Explorer",
+							id: "Microsoft Internet Explorer",
+							data: [
+								["v11.0", 24.13],
+								["v8.0", 17.2],
+								["v9.0", 8.11],
+								["v10.0", 5.33],
+								["v6.0", 1.06],
+								["v7.0", 0.5]
+							]
+						}, {
+							name: "Chrome",
+							id: "Chrome",
+							data: [
+								["v40.0", 5],
+								["v41.0", 4.32],
+								["v42.0", 3.68],
+								["v39.0", 2.96],
+								["v36.0", 2.53],
+								["v43.0", 1.45],
+								["v31.0", 1.24],
+								["v35.0", 0.85],
+								["v38.0", 0.6],
+								["v32.0", 0.55],
+								["v37.0", 0.38],
+								["v33.0", 0.19],
+								["v34.0", 0.14],
+								["v30.0", 0.14]
+							]
+						}, {
+							name: "Firefox",
+							id: "Firefox",
+							data: [
+								["v35", 2.76],
+								["v36", 2.32],
+								["v37", 2.31],
+								["v34", 1.27],
+								["v38", 1.02],
+								["v31", 0.33],
+								["v33", 0.22],
+								["v32", 0.15]
+							]
+						}, {
+							name: "Safari",
+							id: "Safari",
+							data: [
+								["v8.0", 2.56],
+								["v7.1", 0.77],
+								["v5.1", 0.42],
+								["v5.0", 0.3],
+								["v6.1", 0.29],
+								["v7.0", 0.26],
+								["v6.2", 0.17]
+							]
+						}, {
+							name: "Opera",
+							id: "Opera",
+							data: [
+								["v12.x", 0.34],
+								["v28", 0.24],
+								["v27", 0.17],
+								["v29", 0.16]
+							]
+						}]
+					}
 			});
 	 }
+	
+	var handleCampaign = function () {
+		$('a.campaign').click(function() {
+			var id = $(this).attr('id');
+			sessionStorage.setItem('cid', id);
+		});
+	}
 	
 	var handleTemplate = function () {
 		$('button.template-btn').click(function() {
@@ -210,244 +374,7 @@ var App = function () {
 
 
 
-    var handleDashboardCalendar = function () {
-
-        if (!jQuery().fullCalendar) {
-            return;
-        }
-
-        var date = new Date();
-        var d = date.getDate();
-        var m = date.getMonth();
-        var y = date.getFullYear();
-
-        var h = {};
-
-        if ($(window).width() <= 320) {
-            h = {
-                left: 'title, prev,next',
-                center: '',
-                right: 'today,month,agendaWeek,agendaDay'
-            };
-        } else {
-            h = {
-                left: 'title',
-                center: '',
-                right: 'prev,next,today,month,agendaWeek,agendaDay'
-            };
-        }
-
-        $('#calendar').html("");
-        $('#calendar').fullCalendar({
-            header: h,
-            editable: true,
-            events: [{
-                title: 'All Day Event',
-                start: new Date(y, m, 1),
-                className: 'label label-default',
-            }, {
-                title: 'Long Event',
-                start: new Date(y, m, d - 5),
-                end: new Date(y, m, d - 2),
-                className: 'label label-success',
-            }, {
-                title: 'Repeating Event',
-                start: new Date(y, m, d - 3, 16, 0),
-                allDay: false,
-                className: 'label label-default',
-            }, {
-                title: 'Repeating Event',
-                start: new Date(y, m, d + 4, 16, 0),
-                allDay: false,
-                className: 'label label-important',
-            }, {
-                title: 'Meeting',
-                start: new Date(y, m, d, 10, 30),
-                allDay: false,
-                className: 'label label-info',
-            }, {
-                title: 'Lunch',
-                start: new Date(y, m, d, 12, 0),
-                end: new Date(y, m, d, 14, 0),
-                allDay: false,
-                className: 'label label-warning',
-            }, {
-                title: 'Birthday Party',
-                start: new Date(y, m, d + 1, 19, 0),
-                end: new Date(y, m, d + 1, 22, 30),
-                allDay: false,
-                className: 'label label-success',
-            }, {
-                title: 'Click for Google',
-                start: new Date(y, m, 28),
-                end: new Date(y, m, 29),
-                url: 'http://google.com/',
-                className: 'label label-warning',
-            }]
-        });
-
-    }
-
-    var handleCalendar = function () {
-
-        if (!jQuery().fullCalendar) {
-            return;
-        }
-
-        var date = new Date();
-        var d = date.getDate();
-        var m = date.getMonth();
-        var y = date.getFullYear();
-
-        var h = {};
-
-        if ($(window).width() <= 320) {
-            h = {
-                left: 'title, prev,next',
-                center: '',
-                right: 'today,month,agendaWeek,agendaDay'
-            };
-        } else {
-            h = {
-                left: 'title',
-                center: '',
-                right: 'prev,next,today,month,agendaWeek,agendaDay'
-            };
-        }
-
-        var initDrag = function (el) {
-            // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
-            // it doesn't need to have a start or end
-            var eventObject = {
-                title: $.trim(el.text()) // use the element's text as the event title
-            };
-            // store the Event Object in the DOM element so we can get to it later
-            el.data('eventObject', eventObject);
-            // make the event draggable using jQuery UI
-            el.draggable({
-                zIndex: 999,
-                revert: true, // will cause the event to go back to its
-                revertDuration: 0 //  original position after the drag
-            });
-        }
-
-        var addEvent = function (title, priority) {
-            title = title.length == 0 ? "Untitled Event" : title;
-            priority = priority.length == 0 ? "default" : priority;
-
-            var html = $('<div data-class="label label-' + priority + '" class="external-event label label-' + priority + '">' + title + '</div>');
-            jQuery('#event_box').append(html);
-            initDrag(html);
-        }
-
-        $('#external-events div.external-event').each(function () {
-            initDrag($(this))
-        });
-
-        $('#event_add').click(function () {
-            var title = $('#event_title').val();
-            var priority = $('#event_priority').val();
-            addEvent(title, priority);
-        });
-
-        //modify chosen options
-        var handleDropdown = function () {
-            $('#event_priority_chzn .chzn-search').hide(); //hide search box
-            $('#event_priority_chzn_o_1').html('<span class="label label-default">' + $('#event_priority_chzn_o_1').text() + '</span>');
-            $('#event_priority_chzn_o_2').html('<span class="label label-success">' + $('#event_priority_chzn_o_2').text() + '</span>');
-            $('#event_priority_chzn_o_3').html('<span class="label label-info">' + $('#event_priority_chzn_o_3').text() + '</span>');
-            $('#event_priority_chzn_o_4').html('<span class="label label-warning">' + $('#event_priority_chzn_o_4').text() + '</span>');
-            $('#event_priority_chzn_o_5').html('<span class="label label-important">' + $('#event_priority_chzn_o_5').text() + '</span>');
-        }
-
-        $('#event_priority_chzn').click(handleDropdown);
-
-        //predefined events
-        addEvent("My Event 1", "default");
-        addEvent("My Event 2", "success");
-        addEvent("My Event 3", "info");
-        addEvent("My Event 4", "warning");
-        addEvent("My Event 5", "important");
-        addEvent("My Event 6", "success");
-        addEvent("My Event 7", "info");
-        addEvent("My Event 8", "warning");
-        addEvent("My Event 9", "success");
-        addEvent("My Event 10", "default");
-
-        $('#calendar').fullCalendar({
-            header: h,
-            editable: true,
-            droppable: true, // this allows things to be dropped onto the calendar !!!
-            drop: function (date, allDay) { // this function is called when something is dropped
-
-                // retrieve the dropped element's stored Event Object
-                var originalEventObject = $(this).data('eventObject');
-                // we need to copy it, so that multiple events don't have a reference to the same object
-                var copiedEventObject = $.extend({}, originalEventObject);
-
-                // assign it the date that was reported
-                copiedEventObject.start = date;
-                copiedEventObject.allDay = allDay;
-                copiedEventObject.className = $(this).attr("data-class");
-
-                // render the event on the calendar
-                // the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
-                $('#calendar').fullCalendar('renderEvent', copiedEventObject, true);
-
-                // is the "remove after drop" checkbox checked?
-                if ($('#drop-remove').is(':checked')) {
-                    // if so, remove the element from the "Draggable Events" list
-                    $(this).remove();
-                }
-            },
-            events: [{
-                title: 'All Day Event',
-                start: new Date(y, m, 1),
-                className: 'label label-default',
-            }, {
-                title: 'Long Event',
-                start: new Date(y, m, d - 5),
-                end: new Date(y, m, d - 2),
-                className: 'label label-success',
-            }, {
-                id: 999,
-                title: 'Repeating Event',
-                start: new Date(y, m, d - 3, 16, 0),
-                allDay: false,
-                className: 'label label-default',
-            }, {
-                id: 999,
-                title: 'Repeating Event',
-                start: new Date(y, m, d + 4, 16, 0),
-                allDay: false,
-                className: 'label label-important',
-            }, {
-                title: 'Meeting',
-                start: new Date(y, m, d, 10, 30),
-                allDay: false,
-                className: 'label label-info',
-            }, {
-                title: 'Lunch',
-                start: new Date(y, m, d, 12, 0),
-                end: new Date(y, m, d, 14, 0),
-                allDay: false,
-                className: 'label label-warning',
-            }, {
-                title: 'Birthday Party',
-                start: new Date(y, m, d + 1, 19, 0),
-                end: new Date(y, m, d + 1, 22, 30),
-                allDay: false,
-                className: 'label label-success',
-            }, {
-                title: 'Click for Google',
-                start: new Date(y, m, 28),
-                end: new Date(y, m, 29),
-                url: 'http://google.com/',
-                className: 'label label-warning',
-            }]
-        });
-
-    }
+    
 
     var handleChat = function () {
         var cont = $('#chats');
@@ -1077,11 +1004,11 @@ var App = function () {
                     // fix layout width
                     fixWidth();
                     // fix calendar width by just reinitializing
-                    handleDashboardCalendar();
+                  //  ();
                     if (isMainPage) {
-                        handleDashboardCalendar(); // handles full calendar for main page
+                    //    (); // handles full calendar for main page
                     } else {
-                        handleCalendar(); // handles full calendars
+                     //   handleCalendar(); // handles full calendars
                     }
                     // fix vector maps width
                     if (isMainPage) {
@@ -1923,10 +1850,8 @@ var App = function () {
             if (isMainPage) {
                 handleDashboardCharts(); // handles plot charts for main page
                 handleJQVMAP(); // handles vector maps for home page
-                handleDashboardCalendar(); // handles full calendar for main page
                 handleChat() // handles dashboard chat
             } else {
-                handleCalendar(); // handles full calendars
                 handlePortletSortable(); // handles portlet draggable sorting
             }
 
@@ -1938,6 +1863,7 @@ var App = function () {
 				handleCharts(); // handles statistics page
 			}
 			
+			handleCampaign(); // handles campaign ID in reports section
 		    handleTemplate(); // handles template ID in template wizard
             handleScrollers(); // handles slim scrolling contents
             handleUniform(); // handles uniform elements
@@ -2049,7 +1975,7 @@ var App = function () {
 
 //tooltips
 
-$('.element').tooltip();
+//$('.element').tooltip();
 
 /*
 // Slider input js
