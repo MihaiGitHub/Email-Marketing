@@ -3,33 +3,12 @@ ob_start();
 session_start();
 
 include 'include/dbconnect.php';
-/*
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
-	switch ($_POST['submitbtn']){
-		case 'save':
-			$stmt = $conn->prepare('INSERT INTO lists (user_id, name, created) VALUES (:id, :name, :created)');
-			$result = $stmt->execute(array('id' => $_SESSION['id'], 'name' => $_POST['name'], 'created' => date('m/d/Y')));
-		break;
-		case 'edit':
-			$stmt = $conn->prepare('UPDATE lists SET name = :name WHERE id = :listid');
-			$result = $stmt->execute(array('name' => $_POST['listname'], 'listid' => $_POST['listid']));
-		break;
-		case 'delete':
-			$stmt = $conn->prepare('DELETE FROM emails WHERE list_id = :listid');
-			$result = $stmt->execute(array('listid' => $_POST['listid']));
-			if($result){
-				$stmt = $conn->prepare('DELETE FROM lists WHERE id = :listid');
-				$result = $stmt->execute(array('listid' => $_POST['listid']));
-			}
-		break;
-	}
-}
 
 if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['code'])){
 	$message = true;
 	$client_id='35316327914-4sdoc4ihn46qcc0ihnnlp06p1u0dv52n.apps.googleusercontent.com';
 	$client_secret='rISHHURG8t7XVqMlHXNBqcVD';
-	$redirect_uri='http://mihaismarandache.com/emarketing/app/lists.php';
+	$redirect_uri='http://msmarandache.com/emarketing/app/lists.php';
 	$max_results = 1000;
 	 
 	$auth_code = $_GET["code"];
@@ -100,7 +79,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['code'])){
 	$resultlist = $stmtlist->execute(array('id' => $_SESSION['list']));
 	$rowlist = $stmtlist->fetch();
 }
-*/
+
 $stmt = $conn->prepare('SELECT id, name, created FROM lists WHERE user_id = :user');
 $result = $stmt->execute(array('user' => $_SESSION['id']));
 

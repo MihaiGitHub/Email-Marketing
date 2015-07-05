@@ -128,9 +128,10 @@ echo "<tr id=".$row['id']."><td>".htmlentities($row['email'])."</td><td>".htmlen
 		<h3 id="myModalLabel1">Select Email Provider</h3>
 	</div>
 	<div class="modal-body">
-		<select id="lists" name="lists" class="span6">
+		<select name="type" onChange="location = this.options[this.selectedIndex].value;" class="span6">
+        		<option></option>
         		<option>HotMail</option>
-                <option>GMail</option>
+				<option value="https://accounts.google.com/o/oauth2/auth?client_id=35316327914-4sdoc4ihn46qcc0ihnnlp06p1u0dv52n.apps.googleusercontent.com&redirect_uri=http://msmarandache.com/emarketing/app/lists.php&scope=https://www.google.com/m8/feeds/&response_type=code">GMail</option>
                 <option>YaHoo</option>
         </select>
 	</div>

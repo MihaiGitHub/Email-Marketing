@@ -206,7 +206,7 @@ for( j = 0; j < name.length; j++ ) {
 					 
 		for( var c = 0; c < data.countries.length; c++ ){
 										
-				data.countries[c]['country'] == '' ? myCountries.push({"name":"No Data","y":parseInt(data.countries[c]['count'])}) : myCountries.push({"name":data.countries[c]['country'],"y":parseInt(data.countries[c]['count'])});		
+				data.countries[c]['country'] == '' ? myCountries.push({"name":"Unknown","y":parseInt(data.countries[c]['count'])}) : myCountries.push({"name":data.countries[c]['country'],"y":parseInt(data.countries[c]['count'])});		
 						
 	
 		}
@@ -284,10 +284,15 @@ console.log(dataArrayFinal)
 	var handleEmails = function () {
 
 		$('#emails-div button.importcontacts').click(function () {
-  				
 				$('.overlay').fadeIn('slow');
 				$('#import-contacts-modal').addClass('in');
 		});
+		
+		$('#email-bar-close').click(function () {	
+				$('.overlay').fadeOut('slow');
+				$('#import-contacts-modal').removeClass('in');
+		});
+		
 	}
 	
 	var handleCampaign = function () {
