@@ -112,16 +112,30 @@ $row = $stmt->fetch();
         </div>
     </div>
 </div>
-                        
+<div data-desktop="span2" data-tablet="span4" class="span2 responsive">
+    <div class="metro-overview purple-color clearfix" style="border-radius:4px;">
+        <div class="display">
+            <i class="icon-bolt"></i>
+            <div class="percent">72%</div>
+        </div>
+        <div class="details">
+            <div class="numbers">1130</div>
+            <div class="title">Bounced</div>
+            <div class="progress progress-danger">
+                <div style="width: 72%" class="bar"></div>
+            </div>
+        </div>
+    </div>
+</div>                       
 <div data-desktop="span2" data-tablet="span4 fix-margin" class="span2 responsive">
     <div class="metro-overview gray-color clearfix" style="border-radius: 4px;">
         <div class="display">
-            <i class="icon-bolt"></i>
+            <i class="icon-group"></i>
             <div class="percent">26%</div>
         </div>
         <div class="details">
             <div class="numbers">170</div>
-            <div class="title">Bounced</div>
+            <div class="title">Not Opened</div>
             <div class="progress progress-warning">
                 <div style="width: 26%" class="bar"></div>
             </div>
@@ -169,7 +183,7 @@ $row = $stmt->fetch();
             
             <!-- BEGIN ADVANCED TABLE widget-->
             <div class="row-fluid">
-                <div class="span6">
+                <div class="span12">
                
                     <!-- BEGIN EXAMPLE TABLE widget-->
                     <div class="widget">
@@ -178,117 +192,26 @@ $row = $stmt->fetch();
                            
                         </div>
                         <div class="widget-body">
-                            <div class="portlet-body">
-                                
-                                <div id="breakdown-container" style=""></div>
+                            <div class="portlet-body" style="text-align:center;">
+                                  
+                                   <table align="center">
+                                        <tr>
+                                            <td> 
+                                                <div id="countries-container" style=""></div>
+                                            </td>
+                                            <td>
+                                                <div id="browsers-container" style=""></div>
+                                            </td>
+                                        </tr>
+                                   </table>
                                 
                             </div>
+                            
                         </div>
                     </div>
                     <!-- END EXAMPLE TABLE widget-->
                 </div>
-                
-                <div class="span6">
-               
-                    <!-- BEGIN EXAMPLE TABLE widget-->
-                   <div class="widget">
-                                <div class="widget-title">
-                                    <h4><i class="icon-bell"></i> Notifications</h4>
-									<span class="tools">
-									<a href="javascript:;" class="icon-chevron-down"></a>
-									<a href="javascript:;" class="icon-remove"></a>
-									</span>
-                                </div>
-                                <div class="widget-body">
-                                    <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 365px;"><ul class="item-list scroller padding" data-height="365" data-always-visible="1" style="overflow: hidden; width: auto; height: 365px;">
-                                        <li>
-                                            <span class="label label-success"><i class="icon-bell"></i></span>
-                                            <span>New user registered.</span>
-                                            <span class="small italic">Just now</span>
-                                        </li>
-                                        <li>
-                                            <span class="label label-success"><i class="icon-bell"></i></span>
-                                            <span>New order received.</span>
-                                            <span class="small italic">15 mins ago</span>
-                                        </li>
-                                        <li>
-                                            <span class="label label-warning"><i class="icon-bullhorn"></i></span>
-                                            <span>Alerting a user account balance.</span>
-                                            <span class="small italic">2 hrs ago</span>
-                                        </li>
-                                        <li>
-                                            <span class="label label-important"><i class="icon-bolt"></i></span>
-                                            <span>Alerting administrators staff.</span>
-                                            <span class="small italic">11 hrs ago</span>
-                                        </li>
-                                        <li>
-                                            <span class="label label-important"><i class="icon-bolt"></i></span>
-                                            <span>Messages are not sent to users.</span>
-                                            <span class="small italic">14 hrs ago</span>
-                                        </li>
-                                        <li>
-                                            <span class="label label-warning"><i class="icon-bullhorn"></i></span>
-                                            <span>Web server #12 failed to relosd.</span>
-                                            <span class="small italic">2 days ago</span>
-                                        </li>
-                                        <li>
-                                            <span class="label label-success"><i class="icon-bell"></i></span>
-                                            <span>New order received.</span>
-                                            <span class="small italic">15 mins ago</span>
-                                        </li>
-                                        <li>
-                                            <span class="label label-warning"><i class="icon-bullhorn"></i></span>
-                                            <span>Alerting a user account balance.</span>
-                                            <span class="small italic">2 hrs ago</span>
-                                        </li>
-                                        <li>
-                                            <span class="label label-important"><i class="icon-bolt"></i></span>
-                                            <span>Alerting administrators staff.</span>
-                                            <span class="small italic">11 hrs ago</span>
-                                        </li>
-                                        <li>
-                                            <span class="label label-important"><i class="icon-bolt"></i></span>
-                                            <span>Messages are not sent to users.</span>
-                                            <span class="small italic">14 hrs ago</span>
-                                        </li>
-                                        <li>
-                                            <span class="label label-warning"><i class="icon-bullhorn"></i></span>
-                                            <span>Web server #12 failed to relosd.</span>
-                                            <span class="small italic">2 days ago</span>
-                                        </li>
-                                        <li>
-                                            <span class="label label-success"><i class="icon-bell"></i></span>
-                                            <span>New order received.</span>
-                                            <span class="small italic">15 mins ago</span>
-                                        </li>
-                                        <li>
-                                            <span class="label label-warning"><i class="icon-bullhorn"></i></span>
-                                            <span>Alerting a user account balance.</span>
-                                            <span class="small italic">2 hrs ago</span>
-                                        </li>
-                                        <li>
-                                            <span class="label label-important"><i class="icon-bolt"></i></span>
-                                            <span>Alerting administrators support staff.</span>
-                                            <span class="small italic">11 hrs ago</span>
-                                        </li>
-                                        <li>
-                                            <span class="label label-important"><i class="icon-bolt"></i></span>
-                                            <span>Messages are not sent to users.</span>
-                                            <span class="small italic">14 hrs ago</span>
-                                        </li>
-                                        <li>
-                                            <span class="label label-warning"><i class="icon-bullhorn"></i></span>
-                                            <span>Web server #12 failed to relosd.</span>
-                                            <span class="small italic">2 days ago</span>
-                                        </li>
-                                    </ul><div class="slimScrollBar ui-draggable" style="width: 7px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px; height: 232.504363001745px; background: rgb(0, 0, 0);"></div><div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; opacity: 0.2; z-index: 90; right: 1px; background: rgb(51, 51, 51);"></div></div>
-                                    <div class="space5"></div>
-                                    <a href="#" class="pull-right">View all notifications</a>
-                                    <div class="clearfix no-top-space no-bottom-space"></div>
-                                </div>
-                            </div>
-                    <!-- END EXAMPLE TABLE widget-->
-                </div>
+       
             </div>
             <!-- END ADVANCED TABLE widget-->
           
@@ -305,7 +228,7 @@ $row = $stmt->fetch();
                     <!-- BEGIN EXAMPLE TABLE widget-->
                     <div class="widget">
                         <div class="widget-title">
-                            <h4><i class="icon-envelope"></i> Tabs</h4>
+                            <h4><i class="icon-envelope"></i> Emails</h4>
                            
                         </div>
                         <div class="widget-body">

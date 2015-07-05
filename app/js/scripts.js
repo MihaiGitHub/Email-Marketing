@@ -25,12 +25,12 @@ var App = function () {
 							
 							var myData = [];
 							
-							for (var i = 0; i < data.emails.length; i++) {
+							for (var i = 0; i < data.timeframe.length; i++) {
 								
-								var dateStr = data.emails[i]['opened'];
-								var a=dateStr.split(" ");
-								var d=a[0].split("-");
-								var t=a[1].split(":");
+								var dateStr = data.timeframe[i]['opened'];
+								var a = dateStr.split(" ");
+								var d = a[0].split("-");
+								var t = a[1].split(":");
 								
 								var d = new Date(d[0],(d[1]-1),d[2],t[0]);
 								
@@ -39,7 +39,7 @@ var App = function () {
 								var day = d.getDate();
 								var hour = d.getHours();
 								
-								myData.push([Date.UTC(year, month, day, hour), parseInt(data.emails[i]['count'])]);
+								myData.push([Date.UTC(year, month, day, hour), parseInt(data.timeframe[i]['count'])]);
 							}				
 										
 							$('#timeframe-container').highcharts({
@@ -47,7 +47,8 @@ var App = function () {
 									enabled: false
 								},
 								chart: {
-									type: 'column'
+									type: 'column',
+									zoomType: 'xy'
 								},
 								title: {
 									text: 'Timeframe'
@@ -96,13 +97,128 @@ var App = function () {
 							
 								} */]
 							});
+							
+							
+					console.log('data ',data)
+					
+					var myBrowsers = [];
+					var chrome = 0;
+					var firefox = 0;
+					var ie = 0;
+					var safari = 0;
+					var opera = 0;
+					var netscape = 0;
+					var maxthon = 0;
+					var konqueror = 0;
+					var handheld = 0;
+
+					for (var i = 0; i < data.browsers.length; i++) {
+						
+							switch(data.browsers[i]['browser']){
+									case 'Internet Explorer':
+											ie++;
+									break;
+									case 'Chrome':
+											chrome++;
+									break;
+									case 'Firefox':
+											firefox++;
+									break;
+									case 'Safari':
+											safari++;
+									break;
+									case 'Opera':
+											opera++;
+									break;
+									case 'Netscape':
+											netscape++;
+									break;	
+									case 'Maxthon':
+											maxthon++;
+									break;	
+									case 'Konqueror':
+											konqueror++;
+									break;
+									case 'Handheld Browser':
+											handheld++;
+									break;						
+							}
+						
+						
+					}
+					
+							if(ie > 0)
+									myBrowsers.push({"name":"Internet Explorer","y":ie});
+							if(chrome > 0)
+									myBrowsers.push({"name":"Chrome","y":chrome});
+							if(firefox > 0)
+									myBrowsers.push({"name":"Firefox","y":firefox});
+							if(safari > 0)
+									myBrowsers.push({"name":"Safari","y":safari});
+							if(opera > 0)
+									myBrowsers.push({"name":"Opera","y":opera});
+							if(netscape > 0)
+									myBrowsers.push({"name":"Netscape","y":netscape});
+							if(maxthon > 0)
+									myBrowsers.push({"name":"Maxthon","y":maxthon});
+							if(konqueror > 0)
+									myBrowsers.push({"name":"Konqueror","y":konqueror});
+							if(handheld > 0)
+									myBrowsers.push({"name":"Handheld Browser","y":handheld});
+									
+
+
+
+var name = Array();
+var data = Array();
+var dataArrayFinal = Array();
+for( i = 0; i < myBrowsers.length; i++ ) { 
+   name[i] = myBrowsers[i].name; 
+   data[i] = myBrowsers[i].y;  
+}
+
+for( j = 0; j < name.length; j++ ) { 
+   var temp = new Array( name[j], data[j] ); 
+   dataArrayFinal[j] = temp;
+}
+				
+						$('#browsers-container').highcharts({
+							credits: {
+								enabled: false
+							},
+							chart: {
+								type: 'pie'
+							},
+							title: {
+								text: 'Browsers'
+							},
+							subtitle: {
+								text: 'Pie chart of end user browser'
+							},
+							plotOptions: {
+								
+								pie: {
+									size: 250,
+									dataLabels: {
+										enabled: false
+									},
+									showInLegend: true
+								}
+							},
+							tooltip: {
+                					pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+							},
+							series: [{
+								  name: 'Browser share',
+								  data: dataArrayFinal
+							}]
+					});
 			  },
 		});
 				   
 		
 			
-			// Create the chart
-			$('#breakdown-container').highcharts({
+			$('#countries-container').highcharts({
 				    credits: {
 						enabled: false
 				    },
@@ -110,20 +226,24 @@ var App = function () {
 						type: 'pie'
 					},
 					title: {
-						text: 'Browser market shares. January, 2015 to May, 2015'
+						text: 'Countries'
 					},
 					subtitle: {
-						text: 'Click the slices to view versions. Source: netmarketshare.com.'
+						text: 'Drilldown pie chart of end user location'
 					},
 					plotOptions: {
 						series: {
 							dataLabels: {
-								enabled: true,
+								enabled: false,
 								format: '{point.name}: {point.y:.1f}%'
 							}
 						},
 						pie: {
-							size: 250
+							size: 250,
+							dataLabels: {
+								enabled: false
+							},
+							showInLegend: true
 						}
 					},
 			
@@ -135,7 +255,7 @@ var App = function () {
 						name: "Brands",
 						colorByPoint: true,
 						data: [{
-							name: "Microsoft Internet Explorer",
+							name: "Internet Explorer",
 							y: 56.33,
 							drilldown: "Microsoft Internet Explorer"
 						}, {
@@ -154,15 +274,11 @@ var App = function () {
 							name: "Opera",
 							y: 0.9100000000000001,
 							drilldown: "Opera"
-						}, {
-							name: "Proprietary or Undetectable",
-							y: 0.2,
-							drilldown: null
 						}]
 					}],
 					drilldown: {
 						series: [{
-							name: "Microsoft Internet Explorer",
+							name: "Internet Explorer",
 							id: "Microsoft Internet Explorer",
 							data: [
 								["v11.0", 24.13],
@@ -228,6 +344,10 @@ var App = function () {
 						}]
 					}
 			});
+			
+			
+			
+
 	 }
 	
 	var handleCampaign = function () {

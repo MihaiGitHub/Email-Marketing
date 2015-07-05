@@ -1,5 +1,9 @@
 <?php
-header( 'Content-Type: image/gif' );
+ini_set('display_errors',1);
+ini_set('display_startup_errors',1);
+error_reporting(-1);
+
+//header( 'Content-Type: image/gif' );
 
 include 'include/dbconnect.php';
 
@@ -18,8 +22,8 @@ if (!empty($_SERVER["HTTP_CLIENT_IP"])){
 
 //$location = file_get_contents('http://freegeoip.net/json/'.$ip);
 //$data = json_decode($location);
-
-
+$location = file_get_contents('http://www.telize.com/geoip/'.$ip);
+$data = json_decode($location);
 
 ////////////////////////////////////////////////NEW
 $user_agent     =   $_SERVER['HTTP_USER_AGENT'];
@@ -114,8 +118,8 @@ $stmt = $conn->prepare('UPDATE campaign_emails SET opened = opened + 1 WHERE id 
 $result = $stmt->execute(array('id' => $_GET['id']));
 
 // Insert a new record every time they reopen with more details about their environment
-$stmt = $conn->prepare('INSERT INTO campaign_emails_detail (c_id, ce_id, ip, browser, os, opened) VALUES (:cid, :ce_id, :ip, :browser, :os, :opened)');
-$result = $stmt->execute(array('cid' => $_GET['cid'], 'ce_id' => $_GET['id'], 'ip' => $_SERVER['REMOTE_ADDR'], 'browser' => $user_browser, 'os' => $user_os, 'opened' => date('Y-m-d H')));
+$stmt = $conn->prepare('INSERT INTO campaign_emails_detail (c_id, ce_id, ip, country, region, city, browser, os, opened) VALUES (:cid, :ce_id, :ip, :country, :region, :city, :browser, :os, :opened)');
+$result = $stmt->execute(array('cid' => $_GET['cid'], 'ce_id' => $_GET['id'], 'ip' => $_SERVER['REMOTE_ADDR'], 'country' => $data->country, 'region' => $data->region, 'city' => $data->city,'browser' => $user_browser, 'os' => $user_os, 'opened' => date('Y-m-d H')));
 
 ////////////////////////////////////////////////////////////////////////
 //define( 'THIS_ABSOLUTE_PATH', dirname( __FILE__ ) );
@@ -127,7 +131,7 @@ $result = $stmt->execute(array('cid' => $_GET['cid'], 'ce_id' => $_GET['id'], 'i
     //Get the filesize of the image for headers
    // $filesize = filesize( THIS_ABSOLUTE_PATH . '/blank.gif' );
 //    $filesize = filesize( 'http://msmarandache.com/emarketing/app/templates/images/blank.gif' );
-    
+    /*
     //Now actually output the image requested, while disregarding if the database was affected
     header( 'Pragma: public' );
     header( 'Expires: 0' );
@@ -139,5 +143,5 @@ $result = $stmt->execute(array('cid' => $_GET['cid'], 'ce_id' => $_GET['id'], 'i
     readfile( $graphic_http );
     
     exit;
-	
+	*/
 ?>
