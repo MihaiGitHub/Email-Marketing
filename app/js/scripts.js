@@ -57,25 +57,14 @@ var App = function () {
 									text: 'Daily number of email opens and link clicks after campaign has been sent'
 								},
 								xAxis: {
-									type: "datetime",
-								//	dateTimeLabelFormats: {
-								//		day: '%e of %b'
-								//	}
+									type: "datetime"
 								},
 								yAxis: {
 									min: 0,
 									title: {
 										text: null
 									}
-								}/*,
-								tooltip: {
-									headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-									pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-										'<td style="padding:0"><b>{point.y}</b></td></tr>',
-									footerFormat: '</table>',
-									shared: true,
-									useHTML: true
-								} */,
+								},
 								plotOptions: {
 									column: {
 										pointPadding: 0.2,
@@ -86,16 +75,7 @@ var App = function () {
 									name: 'Email opens',
 									data: myData
 							
-								}/*, {
-									name: 'Email clicks',
-									data: [
-										[Date.UTC(2012, 0, 1), 4],
-										[Date.UTC(2012, 0, 2), 6],
-										[Date.UTC(2012, 0, 3), 9],
-										[Date.UTC(2012, 0, 4), 2]
-									]
-							
-								} */]
+								}]
 							});
 							
 							
@@ -170,17 +150,18 @@ var App = function () {
 
 
 var name = Array();
-var data = Array();
+var data1 = Array();
 var dataArrayFinal = Array();
 for( i = 0; i < myBrowsers.length; i++ ) { 
    name[i] = myBrowsers[i].name; 
-   data[i] = myBrowsers[i].y;  
+   data1[i] = myBrowsers[i].y;  
 }
 
 for( j = 0; j < name.length; j++ ) { 
-   var temp = new Array( name[j], data[j] ); 
+   var temp = new Array( name[j], data1[j] ); 
    dataArrayFinal[j] = temp;
 }
+
 				
 						$('#browsers-container').highcharts({
 							credits: {
@@ -213,137 +194,87 @@ for( j = 0; j < name.length; j++ ) {
 								  data: dataArrayFinal
 							}]
 					});
-			  },
-		});
-				   
+					
+					
+					
+					
+					
+					
+					
+					var myCountries = [];  
+					
+					 
+		for( var c = 0; c < data.countries.length; c++ ){
+										
+				data.countries[c]['country'] == '' ? myCountries.push({"name":"No Data","y":parseInt(data.countries[c]['count'])}) : myCountries.push({"name":data.countries[c]['country'],"y":parseInt(data.countries[c]['count'])});		
+						
+	
+		}
 		
-			
+		
+		console.log('countries ',myCountries)
+		
+var name = Array();
+var data1 = Array();
+var dataArrayFinal = Array();
+for( i = 0; i < myCountries.length; i++ ) { 
+   name[i] = myCountries[i].name; 
+   data1[i] = myCountries[i].y;  
+}
+
+for( j = 0; j < name.length; j++ ) { 
+   var temp = new Array( name[j], data1[j] );
+   dataArrayFinal[j] = temp;
+}		
+
+console.log(dataArrayFinal)
+	
 			$('#countries-container').highcharts({
-				    credits: {
-						enabled: false
-				    },
-					chart: {
-						type: 'pie'
-					},
-					title: {
-						text: 'Countries'
-					},
-					subtitle: {
-						text: 'Drilldown pie chart of end user location'
-					},
-					plotOptions: {
-						series: {
-							dataLabels: {
-								enabled: false,
-								format: '{point.name}: {point.y:.1f}%'
-							}
-						},
-						pie: {
-							size: 250,
-							dataLabels: {
+							credits: {
 								enabled: false
 							},
-							showInLegend: true
-						}
-					},
-			
-					tooltip: {
-						headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-						pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
-					},
-					series: [{
-						name: "Brands",
-						colorByPoint: true,
-						data: [{
-							name: "Internet Explorer",
-							y: 56.33,
-							drilldown: "Microsoft Internet Explorer"
-						}, {
-							name: "Chrome",
-							y: 24.030000000000005,
-							drilldown: "Chrome"
-						}, {
-							name: "Firefox",
-							y: 10.38,
-							drilldown: "Firefox"
-						}, {
-							name: "Safari",
-							y: 4.77,
-							drilldown: "Safari"
-						}, {
-							name: "Opera",
-							y: 0.9100000000000001,
-							drilldown: "Opera"
-						}]
-					}],
-					drilldown: {
-						series: [{
-							name: "Internet Explorer",
-							id: "Microsoft Internet Explorer",
-							data: [
-								["v11.0", 24.13],
-								["v8.0", 17.2],
-								["v9.0", 8.11],
-								["v10.0", 5.33],
-								["v6.0", 1.06],
-								["v7.0", 0.5]
-							]
-						}, {
-							name: "Chrome",
-							id: "Chrome",
-							data: [
-								["v40.0", 5],
-								["v41.0", 4.32],
-								["v42.0", 3.68],
-								["v39.0", 2.96],
-								["v36.0", 2.53],
-								["v43.0", 1.45],
-								["v31.0", 1.24],
-								["v35.0", 0.85],
-								["v38.0", 0.6],
-								["v32.0", 0.55],
-								["v37.0", 0.38],
-								["v33.0", 0.19],
-								["v34.0", 0.14],
-								["v30.0", 0.14]
-							]
-						}, {
-							name: "Firefox",
-							id: "Firefox",
-							data: [
-								["v35", 2.76],
-								["v36", 2.32],
-								["v37", 2.31],
-								["v34", 1.27],
-								["v38", 1.02],
-								["v31", 0.33],
-								["v33", 0.22],
-								["v32", 0.15]
-							]
-						}, {
-							name: "Safari",
-							id: "Safari",
-							data: [
-								["v8.0", 2.56],
-								["v7.1", 0.77],
-								["v5.1", 0.42],
-								["v5.0", 0.3],
-								["v6.1", 0.29],
-								["v7.0", 0.26],
-								["v6.2", 0.17]
-							]
-						}, {
-							name: "Opera",
-							id: "Opera",
-							data: [
-								["v12.x", 0.34],
-								["v28", 0.24],
-								["v27", 0.17],
-								["v29", 0.16]
-							]
-						}]
-					}
-			});
+							chart: {
+								type: 'pie'
+							},
+							title: {
+								text: 'Countries'
+							},
+							subtitle: {
+								text: 'Pie chart of end user location'
+							},
+							plotOptions: {
+								
+								pie: {
+									size: 250,
+									dataLabels: {
+										enabled: false
+									},
+									showInLegend: true
+								}
+							},
+							tooltip: {
+                					pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+							},
+							series: [{
+								  name: 'Location percent',
+								  data: dataArrayFinal
+							}]
+					});
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+			  },
+		});
+				
+		
 			
 			
 			

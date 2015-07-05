@@ -194,16 +194,8 @@ $row = $stmt->fetch();
                         <div class="widget-body">
                             <div class="portlet-body" style="text-align:center;">
                                   
-                                   <table align="center">
-                                        <tr>
-                                            <td> 
-                                                <div id="countries-container" style=""></div>
-                                            </td>
-                                            <td>
-                                                <div id="browsers-container" style=""></div>
-                                            </td>
-                                        </tr>
-                                   </table>
+                                  <div id="countries-container" style="display:inline-block;width:550px;"></div>
+                                  <div id="browsers-container" style="display:inline-block;width:550px;"></div>
                                 
                             </div>
                             
