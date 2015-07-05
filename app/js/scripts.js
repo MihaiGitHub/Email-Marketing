@@ -281,6 +281,15 @@ console.log(dataArrayFinal)
 
 	 }
 	
+	var handleEmails = function () {
+
+		$('#emails-div button.importcontacts').click(function () {
+  				
+				$('.overlay').fadeIn('slow');
+				$('#import-contacts-modal').addClass('in');
+		});
+	}
+	
 	var handleCampaign = function () {
 		$('a.campaign').click(function() {
 			var id = $(this).attr('id');
@@ -423,53 +432,7 @@ console.log(dataArrayFinal)
         setMap("germany");
     }
 
-
-
-    
-
-    var handleChat = function () {
-        var cont = $('#chats');
-        var list = $('.chats', cont);
-        var form = $('.chat-form', cont);
-        var input = $('input', form);
-        var btn = $('.btn', form);
-
-        var handleClick = function () {
-            var text = input.val();
-            if (text.length == 0) {
-                return;
-            }
-
-            var time = new Date();
-            var time_str = time.toString('MMM dd, yyyy HH:MM');
-            var tpl = '';
-            tpl += '<li class="out">';
-            tpl += '<img class="avatar" alt="" src="img/avatar1.jpg"/>';
-            tpl += '<div class="message">';
-            tpl += '<span class="arrow"></span>';
-            tpl += '<a href="#" class="name">Sumon Ahmed</a>&nbsp;';
-            tpl += '<span class="datetime">at ' + time_str + '</span>';
-            tpl += '<span class="body">';
-            tpl += text;
-            tpl += '</span>';
-            tpl += '</div>';
-            tpl += '</li>';
-
-            var msg = list.append(tpl);
-            input.val("");
-            $('.scroller', cont).slimScroll({
-                scrollTo: list.height()
-            });
-        }
-
-        btn.click(handleClick);
-        input.keypress(function (e) {
-            if (e.which == 13) {
-                handleClick();
-                return false; //<---- Add this line
-            }
-        });
-    }
+   
 
     var handleClockfaceTimePickers = function () {
 
@@ -1725,11 +1688,8 @@ console.log(dataArrayFinal)
         });
         $('#form_wizard_1').find('.button-previous').hide();
         $('#form_wizard_1 .button-submit').click(function () {
-			  //$('#tempform').submit();
 			  
-			  
-		var progressTimer, progressLabel = $( ".progress-label" ), progressbar = $( "#progressbar" );
-	
+			var progressTimer, progressLabel = $( ".progress-label" ), progressbar = $( "#progressbar" );
 			
 			$('.overlay').fadeIn('slow');
 			$('#dialog').addClass('in');
@@ -1901,7 +1861,6 @@ console.log(dataArrayFinal)
             if (isMainPage) {
                 handleDashboardCharts(); // handles plot charts for main page
                 handleJQVMAP(); // handles vector maps for home page
-                handleChat() // handles dashboard chat
             } else {
                 handlePortletSortable(); // handles portlet draggable sorting
             }
@@ -1913,7 +1872,7 @@ console.log(dataArrayFinal)
 			if (isChartPage) {
 				handleCharts(); // handles statistics page
 			}
-			
+			handleEmails(); // handles emails page in lists section	
 			handleCampaign(); // handles campaign ID in reports section
 		    handleTemplate(); // handles template ID in template wizard
             handleScrollers(); // handles slim scrolling contents

@@ -62,14 +62,14 @@ $result = $stmt->execute(array('listid' => $_GET['id']));
                         <div class="widget-body">
                             <div class="portlet-body">
                                 <div class="clearfix">
-                                    <div class="btn-group">
+                                    <div id="emails-div" class="btn-group">
                                         <button id="email-add" class="btn green">
                                             Add New <i class="icon-plus"></i>
                                         </button>&nbsp;
 										<button class="btn green">
                                             Upload CSV <i class="icon-plus"></i>
                                         </button>&nbsp;
-										<button id="sample_editable_1_new" class="btn green">
+										<button  class="btn green importcontacts">
                                             Import Contacts <i class="icon-plus"></i>
                                         </button>&nbsp;
 										<button id="sample_editable_1_new" class="btn green">
@@ -116,6 +116,44 @@ echo "<tr id=".$row['id']."><td>".htmlentities($row['email'])."</td><td>".htmlen
 
       </div>
       <!-- END PAGE -->
+<style>
+.progress-label {
+    font-weight: bold;
+    text-shadow: 1px 1px 0 #fff;
+}
+</style>
+<div id="import-contacts-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="false" style="width:560px !important;display:block;">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<h3 id="myModalLabel1">Select Email Provider</h3>
+	</div>
+	<div class="modal-body">
+		<select id="lists" name="lists" class="span6">
+        		<option>HotMail</option>
+                <option>GMail</option>
+                <option>YaHoo</option>
+        </select>
+	</div>
+	<div class="modal-footer">
+		<button id="email-bar-close" class="btn btn-primary" data-dismiss="modal">Close</button>
+	</div>
+</div>
+<style>
+ .ui-widget-overlay {
+  background: #aaaaaa url("img/ui-bg_flat_0_aaaaaa_40x100.png") 50% 50% repeat-x;
+  opacity: .3;
+ 
+}
+
+.ui-widget-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+</style>
+<div class="ui-widget-overlay overlay" style="z-index: 101; display: none;"></div>
 <?php
 $content = ob_get_contents();
 ob_end_clean();
