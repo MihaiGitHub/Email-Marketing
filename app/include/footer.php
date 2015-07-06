@@ -25,6 +25,9 @@
 	<script type="text/javascript" src="assets/data-tables/jquery.dataTables.js"></script>
     <script type="text/javascript" src="assets/data-tables/DT_bootstrap.js"></script>
     
+    <!-- file upload -->
+    <script src="https://rawgit.com/enyo/dropzone/master/dist/dropzone.js"></script>
+	<!----------------->
     
     <script src="assets/highcharts/highcharts.js"></script>
 	<script src="assets/highcharts/exporting.js"></script>

@@ -282,15 +282,23 @@ console.log(dataArrayFinal)
 	 }
 	
 	var handleEmails = function () {
-
+		$('#emails-div button.uploadcsv').click(function () {
+				$('.overlay').fadeIn('slow');
+				$('#upload-csv-modal').addClass('in');
+		});
+		
 		$('#emails-div button.importcontacts').click(function () {
 				$('.overlay').fadeIn('slow');
 				$('#import-contacts-modal').addClass('in');
 		});
 		
-		$('#email-bar-close').click(function () {	
+		$('#import-contacts-modal .email-modal-close').click(function () {	
 				$('.overlay').fadeOut('slow');
 				$('#import-contacts-modal').removeClass('in');
+		});
+		
+		$('#upload-csv-modal .email-csv-close').click(function () {	
+				window.location = 'lists.php';
 		});
 		
 	}

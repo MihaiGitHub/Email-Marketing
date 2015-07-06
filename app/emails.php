@@ -5,7 +5,62 @@ include 'include/dbconnect.php';
 
 $_SESSION['list'] = $_GET['id'];
 
+ 
+if (!empty($_FILES)) { 
+     
+  $allowedExts = array('txt');
+  $temp = explode('.', $_FILES['file']['name']);
+  $extension = end($temp);
+
+  if($_FILES['file']['type'] == 'text/plain' && in_array($extension, $allowedExts)){
+ 
+		$file = fopen($_FILES['file']['tmp_name'],'r');
+		if(!file){
+			echo("ERROR:cant open file");
+		} else { 
+		
+			$buff = fread ($file,filesize($_FILES['file']['tmp_name']));
+			$emails = explode(';', $buff);
+	
+			foreach($emails as $email){ 
+				
+				if($email != ''){ echo 'list id '.$_POST['listid'].'<br/>'.$email;
+					$stmt = $conn->prepare('INSERT INTO emails (list_id, email) VALUES (:listid, :email)');
+					$result = $stmt->execute(array('listid' => $_POST['listid'], 'email' => $email));
+				}
+			}	
+		}
+	
+	}
+	
+	
+	/*
+	$tempFile = $_FILES['file']['tmp_name'];            
+      
+    $targetPath = dirname( __FILE__ ) . $ds. $storeFolder . $ds;
+     
+    $targetFile =  $targetPath. $_FILES['file']['name'];
+ 
+    move_uploaded_file($tempFile,$targetFile);
+	
+     */
+}
+
+
+
+
+
+
+
+
+
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
+	
+	
+	print_r($_FILES);
+	exit;
+	
+	
 	switch ($_POST['submitbtn']){	
 		case 'saveemail':
 			$stmt = $conn->prepare('INSERT INTO emails (list_id, email) VALUES (:listid, :email)');
@@ -66,7 +121,7 @@ $result = $stmt->execute(array('listid' => $_GET['id']));
                                         <button id="email-add" class="btn green">
                                             Add New <i class="icon-plus"></i>
                                         </button>&nbsp;
-										<button class="btn green">
+										<button class="btn green uploadcsv">
                                             Upload CSV <i class="icon-plus"></i>
                                         </button>&nbsp;
 										<button  class="btn green importcontacts">
@@ -136,9 +191,55 @@ echo "<tr id=".$row['id']."><td>".htmlentities($row['email'])."</td><td>".htmlen
         </select>
 	</div>
 	<div class="modal-footer">
-		<button id="email-bar-close" class="btn btn-primary" data-dismiss="modal">Close</button>
+		<button class="btn btn-primary email-modal-close" data-dismiss="modal">Close</button>
 	</div>
 </div>
+<!------ UPLOAD FILE --------------->
+<link rel="stylesheet" href="https://rawgit.com/enyo/dropzone/master/dist/dropzone.css">
+
+<style>
+.dropzone {
+  border: 2px dashed #0087F7;
+  border-radius: 5px;
+  background: white;
+  min-height: 150px;
+  padding: 54px 54px;
+  box-sizing: border-box;
+}
+.dropzone.dz-clickable .dz-message, .dropzone.dz-clickable .dz-message * {
+  cursor: pointer;
+}
+.dropzone .dz-message {
+	font-weight:500;
+	font-size:20px;
+	color: #646C7F;
+  	text-align: center;
+  	margin: 2em 0;
+}
+</style>
+<div id="upload-csv-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="false" style="width:560px !important;display:block;">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<h3 id="myModalLabel1">Upload</h3>
+	</div>
+	<div class="modal-body">
+		<div id="dropzone">
+
+            <form action="emails.php" method="post" class="dropzone dz-clickable" id="demo-upload">
+            
+              <div class="dz-message">
+                Drop files here or click to upload.<br>
+              </div>
+            <input type="hidden" name="listid" value="<?php echo $_GET['id']; ?>"/>
+            </form>
+        
+        </div>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-primary email-csv-close" data-dismiss="modal">Close</button>
+	</div>
+</div>
+<!------------------------------------------------->
 <style>
  .ui-widget-overlay {
   background: #aaaaaa url("img/ui-bg_flat_0_aaaaaa_40x100.png") 50% 50% repeat-x;
