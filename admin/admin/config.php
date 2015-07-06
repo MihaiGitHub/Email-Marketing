@@ -26,7 +26,7 @@ $smtp_auth = false;
 $smtp_username = '';
 $smtp_password = '';
 $smtp_host = '';
-$email_from_address = 'mihai.sanfran@gmail.com';
+$email_from_address = 'mihai@msmarandache.com';
 $email_from_name = 'Admin';
 
 /*

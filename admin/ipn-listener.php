@@ -5,7 +5,7 @@
 /////////////////////////////////////////////////////////
 
 require_once('admin/config.php');
-require_once('../app/PHPMailer_5.2.1/class.phpmailer.php');
+require_once('../app/phpmailer/class.phpmailer.php');
 
 /*
 // migrate to using your php mailer. It's newer version
@@ -25,7 +25,7 @@ require_once('includes/database.class.php');
 require_once('includes/functions.php');
 
 $mail = new PHPMailer();
-$mail->SMTPDebug  = 2;                    
+$mail->SMTPDebug  = 2;                
 
 $mail->SetFrom($email_from_address, $email_from_name);
 $mail->AddReplyTo($email_from_address);
@@ -193,7 +193,7 @@ else
 {
 
 	$mail -> Subject  =  'PayPal IPN : Completed Successfully';
-	$mail->MsgHTML($ipn_email);
+	$mail -> MsgHTML($ipn_email);
 	$mail -> AddAddress($admin_email_address, $admin_name);
 	$mail -> Send();
 	$mail -> ClearAddresses();
@@ -202,7 +202,7 @@ else
 	$patterns = array();
 	$replacements = array();
 
-	$chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&";
+	$chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 	$password = substr( str_shuffle( $chars ), 0, 10 );
 	$arr = explode(' ',trim($_POST['item_name']));
 	
@@ -229,7 +229,7 @@ else
 	$replacements['password'] = $password;
 	$replacements['root'] = getenv('HTTP_HOST');
 	
-	$body = file_get_contents('../app/templates/ConfirmationEmail.html');
+	$body = file_get_contents('../app/templates/confirmation.html');
 	$body = preg_replace($patterns, $replacements, $body);
 
 	$mail->MsgHTML($body); 
