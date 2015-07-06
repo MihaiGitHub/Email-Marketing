@@ -17,3 +17,4 @@ images
 has been edited and the -mini.html will be the actual sent file. Late it will also need to be added at the begining 
 when user signs up for account in initial account setup.
 4. save-lists.php redirect_uri needs to be updated.
+5. app/emails.php and app/lists.php needs to have redirect_uri updated
