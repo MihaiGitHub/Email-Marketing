@@ -30,6 +30,7 @@ $dashboard = true;
 				<!-- END PAGE HEADER-->
 				<!-- BEGIN PAGE CONTENT-->
 <style>
+/*
 .new-emailcampaign-div a {
 	text-decoration: none;
 }
@@ -60,10 +61,19 @@ $dashboard = true;
   color: #595959;
     font-weight: bold;
 }
+*/
 </style>
 				<div id="page" class="dashboard">
                     <!-- BEGIN OVERVIEW STATISTIC BLOCKS-->
                     <div class="row-fluid circle-state-overview">
+                    
+                    
+<a class="icon-btn span2" href="templates.php" style="border-radius: 4px;">
+            <i class="icon-envelope"></i>
+            <div style="text-decoration: none;">Email Campaign</div> 
+</a>
+                    
+                    <!----- OLD
 				<div class="new-emailcampaign-div">
 					<a href="templates.php">
 						<div class="new-emailcampaign"> 
@@ -72,6 +82,7 @@ $dashboard = true;
 						</div>
 					</a>
 				</div>
+                ------>
                     <!--    <div class="span2 responsive" data-tablet="span3" data-desktop="span2">
                             <div class="circle-stat block">
                                 <div class="visual">
