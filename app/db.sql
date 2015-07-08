@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.14.8
+-- version 3.5.8.1
 -- http://www.phpmyadmin.net
 --
--- Host: db543846776.db.1and1.com
--- Generation Time: Jun 29, 2015 at 11:13 PM
--- Server version: 5.1.73-log
--- PHP Version: 5.4.41-0+deb7u1
+-- Host: msmarandache.com.mysql:3306
+-- Generation Time: Jul 08, 2015 at 05:28 AM
+-- Server version: 5.5.42-MariaDB-1~wheezy
+-- PHP Version: 5.4.36-0+deb7u3
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -17,8 +17,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `db543846776`
+-- Database: `msmarandache_co`
 --
+CREATE DATABASE `msmarandache_co` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `msmarandache_co`;
 
 -- --------------------------------------------------------
 
@@ -117,6 +119,119 @@ CREATE TABLE IF NOT EXISTS `adaptive_payments_transactions` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `campaign_emails`
+--
+
+CREATE TABLE IF NOT EXISTS `campaign_emails` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `c_id` varchar(50) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `email` varchar(100) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `sent` int(11) NOT NULL DEFAULT '0',
+  `opened` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `c_id` (`c_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2784 ;
+
+--
+-- Dumping data for table `campaign_emails`
+--
+
+INSERT INTO `campaign_emails` (`id`, `c_id`, `email`, `sent`, `opened`) VALUES
+(2772, 'C5596ccc97b0cf4.11671794', 'mihai6744@hotmail.com', 1, 6),
+(2773, 'C5596ccc97b0cf4.11671794', 'travelin.man2015@gmail.com', 1, 2),
+(2774, 'C5596ccc97b0cf4.11671794', 'xelot00007@yahoo.com', 1, 2),
+(2775, 'C5596f9b23b9ca9.67240989', 'mihai6744@hotmail.com', 1, 17),
+(2776, 'C5596f9b23b9ca9.67240989', 'travelin.man2015@gmail.com', 1, 14),
+(2777, 'C5596f9b23b9ca9.67240989', 'xelot00007@yahoo.com', 1, 6),
+(2778, 'C55974d68b0c3f7.89580542', 'mihai6744@hotmail.com', 1, 1),
+(2779, 'C55974d68b0c3f7.89580542', 'travelin.man2015@gmail.com', 1, 0),
+(2780, 'C55974d68b0c3f7.89580542', 'xelot00007@yahoo.com', 1, 0),
+(2781, 'C55974de27d8e38.81511640', 'mihai6744@hotmail.com', 1, 0),
+(2782, 'C55974de27d8e38.81511640', 'travelin.man2015@gmail.com', 1, 0),
+(2783, 'C55974de27d8e38.81511640', 'xelot00007@yahoo.com', 1, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `campaign_emails_detail`
+--
+
+CREATE TABLE IF NOT EXISTS `campaign_emails_detail` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `c_id` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `ce_id` int(11) NOT NULL,
+  `ip` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `country` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `region` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `city` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `browser` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
+  `os` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `opened` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=156 ;
+
+--
+-- Dumping data for table `campaign_emails_detail`
+--
+
+INSERT INTO `campaign_emails_detail` (`id`, `c_id`, `ce_id`, `ip`, `country`, `region`, `city`, `browser`, `os`, `opened`) VALUES
+(108, 'C5596ccc97b0cf4.11671794', 2773, '66.249.84.161', '', '', '', 'Firefox', 'Windows XP', '0000-00-00 00:00:00'),
+(107, 'C5596ccc97b0cf4.11671794', 2772, '65.55.129.188', '', '', '', 'Chrome', 'Windows 8.1', '0000-00-00 00:00:00'),
+(106, 'C5596ccc97b0cf4.11671794', 2773, '66.249.84.168', '', '', '', 'Firefox', 'Windows XP', '0000-00-00 00:00:00'),
+(105, 'C5596ccc97b0cf4.11671794', 2772, '65.55.129.188', '', '', '', 'Internet Explorer', 'Windows 8.1', '0000-00-00 00:00:00'),
+(104, 'C5596ccc97b0cf4.11671794', 2774, '68.104.254.143', '', '', '', 'Firefox', 'Windows 8.1', '0000-00-00 00:00:00'),
+(103, 'C5596c5a7cb84f2.54919100', 2769, '65.55.129.188', '', '', '', 'Chrome', 'Windows 8.1', '0000-00-00 00:00:00'),
+(109, 'C5596ccc97b0cf4.11671794', 2774, '68.104.254.143', '', '', '', 'Chrome', 'Windows 8.1', '0000-00-00 00:00:00'),
+(110, 'C5596ccc97b0cf4.11671794', 2772, '65.55.129.188', '', '', '', 'Handheld Browser', 'Android', '0000-00-00 00:00:00'),
+(111, 'C5596ccc97b0cf4.11671794', 2772, '65.55.129.188', '', '', '', 'Handheld Browser', 'Android', '0000-00-00 00:00:00'),
+(112, 'C5596ccc97b0cf4.11671794', 2772, '65.55.129.188', '', '', '', 'Chrome', 'Windows 8.1', '0000-00-00 00:00:00'),
+(113, 'C5596c5a7cb84f2.54919100', 2769, '65.55.129.188', '', '', '', 'Chrome', 'Windows 8.1', '0000-00-00 00:00:00'),
+(114, 'C5596f9b23b9ca9.67240989', 2766, '65.55.129.188', '', '', '', 'Chrome', 'Windows 8.1', '2015-07-01 03:00:00'),
+(115, 'C5596f9b23b9ca9.67240989', 2772, '65.55.129.188', '', '', '', 'Chrome', 'Windows 8.1', '2015-07-01 03:00:00'),
+(116, 'C5596f9b23b9ca9.67240989', 2769, '65.55.129.188', '', '', '', 'Chrome', 'Windows 8.1', '2015-07-02 03:00:00'),
+(117, 'C5596f9b23b9ca9.67240989', 2766, '65.55.129.188', '', '', '', 'Chrome', 'Windows 8.1', '2015-07-02 05:00:00'),
+(118, 'C5596f9b23b9ca9.67240989', 2775, '65.55.129.188', '', '', '', 'Chrome', 'Windows 8.1', '2015-07-03 02:00:00'),
+(119, 'C5596f9b23b9ca9.67240989', 2777, '68.104.254.143', '', '', '', 'Chrome', 'Windows 8.1', '2015-07-03 02:00:00'),
+(120, 'C5596f9b23b9ca9.67240989', 2776, '66.249.84.161', '', '', '', 'Firefox', 'Windows XP', '2015-07-03 02:00:00'),
+(121, 'C5596f9b23b9ca9.67240989', 2775, '65.55.129.188', '', '', '', 'Chrome', 'Windows 8.1', '2015-07-03 14:00:00'),
+(122, 'C5596f9b23b9ca9.67240989', 2775, '65.55.129.188', '', '', '', 'Chrome', 'Windows 8.1', '2015-07-03 14:00:00'),
+(123, 'C5596f9b23b9ca9.67240989', 2776, '66.249.84.161', '', '', '', 'Firefox', 'Windows XP', '2015-07-03 15:00:00'),
+(124, 'C5596f9b23b9ca9.67240989', 2777, '68.104.254.143', '', '', '', 'Firefox', 'Windows 8.1', '2015-07-03 15:00:00'),
+(125, 'C5596f9b23b9ca9.67240989', 2775, '65.55.129.188', '', '', '', 'Internet Explorer', 'Windows 8.1', '2015-07-03 15:00:00'),
+(126, 'C5596f9b23b9ca9.67240989', 2776, '66.249.84.175', '', '', '', 'Firefox', 'Windows XP', '2015-07-03 15:00:00'),
+(127, 'C5596f9b23b9ca9.67240989', 2776, '66.249.84.168', '', '', '', 'Firefox', 'Windows XP', '2015-07-03 15:00:00'),
+(128, 'C5596f9b23b9ca9.67240989', 2776, '66.249.84.168', '', '', '', 'Firefox', 'Windows XP', '2015-07-03 16:00:00'),
+(129, 'C5596f9b23b9ca9.67240989', 2775, '65.55.129.188', '', '', '', 'Chrome', 'Windows 8.1', '2015-07-03 19:00:00'),
+(130, 'C55974d68b0c3f7.89580542', 2778, '65.55.129.188', '', '', '', 'Chrome', 'Windows 8.1', '2015-07-03 20:00:00'),
+(131, 'C5596f9b23b9ca9.67240989', 2776, '66.249.84.175', '', '', '', 'Firefox', 'Windows XP', '2015-07-03 22:00:00'),
+(132, 'C5596f9b23b9ca9.67240989', 2775, '65.55.129.188', '', '', '', 'Chrome', 'Windows 8.1', '2015-07-03 22:00:00'),
+(133, 'C5596f9b23b9ca9.67240989', 2775, '65.55.129.188', '', '', '', 'Chrome', 'Windows 8.1', '2015-07-03 22:00:00'),
+(134, 'C5596f9b23b9ca9.67240989', 2776, '66.249.84.175', '', '', '', 'Firefox', 'Windows XP', '2015-07-03 22:00:00'),
+(135, 'C5596f9b23b9ca9.67240989', 2775, '65.55.129.188', '', '', '', 'Chrome', 'Windows 8.1', '2015-07-03 22:00:00'),
+(136, 'C5596f9b23b9ca9.67240989', 2776, '66.249.84.161', '', '', '', 'Firefox', 'Windows XP', '2015-07-04 08:00:00'),
+(137, 'C5596f9b23b9ca9.67240989', 2777, '68.104.254.143', '', '', '', 'Chrome', 'Windows 8.1', '2015-07-04 09:00:00'),
+(138, 'C5596f9b23b9ca9.67240989', 2775, '65.55.129.188', '', '', '', 'Internet Explorer', 'Windows 8.1', '2015-07-04 10:00:00'),
+(139, 'C5596f9b23b9ca9.67240989', 2776, '66.249.84.175', '', '', '', 'Firefox', 'Windows XP', '2015-07-04 14:00:00'),
+(140, 'C5596f9b23b9ca9.67240989', 2776, '66.249.84.161', '', '', '', 'Firefox', 'Windows XP', '2015-07-04 14:00:00'),
+(141, 'C5596f9b23b9ca9.67240989', 2776, '66.249.84.161', 'United States', 'California', 'Mountain View', 'Firefox', 'Windows XP', '2015-07-04 17:00:00'),
+(142, 'C5596f9b23b9ca9.67240989', 2777, '68.104.254.143', 'United States', 'Arizona', 'Vail', 'Chrome', 'Windows 8.1', '2015-07-04 17:00:00'),
+(143, 'C5596f9b23b9ca9.67240989', 2777, '68.104.254.143', 'United States', 'Arizona', 'Vail', 'Chrome', 'Windows 8.1', '2015-07-04 17:00:00'),
+(144, 'C5596f9b23b9ca9.67240989', 2776, '66.249.84.161', 'United States', 'California', 'Mountain View', 'Firefox', 'Windows XP', '2015-07-04 18:00:00'),
+(145, 'C5596f9b23b9ca9.67240989', 2777, '68.104.254.143', 'United States', 'Arizona', 'Vail', 'Firefox', 'Windows 8.1', '2015-07-04 18:00:00'),
+(146, 'C5596f9b23b9ca9.67240989', 2775, '65.55.129.188', 'United States', 'Washington', 'Redmond', 'Internet Explorer', 'Windows 8.1', '2015-07-04 18:00:00'),
+(147, 'C5596f9b23b9ca9.67240989', 2775, '65.55.129.188', 'United States', 'Washington', 'Redmond', 'Internet Explorer', 'Windows 8.1', '2015-07-04 18:00:00'),
+(148, 'C5596f9b23b9ca9.67240989', 2775, '65.55.129.188', 'United States', 'Washington', 'Redmond', 'Handheld Browser', 'Android', '2015-07-04 18:00:00'),
+(149, 'C5596f9b23b9ca9.67240989', 2776, '66.249.84.175', 'United States', 'California', 'Mountain View', 'Firefox', 'Windows XP', '2015-07-04 18:00:00'),
+(150, 'C5596f9b23b9ca9.67240989', 2776, '66.249.84.175', 'United States', 'California', 'Mountain View', 'Firefox', 'Windows XP', '2015-07-04 20:00:00'),
+(151, 'C5596f9b23b9ca9.67240989', 2775, '65.55.129.188', 'United States', 'Washington', 'Redmond', 'Internet Explorer', 'Windows 8.1', '2015-07-04 20:00:00'),
+(152, 'C5596f9b23b9ca9.67240989', 2775, '65.55.129.188', 'United States', 'Washington', 'Redmond', 'Internet Explorer', 'Windows 8.1', '2015-07-04 21:00:00'),
+(153, 'C5596f9b23b9ca9.67240989', 2775, '65.55.129.188', 'United States', 'Washington', 'Redmond', 'Internet Explorer', 'Windows 8.1', '2015-07-04 22:00:00'),
+(154, 'C5596f9b23b9ca9.67240989', 2775, '65.55.129.188', 'United States', 'Washington', 'Redmond', 'Internet Explorer', 'Windows 8.1', '2015-07-04 22:00:00'),
+(155, 'C5596f9b23b9ca9.67240989', 2775, '65.55.129.188', 'United States', 'Washington', 'Redmond', 'Chrome', 'Windows 8.1', '2015-07-05 19:00:00');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `campaigns`
 --
 
@@ -137,134 +252,26 @@ CREATE TABLE IF NOT EXISTS `campaigns` (
 --
 
 INSERT INTO `campaigns` (`id`, `user_id`, `list_id`, `subject`, `email_from`, `email_replyto`, `sent`) VALUES
-('C552745afac3844.45085396', 59, 48, 'asdf', 'asdf', 'asdf', '4/9/2015 8:38 PM'),
-('C5573c2d4ca1389.17818019', 60, 51, 'Singapore', 'arnie@gmail.com', 'Arnold@gmail.com', '6/7/2015 5:04 AM'),
-('C55748b1f702343.63514986', 60, 51, '3 column', 'mihai43@gmail.com', 'mihai6744@hotmail.com', '6/7/2015 7:19 PM'),
-('C55748e85c534e6.57376139', 60, 51, '3 column', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/7/2015 7:33 PM'),
-('C55748ef3a61b70.57419839', 60, 51, '3 column once again', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/7/2015 7:35 PM'),
-('C557490221d8405.76295159', 60, 51, '3 column finally', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/7/2015 7:40 PM'),
-('C557491407c1754.06636662', 60, 51, 'asdfasdf', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/7/2015 7:45 PM'),
-('C557492a2ef2d41.81002629', 60, 51, '3 column finally 2', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/7/2015 7:51 PM'),
-('C557492d5009d70.31021470', 60, 51, '2 column', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/7/2015 7:52 PM'),
-('C557495e0154383.43154209', 60, 51, 'Amadeusz', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/7/2015 8:05 PM'),
-('C5574960707e799.19479494', 60, 51, 'dsfsdf', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/7/2015 8:05 PM'),
-('C557496280053b2.50465453', 60, 51, 'fgfgfg', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/7/2015 8:06 PM'),
-('C557504a275e697.38526931', 60, 51, '', '', '', '6/8/2015 3:57 AM'),
-('C557b4e2b7a2898.57768389', 60, 51, 'Massive', 'mihai.sanfran@gmail.com', 'mihai6744@hotmail.com', '6/12/2015 10:24 PM'),
-('C557b7a0510fd96.94976742', 60, 51, '', '', '', '6/13/2015 1:32 AM'),
-('C557dcc7e23b179.04062049', 60, 51, 'Welcome', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/14/2015 7:48 PM'),
-('C557dcf61b43581.34745495', 60, 51, 'fgdfgdf', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/14/2015 8:00 PM'),
-('C557e28d1b866e3.90376904', 60, 51, 'Featured', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/15/2015 2:22 AM'),
-('C557e3759c76201.91924159', 60, 51, 'Trial', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/15/2015 3:24 AM'),
-('C557e4ed7d63568.26582236', 60, 51, 'Arrivals', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/15/2015 5:04 AM'),
-('C557f8f2962f730.93112448', 60, 51, 'New Template', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/16/2015 3:51 AM'),
-('C5583a4fb12f229.67086786', 60, 51, 'Iipad', 'dfhmdhgm@yahoo.com', 'Vict@yahoo.com', '6/19/2015 6:13 AM'),
-('C5584e393147b11.01983998', 60, 51, 'Welcome', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/20/2015 4:52 AM'),
-('C5584e597025929.53898189', 60, 51, 'Welcome', 'mihai@yahoo.com', 'mihai@yahoo.com', '6/20/2015 5:01 AM'),
-('C5584e5d2dab034.94880590', 60, 51, 'Welcome', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/20/2015 5:02 AM'),
-('C5584e64613c4a4.45057075', 60, 51, 'Welcome 3', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/20/2015 5:04 AM'),
-('C5584e6b00eb944.28970873', 60, 51, 'Welcome 4', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/20/2015 5:06 AM'),
-('C5584eb10f0a4b0.93491868', 60, 51, 'IE Test', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/20/2015 5:24 AM'),
-('C5584ec8d41b779.14486123', 60, 51, 'IE Final', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/20/2015 5:31 AM'),
-('C5584ed518ab039.18805909', 60, 51, 'IE Test', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/20/2015 5:34 AM'),
-('C5584ee19da3eb6.71664729', 60, 51, 'mihai final', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/20/2015 5:37 AM'),
-('C55858b30839857.74754443', 60, 51, 'Featured', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/20/2015 4:48 PM'),
-('C55858bace3c1e8.14564552', 60, 51, 'Featured 2', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/20/2015 4:50 PM'),
-('C55858c0c4ced55.88297507', 60, 51, 'Featured 3', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/20/2015 4:51 PM'),
-('C55858c7421e0e4.87342387', 60, 51, 'Featured 4', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/20/2015 4:53 PM'),
-('C55858d0f7d5541.78260122', 60, 51, 'Featured Final', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/20/2015 4:55 PM'),
-('C55858d666d2267.88476151', 60, 51, 'Featured final 2', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/20/2015 4:57 PM'),
-('C5586246058ba14.96846016', 60, 51, 'Trial', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/21/2015 3:41 AM'),
-('C55862590f10094.17517050', 60, 51, 'Trial 2', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/21/2015 3:46 AM'),
-('C55864a35790931.75947042', 60, 51, 'Arrivals Final', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/21/2015 6:23 AM'),
-('C5586f56b6c6879.60440275', 60, 51, 'Assets Test', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/21/2015 6:33 PM'),
-('C558708bc1ba227.41037080', 60, 51, 'Arrivals Final', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/21/2015 7:55 PM'),
-('C558db8ebac1fc0.45247355', 60, 51, 'Email Template', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/26/2015 9:41 PM'),
-('C5590d6744ea847.51904121', 60, 86, 'Receipt', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/28/2015 10:24 PM'),
-('C5590d69c84c600.53299748', 60, 86, 'asdf', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/28/2015 10:24 PM'),
-('C5590d74dda7a47.48681761', 60, 86, 'fgdfgdf', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/28/2015 10:27 PM'),
-('C5590d7a96d5824.49214857', 60, 86, 'fgdfgdfg', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/28/2015 10:29 PM'),
-('C55918bbd261fe7.44961632', 60, 86, 'Purple', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 11:17 AM'),
-('C55919019a27a48.13272887', 60, 86, 'Mihai', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 11:36 AM'),
-('C5591906ecb4101.72640855', 60, 86, 'asdfasdf', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 11:37 AM'),
-('C559190f2ac3969.59639100', 60, 86, 'sdfsdfdsf', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 11:39 AM'),
-('C559191c1cb2396.54717384', 60, 86, 'edrfwerw', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 11:43 AM'),
-('C559192040796f1.34571160', 60, 86, 'Welcome Email', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 11:44 AM'),
-('C559192442201a7.33908049', 60, 86, 'Welcome', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 11:45 AM'),
-('C559192a08d2fe7.14443035', 60, 86, 'Welcome 2', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 11:46 AM'),
-('C55919337439001.67234604', 60, 86, 'Welcome 3', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 11:49 AM'),
-('C5591942b465710.83030799', 60, 86, 'Welcome 4', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 11:53 AM'),
-('C5591946c9b43e0.42647547', 60, 86, 'Welcome 5', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 11:54 AM'),
-('C559195d7dd4769.39344549', 60, 86, 'Welcome 6', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 12:00 PM'),
-('C559196afdd5390.28654608', 60, 86, 'Welcome 7', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 12:04 PM'),
-('C5591999905b628.84643469', 60, 86, 'Welcome Final', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 12:16 PM'),
-('C55919a5e9659c2.38138495', 60, 86, 'dfdsfsd', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 12:19 PM'),
-('C5591d50ccdffd5.54208924', 60, 86, 'Browser', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 4:30 PM'),
-('C5591d8e0020878.05180416', 60, 86, 'Browser', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 4:46 PM'),
-('C5591dc7b2a1870.03414775', 60, 86, 'Features', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 5:02 PM'),
-('C5591df2530dc40.29607654', 60, 86, 'Eureka?', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 5:13 PM'),
-('C5591e1b350cd56.46420148', 60, 86, 'Try again', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 5:24 PM'),
-('C5591e2c3b73e18.54256923', 60, 86, 'Welcome', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 5:28 PM'),
-('C5591e350482fa3.43641354', 60, 86, 'Features', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 5:31 PM'),
-('C5591e3c9873591.57601693', 60, 86, 'Features', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 5:33 PM'),
-('C5591e8a01b3272.84130430', 60, 86, 'Done?', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 5:53 PM'),
-('C5591e9781049d5.66973981', 60, 86, 'cOME ONE', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 5:57 PM'),
-('C5591ea145fdb73.06117582', 60, 86, 'almost?', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 6:00 PM'),
-('C5591fd8a5f3d91.61323263', 60, 86, 'Hello there!', 'Mihai@ITdemo.com', 'mattisb@gmail.com', '6/29/2015 7:23 PM'),
-('C5591fe0d896e35.27960566', 60, 86, 'testing', 'Bulkmailer@gmail.com', 'barrett@3shapes.com', '6/29/2015 7:25 PM'),
-('C5592093eacaff8.14934024', 60, 86, 'Test again', 'mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '6/29/2015 8:13 PM');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `campaign_emails`
---
-
-CREATE TABLE IF NOT EXISTS `campaign_emails` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `c_id` varchar(50) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
-  `email` varchar(100) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
-  `sent` int(11) NOT NULL DEFAULT '0',
-  `opened` int(11) NOT NULL DEFAULT '0',
-  `ip` varchar(50) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
-  `country` varchar(100) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
-  `region` varchar(100) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `c_id` (`c_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2712 ;
-
---
--- Dumping data for table `campaign_emails`
---
-
-INSERT INTO `campaign_emails` (`id`, `c_id`, `email`, `sent`, `opened`, `ip`, `country`, `region`) VALUES
-(2711, 'C5592093eacaff8.14934024', 'xelot00007@yahoo.com', 1, 3, '68.104.254.143', 'United States', 'Arizona'),
-(2710, 'C5592093eacaff8.14934024', 'mihai6744@hotmail.com', 1, 0, '', '', ''),
-(2709, 'C5592093eacaff8.14934024', 'mattisb@gmail.com', 1, 0, '', '', '');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `campaign_emails_detail`
---
-
-CREATE TABLE IF NOT EXISTS `campaign_emails_detail` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `ce_id` int(11) NOT NULL,
-  `browser` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
-  `os` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `opened` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=24 ;
-
---
--- Dumping data for table `campaign_emails_detail`
---
-
-INSERT INTO `campaign_emails_detail` (`id`, `ce_id`, `browser`, `os`, `opened`) VALUES
-(23, 2711, 'Chrome', 'Windows 8.1', '2015-06-30 03:19:54'),
-(22, 2711, 'Chrome', 'Windows 8.1', '2015-06-30 03:19:02'),
-(21, 2711, 'Chrome', 'Windows 8.1', '2015-06-30 03:17:03');
+('C559571894bf5e2.20682098', 60, 86, 'Testing', 'asdfasdf', 'mihai.sanfran@gmail.com', '7/2/2015 10:14 AM'),
+('C559575e02ce573.72757881', 60, 86, 'Welcome', 'asdfasdf', 'mihai.sanfran@gmail.com', '7/2/2015 10:33 AM'),
+('C559576cd136c43.34096974', 60, 86, 'Billions', 'asdfsdf', 'mihai.sanfran@gmail.com', '7/2/2015 10:37 AM'),
+('C55957704d4e030.71874901', 60, 86, 'Millions', 'asdfasdf', 'mihai.sanfran@gmail.com', '7/2/2015 10:38 AM'),
+('C55957a88148130.30424945', 60, 86, 'Tracker', 'asdfasdf', 'mihai.sanfran@gmail.com', '7/2/2015 10:53 AM'),
+('C55958787a0ab91.14463647', 60, 86, 'Tracker bug', 'asdfa', 'mihai.sanfran@gmail.com', '7/2/2015 11:48 AM'),
+('C55958c412ade62.86543351', 60, 86, 'Singapore', 'asdfasdf', 'mihai.sanfran@gmail.com', '7/2/2015 12:08 PM'),
+('C5595a702bb9ec6.54033692', 60, 86, 'New Tracker', 'asdfasdf', 'mihai.sanfran@gmail.com', '7/2/2015 2:02 PM'),
+('C5595a778e2b973.32910530', 60, 86, 'Tracker', 'Mihai.sanfran@gmail.com', 'mihai.sanfran@gmail.com', '7/2/2015 2:04 PM'),
+('C5595a85e385ce8.28633805', 60, 86, 'Invisible', 'mihia.asdf', 'mihai.sanfran@gmail.com', '7/2/2015 2:08 PM'),
+('C5595a96b085bd6.60074774', 60, 86, 'watchdog', 'asdfasdf', 'mihai.sanfran@gmail.com', '7/2/2015 2:13 PM'),
+('C5595b54c170c23.48455971', 60, 86, 'Zombies', 'asdfasf', 'mihai.sanfran@gmail.com', '7/2/2015 3:03 PM'),
+('C5595c38c93a1a0.41262723', 60, 86, 'Arrivals', 'asdfadf', 'mihai.sanfran@gmail.com', '7/2/2015 4:04 PM'),
+('C5595c461954607.41520348', 60, 86, 'Trial Campaign', 'asdfasdf', 'mihai.sanfran@gmail.com', '7/2/2015 4:08 PM'),
+('C5596c41d991862.83917291', 60, 86, 'Arrivals Campaign', 'mihasi', 'mihai.sanfran@gmail.com', '7/3/2015 10:19 AM'),
+('C5596c5a7cb84f2.54919100', 60, 86, 'Features Campaign', 'mihais.asdfn', 'mihai.sanfran@gmail.com', '7/3/2015 10:25 AM'),
+('C5596ccc97b0cf4.11671794', 60, 86, 'Simple Text', 'mihaisdfa', 'mihai.sanfran@gmail.com', '7/3/2015 10:56 AM'),
+('C5596f9b23b9ca9.67240989', 60, 86, 'SMTP set up', 'mihai', 'mihai.sanfran@gmail.com', '7/3/2015 2:08 PM'),
+('C55974d68b0c3f7.89580542', 60, 86, '', '', '', '7/3/2015 8:05 PM'),
+('C55974de27d8e38.81511640', 60, 86, '', '', '', '7/3/2015 8:07 PM');
 
 -- --------------------------------------------------------
 
@@ -309,15 +316,21 @@ CREATE TABLE IF NOT EXISTS `emails` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `useremail` (`list_id`,`email`),
   KEY `user` (`list_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=54988 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=55315 ;
 
 --
 -- Dumping data for table `emails`
 --
 
 INSERT INTO `emails` (`id`, `list_id`, `email`, `date_added`) VALUES
-(54985, 86, 'xelot00007@yahoo.com', '2015-06-28 21:11:26'),
-(54986, 86, 'mihai6744@hotmail.com', '2015-06-29 05:26:54');
+(55309, 88, ' adecco@asdf.com', '2015-07-06 01:33:52'),
+(55308, 88, ' xelot23123@yahoo.com', '2015-07-06 01:33:52'),
+(55307, 88, 'mihai123@yahoo.com', '2015-07-06 01:33:52'),
+(55310, 88, ' andersone@adf.com', '2015-07-06 01:33:52'),
+(55311, 88, 'mihai1232@yahoo.com', '2015-07-06 01:42:35'),
+(55312, 88, ' xelo2t23123@yahoo.com', '2015-07-06 01:42:35'),
+(55313, 88, ' adecco2@asdf.com', '2015-07-06 01:42:35'),
+(55314, 88, ' ande2rsone@adf.com', '2015-07-06 01:42:35');
 
 -- --------------------------------------------------------
 
@@ -332,7 +345,7 @@ CREATE TABLE IF NOT EXISTS `lists` (
   `created` varchar(30) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=88 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=89 ;
 
 --
 -- Dumping data for table `lists`
@@ -341,7 +354,8 @@ CREATE TABLE IF NOT EXISTS `lists` (
 INSERT INTO `lists` (`id`, `user_id`, `name`, `created`) VALUES
 (48, 59, 'Test List', '04/05/2015'),
 (50, 59, 'Another List', '04/12/2015'),
-(86, 60, 'My New List', '06/27/2015');
+(86, 60, 'My New List', '06/27/2015'),
+(88, 60, 'Small List', '07/05/2015');
 
 -- --------------------------------------------------------
 
@@ -365,6 +379,55 @@ CREATE TABLE IF NOT EXISTS `mass_payments` (
   `test_ipn` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `order_items`
+--
+
+CREATE TABLE IF NOT EXISTS `order_items` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `raw_log_id` int(10) DEFAULT NULL,
+  `order_id` int(10) DEFAULT NULL,
+  `refund_id` int(10) DEFAULT NULL,
+  `subscr_id` varchar(25) COLLATE utf8_bin DEFAULT NULL,
+  `item_name` varchar(130) COLLATE utf8_bin DEFAULT NULL,
+  `item_number` varchar(130) COLLATE utf8_bin DEFAULT NULL,
+  `os0` varchar(200) COLLATE utf8_bin DEFAULT NULL,
+  `on0` varchar(75) COLLATE utf8_bin DEFAULT NULL,
+  `os1` varchar(200) COLLATE utf8_bin DEFAULT NULL,
+  `on1` varchar(75) COLLATE utf8_bin DEFAULT NULL,
+  `os2` varchar(200) COLLATE utf8_bin DEFAULT NULL,
+  `on2` varchar(75) COLLATE utf8_bin DEFAULT NULL,
+  `os3` varchar(200) COLLATE utf8_bin DEFAULT NULL,
+  `on3` varchar(75) COLLATE utf8_bin DEFAULT NULL,
+  `os4` varchar(200) COLLATE utf8_bin DEFAULT NULL,
+  `on4` varchar(75) COLLATE utf8_bin DEFAULT NULL,
+  `os5` varchar(200) COLLATE utf8_bin DEFAULT NULL,
+  `on5` varchar(75) COLLATE utf8_bin DEFAULT NULL,
+  `os6` varchar(200) COLLATE utf8_bin DEFAULT NULL,
+  `on6` varchar(75) COLLATE utf8_bin DEFAULT NULL,
+  `os7` varchar(200) COLLATE utf8_bin DEFAULT NULL,
+  `on7` varchar(75) COLLATE utf8_bin DEFAULT NULL,
+  `os8` varchar(200) COLLATE utf8_bin DEFAULT NULL,
+  `on8` varchar(75) COLLATE utf8_bin DEFAULT NULL,
+  `btn_id` varchar(50) COLLATE utf8_bin DEFAULT NULL,
+  `quantity` double DEFAULT NULL,
+  `custom` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `mc_gross` double DEFAULT NULL,
+  `mc_handling` double DEFAULT NULL,
+  `mc_shipping` double DEFAULT NULL,
+  `creation_timestamp` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `order_items`
+--
+
+INSERT INTO `order_items` (`id`, `raw_log_id`, `order_id`, `refund_id`, `subscr_id`, `item_name`, `item_number`, `os0`, `on0`, `os1`, `on1`, `os2`, `on2`, `os3`, `on3`, `os4`, `on4`, `os5`, `on5`, `os6`, `on6`, `os7`, `on7`, `os8`, `on8`, `btn_id`, `quantity`, `custom`, `mc_gross`, `mc_handling`, `mc_shipping`, `creation_timestamp`) VALUES
+(1, 1, 1, NULL, '', 'something', 'AK-1234', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '', 0, 1.67, 1.02, '2015-02-16 00:56:22');
 
 -- --------------------------------------------------------
 
@@ -446,7 +509,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `receiver_id` varchar(15) COLLATE utf8_bin DEFAULT NULL,
   `test_ipn` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=75 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=76 ;
 
 --
 -- Dumping data for table `orders`
@@ -526,56 +589,8 @@ INSERT INTO `orders` (`id`, `raw_log_id`, `receiver_email`, `payment_status`, `p
 (71, 75, 'travelin.man2015@gmail.com', 'Completed', '', '18:07:59 Apr 05, 2015 PDT', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', 'Default', '3075140', 200, 6.1, 0, 0, 0, 0, 0, 0, 0, 'USD', '0N862739GA1745946', 'web_accept', 'Mihai', 'Smarandache', '', '', '', '', '', '', 'mihai.sanfran@gmail.com', 'verified', 'instant', '3.8', 'AetgxQBy0AZ.0n-vhqWi-1ShaqpFAjnnA2vvA-Wt5jA2YVuqoR6tOoZP', '', '', 'Ineligible', 'Invalid', '', '', '', '', '10000 Email Credits', '', '', 0, '', '', 0, '2015-04-06 01:08:08', '', '', 'AVCAHSW235QLG', 1),
 (72, 76, 'travelin.man2015@gmail.com', 'Completed', '', '18:12:17 Apr 05, 2015 PDT', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', 'Default', '3075135', 30, 1.17, 0, 0, 0, 0, 0, 0, 0, 'USD', '6NY7459961148702L', 'web_accept', 'Mihai', 'Smarandache', '', '', '', '', '', '', 'mihai.sanfran@gmail.com', 'verified', 'instant', '3.8', 'AYC5OHuaKCeGkdR2xQihlGY0ub74AX1cEMWfUO5MmR5lPfMnedhHCDRs', '', '', 'Ineligible', 'Invalid', '', '', '', '', '1000 Email Credits', '', '', 0, '', '', 0, '2015-04-06 01:12:22', '', '', 'AVCAHSW235QLG', 1),
 (73, 77, 'travelin.man2015@gmail.com', 'Completed', '', '18:16:58 Apr 05, 2015 PDT', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', 'Default', '3075140', 200, 6.1, 0, 0, 0, 0, 0, 0, 0, 'USD', '12495197445399340', 'web_accept', 'Mihai', 'Smarandache', '', '', '', '', '', '', 'mihai.sanfran@gmail.com', 'verified', 'instant', '3.8', 'AJALhkU1nFnTnqDa3WS7TUC30c-8AnYntTkYouvNTjoSdM4Vq4dFyi-L', '', '', 'Ineligible', 'Invalid', '', '', '', '', '10000 Email Credits', '', '', 0, '', '', 0, '2015-04-06 01:17:04', '', '', 'AVCAHSW235QLG', 1),
-(74, 78, 'travelin.man2015@gmail.com', 'Completed', '', '18:40:10 Apr 05, 2015 PDT', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', 'Default', '3075137', 60, 2.04, 0, 0, 0, 0, 0, 0, 0, 'USD', '0FL92434EA276223X', 'web_accept', 'Mihai', 'Smarandache', '', '', '', '', '', '', 'mihai.sanfran@gmail.com', 'verified', 'instant', '3.8', 'ARzgAgKHDmJxNpJrYmwa7-mE9yWfA0C9eAYVfvYZkmAn2EOBAS40ItA4', '', '', 'Ineligible', 'Invalid', '', '', '', '', '2000 Email Credits', '', '', 0, '', '', 0, '2015-04-06 01:40:16', '', '', 'AVCAHSW235QLG', 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `order_items`
---
-
-CREATE TABLE IF NOT EXISTS `order_items` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `raw_log_id` int(10) DEFAULT NULL,
-  `order_id` int(10) DEFAULT NULL,
-  `refund_id` int(10) DEFAULT NULL,
-  `subscr_id` varchar(25) COLLATE utf8_bin DEFAULT NULL,
-  `item_name` varchar(130) COLLATE utf8_bin DEFAULT NULL,
-  `item_number` varchar(130) COLLATE utf8_bin DEFAULT NULL,
-  `os0` varchar(200) COLLATE utf8_bin DEFAULT NULL,
-  `on0` varchar(75) COLLATE utf8_bin DEFAULT NULL,
-  `os1` varchar(200) COLLATE utf8_bin DEFAULT NULL,
-  `on1` varchar(75) COLLATE utf8_bin DEFAULT NULL,
-  `os2` varchar(200) COLLATE utf8_bin DEFAULT NULL,
-  `on2` varchar(75) COLLATE utf8_bin DEFAULT NULL,
-  `os3` varchar(200) COLLATE utf8_bin DEFAULT NULL,
-  `on3` varchar(75) COLLATE utf8_bin DEFAULT NULL,
-  `os4` varchar(200) COLLATE utf8_bin DEFAULT NULL,
-  `on4` varchar(75) COLLATE utf8_bin DEFAULT NULL,
-  `os5` varchar(200) COLLATE utf8_bin DEFAULT NULL,
-  `on5` varchar(75) COLLATE utf8_bin DEFAULT NULL,
-  `os6` varchar(200) COLLATE utf8_bin DEFAULT NULL,
-  `on6` varchar(75) COLLATE utf8_bin DEFAULT NULL,
-  `os7` varchar(200) COLLATE utf8_bin DEFAULT NULL,
-  `on7` varchar(75) COLLATE utf8_bin DEFAULT NULL,
-  `os8` varchar(200) COLLATE utf8_bin DEFAULT NULL,
-  `on8` varchar(75) COLLATE utf8_bin DEFAULT NULL,
-  `btn_id` varchar(50) COLLATE utf8_bin DEFAULT NULL,
-  `quantity` double DEFAULT NULL,
-  `custom` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `mc_gross` double DEFAULT NULL,
-  `mc_handling` double DEFAULT NULL,
-  `mc_shipping` double DEFAULT NULL,
-  `creation_timestamp` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=2 ;
-
---
--- Dumping data for table `order_items`
---
-
-INSERT INTO `order_items` (`id`, `raw_log_id`, `order_id`, `refund_id`, `subscr_id`, `item_name`, `item_number`, `os0`, `on0`, `os1`, `on1`, `os2`, `on2`, `os3`, `on3`, `os4`, `on4`, `os5`, `on5`, `os6`, `on6`, `os7`, `on7`, `os8`, `on8`, `btn_id`, `quantity`, `custom`, `mc_gross`, `mc_handling`, `mc_shipping`, `creation_timestamp`) VALUES
-(1, 1, 1, NULL, '', 'something', 'AK-1234', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '', 0, 1.67, 1.02, '2015-02-16 00:56:22');
+(74, 78, 'travelin.man2015@gmail.com', 'Completed', '', '18:40:10 Apr 05, 2015 PDT', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', 'Default', '3075137', 60, 2.04, 0, 0, 0, 0, 0, 0, 0, 'USD', '0FL92434EA276223X', 'web_accept', 'Mihai', 'Smarandache', '', '', '', '', '', '', 'mihai.sanfran@gmail.com', 'verified', 'instant', '3.8', 'ARzgAgKHDmJxNpJrYmwa7-mE9yWfA0C9eAYVfvYZkmAn2EOBAS40ItA4', '', '', 'Ineligible', 'Invalid', '', '', '', '', '2000 Email Credits', '', '', 0, '', '', 0, '2015-04-06 01:40:16', '', '', 'AVCAHSW235QLG', 1),
+(75, 80, 'travelin.man2015@gmail.com', 'Completed', '', '21:36:56 Jul 05, 2015 PDT', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', 'Default', '3177635', 5, 0.45, 0, 0, 0, 0, 0, 0, 0, 'USD', '7WT024513T4568844', 'web_accept', 'Mihai', 'Smarandache', '', '', '', '', '', '', 'mihai.sanfran@gmail.com', 'verified', 'instant', '3.8', 'A5v94doyzkAL45GWSOpp3GzSpU1aAFMJEv-hM97Ud23v3XTJeAYWggY5', '', '', 'Ineligible', 'Invalid', '', '', '', '', '5 Email Credits', '', '', 0, '', '', 0, '2015-07-06 04:37:01', '', '', 'AVCAHSW235QLG', 1);
 
 -- --------------------------------------------------------
 
@@ -588,7 +603,7 @@ CREATE TABLE IF NOT EXISTS `raw_log` (
   `created_timestamp` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `ipn_data_serialized` text COLLATE utf8_bin,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=79 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=81 ;
 
 --
 -- Dumping data for table `raw_log`
@@ -674,47 +689,9 @@ INSERT INTO `raw_log` (`id`, `created_timestamp`, `ipn_data_serialized`) VALUES
 (75, '2015-04-06 01:08:08', 'a:38:{s:8:"mc_gross";s:6:"200.00";s:22:"protection_eligibility";s:10:"Ineligible";s:8:"payer_id";s:13:"BL5JEN2YBC2WC";s:3:"tax";s:4:"0.00";s:12:"payment_date";s:25:"18:07:59 Apr 05, 2015 PDT";s:14:"payment_status";s:9:"Completed";s:7:"charset";s:12:"windows-1252";s:10:"first_name";s:5:"Mihai";s:6:"mc_fee";s:4:"6.10";s:14:"notify_version";s:3:"3.8";s:6:"custom";s:0:"";s:12:"payer_status";s:8:"verified";s:8:"business";s:26:"travelin.man2015@gmail.com";s:8:"quantity";s:1:"1";s:11:"verify_sign";s:56:"AetgxQBy0AZ.0n-vhqWi-1ShaqpFAjnnA2vvA-Wt5jA2YVuqoR6tOoZP";s:11:"payer_email";s:23:"mihai.sanfran@gmail.com";s:6:"txn_id";s:17:"0N862739GA1745946";s:12:"payment_type";s:7:"instant";s:6:"btn_id";s:7:"3075140";s:9:"last_name";s:11:"Smarandache";s:14:"receiver_email";s:26:"travelin.man2015@gmail.com";s:11:"payment_fee";s:4:"6.10";s:17:"shipping_discount";s:4:"0.00";s:16:"insurance_amount";s:4:"0.00";s:11:"receiver_id";s:13:"AVCAHSW235QLG";s:8:"txn_type";s:10:"web_accept";s:9:"item_name";s:19:"10000 Email Credits";s:8:"discount";s:4:"0.00";s:11:"mc_currency";s:3:"USD";s:11:"item_number";s:0:"";s:17:"residence_country";s:2:"US";s:8:"test_ipn";s:1:"1";s:15:"handling_amount";s:4:"0.00";s:15:"shipping_method";s:7:"Default";s:19:"transaction_subject";s:0:"";s:13:"payment_gross";s:6:"200.00";s:8:"shipping";s:4:"0.00";s:12:"ipn_track_id";s:13:"832017e727bb6";}'),
 (76, '2015-04-06 01:12:21', 'a:38:{s:8:"mc_gross";s:5:"30.00";s:22:"protection_eligibility";s:10:"Ineligible";s:8:"payer_id";s:13:"BL5JEN2YBC2WC";s:3:"tax";s:4:"0.00";s:12:"payment_date";s:25:"18:12:17 Apr 05, 2015 PDT";s:14:"payment_status";s:9:"Completed";s:7:"charset";s:12:"windows-1252";s:10:"first_name";s:5:"Mihai";s:6:"mc_fee";s:4:"1.17";s:14:"notify_version";s:3:"3.8";s:6:"custom";s:0:"";s:12:"payer_status";s:8:"verified";s:8:"business";s:26:"travelin.man2015@gmail.com";s:8:"quantity";s:1:"1";s:11:"verify_sign";s:56:"AYC5OHuaKCeGkdR2xQihlGY0ub74AX1cEMWfUO5MmR5lPfMnedhHCDRs";s:11:"payer_email";s:23:"mihai.sanfran@gmail.com";s:6:"txn_id";s:17:"6NY7459961148702L";s:12:"payment_type";s:7:"instant";s:6:"btn_id";s:7:"3075135";s:9:"last_name";s:11:"Smarandache";s:14:"receiver_email";s:26:"travelin.man2015@gmail.com";s:11:"payment_fee";s:4:"1.17";s:17:"shipping_discount";s:4:"0.00";s:16:"insurance_amount";s:4:"0.00";s:11:"receiver_id";s:13:"AVCAHSW235QLG";s:8:"txn_type";s:10:"web_accept";s:9:"item_name";s:18:"1000 Email Credits";s:8:"discount";s:4:"0.00";s:11:"mc_currency";s:3:"USD";s:11:"item_number";s:0:"";s:17:"residence_country";s:2:"US";s:8:"test_ipn";s:1:"1";s:15:"handling_amount";s:4:"0.00";s:15:"shipping_method";s:7:"Default";s:19:"transaction_subject";s:0:"";s:13:"payment_gross";s:5:"30.00";s:8:"shipping";s:4:"0.00";s:12:"ipn_track_id";s:13:"fc564823cc6a3";}'),
 (77, '2015-04-06 01:17:04', 'a:38:{s:8:"mc_gross";s:6:"200.00";s:22:"protection_eligibility";s:10:"Ineligible";s:8:"payer_id";s:13:"BL5JEN2YBC2WC";s:3:"tax";s:4:"0.00";s:12:"payment_date";s:25:"18:16:58 Apr 05, 2015 PDT";s:14:"payment_status";s:9:"Completed";s:7:"charset";s:12:"windows-1252";s:10:"first_name";s:5:"Mihai";s:6:"mc_fee";s:4:"6.10";s:14:"notify_version";s:3:"3.8";s:6:"custom";s:0:"";s:12:"payer_status";s:8:"verified";s:8:"business";s:26:"travelin.man2015@gmail.com";s:8:"quantity";s:1:"1";s:11:"verify_sign";s:56:"AJALhkU1nFnTnqDa3WS7TUC30c-8AnYntTkYouvNTjoSdM4Vq4dFyi-L";s:11:"payer_email";s:23:"mihai.sanfran@gmail.com";s:6:"txn_id";s:17:"12495197445399340";s:12:"payment_type";s:7:"instant";s:6:"btn_id";s:7:"3075140";s:9:"last_name";s:11:"Smarandache";s:14:"receiver_email";s:26:"travelin.man2015@gmail.com";s:11:"payment_fee";s:4:"6.10";s:17:"shipping_discount";s:4:"0.00";s:16:"insurance_amount";s:4:"0.00";s:11:"receiver_id";s:13:"AVCAHSW235QLG";s:8:"txn_type";s:10:"web_accept";s:9:"item_name";s:19:"10000 Email Credits";s:8:"discount";s:4:"0.00";s:11:"mc_currency";s:3:"USD";s:11:"item_number";s:0:"";s:17:"residence_country";s:2:"US";s:8:"test_ipn";s:1:"1";s:15:"handling_amount";s:4:"0.00";s:15:"shipping_method";s:7:"Default";s:19:"transaction_subject";s:0:"";s:13:"payment_gross";s:6:"200.00";s:8:"shipping";s:4:"0.00";s:12:"ipn_track_id";s:12:"ab9be330b2b7";}'),
-(78, '2015-04-06 01:40:16', 'a:38:{s:8:"mc_gross";s:5:"60.00";s:22:"protection_eligibility";s:10:"Ineligible";s:8:"payer_id";s:13:"BL5JEN2YBC2WC";s:3:"tax";s:4:"0.00";s:12:"payment_date";s:25:"18:40:10 Apr 05, 2015 PDT";s:14:"payment_status";s:9:"Completed";s:7:"charset";s:12:"windows-1252";s:10:"first_name";s:5:"Mihai";s:6:"mc_fee";s:4:"2.04";s:14:"notify_version";s:3:"3.8";s:6:"custom";s:0:"";s:12:"payer_status";s:8:"verified";s:8:"business";s:26:"travelin.man2015@gmail.com";s:8:"quantity";s:1:"1";s:11:"verify_sign";s:56:"ARzgAgKHDmJxNpJrYmwa7-mE9yWfA0C9eAYVfvYZkmAn2EOBAS40ItA4";s:11:"payer_email";s:23:"mihai.sanfran@gmail.com";s:6:"txn_id";s:17:"0FL92434EA276223X";s:12:"payment_type";s:7:"instant";s:6:"btn_id";s:7:"3075137";s:9:"last_name";s:11:"Smarandache";s:14:"receiver_email";s:26:"travelin.man2015@gmail.com";s:11:"payment_fee";s:4:"2.04";s:17:"shipping_discount";s:4:"0.00";s:16:"insurance_amount";s:4:"0.00";s:11:"receiver_id";s:13:"AVCAHSW235QLG";s:8:"txn_type";s:10:"web_accept";s:9:"item_name";s:18:"2000 Email Credits";s:8:"discount";s:4:"0.00";s:11:"mc_currency";s:3:"USD";s:11:"item_number";s:0:"";s:17:"residence_country";s:2:"US";s:8:"test_ipn";s:1:"1";s:15:"handling_amount";s:4:"0.00";s:15:"shipping_method";s:7:"Default";s:19:"transaction_subject";s:0:"";s:13:"payment_gross";s:5:"60.00";s:8:"shipping";s:4:"0.00";s:12:"ipn_track_id";s:13:"8cbc722cb4de6";}');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `recurring_payments`
---
-
-CREATE TABLE IF NOT EXISTS `recurring_payments` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `raw_log_id` int(10) DEFAULT NULL,
-  `mc_gross` double DEFAULT NULL,
-  `protection_eligibility` varchar(50) COLLATE utf8_bin DEFAULT NULL,
-  `payment_date` varchar(100) COLLATE utf8_bin DEFAULT NULL,
-  `payment_status` varchar(25) COLLATE utf8_bin DEFAULT NULL,
-  `mc_fee` double DEFAULT NULL,
-  `notify_version` varchar(25) COLLATE utf8_bin DEFAULT NULL,
-  `payer_status` varchar(25) COLLATE utf8_bin DEFAULT NULL,
-  `currency_code` varchar(10) COLLATE utf8_bin DEFAULT NULL,
-  `verify_sign` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `amount` double DEFAULT NULL,
-  `txn_id` varchar(25) COLLATE utf8_bin DEFAULT NULL,
-  `payment_type` varchar(25) COLLATE utf8_bin DEFAULT NULL,
-  `receiver_email` varchar(130) COLLATE utf8_bin DEFAULT NULL,
-  `receiver_id` varchar(15) COLLATE utf8_bin DEFAULT NULL,
-  `txn_type` varchar(100) COLLATE utf8_bin DEFAULT NULL,
-  `mc_currency` varchar(25) COLLATE utf8_bin DEFAULT NULL,
-  `residence_country` varchar(2) COLLATE utf8_bin DEFAULT NULL,
-  `receipt_id` varchar(50) COLLATE utf8_bin DEFAULT NULL,
-  `transaction_subject` varchar(150) COLLATE utf8_bin DEFAULT NULL,
-  `reason_code` varchar(25) COLLATE utf8_bin DEFAULT NULL,
-  `shipping` double DEFAULT NULL,
-  `product_type` varchar(50) COLLATE utf8_bin DEFAULT NULL,
-  `time_created` varchar(100) COLLATE utf8_bin DEFAULT NULL,
-  `rp_invoice_id` varchar(127) COLLATE utf8_bin DEFAULT NULL,
-  `ipn_status` varchar(25) COLLATE utf8_bin DEFAULT NULL,
-  `creation_timestamp` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `recurring_payment_id` varchar(50) COLLATE utf8_bin DEFAULT NULL,
-  `test_ipn` tinyint(1) DEFAULT '0',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+(78, '2015-04-06 01:40:16', 'a:38:{s:8:"mc_gross";s:5:"60.00";s:22:"protection_eligibility";s:10:"Ineligible";s:8:"payer_id";s:13:"BL5JEN2YBC2WC";s:3:"tax";s:4:"0.00";s:12:"payment_date";s:25:"18:40:10 Apr 05, 2015 PDT";s:14:"payment_status";s:9:"Completed";s:7:"charset";s:12:"windows-1252";s:10:"first_name";s:5:"Mihai";s:6:"mc_fee";s:4:"2.04";s:14:"notify_version";s:3:"3.8";s:6:"custom";s:0:"";s:12:"payer_status";s:8:"verified";s:8:"business";s:26:"travelin.man2015@gmail.com";s:8:"quantity";s:1:"1";s:11:"verify_sign";s:56:"ARzgAgKHDmJxNpJrYmwa7-mE9yWfA0C9eAYVfvYZkmAn2EOBAS40ItA4";s:11:"payer_email";s:23:"mihai.sanfran@gmail.com";s:6:"txn_id";s:17:"0FL92434EA276223X";s:12:"payment_type";s:7:"instant";s:6:"btn_id";s:7:"3075137";s:9:"last_name";s:11:"Smarandache";s:14:"receiver_email";s:26:"travelin.man2015@gmail.com";s:11:"payment_fee";s:4:"2.04";s:17:"shipping_discount";s:4:"0.00";s:16:"insurance_amount";s:4:"0.00";s:11:"receiver_id";s:13:"AVCAHSW235QLG";s:8:"txn_type";s:10:"web_accept";s:9:"item_name";s:18:"2000 Email Credits";s:8:"discount";s:4:"0.00";s:11:"mc_currency";s:3:"USD";s:11:"item_number";s:0:"";s:17:"residence_country";s:2:"US";s:8:"test_ipn";s:1:"1";s:15:"handling_amount";s:4:"0.00";s:15:"shipping_method";s:7:"Default";s:19:"transaction_subject";s:0:"";s:13:"payment_gross";s:5:"60.00";s:8:"shipping";s:4:"0.00";s:12:"ipn_track_id";s:13:"8cbc722cb4de6";}'),
+(79, '2015-07-06 04:30:45', 'a:0:{}'),
+(80, '2015-07-06 04:37:01', 'a:38:{s:8:"mc_gross";s:4:"5.00";s:22:"protection_eligibility";s:10:"Ineligible";s:8:"payer_id";s:13:"BL5JEN2YBC2WC";s:3:"tax";s:4:"0.00";s:12:"payment_date";s:25:"21:36:56 Jul 05, 2015 PDT";s:14:"payment_status";s:9:"Completed";s:7:"charset";s:12:"windows-1252";s:10:"first_name";s:5:"Mihai";s:6:"mc_fee";s:4:"0.45";s:14:"notify_version";s:3:"3.8";s:6:"custom";s:0:"";s:12:"payer_status";s:8:"verified";s:8:"business";s:26:"travelin.man2015@gmail.com";s:8:"quantity";s:1:"1";s:11:"verify_sign";s:56:"A5v94doyzkAL45GWSOpp3GzSpU1aAFMJEv-hM97Ud23v3XTJeAYWggY5";s:11:"payer_email";s:23:"mihai.sanfran@gmail.com";s:6:"txn_id";s:17:"7WT024513T4568844";s:12:"payment_type";s:7:"instant";s:6:"btn_id";s:7:"3177635";s:9:"last_name";s:11:"Smarandache";s:14:"receiver_email";s:26:"travelin.man2015@gmail.com";s:11:"payment_fee";s:4:"0.45";s:17:"shipping_discount";s:4:"0.00";s:16:"insurance_amount";s:4:"0.00";s:11:"receiver_id";s:13:"AVCAHSW235QLG";s:8:"txn_type";s:10:"web_accept";s:9:"item_name";s:15:"5 Email Credits";s:8:"discount";s:4:"0.00";s:11:"mc_currency";s:3:"USD";s:11:"item_number";s:0:"";s:17:"residence_country";s:2:"US";s:8:"test_ipn";s:1:"1";s:15:"handling_amount";s:4:"0.00";s:15:"shipping_method";s:7:"Default";s:19:"transaction_subject";s:0:"";s:13:"payment_gross";s:4:"5.00";s:8:"shipping";s:4:"0.00";s:12:"ipn_track_id";s:13:"12513d5b15bd3";}');
 
 -- --------------------------------------------------------
 
@@ -754,6 +731,46 @@ CREATE TABLE IF NOT EXISTS `recurring_payment_profiles` (
   `product_name` varchar(130) COLLATE utf8_bin DEFAULT NULL,
   `ipn_status` varchar(25) COLLATE utf8_bin DEFAULT NULL,
   `creation_timestamp` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `test_ipn` tinyint(1) DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `recurring_payments`
+--
+
+CREATE TABLE IF NOT EXISTS `recurring_payments` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `raw_log_id` int(10) DEFAULT NULL,
+  `mc_gross` double DEFAULT NULL,
+  `protection_eligibility` varchar(50) COLLATE utf8_bin DEFAULT NULL,
+  `payment_date` varchar(100) COLLATE utf8_bin DEFAULT NULL,
+  `payment_status` varchar(25) COLLATE utf8_bin DEFAULT NULL,
+  `mc_fee` double DEFAULT NULL,
+  `notify_version` varchar(25) COLLATE utf8_bin DEFAULT NULL,
+  `payer_status` varchar(25) COLLATE utf8_bin DEFAULT NULL,
+  `currency_code` varchar(10) COLLATE utf8_bin DEFAULT NULL,
+  `verify_sign` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `amount` double DEFAULT NULL,
+  `txn_id` varchar(25) COLLATE utf8_bin DEFAULT NULL,
+  `payment_type` varchar(25) COLLATE utf8_bin DEFAULT NULL,
+  `receiver_email` varchar(130) COLLATE utf8_bin DEFAULT NULL,
+  `receiver_id` varchar(15) COLLATE utf8_bin DEFAULT NULL,
+  `txn_type` varchar(100) COLLATE utf8_bin DEFAULT NULL,
+  `mc_currency` varchar(25) COLLATE utf8_bin DEFAULT NULL,
+  `residence_country` varchar(2) COLLATE utf8_bin DEFAULT NULL,
+  `receipt_id` varchar(50) COLLATE utf8_bin DEFAULT NULL,
+  `transaction_subject` varchar(150) COLLATE utf8_bin DEFAULT NULL,
+  `reason_code` varchar(25) COLLATE utf8_bin DEFAULT NULL,
+  `shipping` double DEFAULT NULL,
+  `product_type` varchar(50) COLLATE utf8_bin DEFAULT NULL,
+  `time_created` varchar(100) COLLATE utf8_bin DEFAULT NULL,
+  `rp_invoice_id` varchar(127) COLLATE utf8_bin DEFAULT NULL,
+  `ipn_status` varchar(25) COLLATE utf8_bin DEFAULT NULL,
+  `creation_timestamp` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `recurring_payment_id` varchar(50) COLLATE utf8_bin DEFAULT NULL,
   `test_ipn` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
@@ -816,6 +833,47 @@ CREATE TABLE IF NOT EXISTS `refunds` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `subscription_payments`
+--
+
+CREATE TABLE IF NOT EXISTS `subscription_payments` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `raw_log_id` int(10) DEFAULT NULL,
+  `first_name` varchar(75) COLLATE utf8_bin DEFAULT NULL,
+  `last_name` varchar(75) COLLATE utf8_bin DEFAULT NULL,
+  `payer_email` varchar(130) COLLATE utf8_bin DEFAULT NULL,
+  `memo` text COLLATE utf8_bin,
+  `item_name` varchar(130) COLLATE utf8_bin DEFAULT NULL,
+  `item_number` varchar(130) COLLATE utf8_bin DEFAULT NULL,
+  `os0` varchar(200) COLLATE utf8_bin DEFAULT NULL,
+  `on0` varchar(65) COLLATE utf8_bin DEFAULT NULL,
+  `os1` varchar(200) COLLATE utf8_bin DEFAULT NULL,
+  `on1` varchar(65) COLLATE utf8_bin DEFAULT NULL,
+  `quantity` double DEFAULT NULL,
+  `payment_date` varchar(100) COLLATE utf8_bin DEFAULT NULL,
+  `payment_type` varchar(25) COLLATE utf8_bin DEFAULT NULL,
+  `txn_id` varchar(25) COLLATE utf8_bin DEFAULT NULL,
+  `mc_gross` double DEFAULT NULL,
+  `mc_fee` double DEFAULT NULL,
+  `payment_status` varchar(25) COLLATE utf8_bin DEFAULT NULL,
+  `pending_reason` varchar(25) COLLATE utf8_bin DEFAULT NULL,
+  `txn_type` varchar(30) COLLATE utf8_bin DEFAULT NULL,
+  `tax` double DEFAULT NULL,
+  `mc_currency` varchar(25) COLLATE utf8_bin DEFAULT NULL,
+  `reason_code` varchar(25) COLLATE utf8_bin DEFAULT NULL,
+  `custom` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `address_country` varchar(50) COLLATE utf8_bin DEFAULT NULL,
+  `subscr_id` varchar(25) COLLATE utf8_bin DEFAULT NULL,
+  `payer_status` varchar(25) COLLATE utf8_bin DEFAULT NULL,
+  `ipn_status` varchar(25) COLLATE utf8_bin DEFAULT NULL,
+  `creation_timestamp` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `test_ipn` tinyint(1) DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `subscriptions`
 --
 
@@ -866,43 +924,104 @@ CREATE TABLE IF NOT EXISTS `subscriptions` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `subscription_payments`
+-- Table structure for table `template_fields`
 --
 
-CREATE TABLE IF NOT EXISTS `subscription_payments` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `raw_log_id` int(10) DEFAULT NULL,
-  `first_name` varchar(75) COLLATE utf8_bin DEFAULT NULL,
-  `last_name` varchar(75) COLLATE utf8_bin DEFAULT NULL,
-  `payer_email` varchar(130) COLLATE utf8_bin DEFAULT NULL,
-  `memo` text COLLATE utf8_bin,
-  `item_name` varchar(130) COLLATE utf8_bin DEFAULT NULL,
-  `item_number` varchar(130) COLLATE utf8_bin DEFAULT NULL,
-  `os0` varchar(200) COLLATE utf8_bin DEFAULT NULL,
-  `on0` varchar(65) COLLATE utf8_bin DEFAULT NULL,
-  `os1` varchar(200) COLLATE utf8_bin DEFAULT NULL,
-  `on1` varchar(65) COLLATE utf8_bin DEFAULT NULL,
-  `quantity` double DEFAULT NULL,
-  `payment_date` varchar(100) COLLATE utf8_bin DEFAULT NULL,
-  `payment_type` varchar(25) COLLATE utf8_bin DEFAULT NULL,
-  `txn_id` varchar(25) COLLATE utf8_bin DEFAULT NULL,
-  `mc_gross` double DEFAULT NULL,
-  `mc_fee` double DEFAULT NULL,
-  `payment_status` varchar(25) COLLATE utf8_bin DEFAULT NULL,
-  `pending_reason` varchar(25) COLLATE utf8_bin DEFAULT NULL,
-  `txn_type` varchar(30) COLLATE utf8_bin DEFAULT NULL,
-  `tax` double DEFAULT NULL,
-  `mc_currency` varchar(25) COLLATE utf8_bin DEFAULT NULL,
-  `reason_code` varchar(25) COLLATE utf8_bin DEFAULT NULL,
-  `custom` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `address_country` varchar(50) COLLATE utf8_bin DEFAULT NULL,
-  `subscr_id` varchar(25) COLLATE utf8_bin DEFAULT NULL,
-  `payer_status` varchar(25) COLLATE utf8_bin DEFAULT NULL,
-  `ipn_status` varchar(25) COLLATE utf8_bin DEFAULT NULL,
-  `creation_timestamp` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `test_ipn` tinyint(1) DEFAULT '0',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+CREATE TABLE IF NOT EXISTS `template_fields` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `template_id` int(11) NOT NULL,
+  `field` varchar(100) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `value` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `tunique` (`user_id`,`template_id`,`field`),
+  KEY `template_id` (`template_id`),
+  KEY `user_id` (`user_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=655 ;
+
+--
+-- Dumping data for table `template_fields`
+--
+
+INSERT INTO `template_fields` (`id`, `user_id`, `template_id`, `field`, `value`) VALUES
+(577, 60, 69, 'block1', '<p>Use this area to offer a short teaser of your email&#39;s content. Text here will show in the preview area of some email clients.</p>\n'),
+(578, 60, 69, 'block2', '<p>Email not displaying correctly?<br />\n<a href="#" target="_blank">View it in your browser</a>.</p>\n'),
+(579, 60, 69, 'block3', '<p><img src="templates/images/header_placeholder_600px.png" /></p>\n'),
+(580, 60, 69, 'block4', '<h1>Designing Your Template</h1>\n\n<h3>Creating a good-looking email is simple</h3>\n\n<p>Customize your template by hovering over the text and clicking. This will activate the style editor. Set your fonts, colors, and styles. After setting your styling is all done you can click here in this area, delete the text, and start adding your own awesome content.<br />\n&nbsp;</p>\n\n<h2>Styling Your Content</h2>\n\n<p>Make your email easy to read</p>\n\n<p>After you enter your content, highlight the text you want to style and select the options you set in the style editor in the &quot;<em>styles</em>&quot; drop down box. Want to <a href="#" target="_blank">get rid of styling on a bit of text</a>, but having trouble doing it? Just use the &quot;<em>remove formatting</em>&quot; button to strip the text of any formatting and reset your style.</p>\n'),
+(581, 60, 69, 'block5', '<p><a href="http://facebook.com">Follow on Twitter</a>&nbsp;&nbsp;&nbsp;<a href="#">Friend on Facebook</a></p>\n'),
+(582, 60, 1, 'block1', '<h1>Dear Customer</h1>\n\n<p><br />\nI started my business because I thought I had something special to offer that could help others, and that would be profitable for me. I make a product that people want, or offer a service that people need. I am an expert in my field and have done a lot of work honing my skills or enhancing my products.<br />\n<br />\nI want to provide excellent service to you, I really do. But sometimes you make it hard to do that. When you call me on the phone and start screaming at me, or come into my place of business and are ranting and raving, it&rsquo;s really hard to help you. I understand that you&rsquo;re frustrated, but I&rsquo;m really trying my best, and screaming at me definitely doesn&rsquo;t help.<br />\n<br />\nWe all want, and deserve, to make a living, you and me both. I&rsquo;m delighted that I can provide you with something you want or need, and that you&rsquo;re willing to buy it from me. So let&rsquo;s make it work. With so many other things wrong in the world, doing business with each other shouldn&rsquo;t be such hard work. Thank you for listening. Now, let me place that order for you.<br />\n<br />\nHappy to serve you,<br />\n<br />\nYour vendor</p>\n'),
+(583, 60, 1, 'block2', '<p><a href="#">Follow on Twitter</a>&nbsp;&nbsp;&nbsp;<a href="#">Friend on Facebook</a></p>\n'),
+(584, 60, 5, 'block1', '<p>Mihai Was herer</p>\n'),
+(585, 60, 5, 'block2', '<p>Email not displaying correctly?<br />\n<a href="#" target="_blank">View it in your browser</a>.</p>\n'),
+(586, 60, 5, 'block3', '<p><img src="https://upload.wikimedia.org/wikipedia/commons/6/60/Singapore_River_top_view.jpg" style="height:675px; width:900px" /></p>\n'),
+(587, 60, 5, 'block4', '<p><img src="templates/images/header_placeholder_260px.png" /></p>\n'),
+(588, 60, 5, 'block5', '<h3>1111</h3>\n'),
+(589, 60, 5, 'block6', '<p><img src="templates/images/header_placeholder_260px.png" /></p>\n'),
+(590, 60, 5, 'block7', '<h3>R222222</h3>\n'),
+(591, 60, 5, 'block8', '<p><a href="#">Follow on Twitter</a>&nbsp;&nbsp;&nbsp;<a href="#">Friend on Facebook</a></p>\n'),
+(592, 60, 73, 'block1', '<p><a href="#" target="_blank"><img alt="Metronic" src="../app/templates/images/logo-2.gif" style="height:19px; width:115px" /></a></p>\n'),
+(593, 60, 73, 'block2', '<p><a href="#" target="_blank"><img alt="Promo" src="../app/templates/images/promo.jpg" style="height:auto; width:680px" /></a></p>\n'),
+(594, 60, 73, 'block3', '<p>Newest Products</p>\n'),
+(595, 60, 73, 'block4', '<p><a href="#" target="_blank"><img alt="Goods 1" src="../app/templates/images/goods1.jpg" style="height:auto; width:272px" /></a></p>\n'),
+(596, 60, 73, 'block5', '<p><a href="#" target="_blank">Lorem ipsum dolor sit</a></p>\n'),
+(597, 60, 73, 'block6', '<p>$150</p>\n'),
+(598, 60, 73, 'block7', '<p><a href="#" target="_blank"><img alt="Goods 2" src="../app/templates/images/goods2.jpg" style="height:auto; width:272px" /></a></p>\n'),
+(599, 60, 73, 'block8', '<p><a href="#" target="_blank">Consectetuer sed et diam</a></p>\n'),
+(600, 60, 73, 'block9', '<p>$400</p>\n'),
+(601, 60, 73, 'block10', '<p><a href="#" target="_blank"><img alt="Goods 3" src="../app/templates/images/goods3.jpg" style="height:auto; width:272px" /></a></p>\n'),
+(602, 60, 73, 'block11', '<p><a href="#" target="_blank">Diam nonumy nibh</a></p>\n'),
+(603, 60, 73, 'block12', '<p>$320</p>\n'),
+(604, 60, 73, 'block13', '<p><a href="#" target="_blank"><img alt="Goods 4" src="../app/templates/images/goods4.jpg" style="height:auto; width:272px" /></a></p>\n'),
+(605, 60, 73, 'block14', '<p><a href="#" target="_blank">Nonumy nibh elit</a></p>\n'),
+(606, 60, 73, 'block15', '<p>$680</p>\n'),
+(607, 60, 73, 'block19', '<p>Need help? Call us!</p>\n'),
+(608, 60, 73, 'block20', '<p>873-426-0028</p>\n'),
+(609, 60, 73, 'block21', '<p>2015 &copy; Metronic. ALL Rights Reserved.</p>\n'),
+(610, 60, 72, 'block1', '<p><a href="#" target="_blank"><img alt="Metronic" src="../app/templates/images/logo-2.gif" style="height:19px; width:115px" /></a></p>\n'),
+(611, 60, 72, 'block2', '<p><a href="#" target="_blank"><img alt="Facebook" src="../app/templates/images/facebook-2.gif" style="height:19px; width:10px" /></a></p>\n'),
+(612, 60, 72, 'block3', '<p><a href="#" target="_blank"><img alt="Twitter" src="../app/templates/images/twitter-2.gif" style="height:16px; width:19px" /></a></p>\n'),
+(613, 60, 72, 'block4', '<p><a href="#" target="_blank"><img alt="Dribbble" src="../app/templates/images/dribbble-2.gif" style="height:19px; width:19px" /></a></p>\n'),
+(614, 60, 72, 'block5', '<p>Diam nonumy <strong>nibh elit</strong> dolore amet</p>\n'),
+(615, 60, 72, 'block6', '<p>Lorem ipsum dolor sit amet consectetuer sed<br />\ndiam nonumy nibh elit dolore dolor sit.</p>\n'),
+(616, 60, 72, 'block7', '<p><a href="#" target="_blank"><img alt="30-DAYS FREE TRIAL" src="../app/templates/images/trial.gif" style="height:55px; width:308px" /></a></p>\n'),
+(617, 60, 72, 'block8', '<p><img alt="Metronic" src="../app/templates/images/img1.jpg" style="height:138px; width:185px" /></p>\n'),
+(618, 60, 72, 'block9', '<p><a href="#2" target="_blank">UNLIMITED LAYOUTS</a></p>\n'),
+(619, 60, 72, 'block10', '<p>Lorem ipsum dolor sit amet consectetuer sed et diam noumy elit dolore. Lorem ipsum dolor sit amet consectetuer sed et diam noumy elit dolore. Lorem ipsum dolor sit amet consectetuer sed et diam noumy elit dolore.</p>\n'),
+(620, 60, 72, 'block11', '<p><a href="#" target="_blank"><img alt="Metronic" src="../app/templates/images/img-2.jpg" style="height:138px; width:185px" /></a></p>\n'),
+(621, 60, 72, 'block12', '<p><a href="#2" target="_blank">GREAT SUPPORT</a></p>\n'),
+(622, 60, 72, 'block13', '<p>Lorem ipsum dolor sit amet consectetuer sed et diam noumy elit dolore. Lorem ipsum dolor sit amet consectetuer sed et diam noumy elit dolore. Lorem ipsum dolor sit amet consectetuer sed et diam noumy elit dolore.</p>\n'),
+(623, 60, 71, 'block1', '<p><a href="#" target="_blank"><img alt="Metronic" src="../app/templates/images/logo-2.gif" style="height:19px; width:115px" /></a></p>\n'),
+(624, 60, 71, 'block2', '<p><a href="#" target="_blank"><img alt="Facebook" src="../app/templates/images/facebook-2.gif" style="height:19px; width:10px" /></a></p>\n'),
+(625, 60, 71, 'block3', '<p><a href="#" target="_blank"><img alt="Twitter" src="../app/templates/images/twitter-2.gif" style="height:16px; width:19px" /></a></p>\n'),
+(626, 60, 71, 'block4', '<p><a href="#" target="_blank"><img alt="Dribbble" src="../app/templates/images/dribbble-2.gif" style="height:19px; width:19px" /></a></p>\n'),
+(627, 60, 71, 'block5', '<p>Awesome User Expierence</p>\n'),
+(628, 60, 71, 'block6', '<p>Lorem ipsum dolor sit amet consectetuer sed<br />\ndiam nonumy nibh elit dolore.</p>\n'),
+(629, 60, 71, 'block7', '<p><a href="#" target="_blank"><img alt="30-DAYS FREE TRIAL" src="../app/templates/images/trial.gif" style="height:43px; width:193px" /></a></p>\n'),
+(630, 60, 71, 'block8', '<p><a href="#1" target="_blank">UNLIMITED LAYOUTS</a></p>\n'),
+(631, 60, 71, 'block9', '<p>Lorem ipsum dolor sit amet consectetuer sed et diam noumy elit dolore</p>\n'),
+(632, 60, 71, 'block10', '<p><a href="#2" target="_blank">GREAT SUPPORT</a></p>\n'),
+(633, 60, 71, 'block11', '<p>Lorem ipsum dolor sit amet consectetuer sed et diam noumy elit dolore</p>\n'),
+(634, 60, 71, 'block12', '<p><a href="#3" target="_blank">CLEAN CODE</a></p>\n'),
+(635, 60, 71, 'block13', '<p>Lorem ipsum dolor sit amet consectetuer sed et diam noumy elit dolore</p>\n'),
+(636, 60, 71, 'block14', '<p><a href="#PRODUCTS" target="_blank">PRODUCTS</a> &nbsp;&nbsp;&nbsp;&nbsp;<img alt="|" src="../app/templates/images/dot.gif" style="height:9px; width:9px" />&nbsp;&nbsp;&nbsp;&nbsp; <a href="#FEATURES" target="_blank">FEATURES</a> &nbsp;&nbsp;&nbsp;&nbsp;<img alt="|" src="../app/templates/images/dot.gif" style="height:9px; width:9px" />&nbsp;&nbsp;&nbsp;&nbsp; <a href="#LAYOUTS" target="_blank">LAYOUTS</a> &nbsp;&nbsp;&nbsp;&nbsp;<img alt="|" src="../app/templates/images/dot.gif" style="height:9px; width:9px" />&nbsp;&nbsp;&nbsp;&nbsp; <a href="#SUPPORT" target="_blank">SUPPORT</a> &nbsp;&nbsp;&nbsp;&nbsp;<img alt="|" src="../app/templates/images/dot.gif" style="height:9px; width:9px" />&nbsp;&nbsp;&nbsp;&nbsp; <a href="#DISCOVER" target="_blank">DISCOVER</a></p>\n'),
+(637, 60, 71, 'block15', '<p>Featured Works</p>\n'),
+(638, 60, 71, 'block16', '<p><a href="#" target="_blank"><img alt="Image 1" src="../app/templates/images/img1.jpg" style="height:auto; width:185px" /></a></p>\n'),
+(639, 60, 71, 'block17', '<p><a href="#" target="_blank"><img alt="Image 2" src="../app/templates/images/img-2.jpg" style="height:auto; width:185px" /></a></p>\n'),
+(640, 60, 71, 'block18', '<p><a href="#" target="_blank"><img alt="Image 3" src="../app/templates/images/img3.jpg" style="height:auto; width:185px" /></a></p>\n'),
+(641, 60, 71, 'block19', '<p><a href="#" target="_blank"><img alt="Evernote" src="../app/templates/images/evernote.gif" style="height:auto; width:125px" /></a></p>\n'),
+(642, 60, 71, 'block20', '<p><a href="#" target="_blank"><img alt="Pinterest" src="../app/templates/images/pinterest.gif" style="height:auto; width:107px" /></a></p>\n'),
+(643, 60, 71, 'block21', '<p><a href="#" target="_blank"><img alt="National Geographic" src="../app/templates/images/ng.gif" style="height:auto; width:100%" /></a></p>\n'),
+(644, 60, 71, 'block22', '<p><a href="#" target="_blank"><img alt="Shopify" src="../app/templates/images/shopify.gif" style="height:auto; width:116px" /></a></p>\n'),
+(645, 60, 71, 'block23', '<p>2015 &copy; Metronic. ALL Rights Reserved.</p>\n'),
+(646, 60, 7, 'block1', '<p>Use this area to offer a short teaser of your email&#39;s content. Text here will show in the preview area of some email clients.</p>\n'),
+(647, 60, 7, 'block2', '<p>Email not displaying correctly?<br />\n<a href="#" target="_blank">View it in your browser</a>.</p>\n'),
+(648, 60, 7, 'block3', '<p><img src="templates/images/header_placeholder_600px.png" /></p>\n'),
+(649, 60, 7, 'block4', '<h1>Designing Your Template</h1>\n\n<h3>Creating a good-looking email is simple</h3>\n\n<p>Customize your template by hovering over the text and clicking. This will activate the style editor. Set your fonts, colors, and styles. After setting your styling is all done you can click here in this area, delete the text, and start adding your own awesome content.<br />\n&nbsp;</p>\n\n<h2>Styling Your Content</h2>\n\n<p>Make your email easy to read</p>\n\n<p>After you enter your content, highlight the text you want to style and select the options you set in the style editor in the &quot;<em>styles</em>&quot; drop down box. Want to <a href="#" target="_blank">get rid of styling on a bit of text</a>, but having trouble doing it? Just use the &quot;<em>remove formatting</em>&quot; button to strip the text of any formatting and reset your style.</p>\n'),
+(650, 60, 7, 'block5', '<p><img src="templates/images/header_placeholder_260px.png" /></p>\n'),
+(651, 60, 7, 'block6', '<h3>Repeatable Content</h3>\n\n<p><a href="#" target="_blank">Repeatable sections</a> are noted with plus and minus signs so that you can add and subtract content blocks.<br />\n<br />\nYou can also get a little fancy; repeat blocks and remove all text to make image galleries, or do the opposite and remove images for text-only blocks.</p>\n'),
+(652, 60, 7, 'block7', '<p><img src="templates/images/header_placeholder_260px.png" /></p>\n'),
+(653, 60, 7, 'block8', '<h3>Repeatable Content</h3>\n\n<p><a href="#" target="_blank">Repeatable sections</a> are noted with plus and minus signs so that you can add and subtract content blocks.<br />\n<br />\nYou can also get a little fancy; repeat blocks and remove all text to make image galleries, or do the opposite and remove images for text-only blocks.</p>\n'),
+(654, 60, 7, 'block9', '<p><a href="#">Follow on Twitter</a>&nbsp;&nbsp;&nbsp;<a href="#">Friend on Facebook</a></p>\n');
 
 -- --------------------------------------------------------
 
@@ -926,44 +1045,15 @@ CREATE TABLE IF NOT EXISTS `templates` (
 --
 
 INSERT INTO `templates` (`id`, `user_id`, `name`, `type`, `picture`, `saved`) VALUES
-(1, 60, 'Basic', 'basic', 'basic.png', 0),
+(1, 60, 'Basic', 'basic', 'basic.png', 1),
 (69, 60, 'Basic-1-Column', 'basic', '1-column.png', 1),
-(5, 60, 'Basic-1-2-Column', 'basic', '1-2-column.png', 0),
-(7, 60, 'Basic-1-1-2-Column', 'basic', '1-1-2-column.png', 0),
+(5, 60, 'Basic-1-2-Column', 'basic', '1-2-column.png', 1),
+(7, 60, 'Basic-1-1-2-Column', 'basic', '1-1-2-column.png', 1),
 (8, 60, 'Basic-1-1-3-Column', 'basic', '1-1-3-column.png', 0),
 (70, 60, 'Welcome', 'theme', 'basic.png', 0),
-(71, 60, 'Featured', 'theme', 'basic.png', 0),
-(72, 60, 'Trial', 'theme', 'basic.png', 0),
-(73, 60, 'Arrivals', 'theme', 'basic.png', 0);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `template_fields`
---
-
-CREATE TABLE IF NOT EXISTS `template_fields` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
-  `template_id` int(11) NOT NULL,
-  `field` varchar(100) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
-  `value` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `tunique` (`user_id`,`template_id`,`field`),
-  KEY `template_id` (`template_id`),
-  KEY `user_id` (`user_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=575 ;
-
---
--- Dumping data for table `template_fields`
---
-
-INSERT INTO `template_fields` (`id`, `user_id`, `template_id`, `field`, `value`) VALUES
-(574, 60, 69, 'block5', '<p><a href="#">Follow on Twitter</a>&nbsp;&nbsp;&nbsp;<a href="#">Friend on Facebook</a></p>\n'),
-(571, 60, 69, 'block2', '<p>Email not displaying correctly?<br />\n<a href="#" target="_blank">View it in your browser</a>.</p>\n'),
-(572, 60, 69, 'block3', '<p><img src="templates/images/header_placeholder_600px.png" /></p>\n'),
-(573, 60, 69, 'block4', '<h1>Designing Your Template</h1>\n\n<h3>Creating a good-looking email is simple</h3>\n\n<p>Customize your template by hovering over the text and clicking. This will activate the style editor. Set your fonts, colors, and styles. After setting your styling is all done you can click here in this area, delete the text, and start adding your own awesome content.<br />\n&nbsp;</p>\n\n<h2>Styling Your Content</h2>\n\n<p>Make your email easy to read</p>\n\n<p>After you enter your content, highlight the text you want to style and select the options you set in the style editor in the &quot;<em>styles</em>&quot; drop down box. Want to <a href="#" target="_blank">get rid of styling on a bit of text</a>, but having trouble doing it? Just use the &quot;<em>remove formatting</em>&quot; button to strip the text of any formatting and reset your style.</p>\n'),
-(570, 60, 69, 'block1', '<p>Use this area to offer a short teaser of your email&#39;s content. Text here will show in the preview area of some email clients.</p>\n');
+(71, 60, 'Featured', 'theme', 'basic.png', 1),
+(72, 60, 'Trial', 'theme', 'basic.png', 1),
+(73, 60, 'Arrivals', 'theme', 'basic.png', 1);
 
 -- --------------------------------------------------------
 
@@ -979,7 +1069,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `emails` int(11) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=61 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=63 ;
 
 --
 -- Dumping data for table `users`
@@ -987,7 +1077,9 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `username`, `password`, `role`, `emails`, `timestamp`) VALUES
 (59, 'mihai.sanfran@gmail.com', '0991b5625c1292ded687ab18dd2fd2f1', 'buyer', 1999, '2015-04-10 03:38:23'),
-(60, 'admin', 'fe01ce2a7fbac8fafaed7c982a04e229', 'admin', 9836, '2015-06-30 03:13:02');
+(60, 'admin', 'fe01ce2a7fbac8fafaed7c982a04e229', 'admin', 9766, '2015-07-04 03:07:16'),
+(61, '', 'bf2794e53009393650a94ecb2d3f8c16', 'buyer', 0, '2015-07-06 04:30:45'),
+(62, 'mihai.sanfran@gmail.com', '5573a3bcfcc68465996f774d7964ecda', 'buyer', 5, '2015-07-06 04:37:02');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
