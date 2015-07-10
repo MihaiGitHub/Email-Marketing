@@ -14,7 +14,7 @@ $dashboard = true;
 						<!-- BEGIN PAGE TITLE & BREADCRUMB-->
 						<h3 class="page-title">
 							Dashboard
-							<small> Account Information </small>
+							<small> Main Menu </small>
 						</h3>
 						<ul class="breadcrumb">
 							<li>
