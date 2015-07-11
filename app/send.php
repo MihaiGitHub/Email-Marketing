@@ -88,7 +88,12 @@ if($count > 0){
 	// store fields to be replaced in arrays for replacement later
 	while($rowfields = $stmtfields->fetch()){
 		$placeholders[] = '%'.$rowfields['field'].'%';
-		$values[] = $rowfields['value'];
+		
+		$values[] = str_replace(
+			['http://','https://'],
+			[THIS_WEBSITE_URI . '/receipt.php?link=http://', THIS_WEBSITE_URI . '/receipt.php?link=https://'],
+			$rowfields['value']
+		);
 	}
 
 	/// Select all emails from campaign_emails inserted above
