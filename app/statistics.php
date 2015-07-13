@@ -4,10 +4,15 @@ session_start();
 
 include 'include/dbconnect.php';
 /*
-$stmt = $conn->prepare('SELECT SUM( opened ) AS total FROM  `campaign_emails` WHERE c_id = :id');
+// Get clicked Links to list them
+$stmt = $conn->prepare('SELECT count( * ) count, link FROM `campaign_emails_links` WHERE c_id = :cid GROUP BY link');
+$result = $stmt->execute(array('cid' => $_GET['id']));
+$links = $stmt->fetch();
+*/
+$stmt = $conn->prepare('SELECT count( * ) emails_sent FROM  `campaign_emails` WHERE c_id = :id');
 $result = $stmt->execute(array('id' => $_GET['id']));
 $totals = $stmt->fetch();
-*/
+
 $emailopens = 0;
 $stmt = $conn->prepare('SELECT opened FROM `campaign_emails` WHERE c_id = :id');
 $result = $stmt->execute(array('id' => $_GET['id']));
@@ -16,6 +21,10 @@ while($opened = $stmt->fetch()){
 					$emailopens++;
 		}
 }
+// alternative
+// SELECT count( * ) count, link FROM campaign_emails ce, campaign_emails_links cel WHERE ce.c_id = cel.c_id and ce.c_id = "C55a1e124d061e3.94689423" GROUP BY link
+$linksstmt = $conn->prepare('SELECT count( * ) count, link FROM  `campaign_emails_links` WHERE c_id = :id GROUP BY link');
+$linksresult = $linksstmt->execute(array('id' => $_GET['id']));
 
 $stmt = $conn->prepare('SELECT subject, sent FROM campaigns WHERE id = :id');
 $result = $stmt->execute(array('id' => $_GET['id']));
@@ -59,7 +68,7 @@ $row = $stmt->fetch();
             <div class="percent">20%</div>
         </div>
         <div class="details">
-            <div class="numbers">2000</div>
+            <div class="numbers"><?php echo $totals['emails_sent']; ?></div>
             <div class="title">Emails Sent</div>
             <div class="progress progress-info">
                 <div style="width: 20%" class="bar"></div>
@@ -89,8 +98,8 @@ $row = $stmt->fetch();
             <div class="percent">55%</div>
         </div>
         <div class="details">
-            <div class="numbers">530</div>
-            <div class="title">Clicked Links</div>
+            <div class="numbers"><?php echo $links['count']; ?></div>
+            <div class="title">Link Clicks</div>
         </div>
         <div class="progress progress-info">
             <div style="width: 55%" class="bar"></div>
@@ -134,7 +143,7 @@ $row = $stmt->fetch();
             <div class="percent">26%</div>
         </div>
         <div class="details">
-            <div class="numbers">170</div>
+            <div class="numbers"><?php echo $totals['emails_sent'] - $emailopens; ?></div>
             <div class="title">Not Opened</div>
             <div class="progress progress-warning">
                 <div style="width: 26%" class="bar"></div>
@@ -160,7 +169,7 @@ $row = $stmt->fetch();
                     <!-- BEGIN EXAMPLE TABLE widget-->
                     <div class="widget">
                         <div class="widget-title">
-                            <h4><i class="icon-bar-chart"></i> Campaign: <?php echo htmlentities($row['subject']); ?> <span style="margin-left:50px;">Sent on: <?php echo htmlentities($row['sent']); ?></span></h4>
+                            <h4><i class="icon-bar-chart"></i> Campaign: <?php echo htmlentities($row['subject']); ?> <span style="margin-left:50px;">Sent on: <?php echo $row['sent']; ?></span></h4>
                            
                         </div>
                         <div class="widget-body">
@@ -263,15 +272,13 @@ $row = $stmt->fetch();
         <th>Link</th>
         <th>Email</th>
 		<th>Total Clicks</th>
-        <th>Date</th>
     </tr>
     </thead>
     <tbody>
-    	<tr><td>google.com</td><td>mwdowiak@yahoo.com</td><td>3</td><td>2015-12-22</td></tr>
-    	<tr><td>yahoo.com</td><td>jen24@yahoo.com</td><td>1</td><td>2015-12-11</td></tr>
-        <tr><td>templarit.com</td><td>anderson@yahoo.com</td><td>1</td><td>2015-12-05</td></tr>
-        <tr><td>amazon.com</td><td>mwdowiak@yahoo.com</td><td>1</td><td>2015-11-02</td></tr>
-    </tbody>
+<?php while($links = $linksstmt->fetch()){ ?>
+	<tr><td><a href="<?php echo $links['link']; ?>" target="_blank"><?php echo $links['link']; ?></a></td><td>&nbsp;</td><td><?php echo $links['count']; ?></td></tr>
+<?php } ?>
+	</tbody>
 </table>                                       </div>
                                        <div class="tab-pane" id="unsubscribes">
 <table class="table table-striped table-hover table-bordered" id="unsubscribes-table">

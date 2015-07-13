@@ -23,8 +23,10 @@ var App = function () {
 			  dataType: 'json',
 			  success: function(data) {
 							
-							var myData = [];
+							var myEmails = [];
+							var myLinks = [];
 							
+							// Create array for emails clicked per day
 							for (var i = 0; i < data.timeframe.length; i++) {
 								
 								var dateStr = data.timeframe[i]['opened'];
@@ -39,9 +41,29 @@ var App = function () {
 								var day = d.getDate();
 								var hour = d.getHours();
 								
-								myData.push([Date.UTC(year, month, day, hour), parseInt(data.timeframe[i]['count'])]);
-							}				
-										
+								myEmails.push([Date.UTC(year, month, day, hour), parseInt(data.timeframe[i]['count'])]);
+
+							}
+							
+							// Create array for links clicked per day
+							for (var i = 0; i < data.links.length; i++) {
+								
+								var dateStr = data.links[i]['clicked'];
+								var a = dateStr.split(" ");
+								var d = a[0].split("-");
+								var t = a[1].split(":");
+								
+								var d = new Date(d[0],(d[1]-1),d[2],t[0]);
+								
+								var year = d.getFullYear();
+								var month = d.getMonth();
+								var day = d.getDate();
+								var hour = d.getHours();
+								
+								myLinks.push([Date.UTC(year, month, day, hour), parseInt(data.timeframe[i]['count'])]);
+
+							}			
+			
 							$('#timeframe-container').highcharts({
 								credits: {
 									enabled: false
@@ -73,7 +95,11 @@ var App = function () {
 								},
 								series: [{
 									name: 'Email opens',
-									data: myData
+									data: myEmails
+							
+								},{
+									name: 'Link Clicks',
+									data: myLinks
 							
 								}]
 							});
@@ -282,12 +308,13 @@ console.log(dataArrayFinal)
 	 }
 	
 	var handleEmails = function () {
-		$('#emails-div button.uploadcsv').click(function () {
+		/*
+		$('#emails-div button.uploadcsv').click(function () { console.log('upload csv')
 				$('.overlay').fadeIn('slow');
 				$('#upload-csv-modal').addClass('in');
 		});
-		
-		$('#emails-div button.importcontacts').click(function () {
+		*/
+		$('#emails-div button.importcontacts').click(function () { console.log('import contacts')
 				$('.overlay').fadeIn('slow');
 				$('#import-contacts-modal').addClass('in');
 		});
@@ -296,11 +323,11 @@ console.log(dataArrayFinal)
 				$('.overlay').fadeOut('slow');
 				$('#import-contacts-modal').removeClass('in');
 		});
-		
+		/*
 		$('#upload-csv-modal .email-csv-close').click(function () {	
 				window.location = 'lists.php';
 		});
-		
+		*/
 	}
 	
 	var handleCampaign = function () {
