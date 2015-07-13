@@ -78,7 +78,7 @@ $reports = true;
 					<td>".htmlentities($row['subject'])."</td>
 					<td>".htmlentities($row['name'])."</td>
 					<td>".htmlentities($row['sent'])."</td>
-					<td><a href='statistics.php?id=".urlencode($row['id'])."'>View</a></td>
+					<td><a class='campaign' id='".$row['id']."' href='statistics.php?id=".urlencode($row['id'])."'>View</a></td>
 					<td><a class='delete' href='javascript:;'>Delete</a></td>
 				</tr>";
 				$i++;

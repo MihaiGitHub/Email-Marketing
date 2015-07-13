@@ -91,7 +91,7 @@ if($count > 0){
 		
 		$values[] = str_replace(
 			['http://','https://'],
-			[THIS_WEBSITE_URI . '/receipt.php?link=http://', THIS_WEBSITE_URI . '/receipt.php?link=https://'],
+			[THIS_WEBSITE_URI . '/receipt.php?id=%id%&cid=%cid%&link=http://', THIS_WEBSITE_URI . '/receipt.php?link=https://'],
 			$rowfields['value']
 		);
 	}
@@ -107,6 +107,9 @@ if($count > 0){
 		
 		$body = file_get_contents($template);
 		$body = str_replace($placeholders, $values, $body);
+		$body = str_replace('%id%', $rowcid['id'], $body);
+		$body = str_replace('%cid%', $rowcid['c_id'], $body);
+
 		$body .= '<img style="display:none;" border="0" src="'.$tracker.'" width="1" height="1" />';
 		
 

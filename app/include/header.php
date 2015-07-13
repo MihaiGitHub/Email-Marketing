@@ -1,7 +1,4 @@
 <?php
-//error_reporting(E_ALL);
-//ini_set('display_errors', '1');
-
 if(!$_SESSION['auth']){ 
 	header('Location: index.php?authen=false');
 	exit;
@@ -13,25 +10,6 @@ if((time() - $_SESSION['last_access']) > 1200){
 } else {
 	$_SESSION['last_access'] = time();
 }
-/*
-include 'include/dbconnect.php';
-
-// total emails for user
-$stmt = $conn->prepare('SELECT COUNT(id) AS count FROM emails WHERE user = :user');
-$result = $stmt->execute(array('user' => $_SESSION['id']));
-$row = $stmt->fetch();
-$totalcount = $row['count'];
-// total emails sent for user
-$stmt = $conn->prepare('SELECT COUNT(id) AS count FROM emails WHERE user = :user AND sent = 1');
-$result = $stmt->execute(array('user' => $_SESSION['id']));
-$row = $stmt->fetch();
-$emailssent = $row['count'];
-// total emails opened from the sent emails
-$stmt = $conn->prepare('SELECT COUNT(id) AS count FROM emails WHERE user = :user AND opened = 1');
-$result = $stmt->execute(array('user' => $_SESSION['id']));
-$row = $stmt->fetch();
-$emailsopened = $row['count'];
-*/
 ?>
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
@@ -40,7 +18,7 @@ $emailsopened = $row['count'];
 <!-- BEGIN HEAD -->
 <head>
 	<meta charset="utf-8" />
-	<title>Bulk Mailer</title>
+	<title>Email Marketer</title>
 	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
@@ -86,7 +64,7 @@ $emailsopened = $row['count'];
 							<b class="caret"></b>
 							</a>
 							<ul class="dropdown-menu">
-								<li><a href="#"><i class="icon-user"></i> My Profile</a></li>
+								<li><a href="account.php"><i class="icon-user"></i> My Profile</a></li>
 								<li class="divider"></li>
 								<li><a href="index.php?logout"><i class="icon-key"></i> Log Out</a></li>
 							</ul>

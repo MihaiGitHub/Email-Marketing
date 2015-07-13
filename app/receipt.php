@@ -1,13 +1,19 @@
 <?php
-ini_set('display_errors',1);
-ini_set('display_startup_errors',1);
-error_reporting(-1);
-
-//header( 'Content-Type: image/gif' );
-
 include 'include/dbconnect.php';
 
 
+if($_GET['link']){
+	
+    $stmt = $conn->prepare('INSERT INTO campaign_emails_links (c_id, ce_id, link, clicked) VALUES (:cid, :ce_id, :link, :clicked)');
+    $result = $stmt->execute(array('cid' => $_GET['cid'], 'ce_id' => $_GET['id'], 'link' => $_GET['link'], 'clicked' => date('Y-m-d H')));
+    if($result){
+	    header('Location:' . $_GET['link']);
+	    exit;  
+    }
+
+} else {
+	
+	header( 'Content-Type: image/gif' );
 // This will print user's real IP Address
 // does't matter if user using proxy or not.
 if (!empty($_SERVER["HTTP_CLIENT_IP"])){
@@ -20,12 +26,9 @@ if (!empty($_SERVER["HTTP_CLIENT_IP"])){
 	$ip = $_SERVER["REMOTE_ADDR"];
 }
 
-//$location = file_get_contents('http://freegeoip.net/json/'.$ip);
-//$data = json_decode($location);
 $location = file_get_contents('http://www.telize.com/geoip/'.$ip);
 $data = json_decode($location);
 
-////////////////////////////////////////////////NEW
 $user_agent     =   $_SERVER['HTTP_USER_AGENT'];
 
 function getOS() { 
@@ -107,31 +110,16 @@ function getBrowser() {
 $user_os        =   getOS();
 $user_browser   =   getBrowser();
 
-//////////////////////
-// Update parent email table with total opened count
-/* OLD
-$stmt = $conn->prepare('UPDATE campaign_emails SET opened = opened + 1, ip = :ip, country = :country, region = :region WHERE id = :id');
-//$result = $stmt->execute(array('ip' => $_SERVER['REMOTE_ADDR'], 'country' => $data->country_name, 'region' => $data->region_name, 'id' => $_GET['id']));
-$result = $stmt->execute(array('ip' => $_SERVER['REMOTE_ADDR'], 'country' => 'TEMP', 'region' => 'TEMP', 'id' => $_GET['id']));
-*/
-$stmt = $conn->prepare('UPDATE campaign_emails SET opened = opened + 1 WHERE id = :id');
-$result = $stmt->execute(array('id' => $_GET['id']));
+    // Update parent email table with total opened count
+    $stmt = $conn->prepare('UPDATE campaign_emails SET opened = opened + 1 WHERE id = :id');
+    $result = $stmt->execute(array('id' => $_GET['id']));
 
-// Insert a new record every time they reopen with more details about their environment
-$stmt = $conn->prepare('INSERT INTO campaign_emails_detail (c_id, ce_id, ip, country, region, city, browser, os, opened) VALUES (:cid, :ce_id, :ip, :country, :region, :city, :browser, :os, :opened)');
-$result = $stmt->execute(array('cid' => $_GET['cid'], 'ce_id' => $_GET['id'], 'ip' => $_SERVER['REMOTE_ADDR'], 'country' => $data->country, 'region' => $data->region, 'city' => $data->city,'browser' => $user_browser, 'os' => $user_os, 'opened' => date('Y-m-d H')));
+    // Insert a new record every time they reopen with more details about their environment
+    $stmt = $conn->prepare('INSERT INTO campaign_emails_detail (c_id, ce_id, ip, country, region, city, browser, os, opened) VALUES (:cid, :ce_id, :ip, :country, :region, :city, :browser, :os, :opened)');
+    $result = $stmt->execute(array('cid' => $_GET['cid'], 'ce_id' => $_GET['id'], 'ip' => $_SERVER['REMOTE_ADDR'], 'country' => $data->country, 'region' => $data->region, 'city' => $data->city,'browser' => $user_browser, 'os' => $user_os, 'opened' => date('Y-m-d H')));
 
-////////////////////////////////////////////////////////////////////////
-//define( 'THIS_ABSOLUTE_PATH', dirname( __FILE__ ) );
-//echo 'here '.THIS_WEBSITE_URI;
-    //Get the http URI to the image
- //   $graphic_http = THIS_WEBSITE_URI .'/blank.gif';
-   $graphic_http = THIS_WEBSITE_URI.'/app/templates/images/blank.gif'; 
-   
-    //Get the filesize of the image for headers
-   // $filesize = filesize( THIS_ABSOLUTE_PATH . '/blank.gif' );
-//    $filesize = filesize( 'http://msmarandache.com/emarketing/app/templates/images/blank.gif' );
-    /*
+    $graphic_http = THIS_WEBSITE_URI.'/app/templates/images/blank.gif'; 
+      
     //Now actually output the image requested, while disregarding if the database was affected
     header( 'Pragma: public' );
     header( 'Expires: 0' );
@@ -139,9 +127,9 @@ $result = $stmt->execute(array('cid' => $_GET['cid'], 'ce_id' => $_GET['id'], 'i
     header( 'Cache-Control: private',false );
     header( 'Content-Disposition: attachment; filename="blank.gif"' );
     header( 'Content-Transfer-Encoding: binary' );
- //   header( 'Content-Length: '.$filesize );
     readfile( $graphic_http );
     
     exit;
-	*/
+
+}
 ?>
