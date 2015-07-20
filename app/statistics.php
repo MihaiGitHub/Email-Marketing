@@ -3,24 +3,27 @@ ob_start();
 session_start();
 
 include 'include/dbconnect.php';
-/*
+
 // Get clicked Links to list them
-$stmt = $conn->prepare('SELECT count( * ) count, link FROM `campaign_emails_links` WHERE c_id = :cid GROUP BY link');
+$stmt = $conn->prepare('SELECT count( * ) count, link FROM `campaign_emails_links` WHERE c_id = :cid');
 $result = $stmt->execute(array('cid' => $_GET['id']));
-$links = $stmt->fetch();
-*/
+$linkstotal = $stmt->fetch();
+
 $stmt = $conn->prepare('SELECT count( * ) emails_sent FROM  `campaign_emails` WHERE c_id = :id');
 $result = $stmt->execute(array('id' => $_GET['id']));
 $totals = $stmt->fetch();
 
 $emailopens = 0;
-$stmt = $conn->prepare('SELECT opened FROM `campaign_emails` WHERE c_id = :id');
+$email = [];
+$stmt = $conn->prepare('SELECT email, opened FROM `campaign_emails` WHERE c_id = :id');
 $result = $stmt->execute(array('id' => $_GET['id']));
 while($opened = $stmt->fetch()){
 		if($opened['opened'] != 0){
+					$email[$opened['email']] = $opened['opened'];
 					$emailopens++;
 		}
 }
+
 // alternative
 // SELECT count( * ) count, link FROM campaign_emails ce, campaign_emails_links cel WHERE ce.c_id = cel.c_id and ce.c_id = "C55a1e124d061e3.94689423" GROUP BY link
 $linksstmt = $conn->prepare('SELECT count( * ) count, link FROM  `campaign_emails_links` WHERE c_id = :id GROUP BY link');
@@ -98,7 +101,7 @@ $row = $stmt->fetch();
             <div class="percent">55%</div>
         </div>
         <div class="details">
-            <div class="numbers"><?php echo $links['count']; ?></div>
+            <div class="numbers"><?php echo $linkstotal['count']; ?></div>
             <div class="title">Link Clicks</div>
         </div>
         <div class="progress progress-info">
@@ -259,9 +262,9 @@ $row = $stmt->fetch();
     </tr>
     </thead>
     <tbody>
-    	<tr><td>mihai@yahoo.com</td><td>3</td><td><a href="#">View</a></td></tr>
-    	<tr><td>mattis@yahoo.com</td><td>1</td><td><a href="#">View</a></td></tr>
-        <tr><td>scxelt@yahoo.com</td><td>1</td><td><a href="#">View</a></td></tr>
+    	<?php foreach($email as $key => $value){ ?>
+        	<tr><td><?php echo $key; ?></td><td><?php echo $value; ?></td><td><a href="#">View</a></td></tr>
+        <?php } ?>
     </tbody>
 </table>
                                        </div>

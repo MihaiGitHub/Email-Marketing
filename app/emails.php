@@ -185,16 +185,16 @@ echo "<tr id=".$row['id']."><td>".htmlentities($row['email'])."</td><td>".htmlen
 	<div class="modal-body">
 		<select name="type" onChange="location = this.options[this.selectedIndex].value;" class="span6">
         		<option></option>
-        		<option>HotMail</option>
+        		<option value="#">HotMail</option>
 				<option value="https://accounts.google.com/o/oauth2/auth?client_id=35316327914-4sdoc4ihn46qcc0ihnnlp06p1u0dv52n.apps.googleusercontent.com&redirect_uri=http://msmarandache.com/emarketing/app/lists.php&scope=https://www.google.com/m8/feeds/&response_type=code">GMail</option>
-                <option>YaHoo</option>
+                <option value="#">YaHoo</option>
         </select>
 	</div>
 	<div class="modal-footer">
 		<button class="btn btn-primary email-modal-close" data-dismiss="modal">Close</button>
 	</div>
 </div>
-<!------ UPLOAD FILE --------------->
+<!------ UPLOAD FILE ---------
 <link rel="stylesheet" href="https://rawgit.com/enyo/dropzone/master/dist/dropzone.css">
 
 <style>
@@ -239,7 +239,7 @@ echo "<tr id=".$row['id']."><td>".htmlentities($row['email'])."</td><td>".htmlen
 		<button class="btn btn-primary email-csv-close" data-dismiss="modal">Close</button>
 	</div>
 </div>
-<!------------------------------------------------->
+---------------------------------------------->
 <style>
  .ui-widget-overlay {
   background: #aaaaaa url("img/ui-bg_flat_0_aaaaaa_40x100.png") 50% 50% repeat-x;
