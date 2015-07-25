@@ -70,9 +70,6 @@ while($rowlists = $stmtlists->fetch()){
                                           <span class="number">2</span>
                                           <span class="desc"><i class="icon-ok"></i> Edit template</span>
                                           </a>
-                                          
-         
-                                          
                                        </li>
                                        <li class="span3">
                                           <a href="#tab3" data-toggle="tab" class="step">
@@ -87,7 +84,7 @@ while($rowlists = $stmtlists->fetch()){
                               <div id="bar" class="progress progress-striped">
                                  <div class="bar"></div>
                               </div>
-                              <div class="tab-content">
+                              <div class="tab-content"><input type="button" onClick="window.location = 'create.php'" value="Create Template" style="float:right;"/>
                                  <div class="tab-pane active" id="tab1">
                                     <h3>Choose template</h3>
 <?php while($row = $stmt->fetch()){ ?>
