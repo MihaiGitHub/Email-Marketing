@@ -329,6 +329,30 @@ body {
 	background-color: rgba(0,0,0,1);
 	cursor: pointer;
 }
+#template-builder-save {
+	margin-left:15px;
+	height: 30px;
+	padding-left:15px;
+	padding-right:15px;
+	text-align: center;
+	line-height: 30px;
+	color: rgba(84,101,122,1);
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-transition: background 0.5s;
+	-moz-transition: background 0.5s;
+	-o-transition: background 0.5s;
+	transition: background 0.5s;
+	margin-bottom: 25px;
+	font-size: 15px;
+	float: right;
+	background-color: rgba(255,255,255,0.8);
+}
+#template-builder-save:hover {
+	cursor:pointer;
+	background-color: rgba(255,255,255,0.3);
+}
 #newsletter-builder-area-center-frame-buttons-reset {
 	height: 30px;
 	margin-right: auto;

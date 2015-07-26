@@ -199,8 +199,6 @@ $(".sim-row").draggable({
 	  handle: ".sim-row-move"
 });
 
-
-
 //Delete
 function add_delete(){
 	$(".sim-row").append('<div class="sim-row-delete"><i class="fa fa-times" ></i></div>');
@@ -217,7 +215,30 @@ $(".sim-row-delete").click(function() {
 perform_delete();
 
 
-
+//Save
+$("#template-builder-save").click(function(){
+	$("#sim-save-template").fadeIn(500);
+	$("#sim-save-template .sim-edit-box").slideDown(500);
+	/*
+	var jData = {};
+	jData.userId = 60;
+	jData.html = $("#newsletter-builder-area-center-frame-content").html();
+	
+	$.ajax({
+		  type: 'POST',
+		  url: '../../template-builder.php',
+		  async: true,
+		  data: jData,
+		  error: function(error) {
+				console.log('error', error.error())
+		  },
+		  dataType: 'json',
+		  success: function(data) {
+				console.log('success')
+		  },
+   });
+   */
+});
 
 //Download
  $("#newsletter-builder-sidebar-buttons-abutton").click(function(){
