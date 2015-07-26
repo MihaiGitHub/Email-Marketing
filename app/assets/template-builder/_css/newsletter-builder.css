@@ -2,7 +2,7 @@ body {
 	margin: 0px;
 	padding: 0px;
 	font-family: 'Source Sans Pro', sans-serif;
-	background-color: #c3ccd5;
+	background-color: #eff3f8;
 	overflow: hidden;
 }
 #header{
@@ -184,7 +184,7 @@ body {
 	background-color: rgba(153,153,153,0.1);
 }
 #newsletter-builder-area{
-	float: right;
+	margin:0 auto;
     overflow: auto;
 }
 #newsletter-builder-area-center {
