@@ -3,7 +3,13 @@ var App = function () {
      var isMainPage = false;
      var isMapPage = false;
 	 var isChartPage = false;
+	 var isTemplateBuilderPage = false;
      var isIE8 = false;
+	 
+	 var handleTemplateBuilder = function () {
+		 var uid = $('#user-id').val();
+		 sessionStorage.setItem('uid', uid);
+	 }
 	 
 	 var handleCharts = function () {
 	 
@@ -1912,6 +1918,11 @@ console.log(dataArrayFinal)
 			if (isChartPage) {
 				handleCharts(); // handles statistics page
 			}
+			
+			if (isTemplateBuilderPage) {
+				handleTemplateBuilder(); // handles statistics page
+			}
+			
 			handleEmails(); // handles emails page in lists section	
 			handleCampaign(); // handles campaign ID in reports section
 		    handleTemplate(); // handles template ID in template wizard
@@ -2013,6 +2024,11 @@ console.log(dataArrayFinal)
 		// set chart page
         setChartPage: function (flag) {
             isChartPage = flag;
+        },
+		
+		// set template builder page
+        setTemplateBuilderPage: function (flag) {
+            isTemplateBuilderPage = flag;
         }
 
     };
