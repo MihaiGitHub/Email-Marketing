@@ -8,9 +8,6 @@ function resize(){
 	}
 $( window ).resize(function() {resize();});
 resize();
-
-	
-	
  
 //Add Sections
 $("#newsletter-builder-area-center-frame-buttons-add").hover(
@@ -215,29 +212,39 @@ $(".sim-row-delete").click(function() {
 perform_delete();
 
 
-//Save
+//Save777
 $("#template-builder-save").click(function(){
 	$("#sim-save-template").fadeIn(500);
 	$("#sim-save-template .sim-edit-box").slideDown(500);
-	/*
-	var jData = {};
-	jData.userId = 60;
-	jData.html = $("#newsletter-builder-area-center-frame-content").html();
 	
-	$.ajax({
-		  type: 'POST',
-		  url: '../../template-builder.php',
-		  async: true,
-		  data: jData,
-		  error: function(error) {
-				console.log('error', error.error())
-		  },
-		  dataType: 'json',
-		  success: function(data) {
-				console.log('success')
-		  },
-   });
-   */
+		$("#sim-save-template .sim-edit-box-buttons-save").click(function() {
+			var userId = parseInt(sessionStorage.getItem('uid'));
+			var title = $("#sim-save-template .sim-edit-box-content-field-input").val();
+
+			if(title){
+				
+				var jData = {};
+				jData.userId = userId;
+				jData.title = title;
+				jData.html = $("#newsletter-builder-area-center-frame-content").html();
+				
+				$.ajax({
+					  type: 'POST',
+					  url: '../../template-builder.php',
+					  async: true,
+					  data: jData,
+					  error: function(error) {
+							console.log('error', error.responseText)
+					  },
+				//	  dataType: 'json',
+					  success: function(data) {
+						//	window.location = '../../templates.php';
+					  },
+			   });
+
+			} 
+			
+		});
 });
 
 //Download
