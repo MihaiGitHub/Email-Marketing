@@ -217,7 +217,23 @@ $("#template-builder-save").click(function(){
 	$("#sim-save-template").fadeIn(500);
 	$("#sim-save-template .sim-edit-box").slideDown(500);
 	
-		$("#sim-save-template .sim-edit-box-buttons-save").click(function() {
+		$("#sim-save-template .sim-edit-box-buttons-save").click(function() { console.log('clicked save')
+			//////////////////////////////////////////////////////////
+			$("#newsletter-preloaded-export").html($("#newsletter-builder-area-center-frame-content").html());
+			$("#newsletter-preloaded-export .sim-row-delete").remove();
+			$("#newsletter-preloaded-export .sim-row").removeClass("ui-draggable");
+			$("#newsletter-preloaded-export .sim-row-edit").removeAttr("data-type");
+			$("#newsletter-preloaded-export .sim-row-edit").removeClass("sim-row-edit");
+			preload_export_html = $("#newsletter-preloaded-export").html();
+			$.ajax({
+			  url: "_css/newsletter.css"
+			}).done(function(data) {
+
+	
+export_content = '<style>'+data+'</style><link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic" rel="stylesheet" type="text/css"><link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"><div id="sim-wrapper"><div id="sim-wrapper-newsletter">'+preload_export_html+'</div></div>';
+			console.log('export content ', export_content)
+			
+			/////////////////////////////
 			var userId = parseInt(sessionStorage.getItem('uid'));
 			var title = $("#sim-save-template .sim-edit-box-content-field-input").val();
 
@@ -226,7 +242,8 @@ $("#template-builder-save").click(function(){
 				var jData = {};
 				jData.userId = userId;
 				jData.title = title;
-				jData.html = $("#newsletter-builder-area-center-frame-content").html();
+			//	jData.html = $("#newsletter-builder-area-center-frame-content").html();
+				jData.html = export_content;
 				
 				$.ajax({
 					  type: 'POST',
@@ -243,6 +260,12 @@ $("#template-builder-save").click(function(){
 			   });
 
 			} 
+			/////////////////////////////////////
+			
+			});
+///////////////////////////////////////////////////////////////////////////////////
+			
+			
 			
 		});
 });

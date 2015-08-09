@@ -1557,13 +1557,9 @@ console.log(dataArrayFinal)
             'nextSelector': '.button-next',
             'previousSelector': '.button-previous',
             onTabClick: function (tab, navigation, index) {
-               // alert('on tab click disabled');
                 return false;
             },
             onNext: function (tab, navigation, index) {
-		//		console.log('tab ',tab)
-		//		console.log('navigation ',navigation)
-		//		console.log('index ',index)
 				
                 var total = navigation.find('li').length;
                 var current = index + 1;
@@ -1579,10 +1575,6 @@ console.log(dataArrayFinal)
                     jQuery(li_list[i]).addClass("done");
                 }
 
-
-
-
-
                 if (current == 1) {
 				
 					
@@ -1593,18 +1585,11 @@ console.log(dataArrayFinal)
 				//	$('#form_wizard_1').find('#backbtn').removeClass('button-previous');
 					
 					var tid = sessionStorage.getItem('tid');
-
-/*$('#backbtn2').click(function() { console.log('replaced')
-		//	window.location = 'templates.php';
-		location.reload();
-});
-*/
 										
-
+console.log('tid ',tid)
 					
 					if(first == 0){ console.log('first')
 							first = 1;
-							
 							
 							$.ajax({
 								  type: 'POST',
