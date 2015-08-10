@@ -8,16 +8,21 @@ include 'include/dbconnect.php';
 $_SESSION['templateid'] = $_POST['id'];
 	
 // Load the correct template
-$tstmt = $conn->prepare('SELECT name, type, saved FROM templates WHERE id = :id');
+$tstmt = $conn->prepare('SELECT name, original_value, saved FROM templates WHERE id = :id');
 $tstmt->execute(array('id' => $_POST['id']));
 $tstmt->setFetchMode(PDO::FETCH_ASSOC);
 $trow = $tstmt->fetch();
 
-// Store all field values that have been completed into an array. Fields in template are named 1, 2, 3... in order from beg to end
-$stmt = $conn->prepare('SELECT field, value FROM template_fields WHERE user_id = :userid AND template_id = :templateid');
-$result = $stmt->execute(array('userid' => $_SESSION['id'], 'templateid' => $_POST['id']));
-$stmt->setFetchMode(PDO::FETCH_ASSOC);
-
+if($trow['saved'] == 1){
+	$stmt = $conn->prepare('SELECT field, value FROM template_fields WHERE user_id = :userid AND template_id = :templateid');
+	$result = $stmt->execute(array('userid' => $_SESSION['id'], 'templateid' => $_POST['id']));
+	$stmt->setFetchMode(PDO::FETCH_ASSOC);
+	$row = $stmt->fetch();
+	echo json_encode($row['value']);
+} else {
+	echo json_encode($trow['original_value']);
+}
+/*
 if($trow['type'] == 'custom'){ 
 	
 	$row = $stmt->fetch();
@@ -176,4 +181,5 @@ switch ($trow['name']){
 	break;
 	}
 }
+*/
 ?>

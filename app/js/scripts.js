@@ -1586,7 +1586,7 @@ console.log(dataArrayFinal)
 					
 					var tid = sessionStorage.getItem('tid');
 										
-console.log('tid ',tid)
+					console.log('tid ',tid)
 					
 					if(first == 0){ console.log('first')
 							first = 1;
@@ -1603,7 +1603,7 @@ console.log('tid ',tid)
 								  },
 								  dataType: 'json',
 								  success: function(data) {
-								  
+								  console.log('data', data);
 									  $('#edittemplate').html(data);
 									  $('#edittemplate').fadeIn('slow');
 								//	 $('#form_wizard_1').find('#backbtn').removeClass('button-previous');
@@ -1624,8 +1624,35 @@ console.log('tid ',tid)
 						   
 					} else { 
 					
-					console.log('333333333333')
+							console.log('333333333333')
 					
+							$('#form_wizard_1').find('.button-previous').show();
+							
+							var jData = {};
+							jData.html = $('#edittemplate').html();
+							
+							$.ajax({
+								  type: 'POST',
+								  url: 'savetemplate.php',
+								  async: true,
+								  data: jData,
+								  error: function(error) {
+									console.log('error', error)
+								  },
+								  success: function(data) { 
+								  
+										console.log('saved template success')
+									 
+								  },
+						   });
+						   
+						   $('#form_wizard_1').find('#continuebtn').hide();
+						   $('#form_wizard_1').find('.button-submit').show();
+					
+					
+					
+					
+					/******************************************************************OLD
 							$('#form_wizard_1').find('.button-previous').show();
 							
 							var jData = {};
@@ -1647,8 +1674,10 @@ console.log('tid ',tid)
 									 
 								  },
 						   });
+						   
 						   $('#form_wizard_1').find('#continuebtn').hide();
 						   $('#form_wizard_1').find('.button-submit').show();
+						   **********************************************************/
 					}
 					
 					//$('#form_wizard_1').find('.button-previous').show();
