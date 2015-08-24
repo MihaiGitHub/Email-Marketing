@@ -17,51 +17,10 @@ $tstmt->execute(array('u_id' => $_SESSION['id'], 't_id' => $_SESSION['templateid
 $tstmt->setFetchMode(PDO::FETCH_ASSOC);
 $trow = $tstmt->fetch();
 
-		
-		
-
-/*
-$tstmt = $conn->prepare('SELECT name FROM templates WHERE id = :id');
-$tstmt->execute(array('id' => $_SESSION['templateid']));
-$tstmt->setFetchMode(PDO::FETCH_ASSOC);
-$trow = $tstmt->fetch();
-*/
-
 // Select all emails corresponding to the chosen list
 $stmtmain = $conn->prepare('SELECT id, email FROM emails WHERE list_id = :listid');
 $stmtmain->execute(array('listid' => $_SESSION['listid']));
 $count = $stmtmain->rowCount();
-/*	
-switch ($trow['name']){
-	case 'Basic':
-		$template = 'templates/basic/basic-mini.html';
-	break;
-	case 'Basic-1-Column':
-		$template = 'templates/basic/1-column-mini.html';
-	break;
-	case 'Basic-1-2-Column':
-		$template = 'templates/basic/1-2-column-mini.html';
-	break;
-	case 'Basic-1-1-2-Column':
-		$template = 'templates/basic/1-1-2-column-mini.html';
-	break;	
-	case 'Basic-1-1-3-Column':
-		$template = 'templates/basic/1-1-3-column-mini.html';
-	break;
-	case 'Welcome':
-		$template = 'templates/theme/welcome-mini.html';
-	break;
-	case 'Featured':
-		$template = 'templates/theme/featured-mini.html';
-	break;
-	case 'Trial':
-		$template = 'templates/theme/trial-mini.html';
-	break;
-	case 'Arrivals':
-		$template = 'templates/theme/arrivals-mini.html';
-	break;
-}
-*/
 
 if($count > 0){
 	require_once('phpmailer/class.phpmailer.php');
@@ -81,41 +40,7 @@ if($count > 0){
 				break;
 			}	
 	
-	}
-	
-	
-	
-	
-	
-	/*		
-	$patterns = array();
-	$replacements = array();
-				
-	// Select all fields from template_fields and put them in template
-	$stmtfields = $conn->prepare('SELECT field, value FROM template_fields WHERE user_id = :userid AND template_id = :templateid');
-	$stmtfields->execute(array('userid' => $_SESSION['id'], 'templateid' => $_SESSION['templateid']));
-	$stmtfields->setFetchMode(PDO::FETCH_ASSOC);
-
-	$placeholders = [];
-	$values = [];
-
-	// store fields to be replaced in arrays for replacement later
-	while($rowfields = $stmtfields->fetch()){
-		$placeholders[] = '%'.$rowfields['field'].'%';
-		
-		$values[] = str_replace(
-			['http://','https://'],
-			[THIS_WEBSITE_URI . '/receipt.php?id=%id%&cid=%cid%&link=http://', THIS_WEBSITE_URI . '/receipt.php?link=https://'],
-			$rowfields['value']
-		);
-	}
-	*/
-	
-	
-	
-	
-	
-	
+	}	
 
 	/// Select all emails from campaign_emails inserted above
 	$stmtcid = $conn->prepare('SELECT id, c_id, email FROM campaign_emails WHERE c_id = :cid AND sent = 0 LIMIT 14');
@@ -139,6 +64,7 @@ if($count > 0){
 
 		$body .= '<img style="display:none;" border="0" src="'.$tracker.'" width="1" height="1" />';
 		
+
 
 		$mail = new PHPMailer();
  

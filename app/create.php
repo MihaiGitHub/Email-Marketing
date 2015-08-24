@@ -41,7 +41,7 @@ $dashboard = true;
                                 </div>
                                 <div class="widget-body">
                                     <div class="portlet-body" style="height:900px;">
-                                       <iframe id="iframe" frameBorder="0" src="http://msmarandache.com/emarketing/app/assets/template-builder/index.html" style="height:100%;width:100%;"></iframe>
+                                       <iframe id="iframe" frameBorder="0" src="http://msmarandache.com/emarketing/app/assets/template-builder/digith_template_builder/index.php" style="height:100%;width:100%;"></iframe>
                                        <input type="hidden" id="user-id" value="<?php echo $_SESSION['id']; ?>" />
                                     </div>
                                 </div>
