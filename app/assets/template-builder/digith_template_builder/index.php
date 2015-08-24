@@ -414,7 +414,7 @@
       <ul>
         <li id="barrPurchase">
           <ol>
-            <li id="purchase"><a href="#" target="_blank">Purchase</a></li>
+        <!--    <li id="purchase"><a href="#" target="_blank">Purchase</a></li> -->
             <li id="lightt" class="active"></li>
             <li id="darkk"></li>
             <li id="chooseTheme">Builder Theme</li>
@@ -449,7 +449,7 @@
       <!--	<div id="projectTitle" class="shadoww1">Project Manage</div>
         <div id="uploadProject" class="shadoww1" title="Load Project to the window, reuse and edit.">Load</div> -->
         <div id="saveProject" class="shadoww1" title="Save this template to your default templates.">Save Template</div>
-   <!--     <div id="uploadFilebox">
+        <div id="uploadFilebox">
           <div id="upload">
           <div id="minFbox">&ndash;</div>
             <div id="drop">
@@ -468,15 +468,15 @@
             <ul></ul>
           </div>
         </div>
-	   -->
+<!--	   -->
         <div id="saveProjectbox">
           <div id="minPbox">&ndash;</div>
           <form id="saveprojectForm" action="">
               <div id="PjF">
-                  Project Name
-                  <input type="text" id="project-name" name="project-name" value="Project.html"/>
-                  <span>Please save as .html file. You can continue editing it at any time. But <strong>do not use it to send email, this is the structure project file</strong>, please use download button of left sidebar to get your email page. </span>
-                  <a>Save Project</a>
+                  Template Name
+                  <input type="text" id="project-name" name="project-name"/>
+                  <span>Please enter a <strong>name</strong> for your new template and click save. </span>
+                  <a>Save</a>
                   <br/>
               </div>
           </form>
