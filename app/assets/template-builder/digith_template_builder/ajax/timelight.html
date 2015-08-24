@@ -1,0 +1,52 @@
+<h2>FAQ</h2>
+<ol style="padding-left:20px;">
+  <li><h3>How to creat the divider like below?</h3></li>
+  <div style="padding:20px;">
+    <p><img src="ajax/images/divider3.jpg"/></p>
+    <p>to</p>
+    <p><img src="ajax/images/divider4.jpg"/></p>
+    <p><img src="ajax/images/color-none.jpg"/><img src="ajax/images/divider-height2.jpg"/></p>
+    <p>Step1: click color setting <strong>-></strong> selete module divider <strong>-></strong> click <strong>[ none ]</strong> button&nbsp;to delete the background color of the divider.</p>
+    <p>Step2: Click BG/Radius/Divider <strong>-></strong> selete Button Radius / Divider<strong> -></strong> selete Module Divider Height <strong>-></strong> drag the slider to get a big value, then you will get the divider.</p>
+  </div>
+  <li><h3>Why can not drag modules from choose module box?</h3></li>
+  <div style="padding:20px;">
+    <p>Please check the edit manage, if the edit content is active, modules can not draggable, just click edit layout to enable the function.</p>
+  </div>
+  <li>
+  	<h3>Project File can not Upload into the page window or can not download the email page?</h3></li>
+  <div style="padding:20px;">
+    <h2>About the folder permission</h2>
+    <p>Please see the bellow screenshots of the folder digith_template_builder, and find the [file] folder under the server/php, then use some FTP software to connect your webspace, give that folder a permission like bellow, please do not worry about the security of your webspace, only .html file can be upload into your server, and the file will be delete<em><strong> Immediately</strong></em> after the page loaded into the main window.</p>
+    
+  <p><img src="ajax/images/server.jpg" alt="folde" /><img src="ajax/images/server2.jpg" /><img src="ajax/images/server3.jpg" /></p>
+  <p>&nbsp;</p>
+    <h2>About the Php Server ( page can not download)</h2>
+    <h3>Setting the php.ini file</h3>
+    <p>Open the php.ini, and find "file_uploads", make sure the value is " on ", and can setting other value like bellow:</p>
+<pre>
+max_execution_time = 600
+max_input_time = 600
+memory_limit = 32m
+file_uploads = on
+upload_max_filesize = 2m
+post_max_size = 32m
+</pre>
+  </div>
+  <li>
+  	<h3>Content Can not edit or CKeditor toolbar display wrong of some module?</h3></li>
+  <div style="padding:20px;">
+    <h2>Content can not edit</h2>
+    <p>just Click the edit content button above the page window again before you refresh the page.    </p>
+    <h2>CKeditor toolbar display wrong of some module</h2>
+    <p>just click the [ edit layout ] button above the page window and drag/click/duplicate the module to creat a new one, then click the [ edit content ] button, you will find now the CKeditor toolbar will works ok for this module, and now you can delet the module which toolbar not work.</p>
+  </div>
+  <li>
+  	<h3>Why i copyed and pasted some text into the page, the text display wrong?</h3></li>
+  <div style="padding:20px;">
+    <h2>Please use paste as plain text for copy and paste</h2>
+    <p>This is because the text you paste to the page may has its own style, so , i suggest use the [ paste as plain text ] tool of the CKeditor , you will find every thing will ok.</p>
+    <p><strong>Ok,enjoy it!</strong></p>
+  </div>
+  
+</ol>
