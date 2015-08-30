@@ -8,7 +8,7 @@
   <meta name="googlebot" content="noindex">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
-  <meta itemprop="description" content="Responsive Email Template-design by digith.net">
+  <meta itemprop="description" content="Responsive Email Template-design">
   <title>Email Marketer</title>
   <link href="css/jquery-ui-1.10.4.custom.css" rel="stylesheet">
   <link href="css/jihe.css" rel="stylesheet">
