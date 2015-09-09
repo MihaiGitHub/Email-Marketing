@@ -158,7 +158,7 @@ echo "<tr id=".$row['id']."><td>".htmlentities($row['email'])."</td><td>".htmlen
     text-shadow: 1px 1px 0 #fff;
 }
 </style>
-<div id="import-contacts-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="false" style="width:560px !important;display:block;">
+<div id="import-contacts-modal" class="modal hide1 fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="false" style="width:560px !important;display:block;">
 	<div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 		<h3 id="myModalLabel1">Select Email Provider</h3>
@@ -198,7 +198,7 @@ echo "<tr id=".$row['id']."><td>".htmlentities($row['email'])."</td><td>".htmlen
   	margin: 2em 0;
 }
 </style>
-<div id="upload-csv-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="false" style="width:560px !important;display:block;">
+<div id="upload-csv-modal" class="modal hide1 fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="false" style="width:560px !important;display:block;">
 	<div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 		<h3 id="myModalLabel1">Upload</h3>

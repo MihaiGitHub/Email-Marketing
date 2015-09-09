@@ -110,7 +110,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     </form>
     <!-- END LOGIN FORM -->        
     <!-- BEGIN FORGOT PASSWORD FORM -->
-    <form id="forgotform" class="form-vertical no-padding no-margin hide" action="index.html">
+    <form id="forgotform" class="form-vertical no-padding no-margin hide1" action="index.html">
       <p class="center">Enter your e-mail address below to reset your password.</p>
       <div class="control-group">
         <div class="controls">

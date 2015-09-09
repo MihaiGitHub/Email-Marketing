@@ -84,61 +84,45 @@ while($rowlists = $stmtlists->fetch()){
                               <div id="bar" class="progress progress-striped">
                                  <div class="bar"></div>
                               </div>
-                              <div class="tab-content"><input type="button" onClick="window.location = 'create.php'" value="Create Template" style="float:right;"/>
+                              <div class="tab-content">
                                  <div class="tab-pane active" id="tab1">
-                                    <h3>Choose template</h3>
-<?php while($row = $stmt->fetch()){ ?>
-	<div class="template" style="float:left;">
-	
-		<button id="<?php echo $row['id']; ?>" class="button-next template-btn" type="button" style="width:25%;">
-			<img src="../app/templates/images/<?php echo $row['picture']; ?>" >
-        </button>
-	
-		<div class="template-text">
-			<div><?php echo $row['name']; ?></div> 
-		</div>
-
-	</div>
-<?php } ?>
+			   
+<button onClick="window.location = 'create.php'" class="btn btn-primary" style="float:right;transform: translateY(15%);" type="button"><i class="icon-plus icon-white"></i> Create Template</button>
+      
+                                    
+								<h3>Choose template</h3>
+								<?php while($row = $stmt->fetch()){ ?>
+									<div class="template" style="float:left;">
+									
+										<button id="<?php echo $row['id']; ?>" class="button-next template-btn" type="button" style="width:25%;">
+											<img src="../app/templates/images/<?php echo $row['picture']; ?>" >
+									   </button>
+									
+										<div class="template-text">
+											<div><?php echo $row['name']; ?></div> 
+										</div>
+								
+									</div>
+								<?php } ?>
                                  </div>
         
                                  <div class="tab-pane" id="tab2">
-                                    <h4>Edit template</h4>
-                                    <input type="button" onClick="window.location = 'templates.php'" value="Go Back" style="float:right;"/>
+                                  
+							 <button onClick="window.location = 'templates.php'" class="btn btn-primary" style="float:right;" type="button"><i class="icon-backward icon-white"></i> Go Back</button>
                                     
-                                    <div id="continuebtn" class="btn btn-primary blue button-next" style="display:none;">
-                                 	Continue <i class="icon-angle-right"></i>
-                                 </div>
-         <!--                           <button onClick="window.location = 'templates.php'">Go Back</button>
-         <a id="backbtn" href="#" class="btn">
-            <i class="icon-angle-left"></i> Back 
-         </a>
-         -->
-                                    <div id="edittemplate" style="display:none;">
-									
-									</div>
+                                      <div id="continuebtn" class="btn btn-primary blue button-next" style="display:none;">
+									Continue
+							   </div>
+         
+                                    <div id="edittemplate" style="display:none;"></div>
+							 
                                  </div>
                                  
                                  <div class="tab-pane" id="tab3">
-                                    <h4>Complete form</h4>
-                                    <!--
-                                                                       <input type="button" onClick="window.location = 'templates.php'" value="Go Back" style="float:right;"/>
-
-                                    
-                                <a href="javascript:;" class="btn button-previous">
-                                 	<i class="icon-angle-left"></i> Back 
-                                 </a>
-                                    -->
-                                    
-                                    
-                                    
+                                    <h3>Complete Form</h3>                                   
                                     
                                     <div class="control-group">
                                        <label class="control-label">List Name</label>
-                                       
-
-
-
                                        <div class="controls">
                                           <select id="lists" name="lists" class="span6"><?php echo $options; ?></select>
                                        </div>
@@ -174,16 +158,13 @@ while($rowlists = $stmtlists->fetch()){
                                  </div>
                               </div>
                               <div class="form-actions clearfix">
-                                 <a href="javascript:;" class="btn button-previous">
-                                 	<i class="icon-angle-left"></i> Back 
+						
+                                 <a href="javascript:;" class="btn button-primary button-previous">
+                                 	<i class="icon-backward icon-white"></i> Go Back 
                                  </a>
-                                 <!--
-                                 <div id="continuebtn" class="btn btn-primary blue button-next" style="display:none;">
-                                 	Continue <i class="icon-angle-right"></i>
-                                 </div>
-                                 -->
+                                
                                  <a href="javascript:;" class="btn btn-success button-submit">
-                                 	Submit <i class="icon-ok"></i>
+                                 		<i class="icon-envelope"></i> Send Mail
                                  </a>
                               </div>
                            </div>
@@ -211,7 +192,7 @@ while($rowlists = $stmtlists->fetch()){
   
   
   
-<div id="dialog" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="false" style="width:560px !important;display:block;">
+<div id="dialog" class="modal hide1 fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="false" style="width:560px !important;display:block;">
 	<div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 		<h3 id="myModalLabel1">Sending Emails...</h3>

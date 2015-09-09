@@ -159,14 +159,19 @@ function ei(e, templatename){
 	tCKDM = tCKDM.replace(yt,"").replace(et,tt).replace(nt,rt).replace(it,st).replace(ot,ut).replace(at,ft).replace(lt,ct).replace(ht,pt).replace(dt,vt).replace(mt,gt);
 	
 	var res = tCKDM.replace(/◆/g, "");
-	res = res.replace(/class="row"/g, "");
+	res = res.replace(/class="row"/g, "class=\"row1\"");
+	res = res.replace(/class~=row/g, "class~=row1");
+	
+//	res = res.replace(/class="row"/g, "class=\"row1\"");
+//	res = res.replace(/class~=row/g, "class~=row1");
+// need to solve icon class and img {
 	
 	res = res.replace(/'/g, "&#39;");
 	res = res.replace(/`/g, "&#39;");
 	res = res.replace(/’/g, "&#39;");
 	
 	var uid = sessionStorage.getItem('uid');
-	
+
 	$.ajax({
 		  type: 'POST',
 		  url: '../../../template-builder.php',
@@ -183,7 +188,7 @@ function ei(e, templatename){
 			 window.location = '../../../templates.php';
 		  },
      });	
-	
+
 	e.preventDefault()
 }
 

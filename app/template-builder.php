@@ -8,8 +8,9 @@ if(!$_SESSION['auth']){
 
 include 'include/dbconnect.php';
 
+
 $stmt = $conn->prepare('INSERT INTO templates (user_id, name, type, picture, original_value) VALUES (:userid, :name, :type, :picture, :value)');
-$result = $stmt->execute(array('userid' => $_POST['userId'], 'name' => $_POST['title'], 'type' => 'custom', 'picture' => 'basic.png', 'value' => $_POST['html']));
+$result = $stmt->execute(array('userid' => $_POST['userId'], 'name' => $_POST['title'], 'type' => 'custom', 'picture' => 'basic.png', 'value' => $_POST['html'])) or die(print_r($stmt->errorInfo(), true));
 
 if($result){
 	$stmt2 = $conn->prepare('INSERT INTO template_fields (user_id, template_id, field, value) VALUES (:userid, :tid, :field, :value)');

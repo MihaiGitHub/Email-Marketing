@@ -18,3 +18,7 @@ has been edited and the -mini.html will be the actual sent file. Late it will al
 when user signs up for account in initial account setup.
 4. save-lists.php redirect_uri needs to be updated.
 5. app/emails.php and app/lists.php needs to have redirect_uri updated
+
+
+class="row" is being replaced in all templates with empty space. Could be a problem with responsiveness
+all links in templatebuilder/html need to be hardcoded

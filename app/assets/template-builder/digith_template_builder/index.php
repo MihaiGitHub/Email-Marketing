@@ -501,7 +501,6 @@
         <script src="ckeditor/adapters/jquery.js"></script>
         <script src="js/sonic.js"></script><!---->
         <script src="js/gongneng.js"></script>
-        <script src="http://digith.com/demo/builder.js"></script><!---->
         <script src="js/pattern.js"></script>
         <script src="js/main.js"></script>
         <script src="js/farbtastic.js"></script>
