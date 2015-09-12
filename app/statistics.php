@@ -14,13 +14,33 @@ $result = $stmt->execute(array('id' => $_GET['id']));
 $totals = $stmt->fetch();
 
 $emailopens = 0;
+$emailbounces = 0;
+$emailunsubscribes = 0;
+
 $email = [];
-$stmt = $conn->prepare('SELECT email, opened FROM `campaign_emails` WHERE c_id = :id');
+$bounce = [];
+$unsubscribe = [];
+
+$stmt = $conn->prepare('SELECT email, opened, bounced, unsubscribed FROM `campaign_emails` WHERE c_id = :id');
 $result = $stmt->execute(array('id' => $_GET['id']));
+$stmt->setFetchMode(PDO::FETCH_ASSOC);
+
 while($opened = $stmt->fetch()){
+	
+	
 		if($opened['opened'] != 0){
 					$email[$opened['email']] = $opened['opened'];
 					$emailopens++;
+		}
+		
+		if($opened['bounced'] == 1){
+					$bounce[$opened['email']] = $opened['bounced'];
+					$emailbounces++;
+		}
+		
+		if($opened['unsubscribed'] == 1){
+					$unsubscribe[$opened['email']] = $opened['unsubscribed'];
+					$emailunsubscribes++;
 		}
 }
 
@@ -32,6 +52,7 @@ $linksresult = $linksstmt->execute(array('id' => $_GET['id']));
 $stmt = $conn->prepare('SELECT subject, sent FROM campaigns WHERE id = :id');
 $result = $stmt->execute(array('id' => $_GET['id']));
 $row = $stmt->fetch();
+
 ?>
 <!-- BEGIN PAGE -->
       <div id="main-content">
@@ -116,7 +137,7 @@ $row = $stmt->fetch();
             <div class="percent">36%</div>
         </div>
         <div class="details">
-            <div class="numbers">5440</div>
+            <div class="numbers"><?php echo $emailunsubscribes; ?></div>
             <div class="title">Unsubscribed</div>
             <div class="progress progress-danger">
                 <div style="width: 36%" class="bar"></div>
@@ -131,7 +152,7 @@ $row = $stmt->fetch();
             <div class="percent">72%</div>
         </div>
         <div class="details">
-            <div class="numbers">1130</div>
+            <div class="numbers"><?php echo $emailbounces; ?></div>
             <div class="title">Bounced</div>
             <div class="progress progress-danger">
                 <div style="width: 72%" class="bar"></div>
@@ -161,10 +182,6 @@ $row = $stmt->fetch();
 </div>
 <!-- END ADVANCED TABLE widget-->
             
-            
-            
-            
-            
             <!-- BEGIN ADVANCED TABLE widget-->
             <div class="row-fluid">
                 <div class="span12">
@@ -186,12 +203,7 @@ $row = $stmt->fetch();
                     <!-- END EXAMPLE TABLE widget-->
                 </div>
             </div>
-            <!-- END ADVANCED TABLE widget-->
-            
-            
-            
-            
-            
+            <!-- END ADVANCED TABLE widget-->            
             
             <!-- BEGIN ADVANCED TABLE widget-->
             <div class="row-fluid">
@@ -218,12 +230,6 @@ $row = $stmt->fetch();
        
             </div>
             <!-- END ADVANCED TABLE widget-->
-          
-            
-            
-            
-            
-            
             
              <!-- BEGIN ADVANCED TABLE widget-->
             <div class="row-fluid">
@@ -238,10 +244,6 @@ $row = $stmt->fetch();
                         <div class="widget-body">
                             <div class="portlet-body">
                                 
-                                
-                                
-                                
-                                
                                <!--BEGIN TABS-->
                                  <div class="tabbable tabbable-custom">
                                     <ul class="nav nav-tabs">
@@ -249,88 +251,73 @@ $row = $stmt->fetch();
                                        <li><a href="#link-clicks" data-toggle="tab">Link Clicks</a></li>
                                        <li><a href="#unsubscribes" data-toggle="tab">Unsubscribes</a></li>
                                        <li><a href="#bounces" data-toggle="tab">Bounces</a></li>
-                                       <li><a href="#unopened" data-toggle="tab">Not Opened</a></li>
                                     </ul>
                                     <div class="tab-content">
                                        <div class="tab-pane active" id="unique-opens">
-<table class="table table-striped table-hover table-bordered" id="unique-opens-table">
-    <thead>
-    <tr>
-        <th>Email</th>
-        <th>Total Opens</th>
-        <th>View</th>
-    </tr>
-    </thead>
-    <tbody>
-    	<?php foreach($email as $key => $value){ ?>
-        	<tr><td><?php echo $key; ?></td><td><?php echo $value; ?></td><td><a href="#">View</a></td></tr>
-        <?php } ?>
-    </tbody>
-</table>
-                                       </div>
-                                       <div class="tab-pane" id="link-clicks">
-<table class="table table-striped table-hover table-bordered" id="link-clicks-table">
-    <thead>
-    <tr>
-        <th>Link</th>
-        <th>Email</th>
-		<th>Total Clicks</th>
-    </tr>
-    </thead>
-    <tbody>
-<?php while($links = $linksstmt->fetch()){ ?>
-	<tr><td><a href="<?php echo $links['link']; ?>" target="_blank"><?php echo $links['link']; ?></a></td><td>&nbsp;</td><td><?php echo $links['count']; ?></td></tr>
-<?php } ?>
-	</tbody>
-</table>                                       </div>
-                                       <div class="tab-pane" id="unsubscribes">
-<table class="table table-striped table-hover table-bordered" id="unsubscribes-table">
-    <thead>
-    <tr>
-        <th>Email</th>
-        <th>Date</th>
-    </tr>
-    </thead>
-    <tbody>
-    	<tr><td>mwdowiak@yahoo.com</td><td>2015-12-22</td></tr>
-    	<tr><td>jen24@yahoo.com</td><td>2015-12-11</td></tr>
-        <tr><td>anderson@yahoo.com</td><td>2015-12-05</td></tr>
-        <tr><td>mwdowiak@yahoo.com</td><td>2015-11-02</td></tr>
-    </tbody>
-</table>
-                                       </div>
-                                        <div class="tab-pane" id="bounces">
-<table class="table table-striped table-hover table-bordered" id="bounces-table">
-    <thead>
-    <tr>
-        <th>Email</th>
-        <th>Date</th>
-    </tr>
-    </thead>
-    <tbody>
-    	<tr><td>mwdowiak@yahoo.com</td><td>2015-12-22</td></tr>
-    	<tr><td>jen24@yahoo.com</td><td>2015-12-11</td></tr>
-        <tr><td>anderson@yahoo.com</td><td>2015-12-05</td></tr>
-        <tr><td>mwdowiak@yahoo.com</td><td>2015-11-02</td></tr>
-    </tbody>
-</table>
-                                       </div>
-                                        <div class="tab-pane" id="unopened">
-<table class="table table-striped table-hover table-bordered" id="unopened-table">
-    <thead>
-    <tr>
-        <th>Email</th>
-        <th>Date</th>
-    </tr>
-    </thead>
-    <tbody>
-    	<tr><td>mwdowiak@yahoo.com</td><td>2015-12-22</td></tr>
-    	<tr><td>jen24@yahoo.com</td><td>2015-12-11</td></tr>
-        <tr><td>anderson@yahoo.com</td><td>2015-12-05</td></tr>
-        <tr><td>mwdowiak@yahoo.com</td><td>2015-11-02</td></tr>
-    </tbody>
-</table>
-                                       </div>
+									<table class="table table-striped table-hover table-bordered" id="unique-opens-table">
+									    <thead>
+									    <tr>
+										   <th>Email</th>
+										   <th>Total Opens</th>
+										   <th>View</th>
+									    </tr>
+									    </thead>
+									    <tbody>
+										<?php foreach($email as $key => $value){ ?>
+											<tr><td><?php echo $key; ?></td><td><?php echo $value; ?></td><td><a href="#">View</a></td></tr>
+										   <?php } ?>
+									    </tbody>
+									</table>
+								</div>
+								<div class="tab-pane" id="link-clicks">
+									<table class="table table-striped table-hover table-bordered" id="link-clicks-table">
+									    <thead>
+									    <tr>
+										   <th>Link</th>
+										   <th>Email</th>
+										   <th>Total Clicks</th>
+										   <th>Unique Clicks</th>
+									    </tr>
+									    </thead>
+									    <tbody>
+									<?php while($links = $linksstmt->fetch()){ ?>
+										  <tr>
+											<td><a href="<?php echo $links['link']; ?>" target="_blank"><?php echo $links['link']; ?></a></td>
+											<td>&nbsp;</td><td><?php echo $links['count']; ?></td><td>&nbsp;</td>
+										  </tr>
+									<?php } ?>
+										</tbody>
+									</table>                                       
+								</div>
+								<div class="tab-pane" id="unsubscribes">
+									<table class="table table-striped table-hover table-bordered" id="unsubscribes-table">
+									    <thead>
+									    <tr>
+										   <th>Email</th>
+									    </tr>
+									    </thead>
+									    <tbody>
+										<?php foreach($unsubscribe as $key => $value){ ?>
+											<tr><td><?php echo $key; ?></td></tr>
+										   <?php } ?>
+									    </tbody>
+									</table>
+								</div>
+								<div class="tab-pane" id="bounces">
+									<table class="table table-striped table-hover table-bordered" id="bounces-table">
+									    <thead>
+									    <tr>
+										   <th>Email</th>
+										   <th>Bounce Type</th>
+									    </tr>
+									    </thead>
+									    <tbody>
+										<?php foreach($bounce as $key => $value){ ?>
+											<tr><td><?php echo $key; ?></td><td>hard</td></tr>
+										   <?php } ?>
+									    </tbody>
+									</table>
+								</div>
                                     </div>
                                  </div>
                                  <!--END TABS-->

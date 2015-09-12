@@ -12,13 +12,13 @@ $stmt = $conn->prepare('SELECT country, region, city, browser FROM campaign_emai
 $result = $stmt->execute(array('cid' => $_POST['cid']));
 $stmt->setFetchMode(PDO::FETCH_ASSOC);
 $browsers = $stmt->fetchAll();
-/////////////////////////
+
 $stmt = $conn->prepare('SELECT clicked, count( * ) count FROM campaign_emails_links WHERE c_id = :cid GROUP BY clicked');
 $result = $stmt->execute(array('cid' => $_POST['cid']));
 $stmt->setFetchMode(PDO::FETCH_ASSOC);
 $links = $stmt->fetchAll();
-///////////////////////
-$stmt = $conn->prepare('SELECT country, region, city, COUNT( * ) count FROM campaign_emails_detail WHERE c_id =  :cid GROUP BY country');
+
+$stmt = $conn->prepare('SELECT country, region, city, COUNT( * ) count FROM campaign_emails_detail WHERE c_id = :cid GROUP BY country');
 $result = $stmt->execute(array('cid' => $_POST['cid']));
 $stmt->setFetchMode(PDO::FETCH_ASSOC);
 $countries = $stmt->fetchAll();

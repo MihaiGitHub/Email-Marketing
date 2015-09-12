@@ -52,10 +52,10 @@ if($count > 0){
 		$tracker = THIS_WEBSITE_URI . '/receipt.php?id=' . urlencode( $rowcid['id'] ) . '&cid=' . urlencode( $rowcid['c_id'] );
 		
 		$body = str_replace(
-			['http://','https://','%unsubscribe%'],
+			['http://','https://','#%unsubscribe%'],
 			[THIS_WEBSITE_URI . '/receipt.php?id=%id%&cid=%cid%&link=http://', 
 			 THIS_WEBSITE_URI . '/receipt.php?link=https://',
-			 THIS_WEBSITE_URI . '/receipt-unsubscribe.php'],
+			 THIS_WEBSITE_URI . '/receipt-unsubscribe.php?id=' . $rowcid['id']],
 			$trow['value']
 		);
 		
@@ -75,6 +75,8 @@ if($count > 0){
 		$mail->SetFrom("mihai@msmarandache.com", $_POST['fromName']);
 		//$mail->SetFrom($_POST['fromEmail'], $_POST['fromName']);
 		//$mail->SetFrom('mihai.sanfran@gmail.com', 'mihai smarandache');
+		
+		$mail->AddCustomHeader("x-email-check-id: Mihai");
 	
 		$mail->AddAddress($rowcid['email']);
  

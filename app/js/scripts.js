@@ -31,7 +31,7 @@ var App = function () {
 							
 							var myEmails = [];
 							var myLinks = [];
-							
+														
 							// Create array for emails clicked per day
 							for (var i = 0; i < data.timeframe.length; i++) {
 								
@@ -66,7 +66,7 @@ var App = function () {
 								var day = d.getDate();
 								var hour = d.getHours();
 								
-								myLinks.push([Date.UTC(year, month, day, hour), parseInt(data.timeframe[i]['count'])]);
+								myLinks.push([Date.UTC(year, month, day, hour), parseInt(data.links[i]['count'])]);
 
 							}			
 			
