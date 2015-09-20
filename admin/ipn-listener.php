@@ -7,20 +7,6 @@
 require_once('admin/config.php');
 require_once('../app/phpmailer/class.phpmailer.php');
 
-/*
-// migrate to using your php mailer. It's newer version
-if($php_version == '5')
-{
-	require_once('includes/phpmailer/class.phpmailer.php');
-	require_once('includes/phpmailer/class.smtp.php');
-}
-else
-{
-	require_once('includes/phpmailer/php_4/class.phpmailer.php');
-	require_once('includes/phpmailer/php_4/class.smtp.php');
-}
-*/
-
 require_once('includes/database.class.php');
 require_once('includes/functions.php');
 
@@ -28,38 +14,11 @@ $mail = new PHPMailer();
 $mail->SMTPDebug  = 2;                
 
 $mail->SetFrom($email_from_address, $email_from_name);
-$mail->AddReplyTo($email_from_address);
-
-
-// Configure SMTP email settings
-//$mail = new PHPMailer();
-/*
-if($smtp_auth)
-{
-	$mail -> IsSMTP();
-	$mail -> Host = $smtp_host;	
-	$mail -> SMTPAuth = $smtp_auth;   					
-	$mail -> Username = $smtp_username;  				
-	$mail -> Password = $smtp_password;
-}
-else
-{
-	if($sandbox)
-	{
-		$mail -> IsSMTP();
-		$mail -> Host = $smtp_host;
-	}
-	else
-		$mail -> IsMail();	
-}
-*/
-//$mail -> IsHTML(true);		 										
-//$mail -> From = $email_from_address;				
-//$mail -> FromName = $email_from_name;					
+$mail->AddReplyTo($email_from_address);				
 
 // Configure new database object
 $db = new Database($db_host, $db_username, $db_password, $db_database, $db_table_prefix);
-$db -> connect();
+$conn = $db -> connect();
   
 // Read the post from PayPal system and add 'cmd'
 $req = 'cmd=_notify-validate';   
@@ -206,11 +165,24 @@ else
 	$password = substr( str_shuffle( $chars ), 0, 10 );
 	$arr = explode(' ',trim($_POST['item_name']));
 	
-	$user['username'] = $_POST['payer_email'];
-	$user['password'] = md5($password);
-	$user['role'] = 'buyer';
-	$user['emails'] = $arr[0];
-	$db -> query_insert('users', $user);
+	
+/////////////////////////// Create user and duplicate default templates //////////////////////////
+include '../app/include/dbconnect.php';
+
+$stmt = $conn->prepare('INSERT INTO users (username, password, role, emails) VALUES (:username, :password, :role, :emails)');
+$result = $stmt->execute(array('username' => $_POST['payer_email'], 'password' => md5($password), 'role' => 'buyer', 'emails' => $arr[0]));
+$id = $conn->lastInsertId($result);
+
+if($result){
+	$stmt2 = $conn->prepare('SELECT name, type, picture, original_value FROM templates WHERE type = "basic" OR type = "theme"');
+	$result2 = $stmt2->execute();
+		
+	while($row = $stmt2->fetch()){
+		$stmt = $conn->prepare('INSERT INTO templates (user_id, name, type, picture, original_value) VALUES (:userid, :name, :type, :picture, :value)');
+		$stmt->execute(array('userid' => $id, 'name' => $row['name'], 'type' => $row['type'], 'picture' => $row['picture'], 'value' => $row['original_value']));
+	}
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////
 
 	$mail->Subject = 'PayPal Purchase : Completed Successfully : '.$_POST['item_name'];
 	$mail->AltBody    = "To view the message, please use an HTML compatible email viewer!"; 
