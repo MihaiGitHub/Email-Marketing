@@ -8,8 +8,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['type'] != 'all'){
 	$stmt = $conn->prepare('SELECT id, name, type, picture FROM templates WHERE user_id = :userid AND type = :type');
 	$result = $stmt->execute(array('userid' => $_SESSION['id'], 'type' => $_POST['type']));
 } else {
-	$stmt = $conn->prepare('SELECT id, name, type, picture FROM templates');
-	$result = $stmt->execute();	
+	$stmt = $conn->prepare('SELECT id, name, type, picture FROM templates WHERE user_id = :userid');
+	$result = $stmt->execute(array('userid' => $_SESSION['id']));	
 }
 
 $stmtlists = $conn->prepare('SELECT id, name FROM lists WHERE user_id = :userid');
@@ -52,8 +52,6 @@ while($rowlists = $stmtlists->fetch()){
                      </div>
                      <div class="widget-body form">
                         <form class="form-horizontal">
-                        
-                        
                         
                            <div class="form-wizard">
                               <div class="navbar steps">

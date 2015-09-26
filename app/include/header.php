@@ -64,7 +64,7 @@ if((time() - $_SESSION['last_access']) > 1200){
 							<b class="caret"></b>
 							</a>
 							<ul class="dropdown-menu">
-								<li><a href="account.php"><i class="icon-user"></i> My Profile</a></li>
+								<li><a href="account.php"><i class="icon-user"></i> My Account</a></li>
 								<li class="divider"></li>
 								<li><a href="index.php?logout"><i class="icon-key"></i> Log Out</a></li>
 							</ul>
