@@ -21,7 +21,7 @@ $email = [];
 $bounce = [];
 $unsubscribe = [];
 
-$stmt = $conn->prepare('SELECT email, opened, bounced, unsubscribed FROM `campaign_emails` WHERE c_id = :id');
+$stmt = $conn->prepare('SELECT email, opened, bounced, error_code, unsubscribed FROM `campaign_emails` WHERE c_id = :id');
 $result = $stmt->execute(array('id' => $_GET['id']));
 $stmt->setFetchMode(PDO::FETCH_ASSOC);
 
@@ -34,7 +34,7 @@ while($opened = $stmt->fetch()){
 		}
 		
 		if($opened['bounced'] == 1){
-					$bounce[$opened['email']] = $opened['bounced'];
+					$bounce[$opened['email']] = $opened['error_code'];
 					$emailbounces++;
 		}
 		
@@ -44,15 +44,12 @@ while($opened = $stmt->fetch()){
 		}
 }
 
-// alternative
-// SELECT count( * ) count, link FROM campaign_emails ce, campaign_emails_links cel WHERE ce.c_id = cel.c_id and ce.c_id = "C55a1e124d061e3.94689423" GROUP BY link
 $linksstmt = $conn->prepare('SELECT count( * ) count, link FROM  `campaign_emails_links` WHERE c_id = :id GROUP BY link');
 $linksresult = $linksstmt->execute(array('id' => $_GET['id']));
 
 $stmt = $conn->prepare('SELECT subject, sent FROM campaigns WHERE id = :id');
 $result = $stmt->execute(array('id' => $_GET['id']));
 $row = $stmt->fetch();
-
 ?>
 <!-- BEGIN PAGE -->
       <div id="main-content">
@@ -308,12 +305,12 @@ $row = $stmt->fetch();
 									    <thead>
 									    <tr>
 										   <th>Email</th>
-										   <th>Bounce Type</th>
+										   <th>Error Code</th>
 									    </tr>
 									    </thead>
 									    <tbody>
 										<?php foreach($bounce as $key => $value){ ?>
-											<tr><td><?php echo $key; ?></td><td>hard</td></tr>
+											<tr><td><?php echo $key; ?></td><td><?php echo $value; ?></td></tr>
 										   <?php } ?>
 									    </tbody>
 									</table>
@@ -321,10 +318,6 @@ $row = $stmt->fetch();
                                     </div>
                                  </div>
                                  <!--END TABS-->
-                                       
-                                       
-                                       
-                                       
                                 
                             </div>
                         </div>

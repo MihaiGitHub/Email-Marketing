@@ -72,11 +72,15 @@ if($count > 0){
  
 		// from email seems to matter if it the email on the domain where the email was sent from
 		//$mail->From     = "mihai@msmarandache.com";
+		//works, in this case have to keep the domain email address
 		$mail->SetFrom("mihai@msmarandache.com", $_POST['fromName']);
+		//$mail->SetFrom("mihai.sanfran@gmail.com", $_POST['fromName']);
+		
 		//$mail->SetFrom($_POST['fromEmail'], $_POST['fromName']);
 		//$mail->SetFrom('mihai.sanfran@gmail.com', 'mihai smarandache');
 		
 		$mail->AddCustomHeader("x-email-check-id: Mihai");
+		$mail->AddCustomHeader("Return-Path: mihai@msmarandache.com");
 	
 		$mail->AddAddress($rowcid['email']);
  
@@ -85,12 +89,12 @@ if($count > 0){
 		$mail->AltBody    = "To view the message, please use an HTML compatible email viewer!"; 
 		$mail->MsgHTML($body); 
  
-if(!$mail->Send()) {
- // echo 'Message was not sent.';
- // echo 'Mailer error: ' . $mail->ErrorInfo;
-} else {
- // echo 'Message has been sent.';
-}
+		if(!$mail->Send()) {
+		 // echo 'Message was not sent.';
+		 // echo 'Mailer error: ' . $mail->ErrorInfo;
+		} else {
+		 // echo 'Message has been sent.';
+		}
 
 
 		// Update campaign_emails that the email has been sent so next go around it will pick the non sent ones
