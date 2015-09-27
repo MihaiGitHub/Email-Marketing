@@ -11,6 +11,7 @@ $linkstotal = $stmt->fetch();
 
 $stmt = $conn->prepare('SELECT count( * ) emails_sent FROM  `campaign_emails` WHERE c_id = :id');
 $result = $stmt->execute(array('id' => $_GET['id']));
+$stmt->setFetchMode(PDO::FETCH_ASSOC);
 $totals = $stmt->fetch();
 
 $emailopens = 0;
@@ -86,13 +87,13 @@ $row = $stmt->fetch();
     <div class="metro-overview blue-color clearfix" style="border-radius: 4px;">
         <div class="display">
             <i class="icon-envelope"></i>
-            <div class="percent">20%</div>
+            <div class="percent"><?php echo $totals['emails_sent'] / $totals['emails_sent'] * 100; ?>%</div>
         </div>
         <div class="details">
             <div class="numbers"><?php echo $totals['emails_sent']; ?></div>
             <div class="title">Emails Sent</div>
             <div class="progress progress-info">
-                <div style="width: 20%" class="bar"></div>
+                <div style="width: <?php echo $totals['emails_sent'] / $totals['emails_sent'] * 100; ?>%" class="bar"></div>
             </div>
         </div>
     </div>
@@ -101,13 +102,13 @@ $row = $stmt->fetch();
     <div class="metro-overview green-color clearfix" style="border-radius: 4px;">
         <div class="display">
             <i class="icon-eye-open"></i>
-            <div class="percent">46%</div>
+            <div class="percent"><?php echo $emailopens / $totals['emails_sent'] * 100; ?>%</div>
         </div>
         <div class="details">
             <div class="numbers"><?php echo $emailopens; ?></div>
             <div class="title">Unique Opens</div>
             <div class="progress progress-success">
-                <div style="width: 46%" class="bar"></div>
+                <div style="width: <?php echo $emailopens / $totals['emails_sent'] * 100; ?>%" class="bar"></div>
             </div>
         </div>
     </div>
@@ -116,14 +117,14 @@ $row = $stmt->fetch();
     <div class="metro-overview turquoise-color clearfix" style="border-radius: 4px;">
         <div class="display">
             <i class="icon-link"></i>
-            <div class="percent">55%</div>
+            <div class="percent"><?php echo $linkstotal['count'] / $totals['emails_sent'] * 100; ?>%</div>
         </div>
         <div class="details">
             <div class="numbers"><?php echo $linkstotal['count']; ?></div>
             <div class="title">Link Clicks</div>
         </div>
         <div class="progress progress-info">
-            <div style="width: 55%" class="bar"></div>
+            <div style="width: <?php echo $linkstotal['count'] / $totals['emails_sent'] * 100; ?>%" class="bar"></div>
         </div>
     </div>
 </div>
@@ -131,13 +132,13 @@ $row = $stmt->fetch();
     <div class="metro-overview red-color clearfix" style="border-radius: 4px;">
         <div class="display">
             <i class="icon-exclamation-sign"></i>
-            <div class="percent">36%</div>
+            <div class="percent"><?php echo $emailunsubscribes / $totals['emails_sent'] * 100; ?>%</div>
         </div>
         <div class="details">
             <div class="numbers"><?php echo $emailunsubscribes; ?></div>
             <div class="title">Unsubscribed</div>
             <div class="progress progress-danger">
-                <div style="width: 36%" class="bar"></div>
+                <div style="width: <?php echo $emailunsubscribes / $totals['emails_sent'] * 100; ?>%" class="bar"></div>
             </div>
         </div>
     </div>
@@ -146,13 +147,13 @@ $row = $stmt->fetch();
     <div class="metro-overview purple-color clearfix" style="border-radius:4px;">
         <div class="display">
             <i class="icon-bolt"></i>
-            <div class="percent">72%</div>
+            <div class="percent"><?php echo $emailbounces / $totals['emails_sent'] * 100; ?>%</div>
         </div>
         <div class="details">
             <div class="numbers"><?php echo $emailbounces; ?></div>
             <div class="title">Bounced</div>
             <div class="progress progress-danger">
-                <div style="width: 72%" class="bar"></div>
+                <div style="width: <?php echo $emailbounces / $totals['emails_sent'] * 100; ?>%" class="bar"></div>
             </div>
         </div>
     </div>
@@ -161,13 +162,13 @@ $row = $stmt->fetch();
     <div class="metro-overview gray-color clearfix" style="border-radius: 4px;">
         <div class="display">
             <i class="icon-group"></i>
-            <div class="percent">26%</div>
+            <div class="percent"><?php echo ($totals['emails_sent'] - $emailopens) / $totals['emails_sent'] * 100; ?>%</div>
         </div>
         <div class="details">
             <div class="numbers"><?php echo $totals['emails_sent'] - $emailopens; ?></div>
             <div class="title">Not Opened</div>
             <div class="progress progress-warning">
-                <div style="width: 26%" class="bar"></div>
+                <div style="width: <?php echo ($totals['emails_sent'] - $emailopens) / $totals['emails_sent'] * 100; ?>%" class="bar"></div>
             </div>
         </div>
     </div>
