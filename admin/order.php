@@ -1,5 +1,6 @@
 <?php
 // Gather order data.
+$order_data['user_id'] = $id;
 $order_data['receiver_email'] = $receiver_email;
 $order_data['payment_status'] = $payment_status;
 $order_data['pending_reason'] = $pending_reason;

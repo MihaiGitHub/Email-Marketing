@@ -118,7 +118,7 @@ if(
 // Any other type of IPN can be treated as a normal order
 // Refunds come back with the same txn_type of the original payment so we skip order.php 
 // for refunds because refund.php will take care of updating the existing record data
-if(strtoupper($reason_code) != 'REFUND' && 
+/*if(strtoupper($reason_code) != 'REFUND' && 
    (
 	strtoupper($txn_type) == 'CART' || 
    	strtoupper($txn_type) == 'EXPRESS_CHECKOUT' || 
@@ -126,8 +126,9 @@ if(strtoupper($reason_code) != 'REFUND' &&
    	strtoupper($txn_type) == 'WEB_ACCEPT' || 
 	strtoupper($txn_type) == 'SEND_MONEY'
 	)
-   )
-	require_once('order.php');
+   ){ */
+//   }
+		
 	
 // Check for Adaptive Account creation
 if($account_key != '')
@@ -166,12 +167,14 @@ else
 	$arr = explode(' ',trim($_POST['item_name']));
 	
 	
-/////////////////////////// Create user and duplicate default templates //////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////// Create user, duplicate default templates and insert user id in orders table //////////////////////////
 include '../app/include/dbconnect.php';
 
 $stmt = $conn->prepare('INSERT INTO users (username, password, role, emails) VALUES (:username, :password, :role, :emails)');
 $result = $stmt->execute(array('username' => $_POST['payer_email'], 'password' => md5($password), 'role' => 'buyer', 'emails' => $arr[0]));
 $id = $conn->lastInsertId($result);
+//$order_data['user_id'] = $conn->lastInsertId($result);
 
 if($result){
 	$stmt2 = $conn->prepare('SELECT name, type, picture, original_value FROM templates WHERE type = "basic" OR type = "theme"');
@@ -182,6 +185,8 @@ if($result){
 		$stmt->execute(array('userid' => $id, 'name' => $row['name'], 'type' => $row['type'], 'picture' => $row['picture'], 'value' => $row['original_value']));
 	}
 }
+///////////////////////////////////////////////////////////////////////////////////////////////////
+require_once('order.php');
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 	$mail->Subject = 'PayPal Purchase : Completed Successfully : '.$_POST['item_name'];
