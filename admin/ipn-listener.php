@@ -151,12 +151,6 @@ if(count($db -> errors) > 0)
 }
 else
 {
-
-	$mail -> Subject  =  'PayPal IPN : Completed Successfully';
-	$mail -> MsgHTML($ipn_email);
-	$mail -> AddAddress($admin_email_address, $admin_name);
-	$mail -> Send();
-	$mail -> ClearAddresses();
 	
 	// Send buyer login details
 	$patterns = array();
@@ -167,28 +161,66 @@ else
 	$arr = explode(' ',trim($_POST['item_name']));
 	
 	
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////// Create user, duplicate default templates and insert user id in orders table //////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////// Check to see if you need to Upgrade or Insert (Create user, duplicate default templates and insert user id in orders table)////////
 include '../app/include/dbconnect.php';
 
-$stmt = $conn->prepare('INSERT INTO users (username, password, role, emails) VALUES (:username, :password, :role, :emails)');
-$result = $stmt->execute(array('username' => $_POST['payer_email'], 'password' => md5($password), 'role' => 'buyer', 'emails' => $arr[0]));
-$id = $conn->lastInsertId($result);
-//$order_data['user_id'] = $conn->lastInsertId($result);
+$stmt1 = $conn->prepare('SELECT COUNT(id) AS count FROM users WHERE username = :username');
+$result1 = $stmt1->execute(array('username' => $_POST['payer_email']));
+$row1 = $stmt1->fetch();
 
-if($result){
-	$stmt2 = $conn->prepare('SELECT name, type, picture, original_value FROM templates WHERE type = "basic" OR type = "theme"');
-	$result2 = $stmt2->execute();
-		
-	while($row = $stmt2->fetch()){
-		$stmt = $conn->prepare('INSERT INTO templates (user_id, name, type, picture, original_value) VALUES (:userid, :name, :type, :picture, :value)');
-		$stmt->execute(array('userid' => $id, 'name' => $row['name'], 'type' => $row['type'], 'picture' => $row['picture'], 'value' => $row['original_value']));
-	}
+if($row1['count'] > 0){
+
+	$stmt2 = $conn->prepare('UPDATE users SET emails = emails + :emails WHERE username = :username');
+	$result2 = $stmt2->execute(array('emails' => $arr[0], 'username' => $_POST['payer_email']));
+	
+	$stmt3 = $conn->prepare('SELECT id FROM users WHERE username = :username');
+	$result3 = $stmt3->execute(array('username' => $_POST['payer_email']));
+	$row3 = $stmt3->fetch();
+	$id = $row3['id'];
+	
+	$mail->Subject = 'Update PayPal Purchase : Completed Successfully : '.$_POST['item_name'];
+	$mail->AltBody    = "To view the message, please use an HTML compatible email viewer!"; 
+	
+	$patterns['name'] = '/FNAME/';
+	$patterns['payment'] = '/GROSS/';
+	$patterns['currency'] = '/CURRENCY/';
+	$patterns['username'] = '/USERNAME/';
+	$patterns['password'] = '/PASSWORD/';
+	$patterns['root'] = '/ROOT/';
+	
+	$replacements['name'] = $_POST['first_name'];
+	$replacements['payment'] = $_POST['mc_gross'];
+	$replacements['currency'] = $_POST['mc_currency'];
+	$replacements['username'] = $_POST['payer_email'];
+	$replacements['password'] = $password;
+	$replacements['root'] = getenv('HTTP_HOST');
+	
+	$body = file_get_contents('../app/templates/confirmation.html');
+	$body = preg_replace($patterns, $replacements, $body);
+
+	$mail->MsgHTML($body); 
+	$mail->AddAddress($_POST['payer_email'], $_POST['first_name']);
+
+	$mail->Send();
+	$mail -> ClearAddresses();
+
 }
-///////////////////////////////////////////////////////////////////////////////////////////////////
-require_once('order.php');
-///////////////////////////////////////////////////////////////////////////////////////////////////
+else {
 
+$stmt4 = $conn->prepare('INSERT INTO users (username, password, role, emails) VALUES (:username, :password, :role, :emails)');
+$result4 = $stmt4->execute(array('username' => $_POST['payer_email'], 'password' => md5($password), 'role' => 'buyer', 'emails' => $arr[0]));
+$id = $conn->lastInsertId($result4);
+
+if($result4){
+	$stmt5 = $conn->prepare('SELECT name, type, picture, original_value FROM templates WHERE type = "basic" OR type = "theme"');
+	$result5 = $stmt5->execute();
+		
+	while($row5 = $stmt5->fetch()){
+		$stmt6 = $conn->prepare('INSERT INTO templates (user_id, name, type, picture, original_value) VALUES (:userid, :name, :type, :picture, :value)');
+		$stmt6->execute(array('userid' => $id, 'name' => $row6['name'], 'type' => $row6['type'], 'picture' => $row6['picture'], 'value' => $row6['original_value']));
+	}
+	
 	$mail->Subject = 'PayPal Purchase : Completed Successfully : '.$_POST['item_name'];
 	$mail->AltBody    = "To view the message, please use an HTML compatible email viewer!"; 
 	
@@ -214,7 +246,12 @@ require_once('order.php');
 
 	$mail->Send();
 	$mail -> ClearAddresses();
-	
+}
+
+}
+
+require_once('order.php');
+
 }
 	
 $db -> close();
