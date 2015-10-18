@@ -2,6 +2,13 @@
 ob_start(); 
 session_start();
 $dashboard = true;
+
+include 'include/dbconnect.php';
+
+$stmt = $conn->prepare('SELECT * FROM orders WHERE user_id = :userid');
+$result = $stmt->execute(array('userid' => $_SESSION['id']));
+$stmt->setFetchMode(PDO::FETCH_ASSOC);
+$row = $stmt->fetch();
 ?>
 		<!-- BEGIN PAGE -->
 		<div id="main-content">
@@ -54,12 +61,14 @@ $dashboard = true;
                                 <div class="span4">
                                     <h5>BILLING ADDRESS</h5>
                                     <p>
-                                        Jonathan Smith <br>
-                                        44 Dreamland Tower, Suite 566 <br>
-                                        ABC, Dreamland 1230<br>
-                                        Tel: +12 (012) 345-67-89
+                                        <?php echo $row['last_name'] . ' ' . $row['first_name']; ?> <br>
+                                        <?php echo $row['address_street']; ?> <br>
+                                        <?php echo $row['address_city'] . ', ' . $row['address_state'] . $row['address_zip']; ?><br>
+                                        <?php echo $row['address_country']; ?><br>
+								<?php echo $row['payer_email']; ?>
                                     </p>
                                 </div>
+						  <!--
                                 <div class="span4">
                                     <h5>SHIPPING ADDRESS</h5>
                                     <p>
@@ -78,6 +87,7 @@ $dashboard = true;
                                         <li>Invoice Status		: Paid</li>
                                     </ul>
                                 </div>
+						  -->
                             </div>
                             <div class="space20"></div>
                             <div class="space20"></div>
@@ -110,7 +120,7 @@ $dashboard = true;
                                         <td class="hidden-480">1</td>
                                         <td>$ 200</td>
                                     </tr>  
-									<tr>
+							 <tr>
                                         <td>3</td>
                                         <td>1000 Email Credits</td>
                                         <td class="hidden-480">Bought 1000 email credits</td>
@@ -132,19 +142,29 @@ $dashboard = true;
                             </div>
                             <div class="space20"></div>
                             <div class="row-fluid text-center">
+					   
+<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
+	<input type="hidden" name="cmd" value="_s-xclick">
+	<input type="hidden" name="hosted_button_id" value="RMJATPW2E8EGY">
+	<table>
+	<tr><td><input type="hidden" name="on0" value="Upgrade">Upgrade</td></tr><tr><td><select name="os0">
+		<option value="5 Email Credits">5 Email Credits $5.00 USD</option>
+		<option value="10 Email Credits">10 Email Credits $10.00 USD</option>
+	</select> </td></tr>
+	</table>
+	<input type="hidden" name="currency_code" value="USD">
+	<input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+	<img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
+					   <!--
                                 <a class="btn btn-primary btn-large hidden-print">Upgrade <i class="m-icon-big-swapright m-icon-white"></i></a>
-                                <a onclick="javascript:window.print();" class="btn btn-success btn-large hidden-print">Print <i class="icon-print icon-big"></i></a>
+						  -->
+                               <a onclick="javascript:window.print();" class="btn btn-success btn-large hidden-print">Print <i class="icon-print icon-big"></i></a>
                             </div>
                         </div>
                   </div>
                </div>
-                    
-                    
-                    
-                    
-                    
-                    
-                    
 
                     </div>
                     <!-- END OVERVIEW STATISTIC BLOCKS-->
