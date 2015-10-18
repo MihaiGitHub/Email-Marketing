@@ -47,7 +47,7 @@ $row = $stmt->fetch();
                <div class="span12">
                   <div class="widget">
                         <div class="widget-title">
-                           <h4><i class="icon-edit"></i>Invoice Page</h4>
+                           <h4><i class="icon-edit"></i>Account Summary</h4>
                                               
                         </div>
                         <div class="widget-body">
@@ -98,45 +98,31 @@ $row = $stmt->fetch();
                                         <th>#</th>
                                         <th>Item</th>
                                         <th class="hidden-480">Description</th>
-                                        <th class="hidden-480">Unit Cost</th>
-                                        <th class="hidden-480">Quantity</th>
                                         <th>Total</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>500 Email Credits</td>
-                                        <td class="hidden-480">Bought 500 email credits</td>
-                                        <td class="hidden-480">$100</td>
-                                        <td class="hidden-480">2</td>
-                                        <td>$ 100</td>
-                                    </tr>
-									<tr>
-                                        <td>2</td>
-                                        <td>1000 Email Credits</td>
-                                        <td class="hidden-480">Bought 1000 email credits</td>
-                                        <td class="hidden-480">$200</td>
-                                        <td class="hidden-480">1</td>
-                                        <td>$ 200</td>
-                                    </tr>  
-							 <tr>
-                                        <td>3</td>
-                                        <td>1000 Email Credits</td>
-                                        <td class="hidden-480">Bought 1000 email credits</td>
-                                        <td class="hidden-480">$200</td>
-                                        <td class="hidden-480">1</td>
-                                        <td>$ 200</td>
-                                    </tr>                                     </tbody>
+<?php
+$count = 1;
+$grandTotal = 0;
+$stmt = $conn->prepare('SELECT * FROM orders WHERE user_id = :userid');
+$result = $stmt->execute(array('userid' => $_SESSION['id']));
+$stmt->setFetchMode(PDO::FETCH_ASSOC);
+
+while($row = $stmt->fetch()){
+	echo '<tr><td>'.$count.'</td><td>'.$row['mc_gross'].'</td><td>'.$row['item_name'].'</td><td>$'.$row['mc_gross'].'</td></tr>';
+	$grandTotal += $row['mc_gross'];
+	$count++;
+}
+?>
+                                    </tbody>
                                 </table>
                             </div>
                             <div class="space20"></div>
                             <div class="row-fluid">
                                 <div class="span4 invoice-block pull-right">
                                     <ul class="unstyled amounts">
-                                        <li><strong>Sub - Total amount :</strong> $6820</li>
-                                        <li><strong>Discount :</strong> 10%</li>
-                                        <li><strong>Grand Total :</strong> $6138</li>
+                                        <li><strong>Grand Total :</strong> <?php echo '$'.$grandTotal; ?></li>
                                     </ul>
                                 </div>
                             </div>
