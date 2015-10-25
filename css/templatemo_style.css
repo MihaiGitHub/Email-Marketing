@@ -727,3 +727,21 @@ ul.templatemo-project-gallery  li  a img:hover {
 		width: 11%;
 	}
 }
+/* style paypal button */
+.paypal_btn{
+	display: inline-block;
+	font-family: inherit;
+	font-size: 14px;
+	font-weight: bold;
+	color: #fff;
+	text-align: center;
+	padding: 10px 14px;
+	margin: 0;
+	background: #ff6600;
+	border: 0;
+	cursor: pointer;
+	outline: none;
+}
+.paypal_btn:hover{ 
+	background: #e05c04; 
+}
