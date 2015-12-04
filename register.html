@@ -32,6 +32,8 @@
 					pagination : false,
 					paginationNumbers : false,
 				});
+				
+				
 
 			});
 		</script>
@@ -138,6 +140,30 @@ $(document).ready(function() {
 		endPercent: .5,
 		fps: 60
 	});
+	
+	// Attach a submit handler to the form
+	$( "#register" ).submit(function( event ) {
+	 
+		  // Stop form from submitting normally
+		  event.preventDefault();
+		 
+		  // Get some values from elements on the page:
+		  var $form = $( this ), email = $form.find( "input[name='email']" ).val(), pass = $form.find( "input[name='pass']" ).val(), url = $form.attr( "action" );
+		 
+		  // Send the data using post
+		  var posting = $.post( url, { email: email, pass: pass } );
+		 
+		  // Put the results in a div
+		  posting.done(function( data ) {
+			  
+		    		console.log('data ',data)
+				/*
+				var content = $( data ).find( "#content" );
+		    		$( "#result" ).empty().append( content );
+				*/
+		  });
+
+	});
     
 });
 </script>
@@ -187,9 +213,9 @@ $(document).ready(function() {
 				<div class="col-md-8">
 				  <div class="contact-form">
 				  	<h2>No credit card required</h2>
-						<form method="post" action="#">
-							<input type="text" value="Email (Required)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}">
-							<input type="text" value="Password (Required)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
+						<form method="post" action="register.php" id="register">
+							<input type="text" id="email" name="email" value="Email (Required)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}">
+							<input type="text" id="pass" name="pass" value="Password (Required)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
 						
 							<span><input type="submit" value="Get Started"></span>
 						</form>
@@ -213,54 +239,6 @@ $(document).ready(function() {
 			<span style="float:right;">Email:&nbsp;<a href="#">mihai.sanfran@gmail.com</a></span></p>
 		</div>
 		
-	<!--	<div class="col-md-2 footer1_of_3">
-			<h4>company</h4>
-			<ul class="list-unstyled f_list">
-				<li><a href="#">Lorem ipsum dolor sit amet</a></li>
-				<li><a href="#">Nullam nec sapien eget</a></li>
-				<li><a href="#">Curabitur pellentesque</a></li>
-				<li><a href="#">Mauris dictum neque</a></li>
-				<li><a href="#">Lorem ipsum dolor sit</a></li>
-				<li><a href="#">Nullam nec sapien</a></li>
-				<li><a href="#">Curabitur mauris tempor </a></li>
-			</ul>
-		</div>
-		<div class="col-md-2 footer1_of_3">
-			<h4>community</h4>
-			<ul class="list-unstyled f_list">
-				<li><a href="#">Lorem ipsum dolor sit amet</a></li>
-				<li><a href="#">Nullam nec sapien eget</a></li>
-				<li><a href="#">Curabitur pellentesque</a></li>
-				<li><a href="#">Mauris dictum neque</a></li>
-				<li><a href="#">Lorem ipsum dolor sit</a></li>
-				<li><a href="#">Nullam nec sapien</a></li>
-				<li><a href="#">Curabitur mauris tempor </a></li>
-			</ul>
-		</div>
-		<div class="col-md-4 footer_of_3">
-			<h4>from the <span>blog</span></h4>
-			<div class="blog_list">
-				<div class="col-md-3 f_pic">
-					<a href="blog.html"><img src="images/blog_pic1.jpg" alt="" class="img-responsive"/></a>	
-				</div>
-				<div class="col-md-9 f_text">
-					<a href="blog.html"><p>Lorem Ipsum is simply dummy text of the this printing and typesetting industry.</p></a>
-					<span>26, may 2014</span>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-			<div class="blog_list">
-				<div class="col-md-3 f_pic">
-					<a href="blog.html"><img src="images/blog_pic2.jpg" alt="" class="img-responsive"/></a>
-				</div>
-				<div class="col-md-9 f_text">
-					<a href="blog.html"><p>Lorem Ipsum is simply dummy text of the this printing and typesetting industry.</p></a>
-					<span>17, June 2014</span>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-		</div>
-		-->
 		<div class="clearfix"></div>
 	</div>
 </div>
@@ -269,7 +247,7 @@ $(document).ready(function() {
 <div class="container">
 	<div class="footer1">
 		<div class="copy pull-left">
-			<p class="link"><span>&#169; All rights reserved <!-- | Template by&nbsp;<a href="http://w3layouts.com/"> W3Layouts</a> --></span></p>
+			<p class="link"><span>&#169; All rights reserved </span></p>
 		</div>
 		<div class="soc_icons pull-right">
 			<ul class="list-unstyled text-center">
