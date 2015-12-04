@@ -123,7 +123,7 @@ $(document).ready(function() {
 		fps: 60
 	});
   
-  $('.moz').percentPie({
+  	$('.moz').percentPie({
 		width: 100,
 		trackColor: "E2534B",
 		barColor: "76C7C0",
@@ -132,7 +132,7 @@ $(document).ready(function() {
 		fps: 60
 	});
   
-  $('.safari').percentPie({
+  	$('.safari').percentPie({
 		width: 100,
 		trackColor: "E2534B",
 		barColor: "#76C7C0",
@@ -142,10 +142,10 @@ $(document).ready(function() {
 	});
 	
 	// Attach a submit handler to the form
-	$( "#register" ).submit(function( event ) {
+	$( "#register" ).submit(function( e ) {
 	 
 		  // Stop form from submitting normally
-		  event.preventDefault();
+		  e.preventDefault();
 		 
 		  // Get some values from elements on the page:
 		  var $form = $( this ), email = $form.find( "input[name='email']" ).val(), pass = $form.find( "input[name='pass']" ).val(), url = $form.attr( "action" );
@@ -157,6 +157,7 @@ $(document).ready(function() {
 		  posting.done(function( data ) {
 			  
 		    		console.log('data ',data)
+				window.location = 'thankyou.html';
 				/*
 				var content = $( data ).find( "#content" );
 		    		$( "#result" ).empty().append( content );
