@@ -165,7 +165,45 @@ $(document).ready(function() {
 		  });
 
 	});
-    
+	
+	// For pass field
+	var elementPass = document.getElementById('pass');
+
+	var text_to_show = 'Enter Password (Required)';
+	elementPass.type="text"; // set the type to text for the first time
+	elementPass.value = text_to_show; // set the message for the first time
+	elementPass.onfocus = function(){ 
+		   if (this.value == text_to_show) {
+			   this.type = "password";
+			   this.value = '';
+		   }
+	}
+	elementPass.onblur = function(){ 
+		   if (this.value == '') {
+			   this.type = "text";
+			   this.value = text_to_show;
+		   }
+	}
+	
+	// For confirm password fields
+	var elementPassConfirm = document.getElementById('pass-confirm');
+
+	var text_to_show_confirm = 'Confirm Password (Required)';
+	elementPassConfirm.type="text"; // set the type to text for the first time
+	elementPassConfirm.value = text_to_show_confirm; // set the message for the first time
+	elementPassConfirm.onfocus = function(){ 
+		   if (this.value == text_to_show_confirm) {
+			   this.type = "password";
+			   this.value = '';
+		   }
+	}
+	elementPassConfirm.onblur = function(){ 
+		   if (this.value == '') {
+			   this.type = "text";
+			   this.value = text_to_show_confirm;
+		   }
+	}
+ 
 });
 </script>
 </head>
@@ -216,12 +254,13 @@ $(document).ready(function() {
 				  	<h2>No credit card required</h2>
 						<form method="post" action="register.php" id="register">
 							<input type="text" id="email" name="email" value="Email (Required)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}">
-							<input type="text" id="pass" name="pass" value="Password (Required)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
+							<input id="pass" name="pass" value="Password (Required)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
+							<input id="pass-confirm" name="pass-confirm" value="Confirm Password (Required)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Confirm Password';}">
 						
 							<span><input type="submit" value="Get Started"></span>
 						</form>
 				    </div>
-  			</div>		
+  				</div>		
   			<div class="clearfix" style="height:400px;"></div>	
 		</div>
 	</div>

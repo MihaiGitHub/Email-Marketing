@@ -1338,7 +1338,7 @@ h3.style{
 	font-weight: normal;
 	margin-bottom: 10px;
 }
-.contact-form form input[type="text"], .contact-form form textarea {
+.contact-form form input[type="text"], .contact-form form input[type="password"], .contact-form form textarea {
     font-family: 'roboto_condensedregular';
 	margin: 20px 0;
 	box-shadow: none;
@@ -1362,10 +1362,10 @@ h3.style{
 	resize: none;
 	height: 160px;
 }
-.contact-form form input[type="text"]:hover, .contact-form form textarea:hover {
+.contact-form form input[type="text"]:hover, .contact-form form input[type="password"], .contact-form form textarea:hover {
 	border-color: #b4b4b4;
 }
-.contact-form form input[type="text"]:focus, .contact-form form textarea:focus {
+.contact-form form input[type="text"]:focus, .contact-form form input[type="password"], .contact-form form textarea:focus {
 	border: 1px solid #b4b4b4;
 }
 .contact-form form input[type="submit"] {
