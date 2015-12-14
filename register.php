@@ -30,6 +30,7 @@ if($result){
 	$mail->Subject = 'You have registered successfully';
 	$mail->AltBody    = "To view the message, please use an HTML compatible email viewer!"; 
 	
+	/*
 	$patterns['name'] = '/FNAME/';
 	$patterns['payment'] = '/GROSS/';
 	$patterns['currency'] = '/CURRENCY/';
@@ -43,17 +44,24 @@ if($result){
 	$replacements['username'] = $_POST['email'];
 	$replacements['password'] = $password;
 	$replacements['root'] = getenv('HTTP_HOST');
+	*/
+	
+	$patterns['id'] = "/ID/";
+
+	$replacements['id'] = "mihai";
 	
 	$body = file_get_contents('app/templates/registration.html');
 	$body = preg_replace($patterns, $replacements, $body);
 
-	$mail->MsgHTML($body); 
+	$mail->MsgHTML($body);
 	$mail->AddAddress($_POST['email'], $_POST['email']);
 
 	if($mail->Send()){
 		$mail -> ClearAddresses();
-	
-		echo json_encode('Email Sent');
+
+		echo json_encode('success');
 	}
+	
+	
 }
 ?>

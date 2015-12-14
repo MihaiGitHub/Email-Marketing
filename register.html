@@ -155,8 +155,14 @@ $(document).ready(function() {
 		 
 		  // Put the results in a div
 		  posting.done(function( data ) {
-			  
-				window.location = 'thankyou.html';
+			  console.log('data ',data)
+			  	if(data){
+					window.location = 'thankyou.html';	
+				}
+				else {
+					$("#errorMsg").fadeIn("slow");
+				}
+
 				/*
 				var content = $( data ).find( "#content" );
 		    		$( "#result" ).empty().append( content );
@@ -218,7 +224,6 @@ $(document).ready(function() {
 		<nav>
 		<ul class="menu list-unstyled">
 			<li><a href="index.html">Home</a></li>
-		<!--	<li><a href="about.html">About</a></li>  -->
 			<li><a href="feature.html">Features</a></li>
 			<li><a href="#">Pricing</a></li>
 			<li class="activate"><a href="register.html">Register</a></li>
@@ -248,6 +253,17 @@ $(document).ready(function() {
 <div class="container">
 	<div class="main about span_of_3">
 		<div class="contact_main">
+		<div id="errorMsg" class="top_grid" style="border-radius:4px;display:none;"><!-- start top_grid -->
+				<div class="col-md-10 span1_of_1" style="position:relative;top:-15px;">
+						<h3>Duplicate Email Address</h3>
+						<p>This email address is already in our system. Please sign in or use a different email address.</p>
+				</div>
+				
+				<br>
+		</div>
+		
+		
+		
 				<div class="col-md-8">
 				  <div class="contact-form">
 				  	<h2>No credit card required</h2>
