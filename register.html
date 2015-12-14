@@ -148,26 +148,30 @@ $(document).ready(function() {
 		  e.preventDefault();
 		 
 		  // Get some values from elements on the page:
-		  var $form = $( this ), email = $form.find( "input[name='email']" ).val(), pass = $form.find( "input[name='pass']" ).val(), url = $form.attr( "action" );
+		  var $form = $( this ), email = $form.find( "input[name='email']" ).val(), pass = $form.find( "input[name='pass']" ).val(), passConfirm = $form.find( "input[name='pass-confirm']" ).val(), url = $form.attr( "action" );
 		 
-		  // Send the data using post
-		  var posting = $.post( url, { email: email, pass: pass } );
-		 
-		  // Put the results in a div
-		  posting.done(function( data ) {
-			  console.log('data ',data)
-			  	if(data){
-					window.location = 'thankyou.html';	
-				}
-				else {
-					$("#errorMsg").fadeIn("slow");
-				}
-
-				/*
-				var content = $( data ).find( "#content" );
-		    		$( "#result" ).empty().append( content );
-				*/
-		  });
+		 if(pass === passConfirm){
+			 if(email != ""){
+				  // Send the data using post
+				  var posting = $.post( url, { email: email, pass: pass } );
+				 
+				  // Put the results in a div
+				  posting.done(function( data ) {
+						if(data){
+							window.location = 'thankyou.html';	
+						}
+						else {
+							$("#errorMsg").fadeIn("slow");
+						}
+				  });
+			 }
+			 else {
+					$("#errorMsgEmail").fadeIn("slow"); 
+			 }
+		 }
+		 else {
+			$("#errorMsgPass").fadeIn("slow"); 
+		 }
 
 	});
 	
@@ -253,6 +257,22 @@ $(document).ready(function() {
 <div class="container">
 	<div class="main about span_of_3">
 		<div class="contact_main">
+		<div id="errorMsgPassEmail" class="top_grid" style="border-radius:4px;display:none;"><!-- start top_grid -->
+				<div class="col-md-10 span1_of_1" style="position:relative;top:-15px;">
+						<h3>Invalid Email Address</h3>
+						<p>The email address is missing or is invalid.</p>
+				</div>
+				
+				<br>
+		</div>
+		<div id="errorMsgPass" class="top_grid" style="border-radius:4px;display:none;"><!-- start top_grid -->
+				<div class="col-md-10 span1_of_1" style="position:relative;top:-15px;">
+						<h3>Passwords Do Not Match</h3>
+						<p>Please create a password and confirm it below.</p>
+				</div>
+				
+				<br>
+		</div>
 		<div id="errorMsg" class="top_grid" style="border-radius:4px;display:none;"><!-- start top_grid -->
 				<div class="col-md-10 span1_of_1" style="position:relative;top:-15px;">
 						<h3>Duplicate Email Address</h3>
