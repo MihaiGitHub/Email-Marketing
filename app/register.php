@@ -53,8 +53,16 @@ $result = $stmt->execute(array('username' => $_POST['email'], 'password' => md5(
 	}
 } // When validating email address
 else {
-	$stmt = $conn->prepare('UPDATE users SET validated = 1 WHERE id = :id');
-	$result = $stmt->execute(array('id' => $_GET['id']));
+	$stmt1 = $conn->prepare('UPDATE users SET validated = 1 WHERE id = :id');
+	$result1 = $stmt1->execute(array('id' => $_GET['id']));
+	
+	$stmt2 = $conn->prepare('SELECT name, type, picture, original_value FROM templates WHERE type = "basic" OR type = "theme"');
+	$result2 = $stmt2->execute();
+		
+	while($row2 = $stmt2->fetch()){
+		$stmt3 = $conn->prepare('INSERT INTO templates (user_id, name, type, picture, original_value) VALUES (:userid, :name, :type, :picture, :value)');
+		$stmt3->execute(array('userid' => $_GET['id'], 'name' => $row2['name'], 'type' => $row2['type'], 'picture' => $row2['picture'], 'value' => $row2['original_value']));
+	}
 ?>
 <!DOCTYPE HTML>
 <html>
