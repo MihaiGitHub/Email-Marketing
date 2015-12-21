@@ -10,33 +10,38 @@ if(array_key_exists('logout', $_GET)){
 	session_unset();
 	$green = 'You have been logged out successfully.';
 }
-if($_SESSION['auth'] == true){
+if($_SESSION['auth'] === true){
 	header('Location: dashboard.php');
 	exit;
 }
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
 	include 'include/dbconnect.php';
 
-	$stmt = $conn->prepare('SELECT id, username, password, role, emails FROM users WHERE username = :username');
+	$stmt = $conn->prepare('SELECT id, username, password, role, emails, validated FROM users WHERE username = :username');
 	$result = $stmt->execute(array('username' => $_POST['username']));
 	while($row = $stmt->fetch()){
 		if(md5(trim($_POST['password'])) == $row['password']){
-			$_SESSION['id'] = $row['id'];
-			$_SESSION['role'] = $row['role'];
-			$_SESSION['emails'] = $row['emails'];
-			$_SESSION['username'] = $row['username'];
-			$_SESSION['auth'] = true;
-			$_SESSION['last_access'] = time();
-			break;
+			if($row['validated'] == 1){
+				$_SESSION['id'] = $row['id'];
+				$_SESSION['role'] = $row['role'];
+				$_SESSION['emails'] = $row['emails'];
+				$_SESSION['username'] = $row['username'];
+				$_SESSION['auth'] = true;
+				$_SESSION['last_access'] = time();
+				break;
+			}
+			else {
+				$red = "This email has not been validated";	
+			}
 		} else {
 			$_SESSION['auth'] = false;
+			$red = "Invalid username or password";
 		}
 	}
 	if($_SESSION['auth']){
 		header('Location: dashboard.php');
 		exit;
-	} else 
-		$red = 'Invalid username or password.';	
+	}	
 }
 ?>
 <!DOCTYPE html>
@@ -75,7 +80,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
           <i class="icon-lock"></i>
       </div>
       <div class="control-wrap">
-	  				<?php if(isset($red)) echo "<div class='n_error'>$red</div>"; ?>
+	  			<?php if(isset($red)) echo "<div class='n_error'>$red</div>"; ?>
 				<?php if(isset($green)) echo "<div class='n_success'>$green</div>"; ?>
 
           <h4>User Login</h4>
