@@ -5,10 +5,10 @@ session_start();
 include 'include/dbconnect.php';
 
 if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['type'] != 'all'){
-	$stmt = $conn->prepare('SELECT id, name, type, picture FROM templates WHERE user_id = :userid AND type = :type');
+	$stmt = $conn->prepare('SELECT id, name, type, picture, original_value FROM templates WHERE user_id = :userid AND type = :type');
 	$result = $stmt->execute(array('userid' => $_SESSION['id'], 'type' => $_POST['type']));
 } else {
-	$stmt = $conn->prepare('SELECT id, name, type, picture FROM templates WHERE user_id = :userid');
+	$stmt = $conn->prepare('SELECT id, name, type, picture, original_value FROM templates WHERE user_id = :userid');
 	$result = $stmt->execute(array('userid' => $_SESSION['id']));	
 }
 
@@ -89,12 +89,34 @@ while($rowlists = $stmtlists->fetch()){
       
                                     
 								<h3>Choose template</h3>
+								
 								<?php while($row = $stmt->fetch()){ ?>
 									<div class="template" style="float:left;">
 									
+										<!-- Old code
 										<button id="<?php echo $row['id']; ?>" class="button-next template-btn" type="button" style="width:25%;">
 											<img src="../app/templates/images/<?php echo $row['picture']; ?>" >
-									   </button>
+									   </button> -->
+									   
+									   <!-- Note:
+									   save html of each template on server and put coresponding as iframe src
+									   link to the page using a href
+									   -->
+									   
+									   
+									   <!--
+									   <iframe src="templates/theme/welcome.html" style="position: relative; z-index: 0; -ms-zoom: 0.5; -moz-transform: scale(0.5); -o-transform: scale(0.5); -webkit-transform: scale(0.5); margin: -12.5%;" seamless frameborder="0" scrolling="no" width="448" height="560"></iframe>
+									   <a href="//techgeniusapps.com" style="display: inline-block;"><div style="position: relative; z-index: 1; width: 224px; height: 280px; margin-left: -283px; margin-top: -362px; background-color: transparent;"></div></a>
+									-->
+									
+									
+									
+									
+									
+									<iframe srcdoc="<?php echo $row['original_value']; ?>" style="position: relative; z-index: 0; -ms-zoom: 0.5; -moz-transform: scale(0.5); -o-transform: scale(0.5); -webkit-transform: scale(0.5); margin: -12.5%;" seamless frameborder="0" scrolling="no" width="448" height="560"></iframe>
+									   <a href="//techgeniusapps.com" style="display: inline-block;"><div style="position: relative; z-index: 1; width: 224px; height: 280px; margin-left: -283px; margin-top: -362px; background-color: transparent;"></div></a>
+									
+									
 									
 										<div class="template-text">
 											<div><?php echo $row['name']; ?></div> 
