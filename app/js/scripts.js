@@ -344,7 +344,7 @@ console.log(dataArrayFinal)
 	}
 	
 	var handleTemplate = function () {
-		$('button.template-btn').click(function() {
+		$('a.template-btn').click(function() {
 			var id = $(this).attr('id');
 			sessionStorage.setItem('tid', id);
 		});
