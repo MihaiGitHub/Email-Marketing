@@ -19,3 +19,4 @@ when user signs up for account in initial account setup (inserted into templates
 6. app/bounce.php needs to be updated with correct incoming mail server info (all campaigns with the same
 email are market as bounced if email bounces)
 7. Links in app/templates/registration.html are hardcoded
+8. All links in templates table need to be hardcoded to appear in IE
