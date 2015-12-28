@@ -1,7 +1,6 @@
 <?php 
 ob_start(); 
 session_start();
-$dashboard = true;
 
 include 'include/dbconnect.php';
 

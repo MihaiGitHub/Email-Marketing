@@ -1603,10 +1603,11 @@ console.log(dataArrayFinal)
 								  },
 								  dataType: 'json',
 								  success: function(data) {
-								  console.log('data', data);
+								 
 									  $('#edittemplate').html(data);
 									  $('#edittemplate').fadeIn('slow');
 								//	 $('#form_wizard_1').find('#backbtn').removeClass('button-previous');
+								
 								  },
 						   });
 						   

@@ -1,33 +1,22 @@
 <?php
-
 ob_start();
-
 session_start();
 
-
-
 include 'include/dbconnect.php';
-
-
 
 if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['type'] != 'all'){
 
 	$stmt = $conn->prepare('SELECT id, name, type, picture, original_value FROM templates WHERE user_id = :userid AND type = :type');
-
 	$result = $stmt->execute(array('userid' => $_SESSION['id'], 'type' => $_POST['type']));
 
 } else {
 
 	$stmt = $conn->prepare('SELECT id, name, type, picture, original_value FROM templates WHERE user_id = :userid');
-
 	$result = $stmt->execute(array('userid' => $_SESSION['id']));	
 
 }
 
-
-
 $stmtlists = $conn->prepare('SELECT id, name FROM lists WHERE user_id = :userid');
-
 $resultlists = $stmtlists->execute(array('userid' => $_SESSION['id']));
 
 while($rowlists = $stmtlists->fetch()){ 
@@ -35,12 +24,9 @@ while($rowlists = $stmtlists->fetch()){
 	$options .= "<option value=".$rowlists['id'].">".$rowlists['name']."</option>";
 
 }
-
 ?>
-
-      <!-- BEGIN PAGE -->  
-
-      <div id="main-content">
+<!-- BEGIN PAGE -->  
+<div id="main-content">
 
          <!-- BEGIN PAGE CONTAINER-->
 
@@ -106,65 +92,169 @@ while($rowlists = $stmtlists->fetch()){
 
                         <form class="form-horizontal">
 
-                        
-
                            <div class="form-wizard">
 
-                              <div class="navbar steps">
+				
+<style>
+.sf-t1 .sf-nav-top {
+    height: 80px;
+    padding-bottom: 30px;
+}
+.sf-nav-wrap {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    left: 0;
+}
+.sf-wizard .clearfix {
+    zoom: 1;
+}
+.sf-wizard *, .sf-wizard *:before, .sf-wizard *:after {
+    box-sizing: border-box;
+}
+.sf-nav-top .sf-nav, .sf-nav-bottom .sf-nav {
+    width: 9999px;
+    position: absolute;
+}
+.sf-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    z-index: 4;
+}
+.sf-t1 .sf-nav-top .sf-nav-step:first-child, .sf-t1 .sf-nav-bottom .sf-nav-step:first-child {
+    padding-left: 50px;
+}
+.sf-t1 .sf-nav-top li.sf-active, .sf-t1 .sf-nav-bottom li.sf-active {
+    background: #feaa07;
+}
+.sf-t1 .sf-nav-top .sf-nav-step, .sf-t1 .sf-nav-bottom .sf-nav-step {
+    margin-right: 22px;
+}
+.sf-t1 .sf-nav-top li, .sf-t1 .sf-nav-bottom li {
+    transition: margin 200ms;
+}
+.sf-nav li {
+    float: left;
+    position: relative;
+}
+.sf-wizard li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+.sf-nav {
+    list-style: none;
 
-                                 <div class="navbar-inner">
+}
+.sf-t1 {
+    font-family: sans-serif;
+}
+.sf-t1 .sf-nav-top li.sf-active:before, .sf-t1 .sf-nav-bottom li.sf-active:before {
+    border-color: #f99200 transparent #f99200 transparent;
+}
+.sf-t1 .sf-nav-top .sf-nav-step:before, .sf-t1 .sf-nav-bottom .sf-nav-step:before, .sf-t1 .sf-nav-left .sf-nav-step:before, .sf-t1 .sf-nav-right .sf-nav-step:before, .sf-t1 .sf-btn .sf-nav-step:before {
+    content: "";
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    position: absolute;
+    top: 0;
+    left: -13px;
+    border: 20px solid transparent;
+    border-width: 25px 13px 25px 13px;
+    border-top-color: #ffd687;
+    border-bottom-color: #ffd687;
+    z-index: -1;
+}
+.sf-t1 .sf-nav-top li.sf-active:after, .sf-t1 .sf-nav-bottom li.sf-active:after {
+    border-color: transparent transparent transparent #feaa07;
+}
+.sf-t1 .sf-nav-top .sf-nav-step:after, .sf-t1 .sf-nav-top.sf-btn:after, .sf-t1 .sf-nav-bottom .sf-nav-step:after, .sf-t1 .sf-nav-bottom.sf-btn:after, .sf-t1 .sf-nav-left .sf-nav-step:after, .sf-t1 .sf-nav-left.sf-btn:after, .sf-t1 .sf-nav-right .sf-nav-step:after, .sf-t1 .sf-nav-right.sf-btn:after, .sf-t1 .sf-btn .sf-nav-step:after, .sf-t1 .sf-btn.sf-btn:after {
+    content: "";
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    position: absolute;
+    top: 0;
+    right: -26px;
+    border: 20px solid transparent;
+    border-width: 25px 13px 25px 13px;
+    border-left-color: #ffc85e;
+    z-index: -1;
+}
 
-                                    <ul class="row-fluid">
+.sf-t1 .sf-li-number .sf-nav-subtext {
+    padding-left: 30px;
+}
 
-                                       <li class="span3">
+.sf-t1 .sf-nav-top .sf-nav-step:first-child .sf-nav-number, .sf-t1 .sf-nav-bottom .sf-nav-step:first-child .sf-nav-number {
+    width: 50px;
+}
+.sf-t1 .sf-nav-top li.sf-active .sf-nav-number, .sf-t1 .sf-nav-bottom li.sf-active .sf-nav-number {
+    background: #f99200;
+}
+.sf-t1 .sf-nav li {
+    font-size: 16px;
+    color: #FFF;
+    background: #ffc85e;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 30px 0 50px;
+}
+.sf-t1 .sf-nav-number {
+    position: absolute;
+    text-align: center;
+    width: 37px;
+    left: 0;
+    top: 0;
+    font-size: 16px;
+    font-weight: 700;
+    overflow: hidden;
+    background: #ffd687;
+}
+.sf-wizard {
+    position: relative;
+}
+</style>
+<div class="navbar steps sf-wizard clearfix sf-t1 sf-slide sf-s-0 sf-nomob" id="wizard_example_4_5-box">
+	<div class="navbar-inner sf-nav-wrap clearfix sf-nav-smmob sf-nav-top">
+		<ul class="sf-nav clearfix" style="clear: both;">
+			<li class="sf-nav-step sf-li-number sf-active sf-nav-link">
+			
+				<span class="sf-nav-subtext">Choose template</span>
+				<div class="sf-nav-number">
+					<span class="sf-nav-number-inner">1</span>
+				</div>
+				<div></div>
+					
+				<a href="#tab1" data-toggle="tab"></a>
+			
+			</li>
+			<li class="sf-nav-step sf-li-number sf-nav-link">
+			<span class="sf-nav-subtext">Edit template</span>
 
-                                          <a href="#tab1" data-toggle="tab" class="step active">
+				<div class="sf-nav-number">
+					<span class="sf-nav-number-inner">2</span>
+				</div>
+				<div></div>
+				<a href="#tab2" data-toggle="tab"></a>
+			
+			</li>
+			<li class="sf-nav-step sf-li-number sf-nav-link">
+				
+				<span class="sf-nav-subtext">Complete form</span>
+				<div class="sf-nav-number">
+					<span class="sf-nav-number-inner">3</span>
+				</div>
+				<div></div>
+				<a href="#tab3" data-toggle="tab"></a>
+			
+			</li>
+		</ul>
+	</div>
+</div>
 
-                                          <span class="number">1</span>
-
-                                          <span class="desc"><i class="icon-ok"></i> Choose template</span>
-
-                                          </a>
-
-                                       </li>
-
-                                       <li class="span3">
-
-                                          <a href="#tab2" data-toggle="tab" class="step">
-
-                                          <span class="number">2</span>
-
-                                          <span class="desc"><i class="icon-ok"></i> Edit template</span>
-
-                                          </a>
-
-                                       </li>
-
-                                       <li class="span3">
-
-                                          <a href="#tab3" data-toggle="tab" class="step">
-
-                                          <span class="number">3</span>
-
-                                          <span class="desc"><i class="icon-ok"></i> Complete form</span>
-
-                                          </a>
-
-                                       </li>
-
-                                       
-
-                                    </ul>
-
-                                 </div>
-
-                              </div>
-
-                              <div id="bar" class="progress progress-striped">
-
-                                 <div class="bar"></div>
-
-                              </div>
+             
 
                               <div class="tab-content">
 
@@ -174,108 +264,20 @@ while($rowlists = $stmtlists->fetch()){
 
 <button onClick="window.location = 'create.php'" class="btn btn-primary" style="float:right;transform: translateY(15%);" type="button"><i class="icon-plus icon-white"></i> Create Template</button>
 
-      
 
-                                    
 
-								<h3>Choose template</h3>
 
-								
-								
-								
-								
-<style>
-#template-container { 
-  width: 600px;
-  height: 700px;
-  position: relative;
-}
-iframe,
-.overlapping { 
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-.overlapping { 
-  z-index: 10;
-}
-</style>	
-								
-
-								<?php while($row = $stmt->fetch()){ ?>
+							<?php while($row = $stmt->fetch()){ ?>
 
 									<div class="template" style="float:left;">
 
 <div id="template-container">
- 
-  <iframe srcdoc="<?php echo $row['original_value']; ?>" style="border:1px solid red; -ms-zoom: 0.5; -moz-transform: scale(0.5); -o-transform: scale(0.5); -webkit-transform: scale(0.5); margin: -12.5%;" seamless frameborder="0" scrolling="no" width="640" height="755"></iframe>
+
+  	<iframe class="mainiFrame" srcdoc="<?php echo $row['original_value']; ?>" src="http://msmarandache.com/emarketing/app/templates/basic/basic.html" seamless frameborder="0" scrolling="no" width="640" height="755"></iframe>
   
-  <a href="#" id="<?php echo $row['id']; ?>" class="overlapping button-next template-btn" style="border:1px solid blue;width:80%;display:block;"></a>
-  
+  	<a href="#" id="<?php echo $row['id']; ?>" class="button-next template-btn"></a>
+
 </div>
-							
-
-										<!-- Old
-
-										<button id="<?php echo $row['id']; ?>" class="button-next template-btn" type="button" style="width:25%;">
-
-											<img src="../app/templates/images/<?php echo $row['picture']; ?>" >
-
-									   </button> code -->
-
-									   
-
-									   <!-- Note:
-
-									   save html of each template on server and put coresponding as iframe src
-
-									   link to the page using a href
-
-									   -->
-
-									   
-
-									   
-
-									   <!--
-
-									   <iframe src="templates/theme/welcome.html" style="position: relative; z-index: 0; -ms-zoom: 0.5; -moz-transform: scale(0.5); -o-transform: scale(0.5); -webkit-transform: scale(0.5); margin: -12.5%;" seamless frameborder="0" scrolling="no" width="448" height="560"></iframe>
-
-									   <a href="//techgeniusapps.com" style="display: inline-block;"><div style="position: relative; z-index: 1; width: 224px; height: 280px; margin-left: -283px; margin-top: -362px; background-color: transparent;"></div></a>
-
-									-->
-
-									
-
-									
-
-									
-
-									
-
-									
-
-									
-
-					
-
-
-
-
-									
-
-									
-
-									
-
-										<div class="template-text">
-
-											<div><?php echo $row['name']; ?></div> 
-
-										</div>
-
 								
 
 									</div>
@@ -428,11 +430,9 @@ iframe,
 
 
 
-      </div>
-
-       <style>
-
- 
+  </div>
+  
+  <style>
 
   .progress-label {
 
@@ -442,20 +442,7 @@ iframe,
 
   }
 
- 
-
-  </style>
-
-  
-
-  
-
-  
-
-  
-
-  
-
+ </style>
   
 
 <div id="dialog" class="modal hide1 fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="false" style="width:560px !important;display:block;">
@@ -494,50 +481,28 @@ iframe,
 
 </div>
 
-
-
- <style>
-
- .ui-widget-overlay {
-
+<style>
+.ui-widget-overlay {
   background: #aaaaaa url("img/ui-bg_flat_0_aaaaaa_40x100.png") 50% 50% repeat-x;
-
   opacity: .3;
-
- 
-
 }
-
-
 
 .ui-widget-overlay {
-
   position: fixed;
-
   top: 0;
-
   left: 0;
-
   width: 100%;
-
   height: 100%;
-
 }
-
 </style>
 
 <div class="ui-widget-overlay overlay" style="z-index: 101; display: none;"></div>
 
+<script src="js/iframe-html5-shiv.js"></script>
 <?php
-
 $content = ob_get_contents();
-
 ob_end_clean();
-
 include 'include/header.php';
-
 print $content;
-
-include 'include/footer.php'; 
-
+include 'include/footer.php';
 ?>

@@ -3801,21 +3801,16 @@ jQuery UI Datepicker(new in v1.2.2)
 }
 
 /*portlets*/
-
-
 .widget-title > .tools, .widget-title > .actions {
     float: right;
     margin: 0;
     padding: 3px 5px 2px;
 }
-
 .widget-title .pagination.pagination-small {
     display: inline-block !important;
     float: right !important;
     margin: 6px 6px 0 0;
 }
-
-
 .widget-title > .actions > .btn.btn-mini {
     margin-top: 5px;
 }
@@ -3855,4 +3850,39 @@ jQuery UI Datepicker(new in v1.2.2)
 }
 .paypal_btn:hover{ 
 	background: #e05c04; 
+}
+/* iFrame page */
+#template-container {
+  width: 400px;
+  height: 450px;
+  position: relative;
+}
+iframe, .overlapping {
+  position: relative;
+  top: -190px;
+  left: -160px;
+  -ms-zoom: 0.5; 
+  -moz-transform: scale(0.5); 
+  -o-transform: scale(0.5); 
+  -webkit-transform: scale(0.5);
+}
+.overlapping {
+  z-index: 10;
+}
+a.template-btn {
+	position:absolute;
+	top:0px;
+	left:0px;
+	z-index:10;
+	width:320px;
+	height:395px;
+	display:block;
+}
+/* iFrame page for IE 10+ */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+	iframe.mainiFrame {
+		position: inherit !important;
+		top: 0px !important;
+		left: 0px !important;	
+	}
 }
