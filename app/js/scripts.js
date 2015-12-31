@@ -1585,11 +1585,13 @@ console.log(dataArrayFinal)
 				//	$('#form_wizard_1').find('#backbtn').removeClass('button-previous');
 					
 					var tid = sessionStorage.getItem('tid');
+					
 										
 					console.log('tid ',tid)
 					
 					if(first == 0){ console.log('first')
 							first = 1;
+							$("#step2").addClass("sf-active");
 							
 							$.ajax({
 								  type: 'POST',
@@ -1625,9 +1627,10 @@ console.log(dataArrayFinal)
 						   
 					} else { 
 					
-							console.log('333333333333')
+							console.log('Complete Form')
 					
 							$('#form_wizard_1').find('.button-previous').show();
+							$("#step3").addClass("sf-active");
 							
 							var jData = {};
 							jData.html = $('#edittemplate').html();
@@ -1688,6 +1691,7 @@ console.log(dataArrayFinal)
             onPrevious: function (tab, navigation, index) {
 				
 				console.log('hit back')
+				$("#step3").removeClass("sf-active");
 				// Destroy the editor.
 	//		editor.destroy();
 	//		editor = null;

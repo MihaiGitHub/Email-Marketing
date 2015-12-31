@@ -96,6 +96,7 @@ while($rowlists = $stmtlists->fetch()){
 
 				
 <style>
+/* step menu */
 .sf-t1 .sf-nav-top {
     height: 80px;
     padding-bottom: 30px;
@@ -113,7 +114,7 @@ while($rowlists = $stmtlists->fetch()){
     box-sizing: border-box;
 }
 .sf-nav-top .sf-nav, .sf-nav-bottom .sf-nav {
-    width: 9999px;
+    width: 800px;
     position: absolute;
 }
 .sf-nav {
@@ -215,11 +216,77 @@ while($rowlists = $stmtlists->fetch()){
 .sf-wizard {
     position: relative;
 }
+/* create template button */
+.finish-btn {
+	background-color: rgb(254, 170, 7);
+	border-bottom-color: rgb(255, 255, 255);
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+	border-bottom-style: none;
+	border-bottom-width: 0px;
+	border-image-outset: 0px;
+	border-image-repeat: stretch;
+	border-image-slice: 100%;
+	border-image-source: none;
+	border-image-width: 1;
+	border-left-color: rgb(255, 255, 255);
+	border-left-style: none;
+	border-left-width: 0px;
+	border-right-color: rgb(255, 255, 255);
+	border-right-style: none;
+	border-right-width: 0px;
+	border-top-color: rgb(255, 255, 255);
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	border-top-style: none;
+	border-top-width: 0px;
+	box-sizing: border-box;
+	color: rgb(255, 255, 255);
+	cursor: pointer;
+	display: block;
+	float: right;
+	font-family: sans-serif;
+	font-size: 14px;
+	font-stretch: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	height: 50px;
+	letter-spacing: normal;
+	line-height: 50px;
+	margin-bottom: 0px;
+	margin-left: 15px;
+	margin-right: 0px
+	margin-top: 0px;
+	padding-bottom: 0px;
+	padding-left: 25px;
+	padding-right: 25px;
+	padding-top: 0px;
+	position: relative;
+	text-align: center;
+	text-decoration: none;
+	text-indent: 0px;
+	text-rendering: auto;
+	text-shadow: none;
+	text-transform: none;
+	width: 96px;
+	word-spacing: 0px;
+	writing-mode: lr-tb;
+	zoom: 1;
+	-webkit-appearance: none;
+	-webkit-rtl-ordering: logical;
+	-webkit-user-select: none;
+	-webkit-writing-mode: horizontal-tb;
+}
+.finish-btn:hover {
+	background-color: rgb(249, 146, 0);
+}
+
 </style>
 <div class="navbar steps sf-wizard clearfix sf-t1 sf-slide sf-s-0 sf-nomob" id="wizard_example_4_5-box">
 	<div class="navbar-inner sf-nav-wrap clearfix sf-nav-smmob sf-nav-top">
 		<ul class="sf-nav clearfix" style="clear: both;">
-			<li class="sf-nav-step sf-li-number sf-active sf-nav-link">
+			<li id="step1" class="sf-nav-step sf-li-number sf-active sf-nav-link">
 			
 				<span class="sf-nav-subtext">Choose template</span>
 				<div class="sf-nav-number">
@@ -230,7 +297,7 @@ while($rowlists = $stmtlists->fetch()){
 				<a href="#tab1" data-toggle="tab"></a>
 			
 			</li>
-			<li class="sf-nav-step sf-li-number sf-nav-link">
+			<li id="step2" class="sf-nav-step sf-li-number sf-nav-link">
 			<span class="sf-nav-subtext">Edit template</span>
 
 				<div class="sf-nav-number">
@@ -240,7 +307,7 @@ while($rowlists = $stmtlists->fetch()){
 				<a href="#tab2" data-toggle="tab"></a>
 			
 			</li>
-			<li class="sf-nav-step sf-li-number sf-nav-link">
+			<li id="step3" class="sf-nav-step sf-li-number sf-nav-link">
 				
 				<span class="sf-nav-subtext">Complete form</span>
 				<div class="sf-nav-number">
@@ -250,21 +317,16 @@ while($rowlists = $stmtlists->fetch()){
 				<a href="#tab3" data-toggle="tab"></a>
 			
 			</li>
-		</ul>
-	</div>
+		</ul><input onClick="window.location = 'create.php'" class="finish-btn" type="button" value="Create Template" style="display: inline-block;">
+	</div> 
+
 </div>
 
-             
+            
 
                               <div class="tab-content">
 
                                  <div class="tab-pane active" id="tab1">
-
-			   
-
-<button onClick="window.location = 'create.php'" class="btn btn-primary" style="float:right;transform: translateY(15%);" type="button"><i class="icon-plus icon-white"></i> Create Template</button>
-
-
 
 
 							<?php while($row = $stmt->fetch()){ ?>
