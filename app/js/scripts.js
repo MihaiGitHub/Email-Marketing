@@ -2,14 +2,32 @@ var App = function () {
 
      var isMainPage = false;
      var isMapPage = false;
-	 var isChartPage = false;
-	 var isTemplateBuilderPage = false;
+	var isChartPage = false;
+	var isTemplatePage = false;
+	var isTemplateBuilderPage = false;
      var isIE8 = false;
+	
+	var handleTemplateDisplay = function () {
+		$("#createTemplateBtn").css("display", "inline-block");
+		
+		$("#step2").removeClass("sf-active");
+		$("#step3").removeClass("sf-active");
+		
+		/*
+		$("#step2").hover(function(){
+		    $(this).toggleClass("sf-active");
+		});
+		
+		$("#step3").hover(function(){
+		    $(this).toggleClass("sf-active");
+		});
+		*/
+	}
 	 
-	 var handleTemplateBuilder = function () {
+	var handleTemplateBuilder = function () {
 		 var uid = $('#user-id').val();
 		 sessionStorage.setItem('uid', uid);
-	 }
+	}
 	 
 	 var handleCharts = function () {
 	 
@@ -349,136 +367,6 @@ console.log(dataArrayFinal)
 			sessionStorage.setItem('tid', id);
 		});
 	}
-	
-	var handleJQVMAP = function () {
-
-        if (!sample_data) {
-            return;
-        }
-
-        var showMap = function (name) {
-            jQuery('.vmaps').hide();
-            jQuery('#vmap_' + name).show();
-        }
-
-        var setMap = function (name) {
-            var data = {
-                map: 'world_en',
-                backgroundColor: null,
-                borderColor: '#333333',
-                borderOpacity: 0.5,
-                borderWidth: 1,
-                color: '#c6c6c6',
-                enableZoom: true,
-                hoverColor: '#3daced',
-                hoverOpacity: null,
-                values: sample_data,
-                normalizeFunction: 'linear',
-                scaleColors: ['#e8e8e8', '#b0b0b0'],
-                selectedColor: '#3daced',
-                selectedRegion: null,
-                showTooltip: true,
-                onLabelShow: function (event, label, code) {
-
-                },
-                onRegionOver: function (event, code) {
-                    if (code == 'ca') {
-                        event.preventDefault();
-                    }
-                },
-                onRegionClick: function (element, code, region) {
-                    var message = 'You clicked "' + region + '" which has the code: ' + code.toUpperCase();
-                    alert(message);
-                }
-            };
-
-            data.map = name + '_en';
-            var map = jQuery('#vmap_' + name);
-            map.width(map.parent().parent().width());
-            map.show();
-            map.vectorMap(data);
-            map.hide();
-        }
-
-        setMap("world");
-        setMap("usa");
-        setMap("europe");
-        setMap("russia");
-        setMap("germany");
-
-        showMap("world");
-
-        jQuery('#regional_stat_world').click(function () {
-            showMap("world");
-        });
-
-        jQuery('#regional_stat_usa').click(function () {
-            showMap("usa");
-        });
-
-        jQuery('#regional_stat_europe').click(function () {
-            showMap("europe");
-        });
-        jQuery('#regional_stat_russia').click(function () {
-            showMap("russia");
-        });
-        jQuery('#regional_stat_germany').click(function () {
-            showMap("germany");
-        });
-
-        $('#region_statistics_loading').hide();
-        $('#region_statistics_content').show();
-    }
-
-    var handleAllJQVMAP = function () {
-
-        if (!sample_data) {
-            return;
-        }
-
-        var setMap = function (name) {
-            var data = {
-                map: 'world_en',
-                backgroundColor: null,
-                borderColor: '#333333',
-                borderOpacity: 0.5,
-                borderWidth: 1,
-                color: '#c6c6c6',
-                enableZoom: true,
-                hoverColor: '#3daced',
-                hoverOpacity: null,
-                values: sample_data,
-                normalizeFunction: 'linear',
-                scaleColors: ['#e8e8e8', '#b0b0b0'],
-                selectedColor: '#3daced',
-                selectedRegion: null,
-                showTooltip: true,
-                onRegionOver: function (event, code) {
-                    //sample to interact with map
-                    if (code == 'ca') {
-                        event.preventDefault();
-                    }
-                },
-                onRegionClick: function (element, code, region) {
-                    //sample to interact with map
-                    var message = 'You clicked "' + region + '" which has the code: ' + code.toUpperCase();
-                    alert(message);
-                }
-            };
-            data.map = name + '_en';
-            var map = jQuery('#vmap_' + name);
-            map.width(map.parent().width());
-            map.vectorMap(data);
-        }
-
-        setMap("world");
-        setMap("usa");
-        setMap("europe");
-        setMap("russia");
-        setMap("germany");
-    }
-
-   
 
     var handleClockfaceTimePickers = function () {
 
@@ -564,232 +452,6 @@ console.log(dataArrayFinal)
                 el.slideDown(200);
             }
         });
-    }
-
-    var handleDashboardCharts = function () {
-
-        // used by plot functions
-        var data = [];
-        var totalPoints = 200;
-
-        // random data generator for plot charts
-        function getRandomData() {
-            if (data.length > 0) data = data.slice(1);
-            // do a random walk
-            while (data.length < totalPoints) {
-                var prev = data.length > 0 ? data[data.length - 1] : 50;
-                var y = prev + Math.random() * 10 - 5;
-                if (y < 0) y = 0;
-                if (y > 100) y = 100;
-                data.push(y);
-            }
-            // zip the generated y values with the x values
-            var res = [];
-            for (var i = 0; i < data.length; ++i) res.push([i, data[i]])
-            return res;
-        }
-
-        if (!jQuery.plot) {
-            return;
-        }
-
-        function randValue() {
-            return (Math.floor(Math.random() * (1 + 40 - 20))) + 20;
-        }
-
-        var pageviews = [
-            [1, randValue()],
-            [2, randValue()],
-            [3, 2 + randValue()],
-            [4, 3 + randValue()],
-            [5, 5 + randValue()],
-            [6, 10 + randValue()],
-            [7, 15 + randValue()],
-            [8, 20 + randValue()],
-            [9, 25 + randValue()],
-            [10, 30 + randValue()],
-            [11, 35 + randValue()],
-            [12, 25 + randValue()],
-            [13, 15 + randValue()],
-            [14, 20 + randValue()],
-            [15, 45 + randValue()],
-            [16, 50 + randValue()],
-            [17, 65 + randValue()],
-            [18, 70 + randValue()],
-            [19, 85 + randValue()],
-            [20, 80 + randValue()],
-            [21, 75 + randValue()],
-            [22, 80 + randValue()],
-            [23, 75 + randValue()],
-            [24, 70 + randValue()],
-            [25, 65 + randValue()],
-            [26, 75 + randValue()],
-            [27, 80 + randValue()],
-            [28, 85 + randValue()],
-            [29, 90 + randValue()],
-            [30, 95 + randValue()]
-        ];
-        var visitors = [
-            [1, randValue() - 5],
-            [2, randValue() - 5],
-            [3, randValue() - 5],
-            [4, 6 + randValue()],
-            [5, 5 + randValue()],
-            [6, 20 + randValue()],
-            [7, 25 + randValue()],
-            [8, 36 + randValue()],
-            [9, 26 + randValue()],
-            [10, 38 + randValue()],
-            [11, 39 + randValue()],
-            [12, 50 + randValue()],
-            [13, 51 + randValue()],
-            [14, 12 + randValue()],
-            [15, 13 + randValue()],
-            [16, 14 + randValue()],
-            [17, 15 + randValue()],
-            [18, 15 + randValue()],
-            [19, 16 + randValue()],
-            [20, 17 + randValue()],
-            [21, 18 + randValue()],
-            [22, 19 + randValue()],
-            [23, 20 + randValue()],
-            [24, 21 + randValue()],
-            [25, 14 + randValue()],
-            [26, 24 + randValue()],
-            [27, 25 + randValue()],
-            [28, 26 + randValue()],
-            [29, 27 + randValue()],
-            [30, 31 + randValue()]
-        ];
-
-        $('#site_statistics_loading').hide();
-        $('#site_statistics_content').show();
-
-        var plot = $.plot($("#site_statistics"), [{
-            data: pageviews,
-            label: "Unique Visits"
-        }, {
-            data: visitors,
-            label: "Page Views"
-        }], {
-            series: {
-                lines: {
-                    show: true,
-                    lineWidth: 2,
-                    fill: true,
-                    fillColor: {
-                        colors: [{
-                            opacity: 0.05
-                        }, {
-                            opacity: 0.01
-                        }]
-                    }
-                },
-                points: {
-                    show: true
-                },
-                shadowSize: 2
-            },
-            grid: {
-                hoverable: true,
-                clickable: true,
-                tickColor: "#eee",
-                borderWidth: 0
-            },
-            colors: ["#A5D16C", "#FCB322", "#32C2CD"],
-            xaxis: {
-                ticks: 11,
-                tickDecimals: 0
-            },
-            yaxis: {
-                ticks: 11,
-                tickDecimals: 0
-            }
-        });
-
-
-        function showTooltip(x, y, contents) {
-            $('<div id="tooltip">' + contents + '</div>').css({
-                position: 'absolute',
-                display: 'none',
-                top: y + 5,
-                left: x + 15,
-                border: '1px solid #333',
-                padding: '4px',
-                color: '#fff',
-                'border-radius': '3px',
-                'background-color': '#333',
-                opacity: 0.80
-            }).appendTo("body").fadeIn(200);
-        }
-
-        var previousPoint = null;
-        $("#site_statistics").bind("plothover", function (event, pos, item) {
-            $("#x").text(pos.x.toFixed(2));
-            $("#y").text(pos.y.toFixed(2));
-
-            if (item) {
-                if (previousPoint != item.dataIndex) {
-                    previousPoint = item.dataIndex;
-
-                    $("#tooltip").remove();
-                    var x = item.datapoint[0].toFixed(2),
-                        y = item.datapoint[1].toFixed(2);
-
-                    showTooltip(item.pageX, item.pageY, item.series.label + " of " + x + " = " + y);
-                }
-            } else {
-                $("#tooltip").remove();
-                previousPoint = null;
-            }
-        });
-
-        //server load
-        var options = {
-            series: {
-                shadowSize: 1
-            },
-            lines: {
-                show: true,
-                lineWidth: 0.5,
-                fill: true,
-                fillColor: {
-                    colors: [{
-                        opacity: 0.1
-                    }, {
-                        opacity: 1
-                    }]
-                }
-            },
-            yaxis: {
-                min: 0,
-                max: 100,
-                tickFormatter: function (v) {
-                    return v + "%";
-                }
-            },
-            xaxis: {
-                show: false
-            },
-            colors: ["#A5D16C"],
-            grid: {
-                tickColor: "#eaeaea",
-                borderWidth: 0
-            }
-        };
-
-        $('#load_statistics_loading').hide();
-        $('#load_statistics_content').show();
-
-        var updateInterval = 30;
-        var plot = $.plot($("#load_statistics"), [getRandomData()], options);
-
-        function update() {
-            plot.setData([getRandomData()]);
-            plot.draw();
-            setTimeout(update, updateInterval);
-        }
-        update();
     }
 
     var handleFancyBox = function () {
@@ -1517,20 +1179,6 @@ console.log(dataArrayFinal)
 
     }
 
-    var handleColorPicker = function () {
-        if (!jQuery().colorpicker) {
-            return;
-        }
-        $('.colorpicker-default').colorpicker({
-            format: 'hex'
-        });
-        $('.colorpicker-rgba').colorpicker();
-    }
-
-    var handleAccordions = function () {
-        $(".accordion").collapse().height('auto');
-    }
-
     var handleScrollers = function () {
         if (!jQuery().slimScroll) {
             return;
@@ -1580,7 +1228,7 @@ console.log(dataArrayFinal)
 					
                     $('#form_wizard_1').find('.button-previous').hide();
                 } else {
-					$('#form_wizard_1').find('.button-next').show();
+					
 					if (current == 2){ 
 				//	$('#form_wizard_1').find('#backbtn').removeClass('button-previous');
 					
@@ -1591,8 +1239,16 @@ console.log(dataArrayFinal)
 					
 					if(first == 0){ console.log('first')
 							first = 1;
+							$("#createTemplateBtn").css("display", "none");
 							$("#step2").addClass("sf-active");
-							
+							/*
+							$('#step3').hover(function(){
+							    $(this).toggleClass("sf-active");
+							});
+							*/
+
+
+
 							$.ajax({
 								  type: 'POST',
 								  url: 'template.php',
@@ -1605,22 +1261,19 @@ console.log(dataArrayFinal)
 								  },
 								  dataType: 'json',
 								  success: function(data) {
-								 
-									  $('#edittemplate').html(data);
-									  $('#edittemplate').fadeIn('slow');
-								//	 $('#form_wizard_1').find('#backbtn').removeClass('button-previous');
-								
+										$('#edittemplate').html(data);
+										$('#edittemplate').fadeIn('slow');
+										$('#form_wizard_1').find('#prev-btn').fadeIn('slow');
+										$('#form_wizard_1').find('.next-btn').fadeIn('slow');
 								  },
-						   });
-						   
-						   
-						   $.getScript( "assets/ck-editor/ckeditor.js", function( data, textStatus, jqxhr ) {
-								//	  console.log( data ); // Data returned
-									  console.log( textStatus ); // Success
-								//	  console.log( jqxhr.status ); // 200
-								//	  console.log( "Load was performed." );
 							});
+						   
+						   
+							$.getScript( "assets/ck-editor/ckeditor.js", function( data, textStatus, jqxhr ) {
 							
+									  console.log( textStatus ); // Success
+								
+							});
 							
 							
 					}
@@ -1628,7 +1281,8 @@ console.log(dataArrayFinal)
 					} else { 
 					
 							console.log('Complete Form')
-					
+							
+							$("#createTemplateBtn").css("display", "none");
 							$('#form_wizard_1').find('.button-previous').show();
 							$("#step3").addClass("sf-active");
 							
@@ -1653,54 +1307,20 @@ console.log(dataArrayFinal)
 						   $('#form_wizard_1').find('#continuebtn').hide();
 						   $('#form_wizard_1').find('.button-submit').show();
 					
-					
-					
-					
-					/******************************************************************OLD
-							$('#form_wizard_1').find('.button-previous').show();
-							
-							var jData = {};
-							for (var i in CKEDITOR.instances) {						
-									jData[i] = CKEDITOR.instances[i].getData();
-							}
-							
-							$.ajax({
-								  type: 'POST',
-								  url: 'savetemplate.php',
-								  async: true,
-								  data: jData,
-								  error: function(error) {
-									console.log('error', error)
-								  },
-								  success: function(data) { 
-								  
-										console.log('saved template success')
-									 
-								  },
-						   });
-						   
-						   $('#form_wizard_1').find('#continuebtn').hide();
-						   $('#form_wizard_1').find('.button-submit').show();
-						   **********************************************************/
 					}
 					
-					//$('#form_wizard_1').find('.button-previous').show();
                 }
                 App.scrollTo($('.page-title'));
             },
             onPrevious: function (tab, navigation, index) {
 				
-				console.log('hit back')
-				$("#step3").removeClass("sf-active");
-				// Destroy the editor.
-	//		editor.destroy();
-	//		editor = null;
+			console.log('hit back')
+			$("#step3").removeClass("sf-active");
+			// Destroy the editor.
+			//		editor.destroy();
+			//		editor = null;
+			//		  $('#edittemplate').html('');
 
-											//		  $('#edittemplate').html('');
-
-				
-				
-				
 				
                 var total = navigation.find('li').length;
                 var current = index + 1;
@@ -1924,27 +1544,26 @@ console.log(dataArrayFinal)
             handleChoosenSelect(); // handles bootstrap chosen dropdowns
 
             if (isMainPage) {
-                handleDashboardCharts(); // handles plot charts for main page
-                handleJQVMAP(); // handles vector maps for home page
+              
             } else {
                 handlePortletSortable(); // handles portlet draggable sorting
             }
 
-            if (isMapPage) {
-                handleAllJQVMAP(); // handles vector maps for interactive map page
-            }
-
-			if (isChartPage) {
-				handleCharts(); // handles statistics page
-			}
+		  if (isChartPage) {
+			 handleCharts(); // handles statistics page
+		  }
+		  
+		  if (isTemplatePage) {
+			 handleTemplateDisplay(); // handles main template page
+		  }
+		
+		  if (isTemplateBuilderPage) {
+			 handleTemplateBuilder(); // handles statistics page
+		  }
 			
-			if (isTemplateBuilderPage) {
-				handleTemplateBuilder(); // handles statistics page
-			}
-			
-			handleEmails(); // handles emails page in lists section	
-			handleCampaign(); // handles campaign ID in reports section
-		    handleTemplate(); // handles template ID in template wizard
+		  handleEmails(); // handles emails page in lists section	
+		  handleCampaign(); // handles campaign ID in reports section
+		  handleTemplate(); // handles template ID in template wizard
             handleScrollers(); // handles slim scrolling contents
             handleUniform(); // handles uniform elements
             handleClockfaceTimePickers(); //handles form clockface timepickers
@@ -1959,13 +1578,11 @@ console.log(dataArrayFinal)
             handleToggleButtons(); // handles form toogle buttons
             handleWysihtml5(); //handles WYSIWYG Editor 
             handleDateTimePickers(); //handles form timepickers
-            handleColorPicker(); // handles form color pickers
             handleFancyBox(); // handles fancy box image previews
             handleStyler(); // handles style customer tool
             handleMainMenu(); // handles main menu
             handleFixInputPlaceholderForIE(); // fixes/enables html5 placeholder attribute for IE9, IE8
             handleGoTop(); //handles scroll to top functionality in the footer
-            handleAccordions();
             handleFormWizards();
             handleSidebarToggler();
 
@@ -2043,6 +1660,11 @@ console.log(dataArrayFinal)
 		// set chart page
         setChartPage: function (flag) {
             isChartPage = flag;
+        },
+	   
+	   // set template page
+        setTemplatePage: function (flag) {
+            isTemplatePage = flag;
         },
 		
 		// set template builder page
