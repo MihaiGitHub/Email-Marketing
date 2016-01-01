@@ -231,7 +231,7 @@ while($rowlists = $stmtlists->fetch()){
                               <div class="form-actions clearfix">
 
 							<a class="prev-btn button-previous" href="javascript:;" style="float:left;">PREV</a>
-						     <input id="sendMailBtn" class="finish-btn button-submit" type="button" value="Send Mail" style="display:inline-block;float:left;">
+						     <input id="sendMailBtn" class="finish-btn button-submit" type="button" value="SEND MAIL" style="display:inline-block;float:left;">
 
                               </div>
                            </div>
@@ -243,72 +243,28 @@ while($rowlists = $stmtlists->fetch()){
             <!-- END PAGE CONTENT-->
          </div>
          <!-- END PAGE CONTAINER-->
-
-  </div>
-  
-  <style>
-
-  .progress-label {
-
-    font-weight: bold;
-
-    text-shadow: 1px 1px 0 #fff;
-
-  }
-
- </style>
-  
-
+</div>
+ 
 <div id="dialog" class="modal hide1 fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="false" style="width:560px !important;display:block;">
-
 	<div class="modal-header">
-
 		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-
 		<h3 id="myModalLabel1">Sending Emails...</h3>
-
 	</div>
 
 	<div class="modal-body">
-
-    <div class="progress-label">Preparing template...</div>
+    		<div class="progress-label">Preparing template...</div>
 
 		<div id="progressbar"></div>
 
-        
-
-        							<div class="progress progress-striped progress-success active">
-
-                                        <div id="email-bar" class="bar"></div>
-
-                                    </div>
-
+		<div class="progress progress-striped progress-success active">
+			<div id="email-bar" class="bar"></div>
+		</div>
 	</div>
 
 	<div class="modal-footer">
-
-	<!--	<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button> -->
-
 		<button id="email-bar-close" class="btn btn-primary" data-dismiss="modal">Close</button>
-
 	</div>
-
 </div>
-
-<style>
-.ui-widget-overlay {
-  background: #aaaaaa url("img/ui-bg_flat_0_aaaaaa_40x100.png") 50% 50% repeat-x;
-  opacity: .3;
-}
-
-.ui-widget-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-</style>
 
 <div class="ui-widget-overlay overlay" style="z-index: 101; display: none;"></div>
 

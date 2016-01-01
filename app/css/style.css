@@ -4072,6 +4072,10 @@ a.template-btn {
 	background-color: rgb(249, 146, 0);
 }
 /* continue button */
+a.next-btn:hover {
+	background-color: rgb(249, 146, 0);
+	color: rgb(255, 255, 255);
+}
 a.next-btn:after {
 	border-left-color: #feaa07;
 	content: "";
@@ -4136,6 +4140,14 @@ a.next-btn {
 	zoom: 1;
 }
 /* prev button */
+a.prev-btn:hover {
+	background-color: rgb(249, 146, 0);
+	color: rgb(255, 255, 255);
+}
+a.prev-btn:hover:after {
+
+	
+}
 a.prev-btn:after {
 	left: -26px;
 	border: 20px solid transparent;
@@ -4193,4 +4205,20 @@ a.prev-btn {
 }
 .sf-wizard {
 	margin-bottom: 0px !important;
+}
+/* sending emails modal */
+.ui-widget-overlay {
+  background: #aaaaaa url("img/ui-bg_flat_0_aaaaaa_40x100.png") 50% 50% repeat-x;
+  opacity: .3;
+}
+.ui-widget-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.progress-label {
+    font-weight: bold;
+    text-shadow: 1px 1px 0 #fff;
 }
