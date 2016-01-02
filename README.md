@@ -20,3 +20,4 @@ when user signs up for account in initial account setup (inserted into templates
 email are market as bounced if email bounces)
 7. Links in app/templates/registration.html are hardcoded
 8. All links in templates table need to be hardcoded to appear in IE
+9. Link in app/create.php needs to be updated
