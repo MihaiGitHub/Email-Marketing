@@ -21,3 +21,4 @@ email are market as bounced if email bounces)
 7. Links in app/templates/registration.html are hardcoded
 8. All links in templates table need to be hardcoded to appear in IE
 9. Link in app/create.php needs to be updated
+10. All links in app/templates need to be hardcoded so images can appear in iframe
