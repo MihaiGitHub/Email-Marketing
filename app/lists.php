@@ -101,7 +101,7 @@ $lists = true;
                   </h3>
                    <ul class="breadcrumb">
                        <li>
-                           <a href="#"><i class="icon-home"></i></a><span class="divider">&nbsp;</span>
+                           <a href="dashboard.php"><i class="icon-home"></i></a><span class="divider">&nbsp;</span>
                        </li>
                        <li><a href="#">Lists</a><span class="divider-last">&nbsp;</span></li>
                    </ul>

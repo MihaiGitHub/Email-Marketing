@@ -4,7 +4,6 @@ session_start();
 include 'include/dbconnect.php';
 
 $_SESSION['list'] = $_GET['id'];
-
  
 if (!empty($_FILES)) { 
      
@@ -74,10 +73,10 @@ $result = $stmt->execute(array('listid' => $_GET['id']));
                   </h3>
                    <ul class="breadcrumb">
                        <li>
-                           <a href="#"><i class="icon-home"></i></a><span class="divider">&nbsp;</span>
+                           <a href="dashboard.php"><i class="icon-home"></i></a><span class="divider">&nbsp;</span>
                        </li>
 					   <li>
-                           <a href="#">Lists</a> <span class="divider">&nbsp;</span>
+                           <a href="lists.php">Lists</a> <span class="divider">&nbsp;</span>
                        </li>
                        <li><a href="#">Emails</a><span class="divider-last">&nbsp;</span></li>
                    </ul>
