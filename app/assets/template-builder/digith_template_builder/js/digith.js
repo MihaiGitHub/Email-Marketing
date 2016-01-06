@@ -46,7 +46,7 @@ $(function(){
 	ur.removeClass("active");
 	rr.removeClass("active")}
 	
-	function Xr(){var e=fbta.test(rn.html());if(e!=1){return false}kr=zhengai,Lr=fuliz,Ar=duizhunag}function Vr(){Pr.html(Lr);Hr.html(Ar);Br.find(".selected").html("font-family");jr.find(".selected").html("font-weight");Dr.click(function(){var e=Cr.val();var t=e.match(kr);if(t==null){Cr.val("pls input right google API!")}else{var n=$n.html().replace(kr,""),r=/\<style\s*type=\"text\/css\">[\s\S]*\<\/style\>/i,i=n.match(r),i=t+"\n"+i,n=n.replace(r,i);$n.html(n).css({opacity:"0.3"}).animate({opacity:1},2500);var s=t[0].replace(apit1,"").replace(apit2,"").replace(apit3,"").replace(apit4,"").replace(apit5,"").replace(apit6,"").replace(apit7," ").replace(apit8,"");var o=s.match(apifg);if(o==null){var u="<li>"+s+", serif</li>"+Lr;Pr.html("").html(u)}else{var a=s.split("|"),u="";$.each(a,function(e,t){u+="<li>"+t+", serif</li>"});u+=Lr;Pr.html(u)}}})}function $r(){Br.click(function(){$(this).toggleClass("open");Br.find("div").css({"z-index":2});$(this).find("div").slideToggle("fast").css({"z-index":3})});jr.click(function(){$(this).toggleClass("open");jr.find("div").css({"z-index":2});$(this).find("div").slideToggle("fast").css({"z-index":3})})}function Jr(){function t(e){if(typeof e!=="number"){return""}if(e>=1e9){return(e/1e9).toFixed(2)+" GB"}if(e>=1e6){return(e/1e6).toFixed(2)+" MB"}return(e/1e3).toFixed(2)+" KB"}var e=window.location.hostname==="blueimp.github.io"?"//jquery-file-upload.appspot.com/":"server/php/";$("#fileupload").fileupload({dropZone:$("#drop"),url:e,dataType:"json",done:function(e,t){$("#progress .progress-bar").css("width",100+"%");setTimeout(Kr(),500)},add:function(e,n){var r=true;var i=n.files[0];if(!/\.(html)$/i.test(i.name)){var s=$('<ul><li class="error" ><p><i>!! Please upload html file!</i></p><span></span></li></ul>');s.appendTo("#files");r=false}if(i.size>1e6){$("#files").html("!! Please upload a smaller image, max size is 1 MB");s.appendTo("#files");r=false}if(r==true){repk=0;$("#progress .progress-bar").css("width",0+"%");var s=$('<ul><li class="working"><input type="text" value="0" data-width="48" data-height="48"'+' data-fgColor="#0788a5" data-readOnly="1" data-bgColor="#3e4043" /><p></p><span></span></li></ul>');s.find("p").text(i.name).append("<i>"+t(i.size)+"</i>");s.find("input").knob();s.appendTo("#files");pName=i.name;var o=n.submit()}s.find("span").click(function(){if(s.hasClass("working")){o.abort()}s.fadeOut(function(){s.remove()})})},progressall:function(e,t){var n=parseInt(t.loaded/t.total*100,10);$("#progress .progress-bar").css("width",n+"%");$("#files").find("input").val(n).change();if(n==100){$("#progress .progress-bar").css("width","100%");if($("#files li").hasClass("working")){$("#files li").removeClass("working")}}},fail:function(e,t){t.context.addClass("error")}}).prop("disabled",!$.support.fileInput).parent().addClass($.support.fileInput?undefined:"disabled");$(document).on("drop dragover",function(e){e.preventDefault()})}function Kr(){var e=IPuL+pName;$.get(e,function(e){$n.html("").html(e).css({opacity:"0.3"}).animate({opacity:1},1e3);Qr();setTimeout(function(){Ii();repk=1},2500);setTimeout("$.post('delete.php')",3e3);if(OptS==1){}$n.find(Id+":first").addClass("this-module")});Xn.html("Upload succcess, and the uploaded file will be deleted from temp folder after uploading...").fadeIn(1e3);ir.slideUp(600);rr.removeClass("active");$("#files").html("")}function Qr(){if(OptS!=1){setTimeout(function(){$("#iframe div[rev]").attr({contenteditable:"true"}).ckeditor()},1e3)}}function Gr(){tr.click(function(){nr.removeClass("active");$(this).addClass("active");Xn.html("Edit Layout, can not edit contents, click/drag or delete/duplicat/clear all/sort modules.").fadeIn(1e3);OptS=1;ui();$("#iframe div[rev]").attr("contenteditable","false");$("#iframe div[rev]").attr({title:""});$("#hide-iframe div[rev]").attr({title:""});$n.find(Id).live("mouseenter",function(){var e=$(this).height()/2-20;$(this).css({"border-top":"#20B2AA 1px dotted","border-bottom":"#20B2AA 1px dotted",cursor:"move",padding:"0"}).find(opt).css("top",e+"px").show();$n.find(Id).removeClass("this-module");$(this).addClass("this-module")}).live("mouseleave",function(){$(this).css("border","none").find(opt).hide()})});nr.click(function(){tr.removeClass("active");$(this).addClass("active");if($.browser.msie){Xn.html("<div>Edit Content, can not drag, If ckeditor toolbar not show or can not edit, click the <span>[ Edit Contetn ]</span> button again or refresh the page.<br> <span>IE browser may show some unwanted space, do not worry, due to ckeditor,will not affect the final page.</span></div>").fadeIn(1e3)}else{Xn.html("Edit Content, can not drag, click can be use, If ckeditor toolbar not show or can not edit, click the <span>[ Edit Contetn ]</span> button again or refresh the page.").fadeIn(1e3)}setTimeout(function(){$("#iframe div[rev]").attr({contenteditable:"true"}).ckeditor();OptS=0;oi();$n.find(Id).live("mouseenter",function(){$(this).css({"border-top":"#20B2AA 1px dotted","border-bottom":"#20B2AA 1px dotted",cursor:"text",padding:"0"});$n.find(Id).removeClass("this-module");$(this).addClass("this-module").find(opt).hide()}).live("mouseleave",function(){$(this).css("border","none")})},500)});rr.click(function(){qr()})}function Yr(){Sn.click(function(){Dt.css({"border-width":"0px"}).animate({marginTop:"37px",marginLeft:"75px"},400)});$('li[rel="welcome"], li[rel="function"], li[rel="info"], li[rel="install"], li[rel="file"], li[rel="psd"], li[rel="three"], li[rel="credit"], li[rel="import"],li[rel="faq"]').click(function(){Dt.removeClass("leftdiv").animate({marginTop:"37px",marginLeft:"75px"},150)});$('li[rel="choose module"],li[rel="layout"],li[rel="color"],li[rel="bg"],li[rel="gAPI"],li[rel="download"],li[rel="copyright"],li[rel="guide"]').click(function(){Dt.removeClass("leftdiv").animate({marginTop:"37px",marginLeft:"325px"},150)});$('li[rel="choose module"]').click(function(){Jt.hide();Ft.removeClass("active");qt.addClass("active");Gt.slideDown(500)});$('li[rel="layout"]').click(function(){Jt.hide();Ft.removeClass("active");It.addClass("active");Qt.slideDown(500)});$('li[rel="color"]').click(function(){Jt.hide();Ft.removeClass("active");Rt.addClass("active");Yt.slideDown(500)});$('li[rel="bg"]').click(function(){Ft.removeClass("active");Ut.addClass("active");Jt.hide();_n.find(".accordion").hide();Ln.show();Zt.slideDown(500)});$('li[rel="gAPI"]').click(function(){Ft.removeClass("active");Nr.addClass("active");Jt.hide();Pn.find(".accordion").hide();Hn.show();Or.slideDown(500)});$('li[rel="download"]').click(function(){Jt.hide();Ft.removeClass("active");
+	function Xr(){var e=fbta.test(rn.html());if(e!=1){return false}kr=zhengai,Lr=fuliz,Ar=duizhunag}function Vr(){Pr.html(Lr);Hr.html(Ar);Br.find(".selected").html("font-family");jr.find(".selected").html("font-weight");Dr.click(function(){var e=Cr.val();var t=e.match(kr);if(t==null){Cr.val("pls input right google API!")}else{var n=$n.html().replace(kr,""),r=/\<style\s*type=\"text\/css\">[\s\S]*\<\/style\>/i,i=n.match(r),i=t+"\n"+i,n=n.replace(r,i);$n.html(n).css({opacity:"0.3"}).animate({opacity:1},2500);var s=t[0].replace(apit1,"").replace(apit2,"").replace(apit3,"").replace(apit4,"").replace(apit5,"").replace(apit6,"").replace(apit7," ").replace(apit8,"");var o=s.match(apifg);if(o==null){var u="<li>"+s+", serif</li>"+Lr;Pr.html("").html(u)}else{var a=s.split("|"),u="";$.each(a,function(e,t){u+="<li>"+t+", serif</li>"});u+=Lr;Pr.html(u)}}})}function $r(){Br.click(function(){$(this).toggleClass("open");Br.find("div").css({"z-index":2});$(this).find("div").slideToggle("fast").css({"z-index":3})});jr.click(function(){$(this).toggleClass("open");jr.find("div").css({"z-index":2});$(this).find("div").slideToggle("fast").css({"z-index":3})})}function Jr(){function t(e){if(typeof e!=="number"){return""}if(e>=1e9){return(e/1e9).toFixed(2)+" GB"}if(e>=1e6){return(e/1e6).toFixed(2)+" MB"}return(e/1e3).toFixed(2)+" KB"}var e=window.location.hostname==="blueimp.github.io"?"//jquery-file-upload.appspot.com/":"server/php/";$("#fileupload").fileupload({dropZone:$("#drop"),url:e,dataType:"json",done:function(e,t){$("#progress .progress-bar").css("width",100+"%");setTimeout(Kr(),500)},add:function(e,n){var r=true;var i=n.files[0];if(!/\.(html)$/i.test(i.name)){var s=$('<ul><li class="error" ><p><i>!! Please upload html file!</i></p><span></span></li></ul>');s.appendTo("#files");r=false}if(i.size>1e6){$("#files").html("!! Please upload a smaller image, max size is 1 MB");s.appendTo("#files");r=false}if(r==true){repk=0;$("#progress .progress-bar").css("width",0+"%");var s=$('<ul><li class="working"><input type="text" value="0" data-width="48" data-height="48"'+' data-fgColor="#0788a5" data-readOnly="1" data-bgColor="#3e4043" /><p></p><span></span></li></ul>');s.find("p").text(i.name).append("<i>"+t(i.size)+"</i>");s.find("input").knob();s.appendTo("#files");pName=i.name;var o=n.submit()}s.find("span").click(function(){if(s.hasClass("working")){o.abort()}s.fadeOut(function(){s.remove()})})},progressall:function(e,t){var n=parseInt(t.loaded/t.total*100,10);$("#progress .progress-bar").css("width",n+"%");$("#files").find("input").val(n).change();if(n==100){$("#progress .progress-bar").css("width","100%");if($("#files li").hasClass("working")){$("#files li").removeClass("working")}}},fail:function(e,t){t.context.addClass("error")}}).prop("disabled",!$.support.fileInput).parent().addClass($.support.fileInput?undefined:"disabled");$(document).on("drop dragover",function(e){e.preventDefault()})}function Kr(){var e=IPuL+pName;$.get(e,function(e){$n.html("").html(e).css({opacity:"0.3"}).animate({opacity:1},1e3);Qr();setTimeout(function(){Ii();repk=1},2500);setTimeout("$.post('delete.php')",3e3);if(OptS==1){}$n.find(Id+":first").addClass("this-module")});Xn.html("Upload succcess, and the uploaded file will be deleted from temp folder after uploading...").fadeIn(1e3);ir.slideUp(600);rr.removeClass("active");$("#files").html("")}function Qr(){if(OptS!=1){setTimeout(function(){$("#iframe div[rev]").attr({contenteditable:"true"}).ckeditor()},1e3)}}function Gr(){tr.click(function(){nr.removeClass("active");$(this).addClass("active");Xn.html("Edit Layout, can not edit contents, click/drag or delete/duplicat/clear all/sort blocks.").fadeIn(1e3);OptS=1;ui();$("#iframe div[rev]").attr("contenteditable","false");$("#iframe div[rev]").attr({title:""});$("#hide-iframe div[rev]").attr({title:""});$n.find(Id).live("mouseenter",function(){var e=$(this).height()/2-20;$(this).css({"border-top":"#20B2AA 1px dotted","border-bottom":"#20B2AA 1px dotted",cursor:"move",padding:"0"}).find(opt).css("top",e+"px").show();$n.find(Id).removeClass("this-module");$(this).addClass("this-module")}).live("mouseleave",function(){$(this).css("border","none").find(opt).hide()})});nr.click(function(){tr.removeClass("active");$(this).addClass("active");if($.browser.msie){Xn.html("<div>Edit Content, can not drag, If ckeditor toolbar not show or can not edit, click the <span>[ Edit Contetn ]</span> button again or refresh the page.<br> <span>IE browser may show some unwanted space, do not worry, due to ckeditor,will not affect the final page.</span></div>").fadeIn(1e3)}else{Xn.html("Edit Content, can not drag, click can be use, If ckeditor toolbar not show or can not edit, click the <span>[ Edit Contetn ]</span> button again or refresh the page.").fadeIn(1e3)}setTimeout(function(){$("#iframe div[rev]").attr({contenteditable:"true"}).ckeditor();OptS=0;oi();$n.find(Id).live("mouseenter",function(){$(this).css({"border-top":"#20B2AA 1px dotted","border-bottom":"#20B2AA 1px dotted",cursor:"text",padding:"0"});$n.find(Id).removeClass("this-module");$(this).addClass("this-module").find(opt).hide()}).live("mouseleave",function(){$(this).css("border","none")})},500)});rr.click(function(){qr()})}function Yr(){Sn.click(function(){Dt.css({"border-width":"0px"}).animate({marginTop:"37px",marginLeft:"75px"},400)});$('li[rel="welcome"], li[rel="function"], li[rel="info"], li[rel="install"], li[rel="file"], li[rel="psd"], li[rel="three"], li[rel="credit"], li[rel="import"],li[rel="faq"]').click(function(){Dt.removeClass("leftdiv").animate({marginTop:"37px",marginLeft:"75px"},150)});$('li[rel="choose module"],li[rel="layout"],li[rel="color"],li[rel="bg"],li[rel="gAPI"],li[rel="download"],li[rel="copyright"],li[rel="guide"]').click(function(){Dt.removeClass("leftdiv").animate({marginTop:"37px",marginLeft:"325px"},150)});$('li[rel="choose module"]').click(function(){Jt.hide();Ft.removeClass("active");qt.addClass("active");Gt.slideDown(500)});$('li[rel="layout"]').click(function(){Jt.hide();Ft.removeClass("active");It.addClass("active");Qt.slideDown(500)});$('li[rel="color"]').click(function(){Jt.hide();Ft.removeClass("active");Rt.addClass("active");Yt.slideDown(500)});$('li[rel="bg"]').click(function(){Ft.removeClass("active");Ut.addClass("active");Jt.hide();_n.find(".accordion").hide();Ln.show();Zt.slideDown(500)});$('li[rel="gAPI"]').click(function(){Ft.removeClass("active");Nr.addClass("active");Jt.hide();Pn.find(".accordion").hide();Hn.show();Or.slideDown(500)});$('li[rel="download"]').click(function(){Jt.hide();Ft.removeClass("active");
 zt.addClass("active");
 en.slideDown(500)});$('li[rel="copyright"]').click(function(){Jt.hide();Ft.removeClass("active");Wt.addClass("active");tn.slideDown(500)});$('li[rel="guide"]').click(function(){Jt.hide();Ft.removeClass("active");Xt.addClass("active");nn.slideDown(500)});$('li[rel="myitem"],li[rel="responsive"],li[rel="theme"],li[rel="operate"]').click(function(){Dt.addClass("leftdiv").animate({marginTop:"37px",marginLeft:"0px"},150)});$("#cancelTabs").click(function(){Dt.css({"border-width":"0px"}).animate({marginTop:"9999px"},300)});$("#tabs").tabs({beforeLoad:function(e,t){t.jqXHR.error(function(){t.panel.html("Couldn't load this tab. We'll try to fix this as soon as possible. "+"If this wouldn't be a demo.")})}})}function Zr(){var e=location.pathname.split("/");var t=e.length-2;bFolderName=e[t];e.pop();patternPath="../../"+bFolderName+"/pattern/";xr=RegExp(patternPath,"g");IPmL=location.protocol+"//"+location.host+e.join("/")+"/pattern/";IPuL=location.protocol+"//"+location.host+e.join("/")+"/server/php/files/";GdIl=location.protocol+"//"+location.host+e.join("/")+"/guide/"+"index.html";e.pop();var n=fbta.test(rn.html());if(n!=1){return false}if(isDemo==true){BDLJ=location.protocol+"//"+location.host+e.join("/")+"/demo/"}else{BDLJ=location.protocol+"//"+location.host+e.join("/")+"/html/"}BDLJP=location.protocol+"//"+location.host+e.join("/");if(mLt=="all"){IL=BDLJ+mTm+"/"+mLt+"-inline.html"}else{IL=BDLJ+mTm+"/layout"+mLt+"-inline.html"}hIL=BDLJ+mTm+"/all-inline.html";IImL='"'+BDLJ+mTm+"/images/";IBmL="url("+BDLJ+mTm+"/images/";ImmL=BDLJ+mTm+"/images/"}
 
@@ -71,8 +71,6 @@ function ei(e, templatename){
 	Zn.find(Id).children().unwrap(Id);
 	
 	tCKDM = Zn.html();
-	
-	console.log('tCKDM ',tCKDM)
 	
 	if(authorMode==false){
 		if(pS=="-mc"){
@@ -139,7 +137,7 @@ function ei(e, templatename){
 			return false
 		}
 		
-		$.each(rgbs,function(e){ console.log(33333333333)
+		$.each(rgbs,function(e){
 			Z[e] = Bi(rgbs[e]);
 			
 			var t = rgbs[e].split("(");
@@ -190,9 +188,13 @@ function ei(e, templatename){
 //	res = res.replace(/class~=row/g, "class~=row1");
 // need to solve icon class and img {
 	
-	res = res.replace(/'/g, "&#39;");
-	res = res.replace(/`/g, "&#39;");
-	res = res.replace(/’/g, "&#39;");
+	
+//	res = res.replace(/'/g, "&#39;"); was semi working
+//	res = res.replace(/`/g, "&#39;");
+//	res = res.replace(/’/g, "&#39;");
+//	res = res.replace(/"/g, "'"); // added for the custom templates iframe to work, was semi working
+	
+//	res = res.replace(/&#39;/g, '"');
 	
 	var uid = sessionStorage.getItem('uid');
 
@@ -216,8 +218,8 @@ function ei(e, templatename){
 	e.preventDefault()
 }
 
-function ti(e){ console.log('ti')
-	/*repk=0;
+function ti(e, param){
+	/*repk=0; 
 	if(zhixingfou==undefined){
 		if(location.protocol!=="http:"){
 			Xn.html("<span>*** [ It looks you do not upload the template builder in the right way, pls do not use it in your local pc file system( begin with file:///) ] ***</span>").fadeIn(1e3)
@@ -225,9 +227,9 @@ function ti(e){ console.log('ti')
 			Xn.html("<span>***Do you upload the [ html ] file onto your server? you should upload both [ digith_template_builder ] and [ html ] folder***</span>").css("display","none").fadeIn(1e3)
 		}
 	}
-*/	
+*/
+
 	$.get(e,function(e){
-		
 		
 		var t=jsflay.test(e);
 		if(t!=1){return false}
@@ -246,13 +248,12 @@ function ti(e){ console.log('ti')
 		cr.addClass("active");
 		$n.css({"max-height":"none","border-width":"0px"}).animate({width:"100%",maxHeight:"100%",marginBottom:"0"},400);
 		
-		//777
-		// remove if you want entire template to load on startup
+		if(!param){ // For theme switcher
+			// remove if you want entire template to load on startup
 		CKDM = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro|Raleway:400,700,300" rel="stylesheet" type="text/css"><title>layout3-inline.html-inline</title><style type="text/css">/**Project:Corpo - Responsive Email Template*Version:1.0*Creat:09/05/14*coder:M.Beau*Copyright: Digith Studio*Website: http://themeforest.net/user/digith*//* Client-specific Styles */#outlook a{padding: 0;}.ReadMsgBody{width: 100%;}.ExternalClass{width: 100%;}body{-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;-webkit-font-smoothing: antialiased;}.yshortcuts, .yshortcuts a, .yshortcuts a:link, .yshortcuts a:visited, .yshortcuts a:hover, .yshortcuts a span{text-decoration: none !important;border-bottom: none !important;background: none !important;}.ExternalClass *{line-height: 100%}/*link style*/a{color: #149ff3;text-decoration: none;outline: none;}a:hover{text-decoration: underline !important;}.header a:hover,.button a:hover,.btn a:hover,.footer a:hover,.bottom a:hover,.headerbanner2 a:hover{text-decoration:none !important;}/*startMedia@media only screen and (max-width: 619px){/*endMedia*//*start480MediaNeiStarttable[class~=wrap]{width:100% !important;}table[class~=row]{width:400px !important;}table[class~=row][class~=a],td[class~=headerbanner1-bg] table[class~=row]{width:100% !important;}img[class~=img]{width:100% !important; max-width:100% !important; height:auto !important;}table[class~=col2] table[class~=title-module] td[class~=content][class~=in]{padding-right:0px !important;}table[class~=full-moblie]{float:none !important; margin:0 auto !important; width:400px !important;}table[class~=title-module]{width:100% !important;}table[class~=col2],table[class~=col3],table[class~=col4],table[class~=logo-box],table[class~=menu-box],td[class~=headerbanner1] table[class~=button]{float:none !important; margin:0 auto !important;}table[class~=logo-box]{margin-top:20px !important;}table[class~=col2]{width:100% !important;}table[class~=col2][class~=img-for2]{width:40% !important;}table[class~=col2][class~=a]{width:60% !important;}table[class~=col2][class~=b]{width:60% !important; float:left !important;}table[class~=col2][class~=c]{width:290px !important;}table[class~=col2][class~=d]{width:290px !important;}table[class~=col2][class~=d] td[class~=h3],td[class~=headerbanner1] td{text-align:center !important;}td[class~=banner1] table[class~=img-for2]{margin-bottom:20px !important;}table[class~=col3]{width:100% !important;}table[class~=col3][class~=list],table[class~=col2][class~=list],table[class~=col4][class~=list]{width:100% !important;}td[class~=td-block]{display:block !important; width:100% !important; float:left !important;}td[class~=management-text]{padding:0 20px !important;}td[class=management-text]{padding:0 20px 40px !important;}table[class~=media-left]{float:left !important; width:auto !important;}td[class~=icon-pad-l]{padding-left:21px !important;}table[class~=menu-box] td[class~=content][class~=in]{padding:0 60px !important;}td[class~=headerbanner2] td[class~=content][class~=in]{padding:0px !important;}td[class~=banner6] td[class~=block439]{padding:0 1px !important;}td[class~=media-height-a]{height:40px !important;}td[class~=media-height-b]{height:140px !important;}table[class~=hide],td[class~=hide]{display:none !important;}table[class~=mid20],td[class~=mid20]{margin-bottom:20px !important;}table[class~=mid40]{margin-bottom:40px !important;}td[class~=media-h40]{height:40px !important;}/*MediaNeiEnd*//*startMedia}/*endMedia*//*startMedia@media only screen and (max-width: 439px){/*endMedia*//*start360MediaNeiStarttable[class~=row],table[class~=full-moblie]{width:93% !important;}td[class~=h1],h1[class~=h1]{font-size:32px !important; line-height:38px !important;}td[class~=h1][class~=b]{font-size:36px !important; line-height:42px !important;}table[class~=menu-box] td[class~=content][class~=in]{padding:0 45px !important;}table[class~=col2][class~=img-for2]{width:50% !important;}td[class~=padding19][class~=bottom-module]{padding:15px !important;}td[class~=block439]{display:block !important; float:left !important; padding:0 !important; width:100% !important;}td[class~=block439][class~=a]{margin-bottom:20px !important;}td[class~=banner6] td[class~=block439]{padding:0 !important; width:50% !important; margin:0 !important;}table[class~=hide],td[class~=hide],td[class~=hide439]{display:none !important;}table[class~=mid20],td[class~=mid20]{margin-bottom:20px !important;}table[class~=mid40]{margin-bottom:40px !important;}td[class~=media-h40]{height:40px !important;}/*MediaNeiEnd*//*startMedia}/*endMedia*//*startMedia@media only screen and (max-width: 359px){/*endMedia*//*start320MediaNeiStarttable[class~=menu-box] td[class~=content][class~=in]{padding:0 25px !important;}td[class~=padding19][class~=bottom-module]{padding:10px !important;}table[class~=col2][class~=img-for2]{width:70% !important;}table[class~=col2][class~=a]{width:100% !important;}table[class~=col2][class~=b]{width:100% !important; float:left !important;}td[class~=banner6] img[class~=img][class~=h]{width:130px !important; max-width:130px !important;}td[class~=banner6] td[class~=block439][class~=a],td[class~=block439][class~=a]{margin-bottom:20px !important;}td[class~=banner6] td[class~=block439]{width:100% !important;}table[class~=bottom] td[class~=h2][class~=large]{font-size:26px !important; line-height:26px !important;}td[class~=media-height-b]{height:100px !important;}table[class~=hide],td[class~=hide],td[class~=hide439]{display:none !important;}table[class~=mid20],td[class~=mid20]{margin-bottom:20px !important;}table[class~=mid40]{margin-bottom:40px !important;}td[class~=media-h40]{height:40px !important;}/*MediaNeiEnd*//*startMedia}/*endMedia*/</style></head><body style="margin:0;padding:0;width:100%;height:100%;"><div class="preheader" style="display:none; visibility:hidden; height:0px; font-size:0px; line-height:0px;">Email Newsletter of this month.</div><table width="100%" border="0" cellpadding="0" cellspacing="0" class="BGtable" style="border-collapse: collapse;margin: 0;padding: 0;table-layout: fixed;background-color: #404040;width: 100% !important;height: 100% !important;"> <tbody><tr><td align="center" valign="top" class="BGtable-inner"></td></tr></tbody></table></body></html>';
+		}
 		
-		$n.html("").html(CKDM).css({opacity:"0.3"}).animate({opacity:1},2500);
-	//$n.html("").css({opacity:"0.3"}).animate({opacity:1},2500);
-	
+		$n.html("").html(CKDM).css({opacity:"0.3"}).animate({opacity:1},2500);	
 	
 		Vr();
 		Qr();
@@ -279,23 +280,18 @@ function ti(e){ console.log('ti')
 			ii()
 		} else {zhixingshu=1}
 		
-		
 	})
 	
 }
-function ni(e){ console.log('inside ni')
+function ni(e){
 
 	$.get(e,function(e){var t=jsflay.test(e);if(t!=1){return false}hCKDM=e;
 
 	hCKDM=hCKDM.replace(meta,"");
 	hCKDM=hCKDM.replace(media,"");
 	
-	console.log('bFolderName777 ',bFolderName)
-	
 	if(bFolderName!="digith_template_name"){
-		
 		var n=RegExp(bFolderName,"gi");
-	
 		CKDM=CKDM.replace(n,bFolderName)
 	}
 	hTS=hCKDM.match(YY);
@@ -306,14 +302,14 @@ function ni(e){ console.log('inside ni')
 }
 
 
-function ri(){	console.log('inside ri')
+function ri(){
 	In.click(function(e){
 		
 			if(isDemo==false){
 					mLg=$n.find(Id).length;
 					
 					if(mLg==0){
-							Xn.html("<span>***   You have not choose any modules , please selete modules and add them to your page.   ***</span>").css("display","none").fadeIn(1e3)
+							Xn.html("<span>***   You have not choose any blocks , please select blocks and add them to your page.   ***</span>").css("display","none").fadeIn(1e3)
 					} else { 
 							Xn.html("Ready for download page, Please wait...").css("display","none").fadeIn(1e3);
 							
@@ -330,21 +326,21 @@ function ri(){	console.log('inside ri')
 	})
 } // end of ri
 	
-function ii(){ console.log('inside ii')
+function ii(){
 	if(zhixingshu==1){return false}
 	if(location.protocol!=="http:"){
 		Xn.html("<span>*** [ It looks you do not upload the template builder in the right way, pls do not use it in your local pc file system( begin with file:///) ] ***</span>").fadeIn(1e3)
 	} else if(mLg==undefined){
 		Xn.html("<span>***Do you upload the [ html ] file onto your server? you should upload both [ digith_template_builder ] and [ html ] folder***</span>").css("display","none").fadeIn(1e3)
 	} else {
-		Xn.html("The builder has been upload success. Suggest using webkit browser(e.g chrome, safri...), faster than IE.").fadeIn(1e3)
+		Xn.html("Click on template blocks on the left to create your email template").fadeIn(1e3)
 	}
 	
 	if(navigator.appName=="Microsoft Internet Explorer"&&navigator.appVersion.match(/7./i)=="7."){
 		Xn.html("The template builder have not full tested in IE7/IE8 browser, if has problems, please update your IE browser or use other browsers.").fadeIn(1e3)}zhixingshu=1
 } // end of ii
 		
-function si(){ console.log('inside of si')
+function si(){
 	$(BJ+" a").each(function(e){
 		br[e]=$(this).attr("id");Er=br[0];pi(br[e])
 	});
@@ -413,9 +409,7 @@ function ai(){
 		$("#"+RQz[e]+"Content"+" .item").click(function(){ 
 			var n=$(this).attr("id");
 			colne_M=Jn.find("[rev="+n+"]").clone();
-			
-			
-			
+					
 			var r=$(CK+" "+RQm[e]).find(".this-module").length;
 			if(r!=0){
 				$(colne_M).css({display:"none"});
@@ -432,10 +426,8 @@ function ai(){
 			if(OptS==1){
 				setTimeout(function(){$("#iframe div[rev]").attr("contenteditable","false")},1e3)
 			}
-			Xn.html("module: [ "+n+" ] has been added to the email page.").css("display","none").fadeIn(1e3);
+			Xn.html("Block: [ "+n+" ] has been added to the email page.").css("display","none").fadeIn(1e3);
 			CKDM=$n.html()
-			// 777
-			console.log('CKDM',CKDM)
 		});
 		$("#"+RQz[e]+"Content"+" .item").live("mousemove",function(){
 			$(this).css({opacity:"0.8",border:"olive 1px dotted",padding:"1px","box-shadow":"2px 2px 2px #222"})
@@ -445,7 +437,7 @@ function ai(){
 		})})
 }
 
-function fi(){ console.log('inside fi')
+function fi(){
 /*
 	if(isDarkk==true){
 		Ot.removeClass("active");
@@ -471,7 +463,7 @@ function fi(){ console.log('inside fi')
 		Xn.html("You choosed the light Template Builder Theme.").css("display","none").removeClass("darkk").addClass("lightt").fadeIn(1e3)
 	})
 }
-function li(){ console.log('inside li')
+function li(){
 
 	$n.find(Id).live("mouseenter",function(){
 		var e=$(this).height()/2-20;
@@ -486,12 +478,12 @@ function li(){ console.log('inside li')
 		$(e).css({opacity:0}).animate({opacity:1},200).hide(400);
 		setTimeout(function(){$(e).remove()},600);
 		var t=e.attr("rev");
-		Xn.html("Module [ "+t+" ]  has been deleted......").css("display","none").fadeIn(1e3);
+		Xn.html("Block [ "+t+" ]  has been deleted......").css("display","none").fadeIn(1e3);
 		CKDM=$n.html()
 	});
 	$n.find(clr).live("click",function(){
 		$n.find(Id).remove();
-		Xn.html("<span>All Modules has been deleted, please click left items to add modules to the right position, do not using dragging to the window......</span>").css("display","none").fadeIn(1e3);
+		Xn.html("<span>All blocks have been deleted, please click left items to add blocks to the email page, do not use dragging to the window......</span>").css("display","none").fadeIn(1e3);
 		CKDM=$n.html()
 	});
 	$n.find(dpt).live("click",function(){
@@ -503,12 +495,12 @@ function li(){ console.log('inside li')
 		var n=e.attr("rev");
 		$(e).after(t);
 		$(e).next().css({opacity:0}).animate({opacity:1},300).animate({opacity:0},100).animate({opacity:1},600);
-		Xn.html("Module [ "+n+" ] has been duplicated......").css("display","none").fadeIn(1e3);
+		Xn.html("Block [ "+n+" ] has been duplicated......").css("display","none").fadeIn(1e3);
 		CKDM=$n.html()
 	})
 
 }
-function ci(e){ console.log('inside ci')
+function ci(e){
 	var t=e.item.height();
 	$(".placehold").css({height:t});
 	e.item.css({opacity:0});
@@ -516,22 +508,27 @@ function ci(e){ console.log('inside ci')
 	e.item.animate({opacity:0},100);
 	e.item.animate({opacity:1},600)
 }
-function hi(e){ console.log('hi')
+function hi(e){
 	var t=e.item.height();
 	$(".placehold").css({height:t})
 }
-function pi(e){ console.log('inside pi')
-	$("#"+e).click(function(){Er=e;$("a").removeClass("active_layout");$(this).addClass("active_layout");di(Sr,Er)})
+function pi(e){
+	$("#"+e).click(function(){
+		Er=e;$("a").removeClass("active_layout");
+		$(this).addClass("active_layout");
+		di(Sr,Er)
+	})
 }
-function di(e,t){ console.log('di')
+function di(e,t){
 	IL=BDLJ+e+"/"+t+".html";
 	hIL=BDLJ+e+"/"+"all-inline.html";
-	ti(IL);
+	ti(IL, true);
 	ni(hIL);
 	$n.ready(function(){iframe_height()})
 }
-function vi(e){ console.log('vi')
+function vi(e){
 	$("#"+e).click(function(){
+
 		var e=$(this).attr("id");
 		Sr=e;
 		mTm=e;
@@ -544,14 +541,14 @@ function vi(e){ console.log('vi')
 		IImL='"'+BDLJ+e+"/images/";
 		IBmL="url("+BDLJ+e+"/images/";
 		ImmL=BDLJ+e+"/images/";
-		ti(IL);
+		ti(IL, true);
 		ni(hIL)
 	})
 }
-function mi(e,t){ console.log('inside mi')
+function mi(e,t){
 	$.farbtastic(e).setColor(t.val())
 }
-function gi(e){ console.log('inside gi')
+function gi(e){
 	CKDM=CKDM.replace(imgL,IImL);CKDM=CKDM.replace(imgLb,IBmL);
 	CKDM=CKDM.replace(xr,IPmL);
 	e=Hi(e);
@@ -564,7 +561,7 @@ function gi(e){ console.log('inside gi')
 		var u=s[1];
 		if(i==true){
 			tihuan='<div  rev="'+u+'" contenteditable="true">'+t;
-			tihuan+='<div class="options"><div class="delete" title="Delete the Module">-</div><div class="duplicate" title="Duplicate the Module">+</div><div class="clear" title="If clear all, pls click left items to put modules in the proper position,do not use dragging to the page window.">Clear<br/>All</div></div>'
+			tihuan+='<div class="options"><div class="delete" title="Delete the block">-</div><div class="duplicate" title="Duplicate the block">+</div><div class="clear" title="If clear all, pls click left items to put blocks in the proper position,do not use dragging to the page window.">Clear<br/>All</div></div>'
 		} else {
 			tihuan=t+"\n"+"</div>"
 		}
@@ -572,10 +569,10 @@ function gi(e){ console.log('inside gi')
 	})
 
 }
-function yi(e){ console.log('function yi')
+function yi(e){
 	
 	
-		$.each(e,function(e,t){ console.log('function yi')
+		$.each(e,function(e,t){
 			c=/start/g;
 			d=/end/g;
 			test=c.test(t);
@@ -583,7 +580,7 @@ function yi(e){ console.log('function yi')
 			var r=n[1];
 			if(test==true){
 				tihuan='<div rev="'+r+'" contenteditable="true">'+t;
-				tihuan+='<div class="options"><div class="delete" title="Delete the Module">-</div><div class="duplicate" title="Duplicate the Module">+</div><div class="clear" title="If clear all, pls click left items to put modules in the proper position,do not use dragging to the page window.">Clear<br/>All</div></div>'			}else{
+				tihuan+='<div class="options"><div class="delete" title="Delete the block">-</div><div class="duplicate" title="Duplicate the block">+</div><div class="clear" title="If clear all, pls click left items to put blocks in the proper position,do not use dragging to the page window.">Clear<br/>All</div></div>'			}else{
 					tihuan=t+"\n"+"</div>"
 			}
 				hCKDM=hCKDM.replace(imgL,IImL);
@@ -594,7 +591,6 @@ function yi(e){ console.log('function yi')
 	)}
 			
 function bi(){
-	console.log('inside bi')
 
 	$.each(RQm,function(e){
 			var t=RQm[e];
@@ -610,17 +606,17 @@ function bi(){
 				var a=u.test(o);
 				if(a==1){$(r).addClass("repeater");if(s>0){var f=o.match(u);var l=f[0];var c=l.split('"');var h=RegExp('"'+c[1]+'"',"gi");var p='"'+c[1]+s+'"';var d=o.replace(h,p);$(r).html(d).attr("rev",p)}}}$(tCK+" "+t).append(r);$(this).remove();var v=Zn.html()});if(pS=="-cm"){$(tCK+" "+t+" .repeater").wrapAll("<repeater></repeater>")}})
 }
-function wi(){ console.log('inside wi') 
+function wi(){
 	a=Lt.height()-43+"px";b=Lt.height()-80+"px";c=Lt.height()-37+"px";d=Lt.height()-77+"px";g=Lt.height()-151+"px";ga=Lt.height()-156+"px";gb=Lt.height()-172+"px";h=Lt.width()-361+"px";i=Lt.width()-325+"px";j=Lt.height()-127+"px";k=Lt.height()-80-68-30-30*5+"px";Tr.css({height:gb});$t.css({height:c});Dt.css({maxHeight:c});Gt.css({height:a,"max-height":a});Tn.css({"max-height":d});Tn.find("div").css({"max-height":j});Nn.css({"max-height":ga});Cn.css({"max-height":ga});kn.css({"max-height":ga});Ln.find("div.pattern").css({"max-height":k});Vn.css({width:h,height:b});ir.css({"max-height":b});Pt.css({width:i,height:c});$n.css({height:b})
 }
-function Ei(){ console.log('inside Ei')
+function Ei(){
 	Ht.niceScroll({cursorcolor:"#E62020",zindex:5,cursoropacitymax:1,touchbehavior:false,cursorwidth:"6px",cursorborder:"0",cursorborderradius:"0px",railalign:"left",railpadding:{top:0,right:0,left:0,bottom:0},hidecursordelay:400});$n.niceScroll({cursorcolor:"#E62020",zindex:6,cursoropacitymax:1,cursoropacitymin:.4,touchbehavior:false,cursorwidth:"6px",cursorborder:"0",cursorborderradius:"6px",spacebarenabled:false,railalign:"right",railpadding:{top:0,right:0,left:0,bottom:0},hidecursordelay:400})
 }
-function Si(){ console.log('inside Si')
+function Si(){
 	Kt.css({display:"none"}).hide();
-	Qt.show()
+	Gt.show()
 }
-function xi(){ console.log('inside xi')
+function xi(){
 
 	var e="<ul>";
 	$.each(ZTZ,function(t,n){
@@ -647,7 +643,10 @@ function xi(){ console.log('inside xi')
 	t+="</ul>";
 	qn.html(t)
 }
-function Ti(){$.each(BuFen,function(e,t){XZH+='<ul id="'+e+'"><li class="menu-list'+'">';$.each(t,function(t,n){XZH+=t+"</li></ul>"+'<div id="'+e+'Content"><ul>';$.each(n,function(e,t){var n="";$.each(Itm,function(e,r){if(e==t){n=r;return false}});XZH+='<li class="item" id="'+t+'"><img src="images/buju/'+t+'.jpg" title="'+n+'"></li>'});XZH+="</ul></div>"})});Tn.append(XZH);Fn.fadeIn(3e3).css("display","inline-block")}function Ni(){var e=false;if(myItem==""){er.html('<a id="template-list" class="noc" href="http://themeforest.net/user/digith/portfolio?ref=digith">See All My Email Templates with Builder</a>')}else{er.html(myItem).find("#template-list").click(function(){if(e==true){$(this).removeClass("highlighted");$("#container").slideUp(200);e=false}else{$(this).addClass("highlighted");$("#container").slideDown(200);e=true}return false})}$thisshi=Vt.attr("rev");$("#container").each(function(){var e=$(this).find("a").attr("rel");if(e==$thisshi){$theme_lk=$(this).find("a").attr("goumai");lr.attr("href",$theme_lk);return false}})}function Ci(){Tn.accordion({heightStyle:"content"});Nn.accordion({heightStyle:"content"});Cn.accordion({heightStyle:"content"});kn.accordion({heightStyle:"content"});Ln.accordion({heightStyle:"content"});An.accordion({heightStyle:"content"});On.accordion({heightStyle:"content"});Dn.accordion({heightStyle:"content"});Hn.accordion({heightStyle:"content"});Bn.accordion({heightStyle:"content"})}function ki(){mn.click(function(){Mn.find(".accordion").slideUp(200);Nn.slideDown(500)});gn.click(function(){Mn.find(".accordion").slideUp(200);Cn.slideDown(500)});yn.click(function(){Mn.find(".accordion").slideUp(200);kn.slideDown(500)})}function Li(){bn.click(function(){_n.find(".accordion").slideUp(200);An.slideDown(500)});wn.click(function(){_n.find(".accordion").slideUp(200);Ln.slideDown(500)});En.click(function(){_n.find(".accordion").slideUp(200);On.slideDown(500)})}function Ai(){Mr.click(function(){Pn.find(".accordion").slideUp(200);Hn.slideDown(500)});_r.click(function(){Pn.find(".accordion").slideUp(200);Bn.slideDown(500)})}function Oi(){$(".pattern").append(cPattern);$("li.patternItem").fadeIn(3e3).css("display","inline-block")}function Mi(){qt.click(function(){Ft.removeClass("active");$(this).addClass("active");Jt.hide();Gt.slideDown();Xn.html("Please choose modules which you like, you can click/drag, and you can delete/duplicate/darg in the page window directly.").css("display","none").fadeIn(1e3)});It.click(function(){Ft.removeClass("active");$(this).addClass("active");Jt.hide();Qt.slideDown();Xn.html("Please choose the Prebuild Themes and Layouts, then you can edit modules,color scheme,bg and contents.").css("display","none").fadeIn(1e3)});Rt.click(function(){Ft.removeClass("active");$(this).addClass("active");Jt.hide();Mn.find(".accordion").hide();Nn.show();Yt.slideDown();Xn.html('Please edit the color scheme, you can pick / input / copy / paste the color value, do not forget the "#".').css("display","none").fadeIn(1e3)});Ut.click(function(){Ft.removeClass("active");$(this).addClass("active");Jt.hide();_n.find(".accordion").hide();Ln.show();Zt.slideDown();Xn.html("Please edit the BG textures & Bg images & border height & border radius value.").css("display","none").fadeIn(1e3)});zt.click(function(){Ft.removeClass("active");$(this).addClass("active");Jt.hide();en.slideDown();Xn.html("Please input the preheader text and choose which version you want , and then you can download the email page.").css("display","none").fadeIn(1e3)});Wt.click(function(){Ft.removeClass("active");$(this).addClass("active");Jt.hide();tn.slideDown();Xn.html("Copyright info. Many thanks!").css("display","none").fadeIn(1e3)});Xt.click(function(){Ft.removeClass("active");$(this).addClass("active");Jt.hide();nn.slideDown();Xn.html("Please see the guide to learn how to use digith_template_builder.").css("display","none").fadeIn(1e3)});Nr.click(function(){Ft.removeClass("active");$(this).addClass("active");Jt.hide();Pn.find(".accordion").hide();Hn.show();Or.slideDown();Xn.html("Please see the guide to learn how to use digith_template_builder.").css("display","none").fadeIn(1e3)})}function _i(){if(isRadius==false&&isBG==false){Ut.hide()}if(isDemo==true){ln.show()}else{ln.hide()}if(isBG==false){Un.hide()}else{Un.show()}if(isRadius==false){zn.hide()}else{zn.show()}}function Di(){pn.click(function(){Wn.removeClass("active");$(this).addClass("active");pS="-inline";pC="inline CSS version";Xn.html("You choose default inline CSS version...").css("display","none").fadeIn(1e3);return false});dn.click(function(){Wn.removeClass("active");$(this).addClass("active");pS="-mc";pC="Mailchimp version";Xn.html('You choose mailchimp tags integrated version and page tile will set to "*|MC:SUBJECT|*"...').css("display","none").fadeIn(1e3);return false});vn.click(function(){Wn.removeClass("active");$(this).addClass("active");pS="-cm";pC="CampaignMonitor version";Xn.html("You choose campaignMonitor tags integrated version...").css("display","none").fadeIn(1e3);return false})}function Pi(){$(document).tooltip({position:{predelay:0,my:"center top+5",at:"center bottom",effect:"toggle",opacity:.3,using:function(e,t){$(this).css(e);$("<div>").addClass(t.vertical).addClass(t.horizontal).appendTo(this)}}})}
+function Ti(){$.each(BuFen,function(e,t){XZH+='<ul id="'+e+'"><li class="menu-list'+'">';
+	$.each(t,function(t,n){
+		if(t == "Main Modules"){ t = "Main Blocks"; }
+		XZH+=t+"</li></ul>"+'<div id="'+e+'Content"><ul>';$.each(n,function(e,t){var n="";$.each(Itm,function(e,r){if(e==t){n=r;return false}});XZH+='<li class="item" id="'+t+'"><img src="images/buju/'+t+'.jpg" title="'+n+'"></li>'});XZH+="</ul></div>"})});Tn.append(XZH);Fn.fadeIn(3e3).css("display","inline-block")}function Ni(){var e=false;if(myItem==""){er.html('<a id="template-list" class="noc" href="http://themeforest.net/user/digith/portfolio?ref=digith">See All My Email Templates with Builder</a>')}else{er.html(myItem).find("#template-list").click(function(){if(e==true){$(this).removeClass("highlighted");$("#container").slideUp(200);e=false}else{$(this).addClass("highlighted");$("#container").slideDown(200);e=true}return false})}$thisshi=Vt.attr("rev");$("#container").each(function(){var e=$(this).find("a").attr("rel");if(e==$thisshi){$theme_lk=$(this).find("a").attr("goumai");lr.attr("href",$theme_lk);return false}})}function Ci(){Tn.accordion({heightStyle:"content"});Nn.accordion({heightStyle:"content"});Cn.accordion({heightStyle:"content"});kn.accordion({heightStyle:"content"});Ln.accordion({heightStyle:"content"});An.accordion({heightStyle:"content"});On.accordion({heightStyle:"content"});Dn.accordion({heightStyle:"content"});Hn.accordion({heightStyle:"content"});Bn.accordion({heightStyle:"content"})}function ki(){mn.click(function(){Mn.find(".accordion").slideUp(200);Nn.slideDown(500)});gn.click(function(){Mn.find(".accordion").slideUp(200);Cn.slideDown(500)});yn.click(function(){Mn.find(".accordion").slideUp(200);kn.slideDown(500)})}function Li(){bn.click(function(){_n.find(".accordion").slideUp(200);An.slideDown(500)});wn.click(function(){_n.find(".accordion").slideUp(200);Ln.slideDown(500)});En.click(function(){_n.find(".accordion").slideUp(200);On.slideDown(500)})}function Ai(){Mr.click(function(){Pn.find(".accordion").slideUp(200);Hn.slideDown(500)});_r.click(function(){Pn.find(".accordion").slideUp(200);Bn.slideDown(500)})}function Oi(){$(".pattern").append(cPattern);$("li.patternItem").fadeIn(3e3).css("display","inline-block")}function Mi(){qt.click(function(){Ft.removeClass("active");$(this).addClass("active");Jt.hide();Gt.slideDown();Xn.html("Please choose blocks which you like, you can click/drag, and you can delete/duplicate/darg in the page window directly.").css("display","none").fadeIn(1e3)});It.click(function(){Ft.removeClass("active");$(this).addClass("active");Jt.hide();Qt.slideDown();Xn.html("Please choose the Prebuild Themes and Layouts, then you can edit blocks,color scheme,bg and contents.").css("display","none").fadeIn(1e3)});Rt.click(function(){Ft.removeClass("active");$(this).addClass("active");Jt.hide();Mn.find(".accordion").hide();Nn.show();Yt.slideDown();Xn.html('Please edit the color scheme, you can pick / input / copy / paste the color value, do not forget the "#".').css("display","none").fadeIn(1e3)});Ut.click(function(){Ft.removeClass("active");$(this).addClass("active");Jt.hide();_n.find(".accordion").hide();Ln.show();Zt.slideDown();Xn.html("Please edit the BG textures & Bg images & border height & border radius value.").css("display","none").fadeIn(1e3)});zt.click(function(){Ft.removeClass("active");$(this).addClass("active");Jt.hide();en.slideDown();Xn.html("Please input the preheader text and choose which version you want , and then you can download the email page.").css("display","none").fadeIn(1e3)});Wt.click(function(){Ft.removeClass("active");$(this).addClass("active");Jt.hide();tn.slideDown();Xn.html("Copyright info. Many thanks!").css("display","none").fadeIn(1e3)});Xt.click(function(){Ft.removeClass("active");$(this).addClass("active");Jt.hide();nn.slideDown();Xn.html("Please see the guide to learn how to use digith_template_builder.").css("display","none").fadeIn(1e3)});Nr.click(function(){Ft.removeClass("active");$(this).addClass("active");Jt.hide();Pn.find(".accordion").hide();Hn.show();Or.slideDown();Xn.html("Please see the guide to learn how to use digith_template_builder.").css("display","none").fadeIn(1e3)})}function _i(){if(isRadius==false&&isBG==false){Ut.hide()}if(isDemo==true){ln.show()}else{ln.hide()}if(isBG==false){Un.hide()}else{Un.show()}if(isRadius==false){zn.hide()}else{zn.show()}}function Di(){pn.click(function(){Wn.removeClass("active");$(this).addClass("active");pS="-inline";pC="inline CSS version";Xn.html("You choose default inline CSS version...").css("display","none").fadeIn(1e3);return false});dn.click(function(){Wn.removeClass("active");$(this).addClass("active");pS="-mc";pC="Mailchimp version";Xn.html('You choose mailchimp tags integrated version and page tile will set to "*|MC:SUBJECT|*"...').css("display","none").fadeIn(1e3);return false});vn.click(function(){Wn.removeClass("active");$(this).addClass("active");pS="-cm";pC="CampaignMonitor version";Xn.html("You choose campaignMonitor tags integrated version...").css("display","none").fadeIn(1e3);return false})}function Pi(){$(document).tooltip({position:{predelay:0,my:"center top+5",at:"center bottom",effect:"toggle",opacity:.3,using:function(e,t){$(this).css(e);$("<div>").addClass(t.vertical).addClass(t.horizontal).appendTo(this)}}})}
 function Hi(e){
 	var t=[];
 	var n;
@@ -661,10 +660,10 @@ function Hi(e){
 	
 		return t
 }
-function Bi(e){ console.log('Bi')
+function Bi(e){
 	e=e.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);return"#"+("0"+parseInt(e[1],10).toString(16)).slice(-2)+("0"+parseInt(e[2],10).toString(16)).slice(-2)+("0"+parseInt(e[3],10).toString(16)).slice(-2)
 }
-function ji(e){ console.log('function ji')
+function ji(e){
 	var t=[{width:100,height:50,padding:10,stepsPerFrame:2,trailLength:1,pointDistance:.03,strokeColor:"#E6E8FA",step:"fader",multiplier:2,setup:function(){this._.lineWidth=5},path:[["arc",10,10,10,-270,-90],["bezier",10,0,40,20,20,0,30,20],["arc",40,10,10,90,-90],["bezier",40,0,10,20,30,0,20,20]]}];
 								
 	var n,r,i=document.getElementById("mask2");
@@ -681,7 +680,6 @@ function ji(e){ console.log('function ji')
 							
 }
 function Fi(){
-					console.log('inside Fi')
 	if(navigator.appName=="Microsoft Internet Explorer"&&navigator.appVersion.match(/7./i)=="7."){Yn.css({display:"inline-block"}).show()}else if(navigator.appName=="Microsoft Internet Explorer"&&navigator.appVersion.match(/8./i)=="8."){
 		Yn.css({display:"inline-block"}).show()
 	} else {
@@ -689,7 +687,7 @@ function Fi(){
 		$("#barrPurchase,#template").css({display:"inline-block"}).show()
 	}
 				
-	cr.click(function(){ console.log('cr function')
+	cr.click(function(){
 		if(repk==0){return false}
 		$n.css({"max-height":"none","border-width":"0px"}).animate({width:"100%",maxHeight:"100%",marginBottom:"0"},400);
 		Qn.removeClass("active");
@@ -699,7 +697,7 @@ function Fi(){
 		$(CK+" style").html(e);
 		Xn.html("Normal PC, width 100% to show the Email, if edit content mode do not show toolbar, <span>clik Edit Content button</span>.").fadeIn(1e3);Qr();return false
 	});
-	dr.click(function(){ console.log('inside dr function')
+	dr.click(function(){
 		if(repk==0){return false}
 		$n.css({"border-width":"0px"}).animate({width:"320px",maxHeight:"100%",marginBottom:"0"},400);Qn.removeClass("active");$(this).addClass("active");isMedia="m320";var e=$(CK+" style").html().replace(hMediaNeiStart,"MediaNeiStart");e=e.replace(S640,hS640).replace(S480,hS480).replace(S360,hS360).replace(S320,hS320);$(CK+" style").html(e);Xn.html("Device: Mobile Phone, width 320px to show the Email, if edit content mode do not show toolbar, <span>clik Edit Content button</span>.").fadeIn(1e3);Qr();return false
 	});

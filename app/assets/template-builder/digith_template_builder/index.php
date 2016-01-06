@@ -38,72 +38,22 @@
 		<![endif]-->
 </head>
 <body id="builder" class="lightt">
-
-<!--
-<div id="mask1">
-  <div id="guideInner">
-  	<div id="cancelTabs">Close Guide</div>
-    <div id="tabs">
-      <ul>
-          <li rel="info"><a href="#tabs-1" title="click to enlage the image">- Welcome</a></li>
-          <li rel="install"><a href="ajax/info.html">- Template Info</a></li>
-          <li rel="install"><a href="ajax/installation.html">Installation</a></li>
-          <li rel="function"><a href="ajax/function.html">All functions</a></li>
-          <li rel="layout"><a href="ajax/layout.html">Prebuild Layouts</a></li>
-          <li rel="choose module"><a href="ajax/module.html">Choose Modules</a></li>
-          <li rel="color"><a href="ajax/color.html">Color Setting</a></li>
-          <li rel="bg"><a href="ajax/bg.html">BG/Radius/Divider</a></li>
-          <li rel="gAPI"><a href="ajax/googlefonts.html">Googel Fonts</a></li>
-          <li rel="download"><a href="ajax/download.html">Export the Page</a></li>
-          <li rel="copyright"><a href="ajax/copyright.html">Copyright</a></li>
-          <li rel="guide"><a href="ajax/guide.html">Guide</a></li>
-          <li rel="myitem"><a href="ajax/myitem.html">All Email Templates</a></li>
-          <li rel="responsive"><a href="ajax/responsive.html">Responsive Effect</a></li>
-          <li rel="operate"><a href="ajax/editlayout.html">Edit Layout</a></li>
-          <li rel="operate"><a href="ajax/editcontent.html">Edit Content</a></li>
-          <li rel="operate"><a href="ajax/project.html">Project Manage</a></li>
-          <li rel="theme"><a href="ajax/theme.html">Builder Theme</a></li>
-          <li rel="file"><a href="ajax/file.html">- File Structure</a></li>
-          <li rel="psd"><a href="ajax/psd.html">- PSD Files</a></li>
-          <li rel="three"><a href="ajax/three.html">3rd Mail service</a></li>
-          <li rel="credit"><a href="ajax/credit.html">Sources/Credits</a></li>
-          <li rel="import"><a href="ajax/import.html">Import Things</a></li>
-          <li rel="faq"><a href="ajax/timelight.html">FAQ</a></li>
-      </ul>
-      <div id="tabs-1">
-          <h2>Template builder updated to version 3!</h2>
-          <h3>- Google font API changing function added!</h3>
-          <img src="ajax/images/input-api.jpg" style="display:inline">
-          <img src="ajax/images/gont-style.jpg" style="display:inline">
-
-      </div>
-  </div>
-  </div>
-</div>
--->
 <div id="mask2"></div>
 
 <div id="top-barr">
   <div id="top-bar-box">
-    <ul>
-    <!--  <li id="barrLogo" class="menuu"></li> -->
-      <li id="barrSwithcher" class="menuu active" title="Theme Swithcher"></li>
-      <li id="choose-module" class="menuu" title="Choose Module"></li>
+    <ul><li style="height:50px;"><a href="../../../templates.php" style="position:relative;top:15px;padding-left:5px;color:white;">Go Back</a></li>
+    <li id="choose-module" class="menuu active" title="Choose Block"></li>
+      <li id="barrSwithcher" class="menuu" title="Theme Switcher"></li>
       <li id="setting-color" class="menuu" title="Setting Color"></li>
       <li id="barrBgChang" class="menuu" title="Change BG & Radius"></li>
       <li id="barrGoogleAPI" class="menuu" title="Change Google Fonts & Style"></li>
-   <!--   <li id="barrDownload" class="menuu" title="Save Template"></li>
-       <li id="" class="menuu" title="Save Template"></li>
-      <li id="barrGuide" class="menuu" title="See the Guide"></li>
-     <li id="barrCopyRight" class="menuu" title="Copyright"></li> -->
     </ul>
   </div>
 </div>
 
 <div id="gongNeng">
-  
- <!-- <div id="projectVersion" rev="Corpo" class="dividerr">Corpo Responsive Email Template</div> -->
-  
+    
   <div id="gongNengBox">
     
     <div id="switcher_box" class="gnn">
@@ -119,12 +69,12 @@
           <li class="menu-list ui-state-default">Theme Switcher</li>
         </ul>
         <div id="theme_switcher" class="gnn_content"></div>
-      </div>
+      </div>-->
     </div>
     
     <div id="choose-module-box" class="gnn">
       <ul>
-        <li class="small-title build-color-bg"><span></span>Choose Modules-by Click/Drag</li>
+        <li class="small-title build-color-bg"><span></span>Choose Blocks-by Click/Drag</li>
       </ul>
       <div id="accordion-module" class="accordion"></div>
     </div>
@@ -225,12 +175,7 @@
 <ul><li class="menu-list">	Banner3 BG Image URL	</li></ul><div class="in"><form  action="" style="margin:0 !important; padding:0 !important; border:0;"><div><input type="text" id=	"BG7"	 name=	"BG7"	 title="Input Background Image Url which you like, delete the url will delete the BG img." /></div><a href="#" id=	"ChangeBGnow7"	 class="ChangeBGnow">Change</a></form></div>
 <ul><li class="menu-list">	Banner4 BG Image URL	</li></ul><div class="in"><form  action="" style="margin:0 !important; padding:0 !important; border:0;"><div><input type="text" id=	"BG8"	 name=	"BG8"	 title="Input Background Image Url which you like, delete the url will delete the BG img." /></div><a href="#" id=	"ChangeBGnow8"	 class="ChangeBGnow">Change</a></form></div>
 <ul><li class="menu-list">	Banner5 BG Image URL	</li></ul><div class="in"><form  action="" style="margin:0 !important; padding:0 !important; border:0;"><div><input type="text" id=	"BG9"	 name=	"BG9"	 title="Input Background Image Url which you like, delete the url will delete the BG img." /></div><a href="#" id=	"ChangeBGnow9"	 class="ChangeBGnow">Change</a></form></div>
-<!--<ul><li class="menu-list">	pie-chart6 BG Image	</li></ul><div class="in"><form  action="" style="margin:0 !important; padding:0 !important; border:0;"><div><input type="text" id=	"BG10"	 name=	"BG10"	 title="Input Background Image Url which you like, delete the url will delete the BG img." /></div><a href="#" id=	"ChangeBGnow10"	 class="ChangeBGnow">Change</a></form></div>
-<ul><li class="menu-list">	pie-chart7 BG Image	</li></ul><div class="in"><form  action="" style="margin:0 !important; padding:0 !important; border:0;"><div><input type="text" id=	"BG11"	 name=	"BG11"	 title="Input Background Image Url which you like, delete the url will delete the BG img." /></div><a href="#" id=	"ChangeBGnow11"	 class="ChangeBGnow">Change</a></form></div>
-<ul><li class="menu-list">	pie-chart8 BG Image	</li></ul><div class="in"><form  action="" style="margin:0 !important; padding:0 !important; border:0;"><div><input type="text" id=	"BG12"	 name=	"BG12"	 title="Input Background Image Url which you like, delete the url will delete the BG img." /></div><a href="#" id=	"ChangeBGnow12"	 class="ChangeBGnow">Change</a></form></div>
 
-          
-           end_BG_url_accordion--------------------------------------->
           </div>
           <ul id="border-setting">
             <li class="small-title build-color-bg" id="radiusC"><span></span>Value ( font / raduis / height...)</li>
@@ -387,20 +332,6 @@
         <div id="twitterB"><a href="http://twitter.com/digithcom" target="_blank"><img src="images/twitter.png" width="194" height="39" alt="twitter"></a></div>
       </div>
     </div>
-   <!-- 
-    <div id="guide-box" class="gnn">
-      <div id="guideA">
-        <div id="guideAtitle" class="gnn_content">
-          <h2>See the guide?</h2>
-        <p>You can <strong>see the guide</strong> to learn how to use the digith template builder or <strong>operate the template builder directly</strong>.</p></div>
-        <div id="seeGuide">Guide Now</div>
-        <div id="builderNote" class="gnn_content">
-          <p><strong>Note:</strong> Please upload both<br/>
-          [ digith_template_builder ]<br/>and [ html ] folder into web server.</p><p class="newItem">Builder does not support IE6 / IE7 / IE8.</p>
-        </div>
-        <div id="guideInfo" class="gnn_content"></div>
-      </div>
-    </div>-->
     
   </div>
   
@@ -414,13 +345,11 @@
       <ul>
         <li id="barrPurchase">
           <ol>
-        <!--    <li id="purchase"><a href="#" target="_blank">Purchase</a></li> -->
             <li id="lightt" class="active"></li>
             <li id="darkk"></li>
             <li id="chooseTheme">Builder Theme</li>
           </ol>
         </li>
-     <!--   <li id="template"></li> -->
         <li id="show-device">
             <ol id="device-list">
                 <li class="title">Device Width</li>
@@ -446,8 +375,6 @@
         <div id="editContentButton" class="shadoww1" title="Edit the content and images, can not Delete / Duplicate Module in page window directly, but can click the module item to add module.">Content</div>
       </div>
       <div id="editProject">
-      <!--	<div id="projectTitle" class="shadoww1">Project Manage</div>
-        <div id="uploadProject" class="shadoww1" title="Load Project to the window, reuse and edit.">Load</div> -->
         <div id="saveProject" class="shadoww1" title="Save this template to your default templates.">Save Template</div>
         <div id="uploadFilebox">
           <div id="upload">
@@ -493,24 +420,23 @@
           <div id="temp-iframe"></div>
       </div>
   </div>
-</div><!---->
+</div>
 
-		<script src="js/jquery-1.7.1.min.js"></script>
-        <script src="js/jquery-ui-1.10.4.custom.js"></script>
-        <script src="ckeditor/ckeditor.js"></script>
-        <script src="ckeditor/adapters/jquery.js"></script>
-        <script src="js/sonic.js"></script><!---->
-        <script src="js/gongneng.js"></script>
-        <script src="js/pattern.js"></script>
-        <script src="js/main.js"></script>
-        <script src="js/farbtastic.js"></script>
-        <script src="js/jquery.nicescroll.min.js"></script>
-		<script src="js/jquery.ui.widget.js"></script>
-		<script src="js/jquery.iframe-transport.js"></script>
-		<script src="js/jquery.knob.js"></script>
-		<script src="js/jquery.fileupload.js"></script>
-    	<script src="js/digith.js"></script>
-	
+<script src="js/jquery-1.7.1.min.js"></script>
+<script src="js/jquery-ui-1.10.4.custom.js"></script>
+<script src="ckeditor/ckeditor.js"></script>
+<script src="ckeditor/adapters/jquery.js"></script>
+<script src="js/sonic.js"></script>
+<script src="js/gongneng.js"></script>
+<script src="js/pattern.js"></script>
+<script src="js/main.js"></script>
+<script src="js/farbtastic.js"></script>
+<script src="js/jquery.nicescroll.min.js"></script>
+<script src="js/jquery.ui.widget.js"></script>
+<script src="js/jquery.iframe-transport.js"></script>
+<script src="js/jquery.knob.js"></script>
+<script src="js/jquery.fileupload.js"></script>
+<script src="js/digith.js"></script>
 
 </body>
 </html>
