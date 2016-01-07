@@ -13,15 +13,6 @@ var App = function () {
 		$("#step2").removeClass("sf-active");
 		$("#step3").removeClass("sf-active");
 		
-		/*
-		$("#step2").hover(function(){
-		    $(this).toggleClass("sf-active");
-		});
-		
-		$("#step3").hover(function(){
-		    $(this).toggleClass("sf-active");
-		});
-		*/
 	}
 	 
 	var handleTemplateBuilder = function () {
@@ -1195,7 +1186,7 @@ console.log(dataArrayFinal)
         });
     }
 	
-	var first = 0;
+    var first = 0;
     var handleFormWizards = function () {
         if (!jQuery().bootstrapWizard) {
             return;
@@ -1241,13 +1232,6 @@ console.log(dataArrayFinal)
 							first = 1;
 							$("#createTemplateBtn").css("display", "none");
 							$("#step2").addClass("sf-active");
-							/*
-							$('#step3').hover(function(){
-							    $(this).toggleClass("sf-active");
-							});
-							*/
-
-
 
 							$.ajax({
 								  type: 'POST',
@@ -1267,7 +1251,6 @@ console.log(dataArrayFinal)
 										$('#form_wizard_1').find('.next-btn').fadeIn('slow');
 								  },
 							});
-						   
 						   
 							$.getScript( "assets/ck-editor/ckeditor.js", function( data, textStatus, jqxhr ) {
 							
@@ -1373,80 +1356,100 @@ console.log(dataArrayFinal)
         });
         $('#form_wizard_1').find('.button-previous').hide();
         $('#form_wizard_1 .button-submit').click(function () {
-			  
-			var progressTimer, progressLabel = $( ".progress-label" ), progressbar = $( "#progressbar" );
-			
-			$('.overlay').fadeIn('slow');
-			$('#dialog').addClass('in');
-			
-			function openmodal() { 
-					
-					progressTimer = setTimeout( progress, 2000 );
-			  
-			}			
-		
-			var emailprogressbar = $('div#email-bar');
-			
-			function progress() {
-			
-			 		var val = parseInt(emailprogressbar.css('width')) || 0;
-			 
-			 
-				    if ( val <= 99 ) { 
-							progressTimer = setTimeout( progress, 50 );
-					
-							var width = val + Math.floor( Math.random() * 3 );
+		   
+		   var error = false;
+		   var jData = {};
+		   jData.listId = $('#lists').val();
+		   jData.subject = $('#subject').val();
+		   jData.fromName = $('#from-name').val();
+		   jData.fromEmail = $('#from-email').val();
+		   jData.replyTo = $('#replyto').val();
+		   
+		   if(jData.listId === ""){
+				error = true;
+		   }
+		   if(jData.subject === ""){
+			     $("#subjectField").addClass("error");
+				error = true;   
+		   }
+		   if(jData.fromName === ""){
+			     $("#fromName").addClass("error");
+				error = true;   
+		   }
+		   if(jData.fromEmail === ""){
+			     $("#fromEmail").addClass("error");
+				error = true;   
+		   }
+		   if(jData.replyTo === ""){
+			     $("#replyEmail").addClass("error");
+				error = true;   
+		   }
 				
-							progressLabel.html("Current Progress: " + width + "%");
+		   if(error === false){
+			  
+				var progressTimer, progressLabel = $( ".progress-label" ), progressbar = $( "#progressbar" );
+				
+				$('.overlay').fadeIn('slow');
+				$('#dialog').addClass('in');
+				
+				function openmodal() { 
+						
+						progressTimer = setTimeout( progress, 2000 );
+				  
+				}			
+			
+				var emailprogressbar = $('div#email-bar');
+				
+				function progress() {
+				
+						var val = parseInt(emailprogressbar.css('width')) || 0;
+				 
+				 
+					    if ( val <= 99 ) { 
+								progressTimer = setTimeout( progress, 50 );
+						
+								var width = val + Math.floor( Math.random() * 3 );
 					
-				  }
-				  
-				  if ( val >= 100 ){
-					  progressLabel.html( "Complete!" );
-					  emailprogressbar.width('100%');
-					  callback();
-				  }
-				  
-				  
-				  emailprogressbar.width(width+'%');
-			}
-
-			$('#email-bar-close').click(function () {	
-				window.location = 'reports.php';
-			})
+								progressLabel.html("Current Progress: " + width + "%");
+						
+					  }
+					  
+					  if ( val >= 100 ){
+						  progressLabel.html( "Complete!" );
+						  emailprogressbar.width('100%');
+						  callback();
+					  }
+					  
+					  emailprogressbar.width(width+'%');
+				}
 	
-			function callback(){
-					console.log('FINISHED')
-			}
-			
-			var jData = {};
-			jData.listId = $('#lists').val();
-			jData.subject = $('#subject').val();
-			jData.fromName = $('#from-name').val();
-			jData.fromEmail = $('#from-email').val();
-			jData.replyTo = $('#replyto').val();
-        
-			
-					$.ajax({
-						  type: 'POST',
-						  url: 'send.php',
-						  async: true,
-						  data: jData,
-						  beforeSend: function() { 
-	
-							openmodal();
-						  },
-						  error: function(error) {
-							console.log('error', error)
-						  },
-						  dataType: 'json',
-						  success: function(data) { 
-						  
-							console.log('success')
-							 
-						  },
-				   });
-				   
+				$('#email-bar-close').click(function () {	
+					window.location = 'reports.php';
+				})
+		
+				function callback(){
+						console.log('FINISHED')
+				}
+				
+				$.ajax({
+					  type: 'POST',
+					  url: 'send.php',
+					  async: true,
+					  data: jData,
+					  beforeSend: function() {
+						openmodal();
+					  },
+					  error: function(error) {
+						console.log('error', error)
+					  },
+					  dataType: 'json',
+					  success: function(data) { 
+					  
+						console.log('success data ',data)
+						 
+					  },
+			   });
+		   }				   
 			
         }).hide();
     }

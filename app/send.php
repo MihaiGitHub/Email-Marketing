@@ -11,6 +11,13 @@ include 'include/dbconnect.php';
 $_SESSION['c_id'] = uniqid('C',true);
 $_SESSION['listid'] = $_POST['listId'];
 
+echo '<pre>';
+print_r($_POST);
+echo '</pre>';
+
+// Server side check for form inputs
+if($_POST['listId'] != "" && $_POST['subject'] != "" && $_POST['fromName'] != "" && $_POST['fromEmail'] != "" && $_POST['replyTo'] != ""){
+
 // Load the correct template
 $tstmt = $conn->prepare('SELECT value FROM template_fields WHERE user_id = :u_id AND template_id = :t_id');
 $tstmt->execute(array('u_id' => $_SESSION['id'], 't_id' => $_SESSION['templateid']));
@@ -112,4 +119,7 @@ if($count > 0){
 	//	exit;	
 			
 } // end if count is greater than 0
+} else {
+	echo 'failed';	
+}
 ?>
