@@ -39,24 +39,97 @@ $row = $stmt->fetch();
 				<div id="page" class="dashboard">
                     <!-- BEGIN OVERVIEW STATISTIC BLOCKS-->
                     <div class="row-fluid circle-state-overview">
-                    
-               <div class="span12">
-                  <div class="widget">
+                 
+			  
+			  
+			  
+			   <!-- BEGIN ADVANCED TABLE widget-->
+            
+                <div class="span12">
+               
+                    <!-- BEGIN EXAMPLE TABLE widget-->
+                    <div class="widget">
                         <div class="widget-title">
-                           <h4><i class="icon-edit"></i>Account Summary</h4>
-                                              
+                            <h4><i class="icon-user"></i> Account Information</h4>
+                           
                         </div>
                         <div class="widget-body">
+                            <div class="portlet-body">
+                                
+                               <!--BEGIN TABS-->
+                                 <div class="tabbable tabbable-custom">
+                                    <ul class="nav nav-tabs">
+                                       <li class="active"><a href="#overview" data-toggle="tab">Overview</a></li>
+                                       <li><a href="#settings" data-toggle="tab">Settings</a></li>
+                                       <li><a href="#billing" data-toggle="tab">Billing</a></li>
+                                    </ul>
+                                    <div class="tab-content">
+                                       <div class="tab-pane active" id="overview">
+									
+									
+									
+									
+									
+					<h2>Free Plan</h2>
+                                
+                         <h4 style="margin-top:25px;">Sends 135 of 500</h4>
+					
+						 
+					 <div style="margin-bottom:50px;" class="progress progress-striped active">
+						<div style="width: 20%;" class="bar"></div>
+					 </div>
+                                
+                            
+									
+									
+<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+	<input type="hidden" name="cmd" value="_s-xclick">
+	<input type="hidden" name="hosted_button_id" value="RMJATPW2E8EGY">
+	<table>
+		<tr>
+			<td>
+				<input type="hidden" name="on0" value="Upgrade">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<select name="os0">
+					<option value="5 Email Credits">5 Email Credits $5.00 USD</option>
+					<option value="10 Email Credits">10 Email Credits $10.00 USD</option>
+				</select> 
+			</td>
+		</tr>
+	</table>
+	<input type="hidden" name="currency_code" value="USD">
+	<input type="submit" value="Upgrade" name="submit" title="PayPal - The safer, easier way to pay online!" class="paypal_btn">
+	<!--<input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">-->
+	<img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>				
+									
+									
+									
+									
+									
+									
+								</div>
+								<div class="tab-pane" id="settings">
+									<h2>Details</h2>                                      
+								</div>
+								<div class="tab-pane" id="billing">
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
                             <div class="row-fluid invoice-list">
                                 <div class="span4">
-                                    <h5>BILLING ADDRESS</h5>
-                                    <p>
-                                        <?php echo $row['last_name'] . ' ' . $row['first_name']; ?> <br>
-                                        <?php echo $row['address_street']; ?> <br>
-                                        <?php echo $row['address_city'] . ', ' . $row['address_state'] . $row['address_zip']; ?><br>
-                                        <?php echo $row['address_country']; ?><br>
-								<?php echo $row['payer_email']; ?>
-                                    </p>
+                                    <h4>Billing History</h4>
+                                    
                                 </div>
                             </div>
                             <div class="space20"></div>
@@ -88,6 +161,11 @@ while($row = $stmt->fetch()){
                                     </tbody>
                                 </table>
                             </div>
+					   
+					   
+					   
+					   
+					   
                             <div class="space20"></div>
                             <div class="row-fluid">
                                 <div class="span4 invoice-block pull-right">
@@ -126,9 +204,44 @@ while($row = $stmt->fetch()){
                                <a onclick="javascript:window.print();" class="btn btn-success btn-large hidden-print">Print <i class="icon-print icon-big"></i></a>
                             -->
 					   </div>
+                        
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+								</div>
+                                    </div>
+                                 </div>
+                                 <!--END TABS-->
+                                
+                            </div>
                         </div>
-                  </div>
-               </div>
+                    </div>
+                    <!-- END EXAMPLE TABLE widget-->
+                </div>
+            
+            <!-- END ADVANCED TABLE widget-->
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+
 
                     </div>
                     <!-- END OVERVIEW STATISTIC BLOCKS-->
