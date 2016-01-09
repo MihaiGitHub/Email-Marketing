@@ -3835,6 +3835,7 @@ jQuery UI Datepicker(new in v1.2.2)
 }
 /* style paypal button */
 .paypal_btn{
+	border-radius: 4px;
 	display: inline-block;
 	font-family: inherit;
 	font-size: 14px;
@@ -3883,7 +3884,8 @@ a.template-btn {
 	iframe.mainiFrame {
 		position: inherit !important;
 		top: 0px !important;
-		left: 0px !important;	
+		left: 0px !important;
+		width: 641px !important;
 	}
 }
 /* step menu */
