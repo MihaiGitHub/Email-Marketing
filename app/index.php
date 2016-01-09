@@ -17,7 +17,7 @@ if($_SESSION['auth'] === true){
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
 	include 'include/dbconnect.php';
 
-	$stmt = $conn->prepare('SELECT id, username, password, role, emails, validated FROM users WHERE username = :username');
+	$stmt = $conn->prepare('SELECT id, username, password, role, emails, emails_per_month, validated FROM users WHERE username = :username');
 	$result = $stmt->execute(array('username' => $_POST['username']));
 	while($row = $stmt->fetch()){
 		if(md5(trim($_POST['password'])) == $row['password']){
@@ -25,6 +25,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 				$_SESSION['id'] = $row['id'];
 				$_SESSION['role'] = $row['role'];
 				$_SESSION['emails'] = $row['emails'];
+				$_SESSION['emails_per_month'] = $row['emails_per_month'];
 				$_SESSION['username'] = $row['username'];
 				$_SESSION['auth'] = true;
 				$_SESSION['last_access'] = time();

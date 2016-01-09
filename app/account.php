@@ -8,6 +8,7 @@ $stmt = $conn->prepare('SELECT * FROM orders WHERE user_id = :userid');
 $result = $stmt->execute(array('userid' => $_SESSION['id']));
 $stmt->setFetchMode(PDO::FETCH_ASSOC);
 $row = $stmt->fetch();
+$percentage = $_SESSION['emails'] / $_SESSION['emails_per_month'] * 100;
 ?>
 		<!-- BEGIN PAGE -->
 		<div id="main-content">
@@ -23,12 +24,8 @@ $row = $stmt->fetch();
 							<small> Account Information </small>
 						</h3>
 						<ul class="breadcrumb">
-							<li>
-                                <a href="#"><i class="icon-home"></i></a><span class="divider">&nbsp;</span>
-							</li>
-                            
+							<li><a href="#"><i class="icon-home"></i></a><span class="divider">&nbsp;</span></li>
 							<li><a href="#">Account</a><span class="divider-last">&nbsp;</span></li>
-                            
 						</ul>
 						<!-- END PAGE TITLE & BREADCRUMB-->
 					</div>
@@ -38,9 +35,7 @@ $row = $stmt->fetch();
 
 				<div id="page" class="dashboard">
                     <!-- BEGIN OVERVIEW STATISTIC BLOCKS-->
-                    <div class="row-fluid circle-state-overview">
-                 
-			  
+                    <div class="row-fluid circle-state-overview">		  
 			  
 			  
 			   <!-- BEGIN ADVANCED TABLE widget-->
@@ -72,11 +67,11 @@ $row = $stmt->fetch();
 									
 					<h2>Free Plan</h2>
                                 
-                         <h4 style="margin-top:25px;">Sends 135 of 500</h4>
+                         <h4 style="margin-top:25px;">Sends <?php echo $_SESSION['emails']; ?> of <?php echo $_SESSION['emails_per_month']; ?></h4>
 					
 						 
 					 <div style="margin-bottom:50px;" class="progress progress-striped active">
-						<div style="width: 20%;" class="bar"></div>
+						<div style="width: <?php echo $percentage; ?>%;" class="bar"></div>
 					 </div>
                                 
                             
@@ -102,7 +97,6 @@ $row = $stmt->fetch();
 	</table>
 	<input type="hidden" name="currency_code" value="USD">
 	<input type="submit" value="Upgrade" name="submit" title="PayPal - The safer, easier way to pay online!" class="paypal_btn">
-	<!--<input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">-->
 	<img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
 </form>				
 									
@@ -113,7 +107,20 @@ $row = $stmt->fetch();
 									
 								</div>
 								<div class="tab-pane" id="settings">
-									<h2>Details</h2>                                      
+					   <div class="row-fluid invoice-list">
+                                <div class="span4">
+                                    <h2>Contact Information</h2>
+                                    
+                                </div>
+                            </div>
+					   <div class="row-fluid invoice-list">
+                                <div class="span4">
+                                    <h4>Username</h4><?php echo $_SESSION['username']; ?>
+                                    
+                                </div>
+                            </div>
+									
+									                                 
 								</div>
 								<div class="tab-pane" id="billing">
 									
