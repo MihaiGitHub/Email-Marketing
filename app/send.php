@@ -11,10 +11,6 @@ include 'include/dbconnect.php';
 $_SESSION['c_id'] = uniqid('C',true);
 $_SESSION['listid'] = $_POST['listId'];
 
-echo '<pre>';
-print_r($_POST);
-echo '</pre>';
-
 // Server side check for form inputs
 if($_POST['listId'] != "" && $_POST['subject'] != "" && $_POST['fromName'] != "" && $_POST['fromEmail'] != "" && $_POST['replyTo'] != ""){
 
@@ -114,6 +110,10 @@ if($count > 0){
 	// Update the total number of emails remaining
 	$stmtc = $conn->prepare('UPDATE users SET emails = :emails WHERE id = :userid');
 	$stmtc->execute(array('emails' => $_SESSION['emails'], 'userid' => $_SESSION['id']));
+	
+	// Update notifications
+	$stmtn = $conn->prepare('INSERT INTO notifications (user_id, notification, timestamp) VALUES (:userid, :notification, :date)');
+	$resultn = $stmtn->execute(array('userid' => $_SESSION['id'], 'notification' => "Campaign ".$_POST['subject']." has been successfully created and sent.", 'date' => date('Y-m-d H:i:s')));
 
 	//	header('Location: templates.php?finished');
 	//	exit;	

@@ -6,8 +6,8 @@ require_once('phpmailer/class.phpmailer.php');
 // If registering from website
 if(!isset($_GET['id'])){
 
-$stmt = $conn->prepare('INSERT INTO users (username, password, role, emails) VALUES (:username, :password, :role, :emails)');
-$result = $stmt->execute(array('username' => $_POST['email'], 'password' => md5($_POST['pass']), 'role' => 'buyer', 'emails' => 5));
+$stmt = $conn->prepare('INSERT INTO users (fname, lname, username, password, role, emails, emails_per_month, timestamp) VALUES (:fname, :lname, :username, :password, :role, :emails, :emailspermonth, :timestamp)');
+$result = $stmt->execute(array('fname' => $_POST['firstName'], 'lname' => $_POST['lastName'], 'username' => $_POST['email'], 'password' => md5($_POST['pass']), 'role' => 'buyer', 'emails' => 5, 'emailspermonth' => 500, 'timestamp' => date('Y-m-d H:i:s')));
 
 	if($result){
 		$id = $conn->lastInsertId($result);
@@ -63,6 +63,10 @@ else {
 		$stmt3 = $conn->prepare('INSERT INTO templates (user_id, name, type, picture, original_value) VALUES (:userid, :name, :type, :picture, :value)');
 		$stmt3->execute(array('userid' => $_GET['id'], 'name' => $row2['name'], 'type' => $row2['type'], 'picture' => $row2['picture'], 'value' => $row2['original_value']));
 	}
+	
+	$stmt4 = $conn->prepare('INSERT INTO notifications (user_id, notification, timestamp) VALUES (:userid, :notification, :date)');
+	$result4 = $stmt4->execute(array('userid' => $_GET['id'], 'notification' => "You have successfully validated your account. You can now create a list and send email campaigns.", 'date' => date('Y-m-d H:i:s')));
+
 ?>
 <!DOCTYPE HTML>
 <html>

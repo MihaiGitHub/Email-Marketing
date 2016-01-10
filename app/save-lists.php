@@ -13,6 +13,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 		case 'save':
 			$stmt = $conn->prepare('INSERT INTO lists (user_id, name, created) VALUES (:id, :name, :created)');
 			$result = $stmt->execute(array('id' => $_SESSION['id'], 'name' => $_POST['name'], 'created' => date('m/d/Y')));
+			if($result){
+				$stmt = $conn->prepare('INSERT INTO notifications (user_id, notification, timestamp) VALUES (:id, :notification, :timestamp)');
+				$result = $stmt->execute(array('id' => $_SESSION['id'], 'notification' => "List ".$_POST['name']." has been successfully created.", 'timestamp' => date('Y-m-d H:i:s')));	
+			}
 		break;
 		case 'update':
 			$stmt = $conn->prepare('UPDATE lists SET name = :name WHERE id = :listid');
@@ -28,7 +32,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 		break;
 	}
 }
-
+/*
 if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['code'])){
 	$message = true;
 	$client_id='35316327914-4sdoc4ihn46qcc0ihnnlp06p1u0dv52n.apps.googleusercontent.com';
@@ -104,4 +108,5 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['code'])){
 	$resultlist = $stmtlist->execute(array('id' => $_SESSION['list']));
 	$rowlist = $stmtlist->fetch();
 }
+*/
 ?>

@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('America/Phoenix');
 if(!$_SESSION['auth']){ 
 	header('Location: index.php?authen=false');
 	exit;
@@ -28,9 +29,8 @@ if((time() - $_SESSION['last_access']) > 1200){
 	<link href="css/style.css" rel="stylesheet" />
 	<link href="css/style_responsive.css" rel="stylesheet" />
 	<link href="css/style_default.css" rel="stylesheet" id="style_color" />
-
 	<link href="assets/fancybox/source/jquery.fancybox.css" rel="stylesheet" />
-	<link rel="stylesheet" type="text/css" href="assets/uniform/css/uniform.default.css" />
+	<link rel="stylesheet" type="text/css" href="assets/uniform/css/uniform.default.css" />    
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
@@ -59,9 +59,9 @@ if((time() - $_SESSION['last_access']) > 1200){
 						<!-- BEGIN USER LOGIN DROPDOWN -->
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="img/avatar-mini.png" alt="">
-                                <span class="username"><?php echo htmlentities($_SESSION['username']); ?></span>
-							<b class="caret"></b>
+                            			<img src="img/avatar-mini.png" alt="">
+                                		<span class="username"><?php echo htmlentities($_SESSION['fname'])." ".htmlentities($_SESSION['lname']); ?></span>
+								<b class="caret"></b>
 							</a>
 							<ul class="dropdown-menu">
 								<li><a href="account.php"><i class="icon-user"></i> My Account</a></li>

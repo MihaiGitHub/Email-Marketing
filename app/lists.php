@@ -5,6 +5,7 @@ session_start();
 include 'include/dbconnect.php';
 
 if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['code'])){
+
 	$message = true;
 	$client_id='35316327914-4sdoc4ihn46qcc0ihnnlp06p1u0dv52n.apps.googleusercontent.com';
 	$client_secret='rISHHURG8t7XVqMlHXNBqcVD';
@@ -71,13 +72,11 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['code'])){
 	foreach ($result as $title) {
 			$stmt = $conn->prepare('INSERT INTO emails (list_id, email) VALUES (:id, :email)');
 			$result = $stmt->execute(array('id' => $_SESSION['list'], 'email' => $title->attributes()->address));
-
-	 // echo $title->attributes()->address . "<br>";
 	}
 	
-	$stmtlist = $conn->prepare('SELECT id, name FROM lists WHERE id = :id');
-	$resultlist = $stmtlist->execute(array('id' => $_SESSION['list']));
-	$rowlist = $stmtlist->fetch();
+	$stmtn = $conn->prepare('INSERT INTO notifications (user_id, notification, timestamp) VALUES (:id, :notification, :timestamp)');
+	$resultn = $stmtn->execute(array('id' => $_SESSION['id'], 'notification' => "Contacts have been imported into your list.", 'timestamp' => date('Y-m-d H:i:s')));
+	
 }
 
 $stmt = $conn->prepare('SELECT id, name, created FROM lists WHERE user_id = :user');
@@ -130,15 +129,15 @@ $lists = true;
                                 <div class="space15"></div>
                                 <table class="table table-striped table-hover table-bordered" id="lists-names">
                                     <thead>
-                                    <tr>
-										<th>#</th>
-										<th>List Name</th>
-										<th>Subscribers</th>
-										<th>Date Created</th>
-                                        <th>View</th>
-										<th>Edit</th>
-										<th>Delete</th>
-									</tr>
+                                    	<tr>
+									<th>#</th>
+									<th>List Name</th>
+									<th>Contacts</th>
+									<th>Date Created</th>
+									<th>View</th>
+									<th>Edit</th>
+									<th>Delete</th>
+								</tr>
                                     </thead>
                                     <tbody>
 		<?php
