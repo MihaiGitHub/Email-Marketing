@@ -110,6 +110,19 @@ function getBrowser() {
 $user_os        =   getOS();
 $user_browser   =   getBrowser();
 
+    // Update notification table
+    $stmt1 = $conn->prepare('SELECT user_id FROM campaigns WHERE id = :id');
+    $result1 = $stmt1->execute(array('id' => $_GET['cid']));
+    $row = $stmt1->fetch();
+    
+    $stmt2 = $conn->prepare('SELECT email FROM campaign_emails WHERE id = :id');
+    $result2 = $stmt2->execute(array('id' => $_GET['id']));
+    $row2 = $stmt2->fetch();
+    
+    $stmt3 = $conn->prepare('INSERT INTO notifications (user_id, notification, timestamp) VALUES (:id, :notification, :timestamp)');
+    $result3 = $stmt3->execute(array('id' => $row['user_id'], 'notification' => "An email has been opened by <b>".$row2['email']."</b>.", 'timestamp' => date('Y-m-d H:i:s')));
+    ///////////////////////////
+
     // Update parent email table with total opened count
     $stmt = $conn->prepare('UPDATE campaign_emails SET opened = opened + 1 WHERE id = :id');
     $result = $stmt->execute(array('id' => $_GET['id']));

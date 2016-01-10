@@ -1,8 +1,21 @@
 ﻿<?php
 include 'include/dbconnect.php';
 
-$stmt = $conn->prepare('UPDATE campaign_emails SET unsubscribed = 1 WHERE id = :id');
-$result = $stmt->execute(array('id' => $_GET['id']));
+$stmt1 = $conn->prepare('UPDATE campaign_emails SET unsubscribed = 1 WHERE id = :id');
+$result1 = $stmt1->execute(array('id' => $_GET['id']));
+
+// Update notifications
+$stmt2 = $conn->prepare('SELECT c_id, email FROM campaign_emails WHERE id = :id');
+$result2 = $stmt2->execute(array('id' => $_GET['id']));
+$row2 = $stmt2->fetch();
+
+$stmt3 = $conn->prepare('SELECT user_id FROM campaigns WHERE id = :id');
+$result3 = $stmt3->execute(array('id' => $row2['c_id']));
+$row3 = $stmt3->fetch();
+
+$stmt4 = $conn->prepare('INSERT INTO notifications (user_id, notification, timestamp) VALUES (:userid, :notification, :date)');
+$result4 = $stmt4->execute(array('userid' => $row3['user_id'], 'notification' => "The email <b>".$row2['email']."</b> has unsubscribed from your list.", 'date' => date('Y-m-d H:i:s')));
+////////////////////////
 ?>
 <!DOCTYPE html>
 

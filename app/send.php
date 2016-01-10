@@ -113,7 +113,7 @@ if($count > 0){
 	
 	// Update notifications
 	$stmtn = $conn->prepare('INSERT INTO notifications (user_id, notification, timestamp) VALUES (:userid, :notification, :date)');
-	$resultn = $stmtn->execute(array('userid' => $_SESSION['id'], 'notification' => "Campaign ".$_POST['subject']." has been successfully created and sent.", 'date' => date('Y-m-d H:i:s')));
+	$resultn = $stmtn->execute(array('userid' => $_SESSION['id'], 'notification' => "Campaign <b>".$_POST['subject']."</b> has been successfully created and sent.", 'date' => date('Y-m-d H:i:s')));
 
 	//	header('Location: templates.php?finished');
 	//	exit;	
