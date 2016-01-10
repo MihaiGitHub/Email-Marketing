@@ -56,7 +56,7 @@ else {
 	$stmt1 = $conn->prepare('UPDATE users SET validated = 1 WHERE id = :id');
 	$result1 = $stmt1->execute(array('id' => $_GET['id']));
 	
-	$stmt2 = $conn->prepare('SELECT name, type, picture, original_value FROM templates WHERE type = "basic" OR type = "theme"');
+	$stmt2 = $conn->prepare('SELECT name, type, picture, original_value FROM templates WHERE user_id = 60 AND type != "custom"');
 	$result2 = $stmt2->execute();
 		
 	while($row2 = $stmt2->fetch()){
@@ -64,8 +64,13 @@ else {
 		$stmt3->execute(array('userid' => $_GET['id'], 'name' => $row2['name'], 'type' => $row2['type'], 'picture' => $row2['picture'], 'value' => $row2['original_value']));
 	}
 	
+	// Update notifications	
 	$stmt4 = $conn->prepare('INSERT INTO notifications (user_id, notification, timestamp) VALUES (:userid, :notification, :date)');
 	$result4 = $stmt4->execute(array('userid' => $_GET['id'], 'notification' => "You have successfully validated your account. You can now create a list and send email campaigns.", 'date' => date('Y-m-d H:i:s')));
+	
+	$stmt4 = $conn->prepare('INSERT INTO orders (user_id, mc_gross, item_name) VALUES (:userid, :mcgross, :itemname)');
+	$result4 = $stmt4->execute(array('userid' => $_GET['id'], 'mcgross' => "Free Plan", 'itemname' => "500 email credits per month"));
+	///////////////////////
 
 ?>
 <!DOCTYPE HTML>

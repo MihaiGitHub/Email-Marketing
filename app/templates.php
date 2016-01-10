@@ -16,6 +16,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['type'] != 'all'){
 
 }
 
+
 $stmtlists = $conn->prepare('SELECT id, name FROM lists WHERE user_id = :userid');
 $resultlists = $stmtlists->execute(array('userid' => $_SESSION['id']));
 
