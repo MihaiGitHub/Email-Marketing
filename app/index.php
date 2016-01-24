@@ -83,8 +83,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
           <i class="icon-lock"></i>
       </div>
       <div class="control-wrap">
-	  			<?php if(isset($red)) echo "<div class='n_error'>$red</div>"; ?>
-				<?php if(isset($green)) echo "<div class='n_success'>$green</div>"; ?>
+		
+		<div id="message-box">
+			<?php if(isset($red)) echo "$red"; ?>
+			<?php if(isset($green)) echo "$green"; ?>
+		</div>
 
           <h4>User Login</h4>
           <div class="control-group">
@@ -118,8 +121,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     </form>
     <!-- END LOGIN FORM -->        
     <!-- BEGIN FORGOT PASSWORD FORM -->
-    <form id="forgotform" class="form-vertical no-padding no-margin hide1" action="index.html">
-      <p class="center">Enter your e-mail address below to reset your password.</p>
+    <form id="forgotform" class="form-vertical no-padding no-margin hide1" action="#">
+      <p id="forgot-pass-text" class="center">Enter your e-mail address below to reset your password.</p>
       <div class="control-group">
         <div class="controls">
           <div class="input-prepend">

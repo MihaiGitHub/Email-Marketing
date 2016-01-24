@@ -254,55 +254,54 @@ $(document).ready(function() {
 <div class="container">
 	<div class="main about span_of_3">
 		<div class="contact_main">
-		<div id="errorMsgFields" class="top_grid" style="border-radius:4px;display:none;"><!-- start top_grid -->
-				<div class="col-md-10 span1_of_1" style="position:relative;top:-15px;">
-						<h3>You must fill in all fields</h3>
-						<p>You must enter your first and last name</p>
-				</div>
-				
-				<br>
-		</div>
-		<div id="errorMsgPassEmail" class="top_grid" style="border-radius:4px;display:none;"><!-- start top_grid -->
-				<div class="col-md-10 span1_of_1" style="position:relative;top:-15px;">
-						<h3>Invalid Email Address</h3>
-						<p>The email address is missing or is invalid</p>
-				</div>
-				
-				<br>
-		</div>
-		<div id="errorMsgPass" class="top_grid" style="border-radius:4px;display:none;"><!-- start top_grid -->
-				<div class="col-md-10 span1_of_1" style="position:relative;top:-15px;">
-						<h3>Passwords Do Not Match</h3>
-						<p>Please create a password and confirm it below</p>
-				</div>
-				
-				<br>
-		</div>
-		<div id="errorMsg" class="top_grid" style="border-radius:4px;display:none;"><!-- start top_grid -->
-				<div class="col-md-10 span1_of_1" style="position:relative;top:-15px;">
-						<h3>Duplicate Email Address</h3>
-						<p>This email address is already in our system. Please sign in or use a different email address</p>
-				</div>
-				
-				<br>
-		</div>
-		
-		
-		
-				<div class="col-md-8">
-				  <div class="contact-form">
-				  	<h2>No credit card required</h2>
-						<form method="post" action="app/register.php" id="register">
-							<input type="text" id="firstName" name="firstName" value="First Name (Required)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'First Name';}">
-							<input type="text" id="lastName" name="lastName" value="Last Name (Required)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Last Name';}">
-							<input type="text" id="email" name="email" value="Email (Required)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}">
-							<input id="pass" name="pass" value="Password (Required)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
-							<input id="pass-confirm" name="pass-confirm" value="Confirm Password (Required)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Confirm Password';}">
+			<div class="col-md-8">
+				<div id="errorMsgFields" class="top_grid" style="border-radius:4px;display:none;"><!-- start top_grid -->
+						<div class="col-md-10 span1_of_1" style="position:relative;top:-15px;">
+								<h3>You must fill in all fields</h3>
+								<p>You must enter your first and last name</p>
+						</div>
 						
-							<span><input type="submit" value="Get Started"></span>
-						</form>
-				    </div>
-  				</div>		
+						<br>
+				</div>
+				<div id="errorMsgPassEmail" class="top_grid" style="border-radius:4px;display:none;"><!-- start top_grid -->
+						<div class="col-md-10 span1_of_1" style="position:relative;top:-15px;">
+								<h3>Invalid Email Address</h3>
+								<p>The email address is missing or is invalid</p>
+						</div>
+						
+						<br>
+				</div>
+				<div id="errorMsgPass" class="top_grid" style="border-radius:4px;display:none;"><!-- start top_grid -->
+						<div class="col-md-10 span1_of_1" style="position:relative;top:-15px;">
+								<h3>Passwords Do Not Match</h3>
+								<p>Please create a password and confirm it below</p>
+						</div>
+						
+						<br>
+				</div>
+				<div id="errorMsg" class="top_grid" style="border-radius:4px;display:none;"><!-- start top_grid -->
+						<div class="col-md-10 span1_of_1" style="position:relative;top:-15px;">
+								<h3>Duplicate Email Address</h3>
+								<p>This email address is already in our system. Please sign in or use a different email address</p>
+						</div>
+						
+						<br>
+				</div>
+			</div>
+			<div class="col-md-8">
+			  <div class="contact-form">
+				<h2>No credit card required</h2>
+					<form method="post" action="app/register.php" id="register">
+						<input type="text" id="firstName" name="firstName" value="First Name (Required)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'First Name';}">
+						<input type="text" id="lastName" name="lastName" value="Last Name (Required)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Last Name';}">
+						<input type="text" id="email" name="email" value="Email (Required)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}">
+						<input id="pass" name="pass" value="Password (Required)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
+						<input id="pass-confirm" name="pass-confirm" value="Confirm Password (Required)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Confirm Password';}">
+					
+						<span><input type="submit" value="Get Started"></span>
+					</form>
+			    </div>
+			</div>		
   			<div class="clearfix" style="height:400px;"></div>	
 		</div>
 	</div>

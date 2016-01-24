@@ -473,8 +473,29 @@ console.log(dataArrayFinal)
 
         jQuery('#forget-btn').click(function () {
 
-            jQuery('#loginform').slideDown(200);
-            jQuery('#forgotform').slideUp(200);
+            var email = $('#input-email').val();
+		   
+		   $.ajax({
+				  type: 'POST',
+				  url: 'forgot-pass.php',
+				  async: true,
+				  data: {
+					 email: email
+				  },
+				  error: function(error) {
+					console.log('error', error.error())
+				  },
+				  success: function(data) { console.log(data)
+					if(data == 'success'){ 
+						jQuery('#loginform').slideDown(200);
+            				jQuery('#forgotform').slideUp(200);
+						$("#message-box").html("The reset password link has been emailed");
+					} else {
+						$("#forgot-pass-text").html("The email entered does not exist in the system");
+					}
+				  },
+		    });
+            
         });
     }
 
