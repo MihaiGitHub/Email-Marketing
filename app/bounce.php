@@ -22,7 +22,7 @@ if($emails) {
 		foreach($matches[0] as $email){
 				$stmt = $conn->prepare('UPDATE campaign_emails SET bounced = 1, error_code = :code WHERE email = :email');
 				$result = $stmt->execute(array('code' => $code[1], 'email' => $email));
-				
+
 				if($result){
 					imap_delete($inbox, $email_number);
 				}

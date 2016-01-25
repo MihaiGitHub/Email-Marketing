@@ -3,10 +3,10 @@ date_default_timezone_set('America/Phoenix');
 
 define( 'THIS_WEBSITE_URI', 'http://' . $_SERVER['HTTP_HOST'] . dirname( $_SERVER['REQUEST_URI'] ) );
 
-$host = "xxxxxxxxxxxxxxxxxx";
-$dbname = "xxxxxxxxxxxxx";
-$user = "xxxxxxxxxxxxxxxx";
-$pass = "xxxxxxxxxxxxxx";
+$host = "msmarandache.com.mysql";
+$dbname = "msmarandache_co";
+$user = "msmarandache_co";
+$pass = "wurus6Tw";
 /* mihaismarandache.com 
 $host = "db543846776.db.1and1.com";
 $dbname = "db543846776";
