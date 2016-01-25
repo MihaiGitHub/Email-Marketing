@@ -1,346 +1,346 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-<title>Email Marketing</title>
-<!-- Bootstrap -->
-<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
-<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<link href="css/blue.css" rel="stylesheet" type="text/css" media="all" />
-<!----font-Awesome----->
-   	<link rel="stylesheet" href="fonts/css/font-awesome.min.css">
-<!----font-Awesome----->
-<!-- start plugins -->
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<!-- Owl Carousel Assets -->
-<link href="css/owl.carousel.css" rel="stylesheet">
-<script src="js/owl.carousel.js"></script>
-		<script>
-			$(document).ready(function() {
-
-				$("#owl-demo").owlCarousel({
-					items : 4,
-					lazyLoad : true,
-					autoPlay : true,
-					navigation : true,
-					navigationText : ["", ""],
-					rewindNav : false,
-					scrollPerPage : false,
-					pagination : false,
-					paginationNumbers : false,
-				});
-
-			});
-		</script>
-		<!-- //Owl Carousel Assets -->
-<!-- start circle -->
-<script>
-(function($){
-	$.fn.percentPie = function(options){
-
-		var settings = $.extend({
-			width: 100,
-			trackColor: "EEEEEE",
-			barColor: "E2534B",
-			barWeight: 30,
-			startPercent: 0,
-			endPercent: 1,
-			fps: 60
-		}, options);
-
-		this.css({
-			width: settings.width,
-			height: settings.width
-		});
-
-		var	that = this,
-			hoverPolice = false,
-			canvasWidth = settings.width,
-			canvasHeight = canvasWidth,
-			id = $('canvas').length,
-			canvasElement = $('<canvas id="'+ id +'" width="' + canvasWidth + '" height="' + canvasHeight + '"></canvas>'),
-			canvas = canvasElement.get(0).getContext("2d"),
-			centerX = canvasWidth/2,
-			centerY = canvasHeight/2,
-			radius = settings.width/2 - settings.barWeight/2;
-			counterClockwise = false,
-			fps = 1000 / settings.fps,
-			update = .01;
-			this.angle = settings.startPercent;
-
-		this.drawArc = function(startAngle, percentFilled, color){
-			var drawingArc = true;
-			canvas.beginPath();
-			canvas.arc(centerX, centerY, radius, (Math.PI/180)*(startAngle * 360 - 90), (Math.PI/180)*(percentFilled * 360 - 90), counterClockwise);
-			canvas.strokeStyle = color;
-			canvas.lineWidth = settings.barWeight;
-			canvas.stroke();
-			drawingArc = false;
-		}
-
-		this.fillChart = function(stop){
-			var loop = setInterval(function(){
-				hoverPolice = true;
-				canvas.clearRect(0, 0, canvasWidth, canvasHeight);
-
-				that.drawArc(0, 360, settings.trackColor);
-				that.angle += update;
-				that.drawArc(settings.startPercent, that.angle, settings.barColor);
-
-				if(that.angle > stop){
-					clearInterval(loop);
-					hoverPolice = false;
-				}
-			}, fps);
-		}
-
-		this.mouseover(function(){
-			if(hoverPolice == false){
-				that.angle = settings.startPercent;
-				that.fillChart(settings.endPercent);
-			}
-		});
-
-		this.fillChart(settings.endPercent);
-		this.append(canvasElement);
-		return this;
-	}
-}(jQuery));
-
-$(document).ready(function() {
-
-	$('.google').percentPie({
-		width: 100,
-		trackColor: "E2534B",
-		barColor: "76C7C0",
-		barWeight: 20,
-		endPercent: .9,
-		fps: 60
-	});
-  
-  	$('.moz').percentPie({
-		width: 100,
-		trackColor: "E2534B",
-		barColor: "76C7C0",
-		barWeight: 20,
-		endPercent: .75,
-		fps: 60
-	});
-  
-  	$('.safari').percentPie({
-		width: 100,
-		trackColor: "E2534B",
-		barColor: "#76C7C0",
-		barWeight: 20,
-		endPercent: .5,
-		fps: 60
-	});
-	
-	// Attach a submit handler to the form
-	$( "#register" ).submit(function( e ) {
-	 
-		  // Stop form from submitting normally
-		  e.preventDefault();
-		 
-		  // Get some values from elements on the page:
-		  var $form = $( this ), firstName = $form.find( "input[name='firstName']" ).val(), lastName = $form.find( "input[name='lastName']" ).val(), email = $form.find( "input[name='email']" ).val(), pass = $form.find( "input[name='pass']" ).val(), passConfirm = $form.find( "input[name='pass-confirm']" ).val(), url = $form.attr( "action" );
-		 
-		 if(pass === passConfirm){
-			 if(email != "" && firstName != "" && firstName != "First Name" && firstName != "First Name (Required)" && lastName != "" && lastName != "Last Name" && lastName != "Last Name (Required)"){
-				  // Send the data using post
-				  var posting = $.post( url, { firstName: firstName, lastName: lastName, email: email, pass: pass } );
-				 
-				  // Put the results in a div
-				  posting.done(function( data ) {
-						if(data){
-							window.location = 'thankyou.html';	
-						}
-						else {
-							$("#errorMsg").fadeIn("slow");
-						}
-				  });
-			 }
-			 else {
-					$("#errorMsgFields").fadeIn("slow"); 
-			 }
-		 }
-		 else {
-			$("#errorMsgPass").fadeIn("slow"); 
-		 }
-
-	});
-	
-	// For pass field
-	var elementPass = document.getElementById('pass');
-
-	var text_to_show = 'Enter Password (Required)';
-	elementPass.type="text"; // set the type to text for the first time
-	elementPass.value = text_to_show; // set the message for the first time
-	elementPass.onfocus = function(){ 
-		   if (this.value == text_to_show) {
-			   this.type = "password";
-			   this.value = '';
-		   }
-	}
-	elementPass.onblur = function(){ 
-		   if (this.value == '') {
-			   this.type = "text";
-			   this.value = text_to_show;
-		   }
-	}
-	
-	// For confirm password fields
-	var elementPassConfirm = document.getElementById('pass-confirm');
-
-	var text_to_show_confirm = 'Confirm Password (Required)';
-	elementPassConfirm.type="text"; // set the type to text for the first time
-	elementPassConfirm.value = text_to_show_confirm; // set the message for the first time
-	elementPassConfirm.onfocus = function(){ 
-		   if (this.value == text_to_show_confirm) {
-			   this.type = "password";
-			   this.value = '';
-		   }
-	}
-	elementPassConfirm.onblur = function(){ 
-		   if (this.value == '') {
-			   this.type = "text";
-			   this.value = text_to_show_confirm;
-		   }
-	}
- 
-});
-</script>
-</head>
-<body>
-<div class="header_bg">
-<div class="container">
-	<div class="header">
-		<div class="logo">
-			<a href="index.html"><img src="images/logo.png" alt=""/></a>
-		</div>
-		<div class="h_menu">
-		<a id="touch-menu" class="mobile-menu" href="#">Menu</a>
-		<nav>
-		<ul class="menu list-unstyled">
-			<li><a href="index.html">Home</a></li>
-			<li><a href="feature.html">Features</a></li>
-			<li class="activate"><a href="register.html">Register</a></li>
-			<li><a href="app/index.php" target="_blank">Login</a></li>
-			<li><a href="contact.html">Contact</a></li>
-		</ul>
-		</nav>
-		<script src="js/menu.js" type="text/javascript"></script>
-		</div>
-		<div class="clearfix"></div>
-	</div>
-</div>
-</div>
-<div class="main_bg"><!-- start main -->
-<div class="container">
-	<div class="main_grid1">
-		<h3 class="style pull-left">Get started with a free account</h3>
-		<ol class="breadcrumb pull-right">
-		  <li><a href="index.html">Home</a></li>
-		  <li class="active">register</li>
-		</ol>
-		<div class="clearfix"></div>
-	</div>
-</div>
-</div>
-<div class="main_btm1"><!-- start main_btm -->
-<div class="container">
-	<div class="main about span_of_3">
-		<div class="contact_main">
-			<div class="col-md-8">
-				<div id="errorMsgFields" class="top_grid" style="border-radius:4px;display:none;"><!-- start top_grid -->
-						<div class="col-md-10 span1_of_1" style="position:relative;top:-15px;">
-								<h3>You must fill in all fields</h3>
-								<p>You must enter your first and last name</p>
-						</div>
-						
-						<br>
-				</div>
-				<div id="errorMsgPassEmail" class="top_grid" style="border-radius:4px;display:none;"><!-- start top_grid -->
-						<div class="col-md-10 span1_of_1" style="position:relative;top:-15px;">
-								<h3>Invalid Email Address</h3>
-								<p>The email address is missing or is invalid</p>
-						</div>
-						
-						<br>
-				</div>
-				<div id="errorMsgPass" class="top_grid" style="border-radius:4px;display:none;"><!-- start top_grid -->
-						<div class="col-md-10 span1_of_1" style="position:relative;top:-15px;">
-								<h3>Passwords Do Not Match</h3>
-								<p>Please create a password and confirm it below</p>
-						</div>
-						
-						<br>
-				</div>
-				<div id="errorMsg" class="top_grid" style="border-radius:4px;display:none;"><!-- start top_grid -->
-						<div class="col-md-10 span1_of_1" style="position:relative;top:-15px;">
-								<h3>Duplicate Email Address</h3>
-								<p>This email address is already in our system. Please sign in or use a different email address</p>
-						</div>
-						
-						<br>
-				</div>
-			</div>
-			<div class="col-md-8">
-			  <div class="contact-form">
-				<h2>No credit card required</h2>
-					<form method="post" action="app/register.php" id="register">
-						<input type="text" id="firstName" name="firstName" value="First Name (Required)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'First Name';}">
-						<input type="text" id="lastName" name="lastName" value="Last Name (Required)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Last Name';}">
-						<input type="text" id="email" name="email" value="Email (Required)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}">
-						<input id="pass" name="pass" value="Password (Required)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
-						<input id="pass-confirm" name="pass-confirm" value="Confirm Password (Required)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Confirm Password';}">
-					
-						<span><input type="submit" value="Get Started"></span>
-					</form>
-			    </div>
-			</div>		
-  			<div class="clearfix" style="height:400px;"></div>	
-		</div>
-	</div>
-</div>
-</div>
-<div class="footer_bg"><!-- start footer -->
-<div class="container">
-	<div class="footer">
-	
-		<div class="col-md-12 footer1_of_3">
-			<div class="f_logo">
-				<a href="index.html"><img src="images/logo.png" alt=""/></a>
-			</div>		
-			<p class="f_para">TEMPLAR IT provides Information Technology services to residential and business customers offering affordable and reliable quality of service with emphasis on creativity.  Our concept is to utilize current technology and implement customized solutions specific to client needs and knowledge.​ As a result, we deliver wide range of IT services and products for small and medium size environments including server-desktop virtualization and cloud solutions.</p>
-			<p>Phone:&nbsp;<span>+1 602 291 9251</span>
-			<span style="float:right;">Email:&nbsp;<a href="#">mihai.sanfran@gmail.com</a></span></p>
-		</div>
-		
-		<div class="clearfix"></div>
-	</div>
-</div>
-</div>
-<div class="footer1_bg"><!-- start footer1 -->
-<div class="container">
-	<div class="footer1">
-		<div class="copy pull-left">
-			<p class="link"><span>&#169; All rights reserved </span></p>
-		</div>
-		<div class="soc_icons pull-right">
-			<ul class="list-unstyled text-center">
-				<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-				<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-				<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-				<li><a href="#"><i class="fa fa-rss"></i></a></li>
-			</ul>
-		</div>
-		<div class="clearfix"></div>
-	</div>
-</div>
-</div>
-</body>
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Email Marketing</title>
+<!-- Bootstrap -->
+<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="css/blue.css" rel="stylesheet" type="text/css" media="all" />
+<!----font-Awesome----->
+   	<link rel="stylesheet" href="fonts/css/font-awesome.min.css">
+<!----font-Awesome----->
+<!-- start plugins -->
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<!-- Owl Carousel Assets -->
+<link href="css/owl.carousel.css" rel="stylesheet">
+<script src="js/owl.carousel.js"></script>
+		<script>
+			$(document).ready(function() {
+
+				$("#owl-demo").owlCarousel({
+					items : 4,
+					lazyLoad : true,
+					autoPlay : true,
+					navigation : true,
+					navigationText : ["", ""],
+					rewindNav : false,
+					scrollPerPage : false,
+					pagination : false,
+					paginationNumbers : false,
+				});
+
+			});
+		</script>
+		<!-- //Owl Carousel Assets -->
+<!-- start circle -->
+<script>
+(function($){
+	$.fn.percentPie = function(options){
+
+		var settings = $.extend({
+			width: 100,
+			trackColor: "EEEEEE",
+			barColor: "E2534B",
+			barWeight: 30,
+			startPercent: 0,
+			endPercent: 1,
+			fps: 60
+		}, options);
+
+		this.css({
+			width: settings.width,
+			height: settings.width
+		});
+
+		var	that = this,
+			hoverPolice = false,
+			canvasWidth = settings.width,
+			canvasHeight = canvasWidth,
+			id = $('canvas').length,
+			canvasElement = $('<canvas id="'+ id +'" width="' + canvasWidth + '" height="' + canvasHeight + '"></canvas>'),
+			canvas = canvasElement.get(0).getContext("2d"),
+			centerX = canvasWidth/2,
+			centerY = canvasHeight/2,
+			radius = settings.width/2 - settings.barWeight/2;
+			counterClockwise = false,
+			fps = 1000 / settings.fps,
+			update = .01;
+			this.angle = settings.startPercent;
+
+		this.drawArc = function(startAngle, percentFilled, color){
+			var drawingArc = true;
+			canvas.beginPath();
+			canvas.arc(centerX, centerY, radius, (Math.PI/180)*(startAngle * 360 - 90), (Math.PI/180)*(percentFilled * 360 - 90), counterClockwise);
+			canvas.strokeStyle = color;
+			canvas.lineWidth = settings.barWeight;
+			canvas.stroke();
+			drawingArc = false;
+		}
+
+		this.fillChart = function(stop){
+			var loop = setInterval(function(){
+				hoverPolice = true;
+				canvas.clearRect(0, 0, canvasWidth, canvasHeight);
+
+				that.drawArc(0, 360, settings.trackColor);
+				that.angle += update;
+				that.drawArc(settings.startPercent, that.angle, settings.barColor);
+
+				if(that.angle > stop){
+					clearInterval(loop);
+					hoverPolice = false;
+				}
+			}, fps);
+		}
+
+		this.mouseover(function(){
+			if(hoverPolice == false){
+				that.angle = settings.startPercent;
+				that.fillChart(settings.endPercent);
+			}
+		});
+
+		this.fillChart(settings.endPercent);
+		this.append(canvasElement);
+		return this;
+	}
+}(jQuery));
+
+$(document).ready(function() {
+
+	$('.google').percentPie({
+		width: 100,
+		trackColor: "E2534B",
+		barColor: "76C7C0",
+		barWeight: 20,
+		endPercent: .9,
+		fps: 60
+	});
+  
+  	$('.moz').percentPie({
+		width: 100,
+		trackColor: "E2534B",
+		barColor: "76C7C0",
+		barWeight: 20,
+		endPercent: .75,
+		fps: 60
+	});
+  
+  	$('.safari').percentPie({
+		width: 100,
+		trackColor: "E2534B",
+		barColor: "#76C7C0",
+		barWeight: 20,
+		endPercent: .5,
+		fps: 60
+	});
+	
+	// Attach a submit handler to the form
+	$( "#register" ).submit(function( e ) {
+	 
+		  // Stop form from submitting normally
+		  e.preventDefault();
+		 
+		  // Get some values from elements on the page:
+		  var $form = $( this ), firstName = $form.find( "input[name='firstName']" ).val(), lastName = $form.find( "input[name='lastName']" ).val(), email = $form.find( "input[name='email']" ).val(), pass = $form.find( "input[name='pass']" ).val(), passConfirm = $form.find( "input[name='pass-confirm']" ).val(), url = $form.attr( "action" );
+		 
+		 if(pass === passConfirm){
+			 if(email != "" && firstName != "" && firstName != "First Name" && firstName != "First Name (Required)" && lastName != "" && lastName != "Last Name" && lastName != "Last Name (Required)"){
+				  // Send the data using post
+				  var posting = $.post( url, { firstName: firstName, lastName: lastName, email: email, pass: pass } );
+				 
+				  // Put the results in a div
+				  posting.done(function( data ) {
+						if(data){
+							window.location = 'thankyou.html';	
+						}
+						else {
+							$("#errorMsg").fadeIn("slow");
+						}
+				  });
+			 }
+			 else {
+					$("#errorMsgFields").fadeIn("slow"); 
+			 }
+		 }
+		 else {
+			$("#errorMsgPass").fadeIn("slow"); 
+		 }
+
+	});
+	
+	// For pass field
+	var elementPass = document.getElementById('pass');
+
+	var text_to_show = 'Enter Password (Required)';
+	elementPass.type="text"; // set the type to text for the first time
+	elementPass.value = text_to_show; // set the message for the first time
+	elementPass.onfocus = function(){ 
+		   if (this.value == text_to_show) {
+			   this.type = "password";
+			   this.value = '';
+		   }
+	}
+	elementPass.onblur = function(){ 
+		   if (this.value == '') {
+			   this.type = "text";
+			   this.value = text_to_show;
+		   }
+	}
+	
+	// For confirm password fields
+	var elementPassConfirm = document.getElementById('pass-confirm');
+
+	var text_to_show_confirm = 'Confirm Password (Required)';
+	elementPassConfirm.type="text"; // set the type to text for the first time
+	elementPassConfirm.value = text_to_show_confirm; // set the message for the first time
+	elementPassConfirm.onfocus = function(){ 
+		   if (this.value == text_to_show_confirm) {
+			   this.type = "password";
+			   this.value = '';
+		   }
+	}
+	elementPassConfirm.onblur = function(){ 
+		   if (this.value == '') {
+			   this.type = "text";
+			   this.value = text_to_show_confirm;
+		   }
+	}
+ 
+});
+</script>
+</head>
+<body>
+<div class="header_bg">
+<div class="container">
+	<div class="header">
+		<div class="logo">
+			<a href="index.html"><img src="images/logo.png" alt=""/></a>
+		</div>
+		<div class="h_menu">
+		<a id="touch-menu" class="mobile-menu" href="#">Menu</a>
+		<nav>
+		<ul class="menu list-unstyled">
+			<li><a href="index.html">Home</a></li>
+			<li><a href="feature.html">Features</a></li>
+			<li class="activate"><a href="register.html">Register</a></li>
+			<li><a href="app/index.php" target="_blank">Login</a></li>
+			<li><a href="contact.html">Contact</a></li>
+		</ul>
+		</nav>
+		<script src="js/menu.js" type="text/javascript"></script>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
+</div>
+<div class="main_bg"><!-- start main -->
+<div class="container">
+	<div class="main_grid1">
+		<h3 class="style pull-left">Get started with a free account</h3>
+		<ol class="breadcrumb pull-right">
+		  <li><a href="index.html">Home</a></li>
+		  <li class="active">register</li>
+		</ol>
+		<div class="clearfix"></div>
+	</div>
+</div>
+</div>
+<div class="main_btm1"><!-- start main_btm -->
+<div class="container">
+	<div class="main about span_of_3">
+		<div class="contact_main">
+			<div class="col-md-8">
+				<div id="errorMsgFields" class="top_grid" style="border-radius:4px;display:none;"><!-- start top_grid -->
+						<div class="col-md-10 span1_of_1" style="position:relative;top:-15px;">
+								<h3>You must fill in all fields</h3>
+								<p>You must enter your first and last name</p>
+						</div>
+						
+						<br>
+				</div>
+				<div id="errorMsgPassEmail" class="top_grid" style="border-radius:4px;display:none;"><!-- start top_grid -->
+						<div class="col-md-10 span1_of_1" style="position:relative;top:-15px;">
+								<h3>Invalid Email Address</h3>
+								<p>The email address is missing or is invalid</p>
+						</div>
+						
+						<br>
+				</div>
+				<div id="errorMsgPass" class="top_grid" style="border-radius:4px;display:none;"><!-- start top_grid -->
+						<div class="col-md-10 span1_of_1" style="position:relative;top:-15px;">
+								<h3>Passwords Do Not Match</h3>
+								<p>Please create a password and confirm it below</p>
+						</div>
+						
+						<br>
+				</div>
+				<div id="errorMsg" class="top_grid" style="border-radius:4px;display:none;"><!-- start top_grid -->
+						<div class="col-md-10 span1_of_1" style="position:relative;top:-15px;">
+								<h3>Duplicate Email Address</h3>
+								<p>This email address is already in our system. Please sign in or use a different email address</p>
+						</div>
+						
+						<br>
+				</div>
+			</div>
+			<div class="col-md-8">
+			  <div class="contact-form">
+				<h2>No credit card required</h2>
+					<form method="post" action="app/register.php" id="register">
+						<input type="text" id="firstName" name="firstName" value="First Name (Required)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'First Name';}">
+						<input type="text" id="lastName" name="lastName" value="Last Name (Required)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Last Name';}">
+						<input type="text" id="email" name="email" value="Email (Required)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}">
+						<input id="pass" name="pass" value="Password (Required)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
+						<input id="pass-confirm" name="pass-confirm" value="Confirm Password (Required)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Confirm Password';}">
+					
+						<span><input type="submit" value="Get Started"></span>
+					</form>
+			    </div>
+			</div>		
+  			<div class="clearfix" style="height:400px;"></div>	
+		</div>
+	</div>
+</div>
+</div>
+<div class="footer_bg"><!-- start footer -->
+<div class="container">
+	<div class="footer">
+	
+		<div class="col-md-12 footer1_of_3">
+			<div class="f_logo">
+				<a href="index.html"><img src="images/logo.png" alt=""/></a>
+			</div>		
+			<p class="f_para">TEMPLAR IT provides Information Technology services to residential and business customers offering affordable and reliable quality of service with emphasis on creativity.  Our concept is to utilize current technology and implement customized solutions specific to client needs and knowledge.​ As a result, we deliver wide range of IT services and products for small and medium size environments including server-desktop virtualization and cloud solutions.</p>
+			<p>Phone:&nbsp;<span>+1 602 291 9251</span>
+			<span style="float:right;">Email:&nbsp;<a href="#">mihai.sanfran@gmail.com</a></span></p>
+		</div>
+		
+		<div class="clearfix"></div>
+	</div>
+</div>
+</div>
+<div class="footer1_bg"><!-- start footer1 -->
+<div class="container">
+	<div class="footer1">
+		<div class="copy pull-left">
+			<p class="link"><span>&#169; All rights reserved </span></p>
+		</div>
+		<div class="soc_icons pull-right">
+			<ul class="list-unstyled text-center">
+				<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+				<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+				<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+				<li><a href="#"><i class="fa fa-rss"></i></a></li>
+			</ul>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
+</div>
+</body>
 </html>
