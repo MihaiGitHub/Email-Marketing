@@ -35,4 +35,6 @@ CKEDITOR.editorConfig = function( config ) {
 	config.removeDialogTabs = 'image:advanced;link:advanced';
 	
 	config.filebrowserUploadUrl = 'assets/ck-editor/plugins/imgupload.php';
+	
+	config.title = false; // prevents CkEditor from displaying "Rich text editor" tooltip
 };

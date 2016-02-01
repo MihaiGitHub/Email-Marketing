@@ -31,7 +31,7 @@
     
     <script src="assets/highcharts/highcharts.js"></script>
 	<script src="assets/highcharts/exporting.js"></script>
-	<script src="http://code.highcharts.com/modules/drilldown.js"></script>
+<!--	<script src="http://code.highcharts.com/modules/drilldown.js"></script> -->
 
     <script src="js/table-editable.js"></script>
 	<script src="js/scripts.js"></script>
