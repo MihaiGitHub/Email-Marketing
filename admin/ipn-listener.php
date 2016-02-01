@@ -213,11 +213,11 @@ $result4 = $stmt4->execute(array('username' => $_POST['payer_email'], 'password'
 $id = $conn->lastInsertId($result4);
 
 if($result4){
-	$stmt5 = $conn->prepare('SELECT name, type, picture, original_value FROM templates WHERE type = "basic" OR type = "theme"');
+	$stmt5 = $conn->prepare('SELECT name, type, picture, value FROM templates WHERE user_id = 100');
 	$result5 = $stmt5->execute();
 		
 	while($row5 = $stmt5->fetch()){
-		$stmt6 = $conn->prepare('INSERT INTO templates (user_id, name, type, picture, original_value) VALUES (:userid, :name, :type, :picture, :value)');
+		$stmt6 = $conn->prepare('INSERT INTO templates (user_id, name, type, picture, value) VALUES (:userid, :name, :type, :picture, :value)');
 		$stmt6->execute(array('userid' => $id, 'name' => $row6['name'], 'type' => $row6['type'], 'picture' => $row6['picture'], 'value' => $row6['original_value']));
 	}
 	
