@@ -23,3 +23,4 @@ email are market as bounced if email bounces)
 9. Link in app/create.php needs to be updated
 10. All email templates need to have hardcoded links in app/templates
 11. app/assets/ck-editor/ckeditor.js has a path that needs to be edited
+12. Google analytics code on the website needs to changed for the appropriate google account
