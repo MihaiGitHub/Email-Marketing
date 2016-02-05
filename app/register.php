@@ -56,7 +56,7 @@ else {
 	$stmt1 = $conn->prepare('UPDATE users SET validated = 1 WHERE id = :id');
 	$result1 = $stmt1->execute(array('id' => $_GET['id']));
 	
-	$stmt2 = $conn->prepare('SELECT name, type, picture, value FROM templates WHERE user_id = 100');
+	$stmt2 = $conn->prepare('SELECT name, type, picture, value FROM templates_default');
 	$result2 = $stmt2->execute();
 		
 	while($row2 = $stmt2->fetch()){
@@ -70,8 +70,6 @@ else {
 	
 	$stmt4 = $conn->prepare('INSERT INTO orders (user_id, mc_gross, item_name) VALUES (:userid, :mcgross, :itemname)');
 	$result4 = $stmt4->execute(array('userid' => $_GET['id'], 'mcgross' => "Free Plan", 'itemname' => "500 email credits per month"));
-	///////////////////////
-
 ?>
 <!DOCTYPE HTML>
 <html>
