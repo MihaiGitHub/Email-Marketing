@@ -55,10 +55,10 @@ if($count > 0){
 		$tracker = THIS_WEBSITE_URI . '/receipt.php?id=' . urlencode( $rowcid['id'] ) . '&cid=' . urlencode( $rowcid['c_id'] );
 		
 		$body = str_replace(
-			['http://','https://','#%unsubscribe%'],
-			[THIS_WEBSITE_URI . '/receipt.php?id=%id%&cid=%cid%&link=http://', 
-			 THIS_WEBSITE_URI . '/receipt.php?link=https://',
-			 THIS_WEBSITE_URI . '/receipt-unsubscribe.php?id=' . $rowcid['id']],
+			[' href="http://',' href="https://','#%unsubscribe%'],
+			[THIS_WEBSITE_URI . ' href="http://msmarandache.com/emarketing/app/receipt.php?id=%id%&cid=%cid%&link=http://', 
+			 THIS_WEBSITE_URI . ' href="http://msmarandache.com/emarketing/app/receipt.php?link=https://',
+			 THIS_WEBSITE_URI . 'http://msmarandache.com/emarketing/app/receipt-unsubscribe.php?id=' . $rowcid['id']],
 			$trow['value']
 		);
 		
@@ -66,7 +66,6 @@ if($count > 0){
 		$body = str_replace('%cid%', $rowcid['c_id'], $body);
 
 		$body .= '<img style="display:none;" border="0" src="'.$tracker.'" width="1" height="1" />';
-		
 
 
 		$mail = new PHPMailer();
