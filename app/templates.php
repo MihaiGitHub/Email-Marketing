@@ -16,7 +16,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['type'] != 'all'){
 
 }
 
-
 $stmtlists = $conn->prepare('SELECT id, name FROM lists WHERE user_id = :userid');
 $resultlists = $stmtlists->execute(array('userid' => $_SESSION['id']));
 
@@ -185,7 +184,7 @@ while($rowlists = $stmtlists->fetch()){
 
                                        <div class="controls">
 
-                                          <input id="from-email" type="text" class="span6" />
+                                          <input id="from-email" type="email" class="span6" />
                                           <span class="help-inline">The email that will appear as having sent the email</span>
 
                                        </div>
@@ -196,8 +195,19 @@ while($rowlists = $stmtlists->fetch()){
 
                                        <div class="controls">
 
-                                          <input id="replyto" type="text" class="span6" />
+                                          <input id="replyto" type="email" class="span6" />
                                           <span class="help-inline">Email for end user to reply to</span>
+
+                                       </div>
+                                    </div>
+							 
+							 <div class="control-group">
+                                       <label class="control-label"></label>
+
+                                       <div class="controls">
+
+                                          <input id="gaLinkTracking" type="checkbox" class="span6" value=""/>
+                                          <span class="help-inline"><strong>Google Analytics link tracking</strong> <br/>Track clicks from your campaigns all the way to purchases on your website. Requires Google Analytics on your website.</span>
 
                                        </div>
                                     </div>

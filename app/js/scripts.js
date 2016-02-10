@@ -1390,6 +1390,7 @@ console.log(dataArrayFinal)
 		   jData.fromName = $('#from-name').val();
 		   jData.fromEmail = $('#from-email').val();
 		   jData.replyTo = $('#replyto').val();
+		   jData.gaLinkTracking = $('#gaLinkTracking').is(':checked') ? 'Yes' : 'No';
 		   
 		   if(jData.listId === ""){
 				error = true;
@@ -1475,6 +1476,7 @@ console.log(dataArrayFinal)
 						 
 					  },
 			   });
+			   
 		   }				   
 			
         }).hide();

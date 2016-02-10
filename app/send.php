@@ -28,8 +28,8 @@ $count = $stmtmain->rowCount();
 if($count > 0){
 	require_once('phpmailer/class.phpmailer.php');
 
-	$stmtc = $conn->prepare('INSERT INTO campaigns (id, user_id, list_id, subject, email_from, email_replyto, sent) VALUES (:cid, :userid, :listid,  :subject, :from, :replyto, :sent)');
-	$stmtc->execute(array('cid' => $_SESSION['c_id'], 'userid' => $_SESSION['id'], 'listid' => $_SESSION['listid'], 'subject' => $_POST['subject'], 'from' => $_POST['fromEmail'], 'replyto' => $_POST['replyTo'], 'sent' => date('n/j/Y g:i A')));
+	$stmtc = $conn->prepare('INSERT INTO campaigns (id, user_id, list_id, subject, email_from, email_replyto, ga_link_tracking, sent) VALUES (:cid, :userid, :listid,  :subject, :from, :replyto, :galinktracking, :sent)');
+	$stmtc->execute(array('cid' => $_SESSION['c_id'], 'userid' => $_SESSION['id'], 'listid' => $_SESSION['listid'], 'subject' => $_POST['subject'], 'from' => $_POST['fromEmail'], 'replyto' => $_POST['replyTo'], 'galinktracking' => $_POST['gaLinkTracking'], 'sent' => date('n/j/Y g:i A')));
 
 	while($campaignemails = $stmtmain->fetch()){
 			
@@ -50,7 +50,7 @@ if($count > 0){
 	$stmtcid->execute(array('cid' => $_SESSION['c_id']));
 	$stmtcid->setFetchMode(PDO::FETCH_ASSOC);
 		
-	while($rowcid = $stmtcid->fetch()){	
+	while($rowcid = $stmtcid->fetch()){
 		
 		$tracker = THIS_WEBSITE_URI . '/receipt.php?id=' . urlencode( $rowcid['id'] ) . '&cid=' . urlencode( $rowcid['c_id'] );
 		

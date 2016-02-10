@@ -2,13 +2,26 @@
 include 'include/dbconnect.php';
 
 if($_GET['link']){
+	// Get campaign name (subject) for google analytics link tracking parameters
+	$stmtc = $conn->prepare('SELECT subject, ga_link_tracking FROM campaigns WHERE id = :cid');
+	$resultc = $stmtc->execute(array('cid' => $_GET['cid']));
+	$stmtc->setFetchMode(PDO::FETCH_ASSOC);
+	$rowc = $stmtc->fetch();
+
+	$stmt = $conn->prepare('INSERT INTO campaign_emails_links (c_id, ce_id, link, clicked) VALUES (:cid, :ce_id, :link, :clicked)');
+	$result = $stmt->execute(array('cid' => $_GET['cid'], 'ce_id' => $_GET['id'], 'link' => $_GET['link'], 'clicked' => date('Y-m-d H')));
 	
-    $stmt = $conn->prepare('INSERT INTO campaign_emails_links (c_id, ce_id, link, clicked) VALUES (:cid, :ce_id, :link, :clicked)');
-    $result = $stmt->execute(array('cid' => $_GET['cid'], 'ce_id' => $_GET['id'], 'link' => $_GET['link'], 'clicked' => date('Y-m-d H')));
-    if($result){
-	    header('Location:' . $_GET['link']);
-	    exit;  
-    }
+	if($result){
+		if($rowc['ga_link_tracking'] == 'Yes'){
+		    $utm_source = 'Effective_Email_Marketing_' . uniqid('E',true);
+		    
+		    header('Location:' . $_GET['link'] . '?utm_source=' . $utm_source . '&utm_medium=email&utm_campaign=' . $rowc['subject']);
+		    exit;
+		} else {
+		    header('Location:' . $_GET['link']);
+		    exit;
+		}
+	}
 
 } else {
 	
