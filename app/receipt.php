@@ -8,8 +8,8 @@ if($_GET['link']){
 	$stmtc->setFetchMode(PDO::FETCH_ASSOC);
 	$rowc = $stmtc->fetch();
 
-	$stmt = $conn->prepare('INSERT INTO campaign_emails_links (c_id, ce_id, link, clicked) VALUES (:cid, :ce_id, :link, :clicked)');
-	$result = $stmt->execute(array('cid' => $_GET['cid'], 'ce_id' => $_GET['id'], 'link' => $_GET['link'], 'clicked' => date('Y-m-d H')));
+	$stmt = $conn->prepare('INSERT INTO campaign_emails_links (c_id, ce_id, e_id, link, clicked) VALUES (:cid, :ce_id, :eid, :link, :clicked)');
+	$result = $stmt->execute(array('cid' => $_GET['cid'], 'ce_id' => $_GET['id'], 'eid' => $_GET['eid'], 'link' => $_GET['link'], 'clicked' => date('M d, Y g:i A')));
 	
 	if($result){
 		if($rowc['ga_link_tracking'] == 'Yes'){
@@ -25,7 +25,7 @@ if($_GET['link']){
 
 } else {
 	
-	header( 'Content-Type: image/gif' );
+header( 'Content-Type: image/gif' );
 // This will print user's real IP Address
 // does't matter if user using proxy or not.
 if (!empty($_SERVER["HTTP_CLIENT_IP"])){
@@ -38,7 +38,7 @@ if (!empty($_SERVER["HTTP_CLIENT_IP"])){
 	$ip = $_SERVER["REMOTE_ADDR"];
 }
 
-$location = file_get_contents('http://www.telize.com/geoip/'.$ip);
+$location = file_get_contents('http://freegeoip.net/json/'.$ip);
 $data = json_decode($location);
 
 $user_agent     =   $_SERVER['HTTP_USER_AGENT'];
@@ -120,7 +120,7 @@ $result2 = $stmt2->execute(array('id' => $_GET['id']));
 $row2 = $stmt2->fetch();
 
 $stmt3 = $conn->prepare('INSERT INTO notifications (user_id, notification, timestamp) VALUES (:id, :notification, :timestamp)');
-$result3 = $stmt3->execute(array('id' => $row['user_id'], 'notification' => "An email has been opened by <b>".$row2['email']."</b>.", 'timestamp' => date('Y-m-d H:i:s')));
+$result3 = $stmt3->execute(array('id' => $row['user_id'], 'notification' => "An email has been opened by <b>".$row2['email']."</b>.", 'timestamp' => date('M n, Y g:i A')));
 ///////////////////////////
 
 // Update parent email table with total opened count
@@ -128,8 +128,9 @@ $stmt = $conn->prepare('UPDATE campaign_emails SET opened = opened + 1 WHERE id 
 $result = $stmt->execute(array('id' => $_GET['id']));
 
 // Insert a new record every time they reopen with more details about their environment
-$stmt = $conn->prepare('INSERT INTO campaign_emails_detail (c_id, ce_id, ip, country, region, city, browser, os, opened) VALUES (:cid, :ce_id, :ip, :country, :region, :city, :browser, :os, :opened)');
-$result = $stmt->execute(array('cid' => $_GET['cid'], 'ce_id' => $_GET['id'], 'ip' => $_SERVER['REMOTE_ADDR'], 'country' => $data->country, 'region' => $data->region, 'city' => $data->city,'browser' => $user_browser, 'os' => $user_os, 'opened' => date('Y-m-d H')));
+$stmt = $conn->prepare('INSERT INTO campaign_emails_detail (c_id, ce_id, e_id, ip, country, region, city, browser, os, opened) VALUES (:cid, :ce_id, :eid, :ip, :country, :region, :city, :browser, :os, :opened)');
+//$result = $stmt->execute(array('cid' => $_GET['cid'], 'ce_id' => $_GET['id'], 'eid' => $_GET['eid'], 'ip' => $_SERVER['REMOTE_ADDR'], 'country' => $data->country, 'region' => $data->region, 'city' => $data->city,'browser' => $user_browser, 'os' => $user_os, 'opened' => date('M n, Y g:i A')));
+$result = $stmt->execute(array('cid' => $_GET['cid'], 'ce_id' => $_GET['id'], 'eid' => $_GET['eid'], 'ip' => $_SERVER['REMOTE_ADDR'], 'country' => $data->country_name, 'region' => $data->region_name, 'city' => $data->city,'browser' => $user_browser, 'os' => $user_os, 'opened' => date('M n, Y g:i A')));
 
 $graphic_http = THIS_WEBSITE_URI.'/app/templates/images/blank.gif'; 
  

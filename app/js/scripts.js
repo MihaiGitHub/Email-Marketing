@@ -4,8 +4,439 @@ var App = function () {
      var isMapPage = false;
 	var isChartPage = false;
 	var isTemplatePage = false;
+	var isListsPage = false;
+	var isEmailsPage = false;
+	var isEmailsUploadPage = false;
 	var isTemplateBuilderPage = false;
      var isIE8 = false;
+	
+	var handleEmailsUploadDisplay = function () {
+		$(document).on('change', '.area_select', function (e) {
+		   generateSelectedAreas();			
+		});
+	
+	    function generateSelectedAreas()
+	    {
+		   var selectedValues=[];
+		   
+		   //enable all options, otherwise they overlap and cause probl
+		   $('.area_select option').each(function () {
+			  $(this).prop('disabled', false);
+		   });
+		   
+		   $('.area_select option:selected').each(function () {
+			 var select = $(this).parent(),
+			 optValue = $(this).val();
+			  
+			 if($(this).val()!=''){
+				$('.area_select').not(select).children().filter(function(e){
+				    if($(this).val()==optValue)
+					   return e
+				}).prop('disabled', true);
+			 }
+		   });
+	    }
+	}
+	
+	var handleEmailsDisplay = function () {
+		$('#emails-table').DataTable( {
+		"iDisplayLength": 50,
+		   "ajax": "emails-crud.php?action=list",
+		   "dom": 'Bfrtip',
+		   "buttons": [
+			  'copy', 'csv'
+		   ],
+		   "order": [[ 3, "desc" ]],
+		   "language": {
+				"emptyTable": "There are no emails created for this list"
+		   },
+		   "columnDefs": [
+			  {
+				orderable: false,
+				"targets": [ 4 ],
+			  },
+			  { 
+				className: "dt-body-right",
+				"targets": [ 4 ] 
+			  }
+		   ],
+		   "columns": [
+			  { 
+				"data": "email",
+				"width": "30%",
+				"render": function(data, type, full, meta){
+					return '<a href="emails-profile.php?id='+full.id+'" style="color:#237a91;text-decoration:none;">' + full.email + '</a>';
+				}
+			  },
+			  { 
+				"data": "fname",
+			  },
+			  { 
+				"data": "lname",
+			  },
+			  { 
+				"data": "date_added",
+			  },
+			  { 
+				"data": "",
+				"width": "21%",
+				"render": function(data, type, full, meta){
+					return '<a href="#" id="'+full.id+'" data-email="'+full.email+'" data-fname="'+full.fname+'" data-lname="'+full.lname+'" class="btn edit"><i class="icon-edit"></i> Edit</a>&nbsp;<a href="#" id="'+full.id+'" class="btn delete"><i class="icon-trash"></i> Delete</a>';
+				}
+			  }
+		   ]
+		 
+		} );
+		
+		// add email
+		$('#add-email').on('click', function () {
+				$('#add-email-modal').fadeIn('fast');
+				$('.ui-widget-overlay').fadeIn('fast');
+				$('#add-email-address').focus();
+		});
+		
+		$('#add-email-modal-save').on('click', function () {		
+				$('#add-email-modal').fadeOut('slow');
+				$('.ui-widget-overlay').fadeOut('slow');
+				
+				var jData = {};
+				jData.email = $('#add-email-address').val();
+				jData.fname = $('#add-email-fname').val();
+				jData.lname = $('#add-email-lname').val();
+				
+				$.ajax({
+						  type: 'POST',
+						  url: 'emails-crud.php?action=create',
+						  async: true,
+						  data: jData,
+						  error: function(error) {
+							console.log('error', error);
+						  },
+						  dataType: 'json',
+						  success: function(data) {
+							$('#emails-table').DataTable().ajax.reload();
+							setTimeout(function(){ 
+								$('#'+data.Id).closest('tr').effect("highlight", {color: '#2ecc71'}, 2000);
+							 }, 500);
+						  },
+				});
+		});
+		
+		$('#add-email-modal .close-modal').on('click', function () {
+				$('#add-email-modal').fadeOut('slow');
+				$('.ui-widget-overlay').fadeOut('slow');
+		});
+
+		// edit email
+		$('#emails-table').on('click', 'a.edit', function () {
+				var id = $(this).attr('id');
+				var email = $(this).attr('data-email');
+				var fname = $(this).attr('data-fname');
+				var lname = $(this).attr('data-lname');
+				
+				$('#email-id').val(id);
+				$('#edit-email-address').val(email);
+				$('#edit-email-fname').val(fname);
+				$('#edit-email-lname').val(lname);
+			
+				$('#edit-email-modal').fadeIn('fast');
+				$('.ui-widget-overlay').fadeIn('fast');	
+				$('#edit-email-address').focus();
+		});
+		
+		$('#edit-email-modal-save').on('click', function () {
+				$('#edit-email-modal').fadeOut('slow');
+				$('.ui-widget-overlay').fadeOut('slow');
+				
+				var jData = {};
+				jData.id = $('#email-id').val();
+				jData.email = $('#edit-email-address').val();
+				jData.fname = $('#edit-email-fname').val();
+				jData.lname = $('#edit-email-lname').val();
+				
+				$.ajax({
+						  type: 'POST',
+						  url: 'emails-crud.php?action=update',
+						  async: true,
+						  data: jData,
+						  error: function(error) {
+							console.log('error', error)
+						  },
+						  dataType: 'json',
+						  success: function(data) {
+							 $('#emails-table').DataTable().ajax.reload();
+							 setTimeout(function(){
+								$('#'+jData.id).closest('tr').effect("highlight", {color: '#2ecc71'}, 2000);
+							 }, 500);
+						  },
+				   });
+				   
+		});
+		
+		$('#edit-email-modal .close-modal').on('click', function () {
+				$('#edit-email-modal').fadeOut('slow');
+				$('.ui-widget-overlay').fadeOut('slow');
+		});
+		
+		// delete email
+		$('#emails-table').on('click', 'a.delete', function () {
+				var id = $(this).attr('id');
+				
+				$('#delete-id').val(id);
+			
+				$('#delete-email-modal').fadeIn('fast');
+				$('.ui-widget-overlay').fadeIn('fast');
+		});
+		
+		$('#delete-email-btn').on('click', function () {
+				$('#delete-email-modal').fadeOut('slow');
+				$('.ui-widget-overlay').fadeOut('slow');
+				
+				var jData = {};
+				jData.id = $('#delete-id').val();
+				
+				$.ajax({
+						  type: 'POST',
+						  url: 'emails-crud.php?action=delete',
+						  async: true,
+						  data: jData,
+						  error: function(error) {
+							console.log('error', error)
+						  },
+						  dataType: 'json',
+						  success: function(data) { 
+						  
+							$('#'+jData.id).closest('tr').effect("highlight", {color: '#e74c3c'}, 2000);
+							 
+							 setTimeout(function(){ 
+								$('#emails-table').DataTable().ajax.reload();
+							 }, 1000);
+						  },
+				});
+				   
+		});
+		
+		$('#delete-email-modal .close-modal').on('click', function () {
+				$('#delete-email-modal').fadeOut('slow');
+				$('.ui-widget-overlay').fadeOut('slow');
+		});
+		
+		// import contacts
+		$('#import-contacts').on('click', function () {
+				$('#import-contacts-modal').fadeIn('fast');
+				$('.ui-widget-overlay').fadeIn('fast');
+		});
+		
+		$('#import-contacts-close').on('click', function () {
+				$('#import-contacts-modal').fadeOut('slow');
+				$('.ui-widget-overlay').fadeOut('slow');		
+		});
+		
+		$('#import-contacts-modal .close-modal').on('click', function () {
+				$('#import-contacts-modal').fadeOut('slow');
+				$('.ui-widget-overlay').fadeOut('slow');		
+		});
+		
+		// upload file
+		$('#upload-file').on('click', function () {
+				$('#upload-file-modal').fadeIn('fast');
+				$('.ui-widget-overlay').fadeIn('fast');
+		});
+		
+		$('#upload-file-close').on('click', function () {
+				$('#upload-file-modal').fadeOut('slow');
+				$('.ui-widget-overlay').fadeOut('slow');		
+		});
+		
+		$('#upload-file-modal .close-modal').on('click', function () {
+				$('#upload-file-modal').fadeOut('slow');
+				$('.ui-widget-overlay').fadeOut('slow');		
+		});
+		
+		$('.ui-widget-overlay').on('click', function () {
+				$('#add-email-modal').fadeOut('slow');
+				$('#edit-email-modal').fadeOut('slow');
+				$('#delete-email-modal').fadeOut('slow');
+				$('#import-contacts-modal').fadeOut('slow');
+				$('#upload-file-modal').fadeOut('slow');
+				$('.ui-widget-overlay').fadeOut('slow');
+		});
+	}
+	
+	var handleListsDisplay = function () {
+		$('#lists-table').DataTable( {
+		   "ajax": "lists-crud.php?action=list",
+		   "order": [[ 3, "desc" ]],
+		   "language": {
+				"emptyTable": "There are no lists created"
+		   },
+		   "columnDefs": [
+			  {
+				orderable: false,
+				"targets": [ 3 ],
+			  },
+			  { 
+				className: "dt-body-right", 
+				"targets": [ 3 ] 
+			  }
+		   ],
+		   "columns": [
+			  { 
+				"data": "name",
+				"width": "40%",
+				"render": function(data, type, full, meta){
+					return '<a href="emails.php?id='+full.id+'" style="color:#237a91;text-decoration:none;">' + full.name + '</a>';
+				}
+			  },
+			  { 
+				"data": "contacts",
+			  },
+			  { 
+				"data": "created",
+			  },
+			  { 
+				"data": "",
+				"width": "21%",
+				"render": function(data, type, full, meta){
+					return '<a href="#" id="'+full.id+'" data-name="'+full.name+'" class="btn edit"><i class="icon-edit"></i> Edit</a>&nbsp;<a href="#" id="'+full.id+'" class="btn delete"><i class="icon-trash"></i> Delete</a>';
+				}
+			  }
+		   ]
+		 
+		} );
+		
+		// add list
+		$('#add-list').on('click', function () { console.log('add')
+				$('#add-list-modal').fadeIn('fast');
+				$('.ui-widget-overlay').fadeIn('fast');
+				$('#add-list-modal input').focus();
+		});
+		
+		$('#add-list-modal-save').on('click', function () {		
+				$('#add-list-modal').fadeOut('slow');
+				$('.ui-widget-overlay').fadeOut('slow');
+				
+				var jData = {};
+				jData.list = $('#add-list-modal input').val();
+				
+				$.ajax({
+						  type: 'POST',
+						  url: 'lists-crud.php?action=create',
+						  async: true,
+						  data: jData,
+						  error: function(error) {
+							console.log('error', error);
+						  },
+						  dataType: 'json',
+						  success: function(data) {
+							$('#lists-table').DataTable().ajax.reload();
+							setTimeout(function(){ 
+								$('#'+data.Id).closest('tr').effect("highlight", {color: '#2ecc71'}, 2000);
+							 }, 500);
+						  },
+				});
+		});
+		
+		$('#add-list-modal .close-modal').on('click', function () {
+				$('#add-list-modal').fadeOut('slow');
+				$('.ui-widget-overlay').fadeOut('slow');
+		});
+		
+		// edit list
+		$('#lists-table').on('click', 'a.edit', function () {
+				var id = $(this).attr('id');
+				var name = $(this).attr('data-name');
+				
+				$('#list-id').val(id);
+				$('#list-name').val(name);
+			
+				$('#edit-list-modal').fadeIn('fast');
+				$('.ui-widget-overlay').fadeIn('fast');	
+				$('#list-name').focus();
+		});
+		
+		$('#edit-list-modal-save').on('click', function () {
+				$('#edit-list-modal').fadeOut('slow');
+				$('.ui-widget-overlay').fadeOut('slow');
+				
+				var jData = {};
+				jData.listid = $('#list-id').val();
+				jData.list = $('#list-name').val();
+				
+				$.ajax({
+						  type: 'POST',
+						  url: 'lists-crud.php?action=update',
+						  async: true,
+						  data: jData,
+						  error: function(error) {
+							console.log('error', error)
+						  },
+						  dataType: 'json',
+						  success: function(data) {
+							 $('#lists-table').DataTable().ajax.reload();
+							 setTimeout(function(){ 
+								$('#'+jData.listid).closest('tr').effect("highlight", {color: '#2ecc71'}, 2000);
+							 }, 500);
+						  },
+				   });
+				   
+		});
+		
+		$('#edit-list-modal .close-modal').on('click', function () {
+				$('#edit-list-modal').fadeOut('slow');
+				$('.ui-widget-overlay').fadeOut('slow');
+		});
+		
+		// delete list
+		$('#lists-table').on('click', 'a.delete', function () {
+				var id = $(this).attr('id');
+				
+				$('#delete-id').val(id);
+			
+				$('#delete-list-modal').fadeIn('fast');
+				$('.ui-widget-overlay').fadeIn('fast');
+		});
+		
+		$('#delete-list-btn').on('click', function () {
+				$('#delete-list-modal').fadeOut('slow');
+				$('.ui-widget-overlay').fadeOut('slow');
+				
+				var jData = {};
+				jData.listid = $('#delete-id').val();
+				
+				$.ajax({
+						  type: 'POST',
+						  url: 'lists-crud.php?action=delete',
+						  async: true,
+						  data: jData,
+						  error: function(error) {
+							console.log('error', error)
+						  },
+						  dataType: 'json',
+						  success: function(data) { 
+						  
+							$('#'+jData.listid).closest('tr').effect("highlight", {color: '#e74c3c'}, 2000);
+							 
+							 setTimeout(function(){ 
+								$('#lists-table').DataTable().ajax.reload();
+							 }, 1000);
+						  },
+				});
+				   
+		});
+		
+		$('#delete-list-modal .close-modal').on('click', function () {
+				$('#delete-list-modal').fadeOut('slow');
+				$('.ui-widget-overlay').fadeOut('slow');
+		});
+		
+		$('.ui-widget-overlay').on('click', function () {
+				$('#add-list-modal').fadeOut('slow');
+				$('#edit-list-modal').fadeOut('slow');
+				$('#delete-list-modal').fadeOut('slow');
+				$('.ui-widget-overlay').fadeOut('slow');
+		});
+	}
 	
 	var handleTemplateDisplay = function () {
 		$("#createTemplateBtn").css("display", "inline-block");
@@ -466,6 +897,7 @@ console.log(dataArrayFinal)
     }
 
     var handleLoginForm = function () {
+	   $('#input-username').focus();
         jQuery('#forget-password').click(function () {
             jQuery('#loginform').hide();
             jQuery('#forgotform').show(200);
@@ -497,30 +929,6 @@ console.log(dataArrayFinal)
 		    });
             
         });
-    }
-
-    var handleFixInputPlaceholderForIE = function () {
-        //fix html5 placeholder attribute for ie7 & ie8
-        if (jQuery.browser.msie && jQuery.browser.version.substr(0, 1) <= 9) { // ie7&ie8
-            jQuery('input[placeholder], textarea[placeholder]').each(function () {
-
-                var input = jQuery(this);
-
-                jQuery(input).val(input.attr('placeholder'));
-
-                jQuery(input).focus(function () {
-                    if (input.val() == input.attr('placeholder')) {
-                        input.val('');
-                    }
-                });
-
-                jQuery(input).blur(function () {
-                    if (input.val() == '' || input.val() == input.attr('placeholder')) {
-                        input.val(input.attr('placeholder'));
-                    }
-                });
-            });
-        }
     }
 
     var handleStyler = function () {
@@ -570,134 +978,6 @@ console.log(dataArrayFinal)
             $('#style_color').attr("href", "css/style_" + color + ".css");
         }
 
-    }
-
-    var handlePulsate = function () {
-        if (!jQuery().pulsate) {
-            return;
-        }
-
-        if (isIE8 == true) {
-            return; // pulsate plugin does not support IE8 and below
-        }
-
-        if (jQuery().pulsate) {
-            jQuery('#pulsate-regular').pulsate({
-                color: "#bf1c56"
-            });
-
-            jQuery('#pulsate-once').click(function () {
-                $(this).pulsate({
-                    color: "#399bc3",
-                    repeat: false
-                });
-            });
-
-            jQuery('#pulsate-hover').pulsate({
-                color: "#5ebf5e",
-                repeat: false,
-                onHover: true
-            });
-
-            jQuery('#pulsate-crazy').click(function () {
-                $(this).pulsate({
-                    color: "#fdbe41",
-                    reach: 50,
-                    repeat: 10,
-                    speed: 100,
-                    glow: true
-                });
-            });
-        }
-    }
-
-    var handlePeity = function () {
-        if (!jQuery().peity) {
-            return;
-        }
-
-        if (jQuery.browser.msie && jQuery.browser.version.substr(0, 2) <= 8) { // ie7&ie8
-            return;
-        }
-
-        $(".stat.bad .line-chart").peity("line", {
-            height: 20,
-            width: 50,
-            colour: "#d12610",
-            strokeColour: "#666"
-        }).show();
-
-        $(".stat.bad .bar-chart").peity("bar", {
-            height: 20,
-            width: 50,
-            colour: "#d12610",
-            strokeColour: "#666"
-        }).show();
-
-        $(".stat.ok .line-chart").peity("line", {
-            height: 20,
-            width: 50,
-            colour: "#37b7f3",
-            strokeColour: "#757575"
-        }).show();
-
-        $(".stat.ok .bar-chart").peity("bar", {
-            height: 20,
-            width: 50,
-            colour: "#37b7f3"
-        }).show();
-
-        $(".stat.good .line-chart").peity("line", {
-            height: 20,
-            width: 50,
-            colour: "#52e136"
-        }).show();
-
-        $(".stat.good .bar-chart").peity("bar", {
-            height: 20,
-            width: 50,
-            colour: "#52e136"
-        }).show();
-        //
-
-        $(".stat.bad.huge .line-chart").peity("line", {
-            height: 20,
-            width: 40,
-            colour: "#d12610",
-            strokeColour: "#666"
-        }).show();
-
-        $(".stat.bad.huge .bar-chart").peity("bar", {
-            height: 20,
-            width: 40,
-            colour: "#d12610",
-            strokeColour: "#666"
-        }).show();
-
-        $(".stat.ok.huge .line-chart").peity("line", {
-            height: 20,
-            width: 40,
-            colour: "#37b7f3",
-            strokeColour: "#757575"
-        }).show();
-
-        $(".stat.ok.huge .bar-chart").peity("bar", {
-            height: 20,
-            width: 40,
-            colour: "#37b7f3"
-        }).show();
-
-        $(".stat.good.huge .line-chart").peity("line", {
-            height: 20,
-            width: 40,
-            colour: "#52e136"
-        }).show();
-
-        $(".stat.good.huge .bar-chart").peity("bar", {
-            height: 20,
-            width: 40,
-            colour: "#52e136"
-        }).show();
     }
 
     var handleDeviceWidth = function () {
@@ -1242,10 +1522,8 @@ console.log(dataArrayFinal)
                 } else {
 					
 					if (current == 2){ 
-				//	$('#form_wizard_1').find('#backbtn').removeClass('button-previous');
 					
 					var tid = sessionStorage.getItem('tid');
-					
 										
 					console.log('tid ',tid)
 					
@@ -1266,7 +1544,6 @@ console.log(dataArrayFinal)
 								  },
 								  dataType: 'json',
 								  success: function(data) {
-									  console.log('data ',data)
 										$('#edittemplate').html(data);
 										$('#edittemplate').fadeIn('slow');
 										$('#form_wizard_1').find('#prev-btn').fadeIn('slow');
@@ -1416,8 +1693,8 @@ console.log(dataArrayFinal)
 			  
 				var progressTimer, progressLabel = $( ".progress-label" ), progressbar = $( "#progressbar" );
 				
-				$('.overlay').fadeIn('slow');
-				$('#dialog').addClass('in');
+				$('#dialog').fadeIn('fast');
+				$('.ui-widget-overlay').fadeIn('fast');
 				
 				function openmodal() { 
 						
@@ -1566,11 +1843,6 @@ console.log(dataArrayFinal)
         //main function to initiate template pages
         init: function () {
 
-            if (jQuery.browser.msie && jQuery.browser.version.substr(0, 1) == 8) {
-                isIE8 = true; // checkes for IE8 browser version
-                $('.visible-ie8').show();
-            }
-
             handleDeviceWidth(); // handles proper responsive features of the page
             handleChoosenSelect(); // handles bootstrap chosen dropdowns
 
@@ -1587,6 +1859,18 @@ console.log(dataArrayFinal)
 		  if (isTemplatePage) {
 			 handleTemplateDisplay(); // handles main template page
 		  }
+		  
+		  if (isListsPage) {
+			 handleListsDisplay(); // handles lists page
+		  }
+		  
+		  if (isEmailsPage) {
+			 handleEmailsDisplay(); // handles emails page
+		  }
+		  
+		  if (isEmailsUploadPage) {
+			 handleEmailsUploadDisplay(); // handles emails page
+		  }
 		
 		  if (isTemplateBuilderPage) {
 			 handleTemplateBuilder(); // handles statistics page
@@ -1601,8 +1885,6 @@ console.log(dataArrayFinal)
             handleTagsInput() // handles tag input elements
             handleTables(); // handles data tables
             handleWidgetTools(); // handles portlet action bar functionality(refresh, configure, toggle, remove)
-            handlePulsate(); // handles pulsate functionality on page elements
-            handlePeity(); // handles pierty bar and line charts
             handleGritterNotifications(); // handles gritter notifications
             handleTooltip(); // handles bootstrap tooltips
             handlePopover(); // handles bootstrap popovers
@@ -1612,20 +1894,15 @@ console.log(dataArrayFinal)
             handleFancyBox(); // handles fancy box image previews
             handleStyler(); // handles style customer tool
             handleMainMenu(); // handles main menu
-            handleFixInputPlaceholderForIE(); // fixes/enables html5 placeholder attribute for IE9, IE8
             handleGoTop(); //handles scroll to top functionality in the footer
             handleFormWizards();
             handleSidebarToggler();
 
-            if (isMainPage) { // this is for demo purpose. you may remove handleIntro function for your project
-//                handleIntro();
-            }
         },
 
         // login page setup
         initLogin: function () {
             handleLoginForm();
-            handleFixInputPlaceholderForIE();
         },
 
         // wrapper function for page element pulsate
@@ -1682,11 +1959,6 @@ console.log(dataArrayFinal)
         setMainPage: function (flag) {
             isMainPage = flag;
         },
-
-        // set map page
-        setMapPage: function (flag) {
-            isMapPage = flag;
-        },
 		
 		// set chart page
         setChartPage: function (flag) {
@@ -1696,6 +1968,21 @@ console.log(dataArrayFinal)
 	   // set template page
         setTemplatePage: function (flag) {
             isTemplatePage = flag;
+        },
+	   
+	   // set lists page
+        setListsPage: function (flag) {
+            isListsPage = flag;
+        },
+	   
+	   // set emails page
+        setEmailsPage: function (flag) {
+            isEmailsPage = flag;
+        },
+	   
+	   // set emails upload page
+        setEmailsUploadPage: function (flag) {
+            isEmailsUploadPage = flag;
         },
 		
 		// set template builder page
@@ -1710,33 +1997,3 @@ console.log(dataArrayFinal)
     $('.inputmask').inputmask();
 
 }();
-
-//tooltips
-
-//$('.element').tooltip();
-
-/*
-// Slider input js
-try{
-    jQuery("#Slider1").slider({ from: 5, to: 50, step: 2.5, round: 1, dimension: '&nbsp;$', skin: "round_plastic" });
-    jQuery("#Slider2").slider({ from: 5000, to: 150000, heterogeneity: ['50/50000'], step: 1000, dimension: '&nbsp;$', skin: "round_plastic" });
-    jQuery("#Slider3").slider({ from: 1, to: 30, heterogeneity: ['50/5', '75/15'], scale: [1, '|', 3, '|', '5', '|', 15, '|', 30], limits: false, step: 1, dimension: '', skin: "round_plastic" });
-    jQuery("#Slider4").slider({ from: 480, to: 1020, step: 15, dimension: '', scale: ['8:00', '9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00'], limits: false, skin: "round_plastic", calculate: function( value ){
-        var hours = Math.floor( value / 60 );
-        var mins = ( value - hours*60 );
-        return (hours < 10 ? "0"+hours : hours) + ":" + ( mins == 0 ? "00" : mins );
-    }});
-}
-    catch (e){
-    errorMessage(e);
-}
-*/
-
-//knob
-
-//$(".knob").knob();
-
-
-
-
-
