@@ -8,7 +8,100 @@ var App = function () {
 	var isEmailsPage = false;
 	var isEmailsUploadPage = false;
 	var isTemplateBuilderPage = false;
+	var isCampaignsPage = false;
      var isIE8 = false;
+	
+	var handleCampaignsDisplay = function () {
+		$('#campaigns-table').DataTable( {
+		"iDisplayLength": 50,
+		   "ajax": "reports-crud.php?action=list",
+		   "order": [[ 2, "desc" ]],
+		   "language": {
+				"emptyTable": "There are no campaigns to display"
+		   },
+		   "columnDefs": [
+			  {
+				orderable: false,
+				"targets": [ 3 ],
+			  },
+			  {
+				className: "dt-body-right",
+				"targets": [ 3 ] 
+			  }
+		   ],
+		   "columns": [
+			  { 
+				"data": "",
+				"width": "40%",
+				"render": function(data, type, full, meta){
+					return '<a href="statistics.php?id='+full.c_id+'" style="color:#237a91;text-decoration:none;">' + full.subject + '</a>';
+				}
+			  },
+			  { 
+				"data": "name",
+			  },
+			  { 
+				"data": "sent",
+				"width": "17%"
+			  },
+			  { 
+				"data": "",
+				"width": "15%",
+				"render": function(data, type, full, meta){
+					return '<a href="#" id="'+full.id+'" class="btn delete"><i class="icon-trash"></i> Delete</a>';
+				}
+			  }
+		   ]
+		 
+		} );
+		
+		// delete campaign
+		$('#campaigns-table').on('click', 'a.delete', function () {
+				var id = $(this).attr('id');
+				
+				$('#delete-id').val(id);
+			
+				$('#delete-campaign-modal').fadeIn('fast');
+				$('.ui-widget-overlay').fadeIn('fast');
+		});
+		
+		$('#delete-campaign-btn').on('click', function () {
+				$('#delete-campaign-modal').fadeOut('slow');
+				$('.ui-widget-overlay').fadeOut('slow');
+				
+				var jData = {};
+				jData.cid = $('#delete-id').val();
+				
+				$.ajax({
+						  type: 'POST',
+						  url: 'reports-crud.php?action=delete',
+						  async: true,
+						  data: jData,
+						  error: function(error) {
+							console.log('error', error)
+						  },
+						  dataType: 'json',
+						  success: function(data) {						  
+							 $('#'+jData.cid).closest('tr').effect("highlight", {color: '#e74c3c'}, 2000);
+							 
+							 setTimeout(function(){ 
+								$('#campaigns-table').DataTable().ajax.reload();
+							 }, 1000);
+						  },
+				});
+				   
+		});
+		
+		$('#delete-campaign-modal .close-modal').on('click', function () {
+				$('#delete-campaign-modal').fadeOut('slow');
+				$('.ui-widget-overlay').fadeOut('slow');
+		});
+		
+		$('.ui-widget-overlay').on('click', function () {
+				$('#delete-campaign-modal').fadeOut('slow');
+				$('.ui-widget-overlay').fadeOut('slow');
+		});
+	}
 	
 	var handleEmailsUploadDisplay = function () {
 		$(document).on('change', '.area_select', function (e) {
@@ -1728,7 +1821,7 @@ console.log(dataArrayFinal)
 				}
 	
 				$('#email-bar-close').click(function () {	
-					window.location = 'reports.php';
+					window.location = 'reports.php?sent=true';
 				})
 		
 				function callback(){
@@ -1864,6 +1957,10 @@ console.log(dataArrayFinal)
 			 handleListsDisplay(); // handles lists page
 		  }
 		  
+		  if (isCampaignsPage) {
+			 handleCampaignsDisplay(); // handles lists page
+		  }
+		  
 		  if (isEmailsPage) {
 			 handleEmailsDisplay(); // handles emails page
 		  }
@@ -1973,6 +2070,11 @@ console.log(dataArrayFinal)
 	   // set lists page
         setListsPage: function (flag) {
             isListsPage = flag;
+        },
+	   
+	   // set campaigns page
+        setCampaignsPage: function (flag) {
+            isCampaignsPage = flag;
         },
 	   
 	   // set emails page

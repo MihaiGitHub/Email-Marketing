@@ -1,108 +1,84 @@
 <?php
 ob_start();
 session_start();
-include 'include/dbconnect.php';
-
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
-	switch ($_POST['submitbtn']){
-		case 'delete':
-			$stmt = $conn->prepare('DELETE FROM campaign_emails WHERE c_id = :cid');
-			$result = $stmt->execute(array('cid' => $_POST['cid']));
-			if($result){
-				$stmt = $conn->prepare('DELETE FROM campaigns WHERE id = :cid');
-				$result = $stmt->execute(array('cid' => $_POST['cid']));
-			}
-		break;
-	}
-} 
-//$stmt = $conn->prepare('SELECT c.id, c.subject, c.sent, l.name FROM campaigns as c, lists as l WHERE c.user_id = :user AND c.list_id = l.id ORDER BY sent DESC');
-$stmt = $conn->prepare('SELECT c.id, c.subject, c.sent, l.name FROM campaigns as c LEFT JOIN lists as l ON c.list_id = l.id WHERE c.user_id = :user ORDER BY sent DESC');
-$result = $stmt->execute(array('user' => $_SESSION['id']));
 $reports = true;
 ?>
 <!-- BEGIN PAGE -->
-<link rel="stylesheet" href="assets/data-tables/DT_bootstrap.css" />
+ <div id="main-content">
+    <!-- BEGIN PAGE CONTAINER-->
+    <div class="container-fluid">
+	  <!-- BEGIN PAGE HEADER-->
+	  <div class="row-fluid">
+		<div class="span12">
+		   <!-- BEGIN PAGE TITLE & BREADCRUMB-->     
+		   <h3 class="page-title">
+			 Campaign List
+		   </h3>
+		    <ul class="breadcrumb">
+			   <li><a href="dashboard.php"><i class="icon-home"></i></a><span class="divider">&nbsp;</span></li>
+			   <li><a href="#">Campaigns</a><span class="divider-last">&nbsp;</span></li>
+		    </ul>
+		   <!-- END PAGE TITLE & BREADCRUMB-->
+		</div>
+	  </div>
+	  <!-- END PAGE HEADER-->
+	  <!-- BEGIN ADVANCED TABLE widget-->
+	  <div class="row-fluid">
+		 <div class="span12">
+			<!-- BEGIN EXAMPLE TABLE widget-->
+			<div class="widget">
+			    <div class="widget-title">
+				   <h4><i class="icon-reorder"></i>Campaign Lists</h4>
+			    </div>
+			    <div class="widget-body">
+				   <div class="portlet-body">
+				   	  <?php if(isset($_GET['sent'])){ ?>
+						  <div class="alert alert-success">
+								<button class="close" data-dismiss="alert">×</button>
+								<strong>Success!</strong> Your email campaign has been created and sent successfully.
+						  </div>
+					  <?php } ?>
+					  <table class="table-striped table-hover table-bordered dataTable no-footer jTable" id="campaigns-table">
+						<thead>
+						  <tr>
+							 <th>Campaign Name</th>
+							 <th>List</th>
+							 <th>Sent</th>
+							 <th></th>
+						  </tr>
+					   </thead>
+					  </table>
+				   </div>
+			    </div>
+			</div>
+			<!-- END EXAMPLE TABLE widget-->
+		 </div>
+	  </div>
+	  <!-- END ADVANCED TABLE widget-->
+	  <!-- END PAGE CONTENT-->
+    </div>
+    <!-- END PAGE CONTAINER-->
+ </div>
+ <!-- END PAGE -->
+<div id="delete-campaign-modal" class="modal" tabindex="-1" role="dialog">
+	<div class="modal-header">
+		<button type="button" class="close close-modal" aria-hidden="true">×</button>
+		<h3>Delete Campaign</h3>
+	</div>
 
-      <div id="main-content">
-         <!-- BEGIN PAGE CONTAINER-->
-         <div class="container-fluid">
-            <!-- BEGIN PAGE HEADER-->
-            <div class="row-fluid">
-               <div class="span12">
-                  <!-- BEGIN PAGE TITLE & BREADCRUMB-->     
-                  <h3 class="page-title">
-                     Campaign List
-                     
-                  </h3>
-                   <ul class="breadcrumb">
-                       <li>
-                           <a href="#"><i class="icon-home"></i></a><span class="divider">&nbsp;</span>
-                       </li>
-                       <li><a href="#">Campaigns</a><span class="divider-last">&nbsp;</span></li>
-                   </ul>
-                  <!-- END PAGE TITLE & BREADCRUMB-->
-               </div>
-            </div>
-            <!-- END PAGE HEADER-->
+	<div class="modal-body">
+		<div class="control-group">
+		    <label class="control-label">Are you sure you want to delete this campaign?</label>
+		   	<input type="hidden" id="delete-id" value="" />
+		 </div>	
+	</div>
 
-            <!-- BEGIN ADVANCED TABLE widget-->
-            <div class="row-fluid">
-                <div class="span12">
-                    <!-- BEGIN EXAMPLE TABLE widget-->
-                    <div class="widget">
-                        <div class="widget-title">
-                            <h4><i class="icon-reorder"></i>Campaign List</h4>
-                           
-                        </div>
-                        <div class="widget-body">
-                            <div class="portlet-body">
-                                
-                                
-                                <table class="table table-striped table-hover table-bordered" id="reports-list">
-                                    <thead>
-                                    <tr>
-										<th>#</th>
-										<th>Campaign Name</th>
-										<th>List</th>
-										<th>Sent</th>
-                                        <th>View</th>
-										<th>Delete</th>
-									</tr>
-                                    </thead>
-                                    <tbody>
-		<?php //<a href='statistics.php?id=".urlencode($row['id'])."'></a>
-		$i = 1;
-		while($row = $stmt->fetch()){	
-				echo "<tr>
-					<td>$i</td>
-					<td>".htmlentities($row['subject'])."</td>
-					<td>".htmlentities($row['name'])."</td>
-					<td>".htmlentities($row['sent'])."</td>
-					<td><a class='campaign' id='".$row['id']."' href='statistics.php?id=".urlencode($row['id'])."'>View</a></td>
-					<td><a class='delete' href='javascript:;'>Delete</a></td>
-				</tr>";
-				$i++;
-		} 
-		if($i == 1) echo '<tr><td>&nbsp;</td><td>There are no campaigns to display</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>';
-		?>
-                                   
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- END EXAMPLE TABLE widget-->
-                </div>
-            </div>
-
-            <!-- END ADVANCED TABLE widget-->
-
-            <!-- END PAGE CONTENT-->
-         </div>
-         <!-- END PAGE CONTAINER-->
-
-      </div>
-      <!-- END PAGE -->
+	<div class="modal-footer">
+		<button id="delete-campaign-modal-close" class="btn-close close-modal">Close</button>
+		<button id="delete-campaign-btn" class="btn-primary">Delete</button>
+	</div>
+</div>
+<div class="ui-widget-overlay"></div>
 <?php
 $content = ob_get_contents();
 ob_end_clean();
@@ -110,3 +86,4 @@ include 'include/header.php';
 print $content;
 include 'include/footer.php'; 
 ?>
+<script>App.setCampaignsPage(true);</script>

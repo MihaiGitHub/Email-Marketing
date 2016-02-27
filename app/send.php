@@ -28,7 +28,7 @@ $count = $stmtmain->rowCount();
 if($count > 0){
 	require_once('phpmailer/class.phpmailer.php');
 
-	$stmtc = $conn->prepare('INSERT INTO campaigns (id, user_id, list_id, subject, email_from, email_replyto, ga_link_tracking, sent) VALUES (:cid, :userid, :listid,  :subject, :from, :replyto, :galinktracking, :sent)');
+	$stmtc = $conn->prepare('INSERT INTO campaigns (c_id, user_id, list_id, subject, email_from, email_replyto, ga_link_tracking, sent) VALUES (:cid, :userid, :listid,  :subject, :from, :replyto, :galinktracking, :sent)');
 	$stmtc->execute(array('cid' => $_SESSION['c_id'], 'userid' => $_SESSION['id'], 'listid' => $_SESSION['listid'], 'subject' => $_POST['subject'], 'from' => $_POST['fromEmail'], 'replyto' => $_POST['replyTo'], 'galinktracking' => $_POST['gaLinkTracking'], 'sent' => date('M d, Y g:i A')));
 
 	while($campaignemails = $stmtmain->fetch()){
