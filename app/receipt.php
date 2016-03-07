@@ -128,9 +128,9 @@ $stmt = $conn->prepare('UPDATE campaign_emails SET opened = opened + 1 WHERE id 
 $result = $stmt->execute(array('id' => $_GET['id']));
 
 // Insert a new record every time they reopen with more details about their environment
-$stmt = $conn->prepare('INSERT INTO campaign_emails_detail (c_id, ce_id, e_id, ip, country, region, city, browser, os, opened) VALUES (:cid, :ce_id, :eid, :ip, :country, :region, :city, :browser, :os, :opened)');
+$stmt = $conn->prepare('INSERT INTO campaign_emails_detail (c_id, ce_id, e_id, ip, country, region, city, browser, os, opened, opened_unix) VALUES (:cid, :ce_id, :eid, :ip, :country, :region, :city, :browser, :os, :opened, :openedunix)');
 //$result = $stmt->execute(array('cid' => $_GET['cid'], 'ce_id' => $_GET['id'], 'eid' => $_GET['eid'], 'ip' => $_SERVER['REMOTE_ADDR'], 'country' => $data->country, 'region' => $data->region, 'city' => $data->city,'browser' => $user_browser, 'os' => $user_os, 'opened' => date('M n, Y g:i A')));
-$result = $stmt->execute(array('cid' => $_GET['cid'], 'ce_id' => $_GET['id'], 'eid' => $_GET['eid'], 'ip' => $_SERVER['REMOTE_ADDR'], 'country' => $data->country_name, 'region' => $data->region_name, 'city' => $data->city,'browser' => $user_browser, 'os' => $user_os, 'opened' => date('M n, Y g:i A')));
+$result = $stmt->execute(array('cid' => $_GET['cid'], 'ce_id' => $_GET['id'], 'eid' => $_GET['eid'], 'ip' => $_SERVER['REMOTE_ADDR'], 'country' => $data->country_name, 'region' => $data->region_name, 'city' => $data->city,'browser' => $user_browser, 'os' => $user_os, 'opened' => date('M n, Y g:i A'), 'openedunix' => strtotime(date('M d, Y g A'))));
 
 $graphic_http = THIS_WEBSITE_URI.'/app/templates/images/blank.gif'; 
  

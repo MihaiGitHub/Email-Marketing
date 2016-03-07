@@ -23,7 +23,7 @@ $result = $stmt->execute(array('cid' => $_POST['cid']));
 $stmt->setFetchMode(PDO::FETCH_ASSOC);
 $countries = $stmt->fetchAll();
 
-$stmt = $conn->prepare('SELECT opened, COUNT( * ) count FROM campaign_emails_detail WHERE c_id = :cid GROUP BY opened');
+$stmt = $conn->prepare('SELECT opened_unix, COUNT( * ) count FROM campaign_emails_detail WHERE c_id = :cid GROUP BY opened_unix');
 $result = $stmt->execute(array('cid' => $_POST['cid']));
 $stmt->setFetchMode(PDO::FETCH_ASSOC);
 $timeframe = $stmt->fetchAll();

@@ -1,8 +1,8 @@
 ﻿<?php
 include 'include/dbconnect.php';
 
-$stmt1 = $conn->prepare('UPDATE campaign_emails SET unsubscribed = 1 WHERE id = :id');
-$result1 = $stmt1->execute(array('id' => $_GET['id']));
+$stmt1 = $conn->prepare('UPDATE campaign_emails SET unsubscribed = 1, unsubscribed_date = :udate WHERE id = :id');
+$result1 = $stmt1->execute(array('udate' => date('M n, Y g:i A'), 'id' => $_GET['id']));
 
 // Update notifications
 $stmt2 = $conn->prepare('SELECT c_id, email FROM campaign_emails WHERE id = :id');

@@ -7,7 +7,7 @@ require_once('phpmailer/class.phpmailer.php');
 if(!isset($_GET['id'])){
 
 $stmt = $conn->prepare('INSERT INTO users (fname, lname, username, password, role, emails, emails_per_month, timestamp) VALUES (:fname, :lname, :username, :password, :role, :emails, :emailspermonth, :timestamp)');
-$result = $stmt->execute(array('fname' => $_POST['firstName'], 'lname' => $_POST['lastName'], 'username' => $_POST['email'], 'password' => md5($_POST['pass']), 'role' => 'buyer', 'emails' => 5, 'emailspermonth' => 500, 'timestamp' => date('Y-m-d H:i:s')));
+$result = $stmt->execute(array('fname' => $_POST['firstName'], 'lname' => $_POST['lastName'], 'username' => $_POST['email'], 'password' => md5($_POST['pass']), 'role' => 'buyer', 'emails' => 5, 'emailspermonth' => 500, 'timestamp' => date('M d, Y g:i A')));
 
 	if($result){
 		$id = $conn->lastInsertId($result);
@@ -66,7 +66,7 @@ else {
 	
 	// Update notifications	
 	$stmt4 = $conn->prepare('INSERT INTO notifications (user_id, notification, timestamp) VALUES (:userid, :notification, :date)');
-	$result4 = $stmt4->execute(array('userid' => $_GET['id'], 'notification' => "You have successfully validated your account. You can now create a list and send email campaigns.", 'date' => date('Y-m-d H:i:s')));
+	$result4 = $stmt4->execute(array('userid' => $_GET['id'], 'notification' => "You have successfully validated your account. You can now create a list and send email campaigns.", 'date' => date('M d, Y g:i A')));
 	
 	$stmt4 = $conn->prepare('INSERT INTO orders (user_id, mc_gross, item_name) VALUES (:userid, :mcgross, :itemname)');
 	$result4 = $stmt4->execute(array('userid' => $_GET['id'], 'mcgross' => "Free Plan", 'itemname' => "500 email credits per month"));

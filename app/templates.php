@@ -230,30 +230,29 @@ while($rowlists = $stmtlists->fetch()){
          </div>
          <!-- END PAGE CONTAINER-->
 </div>
- 
-<div id="dialog" class="modal hide1 fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="false" style="width:560px !important;display:block;">
+<div id="dialog" class="modal" tabindex="-1" role="dialog" aria-hidden="false">
 	<div class="modal-header">
-		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-		<h3 id="myModalLabel1">Sending Emails...</h3>
+		<button type="button" class="close close-modal" aria-hidden="true">×</button>
+		<h3>Sending Emails...</h3>
 	</div>
 
 	<div class="modal-body">
-    		<div class="progress-label">Preparing template...</div>
+		<div class="control-group">
+		     <div class="progress-label">Preparing template...</div>
 
-		<div id="progressbar"></div>
-
-		<div class="progress progress-striped progress-success active">
-			<div id="email-bar" class="bar"></div>
-		</div>
+			<div id="progressbar"></div>
+	
+			<div class="progress progress-striped progress-success active">
+				<div id="email-bar" class="bar"></div>
+			</div>
+		 </div>	
 	</div>
 
 	<div class="modal-footer">
-		<button id="email-bar-close" class="btn btn-primary" data-dismiss="modal">Close</button>
+		<button id="email-bar-close" class="btn-primary">Close</button>
 	</div>
 </div>
-
-<div class="ui-widget-overlay overlay" style="z-index: 101; display: none;"></div>
-
+<div class="ui-widget-overlay"></div>
 <?php
 $content = ob_get_contents();
 ob_end_clean();

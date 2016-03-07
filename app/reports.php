@@ -68,7 +68,7 @@ $reports = true;
 
 	<div class="modal-body">
 		<div class="control-group">
-		    <label class="control-label">Are you sure you want to delete this campaign?</label>
+		    <label class="control-label">Are you sure you want to delete this email campaign?</label>
 		   	<input type="hidden" id="delete-id" value="" />
 		 </div>	
 	</div>

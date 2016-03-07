@@ -20,8 +20,8 @@ if($emails) {
 		preg_match_all($pattern, $message, $matches);
 		
 		foreach($matches[0] as $email){
-				$stmt = $conn->prepare('UPDATE campaign_emails SET bounced = 1, error_code = :code WHERE email = :email');
-				$result = $stmt->execute(array('code' => $code[1], 'email' => $email));
+				$stmt = $conn->prepare('UPDATE campaign_emails SET bounced = 1, bounced_date = :bdate, error_code = :code WHERE email = :email');
+				$result = $stmt->execute(array('bdate' => date('M n, Y g:i A'), 'code' => $code[1], 'email' => $email));
 
 				if($result){
 					imap_delete($inbox, $email_number);
