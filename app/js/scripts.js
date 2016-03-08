@@ -34,7 +34,8 @@ var App = function () {
 				"data": "",
 				"width": "40%",
 				"render": function(data, type, full, meta){
-					return '<a href="statistics.php?id='+full.c_id+'" style="color:#237a91;text-decoration:none;">' + full.subject + '</a>';
+					return '<a class="campaign" id="'+full.c_id+'" href="statistics.php?id='+full.c_id+'" style="color:#237a91;text-decoration:none;">' + full.subject + '</a>';
+
 				}
 			  },
 			  { 
@@ -42,7 +43,7 @@ var App = function () {
 			  },
 			  { 
 				"data": "sent",
-				"width": "17%"
+				"width": "20%"
 			  },
 			  { 
 				"data": "",
@@ -546,7 +547,7 @@ var App = function () {
 	 
 	 var handleCharts = function () {
 	 
-	 	var cid =	sessionStorage.getItem('cid');
+	 	var cid =	$('#cid').val();
 
 		var jData = {};
 		jData.cid = cid;
@@ -561,6 +562,7 @@ var App = function () {
 			  },
 			  dataType: 'json',
 			  success: function(data) {
+							console.log('success data ',data)
 							
 							var myEmails = [];
 							var myLinks = [];
@@ -568,32 +570,49 @@ var App = function () {
 							// Create array for emails clicked per day
 							for (var i = 0; i < data.timeframe.length; i++) {
 								
-								var dateStr = data.timeframe[i]['opened'];
+								var dateStr = data.timeframe[i]['opened_unix'];
+								
+								
+								
+								
+								console.log('dateStr ', dateStr)
+								
+								var d = new Date(dateStr*1000);
+								
+								console.log('d ',d)
+								
+							//	console.log('d ',d)
+								
+								/*
 								var a = dateStr.split(" ");
 								var d = a[0].split("-");
 								var t = a[1].split(":");
 								
 								var d = new Date(d[0],(d[1]-1),d[2],t[0]);
-								
+								*/
 								var year = d.getFullYear();
 								var month = d.getMonth();
 								var day = d.getDate();
 								var hour = d.getHours();
 								
+								console.log('year ',year,'month ',month, 'day ',day, 'hour ',hour)
+								
 								myEmails.push([Date.UTC(year, month, day, hour), parseInt(data.timeframe[i]['count'])]);
 
 							}
-							
+							console.log('myEmails ',myEmails)
+
 							// Create array for links clicked per day
 							for (var i = 0; i < data.links.length; i++) {
 								
-								var dateStr = data.links[i]['clicked'];
-								var a = dateStr.split(" ");
+								var dateStr = data.links[i]['clicked_unix'];
+								var d = new Date(dateStr*1000);
+								/*var a = dateStr.split(" ");
 								var d = a[0].split("-");
 								var t = a[1].split(":");
 								
 								var d = new Date(d[0],(d[1]-1),d[2],t[0]);
-								
+								*/
 								var year = d.getFullYear();
 								var month = d.getMonth();
 								var day = d.getDate();
@@ -602,6 +621,7 @@ var App = function () {
 								myLinks.push([Date.UTC(year, month, day, hour), parseInt(data.links[i]['count'])]);
 
 							}			
+			console.log('myLinks ',myLinks)
 			
 							$('#timeframe-container').highcharts({
 								credits: {
@@ -634,17 +654,14 @@ var App = function () {
 								},
 								series: [{
 									name: 'Email opens',
-									data: myEmails
-							
+									data: myEmails									
 								},{
 									name: 'Link Clicks',
 									data: myLinks
-							
 								}]
 							});
 							
-							
-					console.log('data ',data)
+	//				console.log('data ',data)
 					
 					var myBrowsers = [];
 					var chrome = 0;
@@ -714,18 +731,18 @@ var App = function () {
 
 
 
-var name = Array();
-var data1 = Array();
-var dataArrayFinal = Array();
-for( i = 0; i < myBrowsers.length; i++ ) { 
-   name[i] = myBrowsers[i].name; 
-   data1[i] = myBrowsers[i].y;  
-}
-
-for( j = 0; j < name.length; j++ ) { 
-   var temp = new Array( name[j], data1[j] ); 
-   dataArrayFinal[j] = temp;
-}
+						var name = Array();
+						var data1 = Array();
+						var dataArrayFinal = Array();
+						for( i = 0; i < myBrowsers.length; i++ ) { 
+						   name[i] = myBrowsers[i].name; 
+						   data1[i] = myBrowsers[i].y;  
+						}
+						
+						for( j = 0; j < name.length; j++ ) { 
+						   var temp = new Array( name[j], data1[j] ); 
+						   dataArrayFinal[j] = temp;
+						}
 
 				
 						$('#browsers-container').highcharts({
@@ -767,8 +784,7 @@ for( j = 0; j < name.length; j++ ) {
 					
 					
 					var myCountries = [];  
-					
-					 
+										 
 		for( var c = 0; c < data.countries.length; c++ ){
 										
 				data.countries[c]['country'] == '' ? myCountries.push({"name":"Unknown","y":parseInt(data.countries[c]['count'])}) : myCountries.push({"name":data.countries[c]['country'],"y":parseInt(data.countries[c]['count'])});		
@@ -777,7 +793,7 @@ for( j = 0; j < name.length; j++ ) {
 		}
 		
 		
-		console.log('countries ',myCountries)
+	//	console.log('countries ',myCountries)
 		
 var name = Array();
 var data1 = Array();
@@ -792,7 +808,7 @@ for( j = 0; j < name.length; j++ ) {
    dataArrayFinal[j] = temp;
 }		
 
-console.log(dataArrayFinal)
+//console.log(dataArrayFinal)
 	
 			$('#countries-container').highcharts({
 							credits: {
@@ -826,55 +842,111 @@ console.log(dataArrayFinal)
 							}]
 					});
 					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
 			  },
 		});
-				
 		
-			
-			
-			
-
+		// Datatables
+		$.ajax({
+				  type: 'POST',
+				  url: 'statistics-crud.php?action=uniqueopens',
+				  async: true,
+				  data: jData,
+				  error: function(error) {
+					console.log('error', error)
+				  },
+				  dataType: 'json',
+				  success: function(data) {
+					  	// Unique Opens				 
+						$('#unique-opens-table').DataTable( {
+							"iDisplayLength": 50,
+							   "order": [[ 1, "desc" ]],
+							   "language": {
+									"emptyTable": "There are no emails to display"
+							   },
+							   "data": data.uniqueopens,
+							   "columns": [
+								  { 
+									"data": "",
+									"width": "40%",
+									"render": function(data, type, full, meta){
+										return '<a class="campaign" href="#" style="color:#237a91;text-decoration:none;">' + full.email + '</a>';
+									}
+								  },
+								  { 
+									"data": "opened",
+								  }
+							   ]
+						});
+						// Unsubscribes				 
+						$('#unsubscribes-table').DataTable( {
+							"iDisplayLength": 50,
+							   "order": [[ 1, "desc" ]],
+							   "language": {
+									"emptyTable": "There are no emails to display"
+							   },
+							   "data": data.unsubscribes,
+							   "columns": [
+								  { 
+									"data": "",
+									"width": "40%",
+									"render": function(data, type, full, meta){
+										return '<a class="campaign" href="#" style="color:#237a91;text-decoration:none;">' + full.email + '</a>';
+									}
+								  },
+								  { 
+									"data": "unsubscribed_date",
+								  }
+							   ]
+						});
+						// Bounces				 
+						$('#bounces-table').DataTable( {
+							"iDisplayLength": 50,
+							   "order": [[ 1, "desc" ]],
+							   "language": {
+									"emptyTable": "There are no emails to display"
+							   },
+							   "data": data.bounces,
+							   "columns": [
+								  { 
+									"data": "",
+									"width": "90%",
+									"render": function(data, type, full, meta){
+										return '<a class="campaign" href="#" style="color:#237a91;text-decoration:none;">' + full.email + '</a>';
+									}
+								  },
+								  {
+									"data": "error_code"
+								  },
+								  { 
+									"data": "bounced_date"
+								  }
+							   ]
+						});
+						
+				  },
+		});
+		// Link Clicks		
+		$('#link-clicks-table').DataTable( {
+			"iDisplayLength": 50,
+			   "ajax": "statistics-crud.php?action=linkclicks&cid="+cid,
+			   "order": [[ 1, "desc" ]],
+			   "language": {
+					"emptyTable": "There are no links to display"
+			   },
+			   "columns": [
+				  { 
+					"data": "",
+					"width": "90%",
+					"render": function(data, type, full, meta){
+						return '<a class="campaign" href="'+full.link+'" target="_blank" style="color:#237a91;text-decoration:none;">' + full.link + '</a>';
+					}
+				  },
+				  { 
+					"data": "count",
+				  }
+			   ]
+		});
 	 }
-	
-	var handleEmails = function () {
-		/*
-		$('#emails-div button.uploadcsv').click(function () { console.log('upload csv')
-				$('.overlay').fadeIn('slow');
-				$('#upload-csv-modal').addClass('in');
-		});
-		*/
-		$('#emails-div button.importcontacts').click(function () { console.log('import contacts')
-				$('.overlay').fadeIn('slow');
-				$('#import-contacts-modal').addClass('in');
-		});
-		
-		$('#import-contacts-modal .email-modal-close').click(function () {	
-				$('.overlay').fadeOut('slow');
-				$('#import-contacts-modal').removeClass('in');
-		});
-		/*
-		$('#upload-csv-modal .email-csv-close').click(function () {	
-				window.location = 'lists.php';
-		});
-		*/
-	}
-	
-	var handleCampaign = function () {
-		$('a.campaign').click(function() {
-			var id = $(this).attr('id');
-			sessionStorage.setItem('cid', id);
-		});
-	}
 	
 	var handleTemplate = function () {
 		$('a.template-btn').click(function() {
@@ -1971,10 +2043,8 @@ console.log(dataArrayFinal)
 		
 		  if (isTemplateBuilderPage) {
 			 handleTemplateBuilder(); // handles statistics page
-		  }
-			
-		  handleEmails(); // handles emails page in lists section	
-		  handleCampaign(); // handles campaign ID in reports section
+		  }	
+
 		  handleTemplate(); // handles template ID in template wizard
             handleScrollers(); // handles slim scrolling contents
             handleUniform(); // handles uniform elements

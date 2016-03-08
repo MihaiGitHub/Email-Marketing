@@ -13,7 +13,7 @@ $result = $stmt->execute(array('cid' => $_POST['cid']));
 $stmt->setFetchMode(PDO::FETCH_ASSOC);
 $browsers = $stmt->fetchAll();
 
-$stmt = $conn->prepare('SELECT clicked, count( * ) count FROM campaign_emails_links WHERE c_id = :cid GROUP BY clicked');
+$stmt = $conn->prepare('SELECT clicked_unix, count( * ) count FROM campaign_emails_links WHERE c_id = :cid GROUP BY clicked_unix');
 $result = $stmt->execute(array('cid' => $_POST['cid']));
 $stmt->setFetchMode(PDO::FETCH_ASSOC);
 $links = $stmt->fetchAll();

@@ -16,7 +16,7 @@ ul.faq-list li a:hover, ul.faq-list li a.active{
 }
 #header.navbar-inverse .navbar-inner {
     background:#4e4e4e url("../img/top-bg.jpg") repeat-x !important;
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4e4e4e',endColorstr='#4e4e4e',GradientType=0)
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4e4e4e',endColorstr='#4e4e4e',GradientType=0);
     border-width: 0;
 }
 

@@ -57,8 +57,8 @@ if($count > 0){
 			['%FNAME%','%LNAME%','href="http://',' href="https://','#%unsubscribe%'],
 			[$rowcid['fname'],
 			 $rowcid['lname'],
-			 THIS_WEBSITE_URI . ' href="http://msmarandache.com/emarketing/app/receipt.php?id=%id%&cid=%cid%&link=http://', 
-			 THIS_WEBSITE_URI . ' href="http://msmarandache.com/emarketing/app/receipt.php?link=https://',
+			 THIS_WEBSITE_URI . ' href="http://msmarandache.com/emarketing/app/receipt.php?id=%id%&cid=%cid%&eid='.$rowcid['e_id'].'&link=http://', 
+			 THIS_WEBSITE_URI . ' href="http://msmarandache.com/emarketing/app/receipt.php?id=%id%&cid=%cid%&eid='.$rowcid['e_id'].'&link=https://',
 			 THIS_WEBSITE_URI . 'http://msmarandache.com/emarketing/app/receipt-unsubscribe.php?id=' . $rowcid['id']],
 			 $trow['value']
 		);

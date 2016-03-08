@@ -8,9 +8,9 @@ if($_GET['link']){
 	$stmtc->setFetchMode(PDO::FETCH_ASSOC);
 	$rowc = $stmtc->fetch();
 
-	$stmt = $conn->prepare('INSERT INTO campaign_emails_links (c_id, ce_id, e_id, link, clicked) VALUES (:cid, :ce_id, :eid, :link, :clicked)');
-	$result = $stmt->execute(array('cid' => $_GET['cid'], 'ce_id' => $_GET['id'], 'eid' => $_GET['eid'], 'link' => $_GET['link'], 'clicked' => date('M d, Y g:i A')));
-	
+	$stmt = $conn->prepare('INSERT INTO campaign_emails_links (c_id, ce_id, e_id, link, clicked, clicked_unix) VALUES (:cid, :ce_id, :eid, :link, :clicked, :clickedunix)');
+	$result = $stmt->execute(array('cid' => $_GET['cid'], 'ce_id' => $_GET['id'], 'eid' => $_GET['eid'], 'link' => $_GET['link'], 'clicked' => date('M d, Y g:i A'), 'clickedunix' => strtotime(date('M d, Y g A'))));
+
 	if($result){
 		if($rowc['ga_link_tracking'] == 'Yes'){
 		    $utm_source = 'Effective_Email_Marketing_' . uniqid('E',true);
