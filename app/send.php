@@ -67,8 +67,8 @@ if($count > 0){
 		$body = str_replace('%cid%', $rowcid['c_id'], $body);
 
 		$body .= '<img style="display:none;" border="0" src="'.$tracker.'" width="1" height="1" />';
-
-
+$tempcount = 0;
+if($tempcount < 3){
 		$mail = new PHPMailer();
  
 		$mail->SMTPDebug  = 2;               
@@ -98,7 +98,8 @@ if($count > 0){
 		} else {
 		//  echo 'Message has been sent.';
 		}
-
+$tempcount++;
+}
 
 		// Update campaign_emails that the email has been sent so next go around it will pick the non sent ones
 		$stmtupdatesent = $conn->prepare('UPDATE campaign_emails SET sent = 1 WHERE id = :id');
